@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://kouya17.github.io/categories/android/</loc>
+    <loc>https://kouya17.github.io/tags/android/</loc>
     <lastmod>2019-04-30T21:15:59+09:00</lastmod>
     <priority>0</priority>
   </url>
@@ -15,13 +15,25 @@
   </url>
   
   <url>
-    <loc>https://kouya17.github.io/categories/java/</loc>
+    <loc>https://kouya17.github.io/tags/java/</loc>
     <lastmod>2019-04-30T21:15:59+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://kouya17.github.io/post/</loc>
+    <lastmod>2019-04-30T21:15:59+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kouya17.github.io/categories/product/</loc>
+    <lastmod>2019-04-30T21:15:59+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kouya17.github.io/tags/</loc>
     <lastmod>2019-04-30T21:15:59+09:00</lastmod>
     <priority>0</priority>
   </url>
@@ -35,11 +47,6 @@
   <url>
     <loc>https://kouya17.github.io/post/test/</loc>
     <lastmod>2019-04-30T21:15:59+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kouya17.github.io/tags/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>
