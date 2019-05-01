@@ -10,12 +10,12 @@
         <atom:link href="https://kouya17.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Test</title>
+      <title>斜方投射軌道計算アプリ</title>
       <link>https://kouya17.github.io/post/test/</link>
       <pubDate>Tue, 30 Apr 2019 21:15:59 +0900</pubDate>
       
       <guid>https://kouya17.github.io/post/test/</guid>
-      <description></description>
+      <description>Androidアプリの作成実績</description>
     </item>
   </channel>
 </rss>
