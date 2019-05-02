@@ -1,0 +1,21 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python - kouya17.github.io</title>
+    <link>https://kouya17.github.io/tags/python/</link>
+    <description>Recent content in Python on kouya17.github.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 May 2019 02:17:13 +0900</lastBuildDate>
+    
+        <atom:link href="https://kouya17.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>TODOリスト作成アプリ</title>
+      <link>https://kouya17.github.io/post/python_app_1/</link>
+      <pubDate>Fri, 03 May 2019 02:17:13 +0900</pubDate>
+      
+      <guid>https://kouya17.github.io/post/python_app_1/</guid>
+      <description>Pythonアプリケーションの作成実績</description>
+    </item>
+  </channel>
+</rss>
