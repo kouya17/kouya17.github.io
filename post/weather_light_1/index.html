@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>LEDを使ってWebAPIから取得した天気情報を通知する &middot; kouya17.github.io</title>
+  <meta name="description" content="ワンボードマイコンを使った作成物" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://kouya17.github.io/css/main.min.css" />
+  
+  
+</head>
+  <body class="single-body">
+    <nav class="nav-bar side-padding">
+  <h1 class="nav-header"><a href="https://kouya17.github.io" class="nav-text">kouya17</a></h1>
+  <div class="hamburger-menu">
+    <button onclick="hamburgerMenuPressed.call(this)" aria-haspopup="true" aria-expanded="false" aria-controls="menu" aria-label="Menu">
+      <span></span>
+      <span></span>
+    </button>
+    <ul id="menu" class="hamburger-menu-overlay">
+      <li><a href="https://kouya17.github.io" class="hamburger-menu-overlay-link">Home</a></li>
+      <li><a href="https://kouya17.github.io/categories/product" class="hamburger-menu-overlay-link">Product</a></li>
+    </ul>
+  </div>
+</nav>
+    <main class="content side-text-padding">
+      <article class="post dropcase">
+        <header class="post-header">
+        	<h1 class="post-title">LEDを使ってWebAPIから取得した天気情報を通知する</h1>
+          <p class="post-date">Posted <time datetime="2019-05-03">May 3, 2019</time></p>
+        </header>
+        
+        <picture class="post-figure">
+            
+            <source srcset="https://kouya17.github.io/img/IMG_0841.JPG">
+          <img src="https://kouya17.github.io/img/IMG_0841.JPG" alt="">
+        </picture>
+        
+        
+
+<h2 id="作成期間">作成期間</h2>
+
+<ul>
+<li>5ヶ月くらい</li>
+</ul>
+
+<h2 id="概要">概要</h2>
+
+<ul>
+<li>WebAPIを使って数時間後の天気予報を通知する</li>
+<li>WebAPIは<a href="https://openweathermap.org/">openweathermap.org</a>を使用</li>
+<li>マイコンボードは<a href="https://www.switch-science.com/catalog/3210/">ESPr® Developer 32</a>を使用</li>
+<li>以下の項目をブラウザから設定できる
+
+<ul>
+<li>どこの地域の天気情報を通知するか(東京、名古屋、大阪を選べる)</li>
+<li>何時間後の天気情報を通知するか(0-15時間まで3時間刻みで設定できる)</li>
+<li>接続するWiFiルータのSSID、パスワード</li>
+</ul></li>
+<li>一度接続に成功したWiFiルータの情報は不揮発領域に記憶する
+
+<ul>
+<li>次回起動時は自動的に過去に接続したルータに接続を試みる</li>
+</ul></li>
+<li>単3電池2本で駆動する</li>
+<li>ソースコードは<a href="https://github.com/kouya17/esp32_weather_light">こちら</a></li>
+</ul>
+
+<h2 id="雑記">雑記</h2>
+
+<ul>
+<li>エネループだと連続で8時間しか駆動しない</li>
+<li>外装とかが色々とお粗末</li>
+</ul>
+
+      </article>
+      
+    </main>
+    <nav class="end-nav side-padding">
+      
+      <a ontouchstart="cardPressed.call(this)" ontouchend="cardReleased.call(this)" ontouchmove="cardReleased.call(this)" 
+  href="https://kouya17.github.io/post/game_code_1/" class="card blog-card" rel="bookmark" >
+    
+    <div class="card-img-container">
+      <p class="card-img-overlay">Next Article</p>
+      <picture>
+        
+        <source srcset="https://kouya17.github.io/img/gameCode_1.png">
+        <img src="https://kouya17.github.io/img/gameCode_1.png" class="card-img" alt="">
+      </picture>
+    </div>
+    
+  <article class="card-body">
+    <h2 class="card-title">テキストベースのRPGゲームもどき</h2>
+    <p class="card-text">c&#43;&#43;プログラムの作成実績</p>
+    <div class="card-subtext muted-text">
+      <p>Posted <time datetime="2019-05-03 53:00">May 3, 2019</time></p>
+      <p>#Product </p>
+    </div>
+  </article>
+</a>
+      
+      <a ontouchstart="cardPressed.call(this)" ontouchend="cardReleased.call(this)" ontouchmove="cardReleased.call(this)" 
+  href="https://kouya17.github.io" class="card home-card" style="background-image: url( https://kouya17.github.io/img/grey-cloud.jpg )" rel="bookmark" >
+  Home
+</a>
+    </nav>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+<script src="https://kouya17.github.io/js/core.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+  </body>
+  <footer>
+  <p class="text-muted text-center">&copy; 2019 kouya17</p>
+</footer>
+</html>

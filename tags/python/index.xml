@@ -5,11 +5,18 @@
     <description>Recent content in Python on kouya17.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 May 2019 02:17:13 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 03 May 2019 08:29:05 +0900</lastBuildDate>
     
         <atom:link href="https://kouya17.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Djangoを用いたブログシステム</title>
+      <link>https://kouya17.github.io/post/django_blog_1/</link>
+      <pubDate>Fri, 03 May 2019 08:29:05 +0900</pubDate>
+      
+      <guid>https://kouya17.github.io/post/django_blog_1/</guid>
+      <description>Webアプリケーションの作成実績</description>
+    </item><item>
       <title>TODOリスト管理アプリ</title>
       <link>https://kouya17.github.io/post/python_app_1/</link>
       <pubDate>Fri, 03 May 2019 02:17:13 +0900</pubDate>

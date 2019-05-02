@@ -5,11 +5,25 @@
     <description>Recent content in Product on kouya17.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 May 2019 02:51:26 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 03 May 2019 08:29:05 +0900</lastBuildDate>
     
         <atom:link href="https://kouya17.github.io/categories/product/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Djangoを用いたブログシステム</title>
+      <link>https://kouya17.github.io/post/django_blog_1/</link>
+      <pubDate>Fri, 03 May 2019 08:29:05 +0900</pubDate>
+      
+      <guid>https://kouya17.github.io/post/django_blog_1/</guid>
+      <description>Webアプリケーションの作成実績</description>
+    </item><item>
+      <title>LEDを使ってWebAPIから取得した天気情報を通知する</title>
+      <link>https://kouya17.github.io/post/weather_light_1/</link>
+      <pubDate>Fri, 03 May 2019 08:04:44 +0900</pubDate>
+      
+      <guid>https://kouya17.github.io/post/weather_light_1/</guid>
+      <description>ワンボードマイコンを使った作成物</description>
+    </item><item>
       <title>テキストベースのRPGゲームもどき</title>
       <link>https://kouya17.github.io/post/game_code_1/</link>
       <pubDate>Fri, 03 May 2019 02:51:26 +0900</pubDate>

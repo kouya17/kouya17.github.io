@@ -5,23 +5,44 @@
     <description>Recent content in Tags on kouya17.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 May 2019 02:51:26 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 03 May 2019 08:29:05 +0900</lastBuildDate>
     
         <atom:link href="https://kouya17.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Django</title>
+      <link>https://kouya17.github.io/tags/django/</link>
+      <pubDate>Fri, 03 May 2019 08:29:05 +0900</pubDate>
+      
+      <guid>https://kouya17.github.io/tags/django/</guid>
+      <description></description>
+    </item><item>
+      <title>Python</title>
+      <link>https://kouya17.github.io/tags/python/</link>
+      <pubDate>Fri, 03 May 2019 08:29:05 +0900</pubDate>
+      
+      <guid>https://kouya17.github.io/tags/python/</guid>
+      <description></description>
+    </item><item>
+      <title>Arduino</title>
+      <link>https://kouya17.github.io/tags/arduino/</link>
+      <pubDate>Fri, 03 May 2019 08:04:44 +0900</pubDate>
+      
+      <guid>https://kouya17.github.io/tags/arduino/</guid>
+      <description></description>
+    </item><item>
+      <title>esp32</title>
+      <link>https://kouya17.github.io/tags/esp32/</link>
+      <pubDate>Fri, 03 May 2019 08:04:44 +0900</pubDate>
+      
+      <guid>https://kouya17.github.io/tags/esp32/</guid>
+      <description></description>
+    </item><item>
       <title>c&#43;&#43;</title>
       <link>https://kouya17.github.io/tags/c&#43;&#43;/</link>
       <pubDate>Fri, 03 May 2019 02:51:26 +0900</pubDate>
       
       <guid>https://kouya17.github.io/tags/c&#43;&#43;/</guid>
-      <description></description>
-    </item><item>
-      <title>Python</title>
-      <link>https://kouya17.github.io/tags/python/</link>
-      <pubDate>Fri, 03 May 2019 02:17:13 +0900</pubDate>
-      
-      <guid>https://kouya17.github.io/tags/python/</guid>
       <description></description>
     </item><item>
       <title>Android</title>
