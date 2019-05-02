@@ -10,7 +10,7 @@
         <atom:link href="https://kouya17.github.io/tags/esp32/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>LEDを使ってWebAPIから取得した天気情報を通知する</title>
+      <title>Esp32 Weather Light</title>
       <link>https://kouya17.github.io/post/weather_light_1/</link>
       <pubDate>Fri, 03 May 2019 08:04:44 +0900</pubDate>
       
