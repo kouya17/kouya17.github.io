@@ -5,11 +5,18 @@
     <description>Recent content in Posts on kouya17.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 May 2019 21:15:59 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 03 May 2019 02:17:13 +0900</lastBuildDate>
     
         <atom:link href="https://kouya17.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>TODOリスト作成アプリ</title>
+      <link>https://kouya17.github.io/post/python_app_1/</link>
+      <pubDate>Fri, 03 May 2019 02:17:13 +0900</pubDate>
+      
+      <guid>https://kouya17.github.io/post/python_app_1/</guid>
+      <description>Pythonアプリケーションの作成実績</description>
+    </item><item>
       <title>斜方投射軌道計算アプリ</title>
       <link>https://kouya17.github.io/post/android_app_1/</link>
       <pubDate>Wed, 01 May 2019 21:15:59 +0900</pubDate>
