@@ -1,21 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>c&#43;&#43; - kouya17.github.io</title>
+    <title>c&#43;&#43; on kouya17.github.io</title>
     <link>https://kouya17.github.io/tags/c&#43;&#43;/</link>
     <description>Recent content in c&#43;&#43; on kouya17.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 May 2019 02:51:26 +0900</lastBuildDate>
-    
-        <atom:link href="https://kouya17.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Fri, 03 May 2019 02:51:26 +0900</lastBuildDate><atom:link href="https://kouya17.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>テキストベースのRPGゲームもどき</title>
       <link>https://kouya17.github.io/post/game_code_1/</link>
       <pubDate>Fri, 03 May 2019 02:51:26 +0900</pubDate>
       
       <guid>https://kouya17.github.io/post/game_code_1/</guid>
-      <description>c++プログラムの作成実績</description>
+      <description>作成期間  3ヶ月くらい  概要  テキストベースで進めるPRGゲームもどき c++のクラスを使ったプログラミングを勉強するために作成 スライムを倒したら終了する ソースコードはこちら  雑記  久しぶりに見返すとなかなか面白そうなものを作っているな、と思う  完成度は別として…    </description>
     </item>
+    
   </channel>
 </rss>

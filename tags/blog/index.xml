@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on kouya17.github.io</title>
+    <link>https://kouya17.github.io/tags/blog/</link>
+    <description>Recent content in Blog on kouya17.github.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 26 Sep 2020 16:21:47 +0900</lastBuildDate><atom:link href="https://kouya17.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>本ブログページをリニューアルした</title>
+      <link>https://kouya17.github.io/post/first_diary/</link>
+      <pubDate>Sat, 26 Sep 2020 16:21:47 +0900</pubDate>
+      
+      <guid>https://kouya17.github.io/post/first_diary/</guid>
+      <description>本ブログページについて、テーマを変えてリニューアルした。
+利用しているテーマはhugo-PaperMod。 見た目シンプルで良い。</description>
+    </item>
+    
+  </channel>
+</rss>

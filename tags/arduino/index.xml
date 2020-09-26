@@ -1,21 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Arduino - kouya17.github.io</title>
+    <title>Arduino on kouya17.github.io</title>
     <link>https://kouya17.github.io/tags/arduino/</link>
     <description>Recent content in Arduino on kouya17.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 May 2019 08:04:44 +0900</lastBuildDate>
-    
-        <atom:link href="https://kouya17.github.io/tags/arduino/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Fri, 03 May 2019 08:04:44 +0900</lastBuildDate><atom:link href="https://kouya17.github.io/tags/arduino/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Esp32 Weather Light</title>
       <link>https://kouya17.github.io/post/weather_light_1/</link>
       <pubDate>Fri, 03 May 2019 08:04:44 +0900</pubDate>
       
       <guid>https://kouya17.github.io/post/weather_light_1/</guid>
-      <description>ワンボードマイコンを使った作成物</description>
+      <description>作成期間  5ヶ月くらい  概要  WebAPIを使って数時間後の天気予報を通知する WebAPIはopenweathermap.orgを使用 マイコンボードはESPr® Developer 32を使用 以下の項目をブラウザから設定できる  どこの地域の天気情報を通知するか(東京、名古屋、大阪を選べる) 何時間後の天気情報を通知するか(0-15時間まで3時間刻みで設定できる) 接続するWiFiルータのSSID、パスワード   一度接続に成功したWiFiルータの情報は不揮発領域に記憶する  次回起動時は自動的に過去に接続したルータに接続を試みる   単3電池2本で駆動する ソースコードはこちら  雑記  エネループだと連続で8時間しか駆動しない 外装とかが色々とお粗末  </description>
     </item>
+    
   </channel>
 </rss>
