@@ -22,7 +22,7 @@ PowerCの給電周りの仕組みについては公式ドキュメントとM5Sti
 赤外線出力 矩形波生成 矩形波（方形波）発生回路の理論的な理解 - 電子工作で覚える！電子回路を参考にさせていただく。
 上記サイト中の式
 $$ T = 1.386 \times C_1R_4 $$
-において、$C_1 = 0.1 \mu F$に固定した場合、">
+において、\(C_1 = 0.1 \mu F\)に固定した場合、">
 <meta name=author content>
 <link rel=canonical href=https://kouya17.com/posts/33/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.b8adf85aad85158f0ade4bca3757d0beb0f3a756b346c9d76e0be759aadea0c5.css integrity="sha256-uK34Wq2FFY8K3kvKN1fQvrDzp1azRsnXbgvnWareoMU=" rel="preload stylesheet" as=style>
@@ -39,6 +39,9 @@ $$ T = 1.386 \times C_1R_4 $$
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body)></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-92576104-3','auto'),ga('send','pageview'))</script><meta property="og:title" content="赤外線を周期的に(矩形波で)出力するモジュールを作る">
 <meta property="og:description" content="現在作成中である射的ゲームの銃ユニット用に、赤外線を周期的に(矩形波で)出力するモジュールを作成する。
 電源 まず必要な電圧・電流を調べる 今回使う赤外線LED → ５ｍｍ赤外線ＬＥＤ　９４０ｎｍ　ＯＳＩ５ＦＵ５１１１Ｃ－４０　（５個入）: LED(発光ダイオード) 秋月電子通商-電子部品・ネット通販
@@ -57,7 +60,7 @@ PowerCの給電周りの仕組みについては公式ドキュメントとM5Sti
 赤外線出力 矩形波生成 矩形波（方形波）発生回路の理論的な理解 - 電子工作で覚える！電子回路を参考にさせていただく。
 上記サイト中の式
 $$ T = 1.386 \times C_1R_4 $$
-において、$C_1 = 0.1 \mu F$に固定した場合、">
+において、\(C_1 = 0.1 \mu F\)に固定した場合、">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kouya17.com/posts/33/">
 <meta property="og:image" content="https://kouya17.com/media/photos/20/06/21/result.png"><meta property="article:section" content="posts">
@@ -83,9 +86,9 @@ PowerCの給電周りの仕組みについては公式ドキュメントとM5Sti
 赤外線出力 矩形波生成 矩形波（方形波）発生回路の理論的な理解 - 電子工作で覚える！電子回路を参考にさせていただく。
 上記サイト中の式
 $$ T = 1.386 \times C_1R_4 $$
-において、$C_1 = 0.1 \mu F$に固定した場合、">
+において、\(C_1 = 0.1 \mu F\)に固定した場合、">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://kouya17.com/posts/"},{"@type":"ListItem","position":3,"name":"赤外線を周期的に(矩形波で)出力するモジュールを作る","item":"https://kouya17.com/posts/33/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"赤外線を周期的に(矩形波で)出力するモジュールを作る","name":"赤外線を周期的に(矩形波で)出力するモジュールを作る","description":"現在作成中である射的ゲームの銃ユニット用に、赤外線を周期的に(矩形波で)出力するモジュールを作成する。\n電源 まず必要な電圧・電流を調べる 今回使う赤外線LED → ５ｍｍ赤外線ＬＥＤ　９４０ｎｍ　ＯＳＩ５ＦＵ５１１１Ｃ－４０　（５個入）: LED(発光ダイオード) 秋月電子通商-電子部品・ネット通販\n赤外線LEDの絶対最大定格\n 最大順方向電流 If : 100mA  赤外線LEDの電気的特性\n 順方向電圧 : If=100mAの時 代表値 1.35V、 最大値 1.6V  If=100mAとなっているが(なかなか高出力…)、50%の50mAが流れるように設計する。\n電源の選定 50mA流しても大丈夫 + 1.35V以上を確保できる電源を選ぶ。\n値段等も考えると、1000円でバッテリー+電池保護+電源管理がついてるPowerCが自分にとって使いやすそう。\nM5StickCは使わないので、BATピンだけ活用する。\nPowerCの給電周りの仕組みについては公式ドキュメントとM5StickCのバッテリー拡張HATをためす – Lang-shipを参考にさせていただいた。\n安定化 定電圧をとるために3端子レギュレータをかます。\n低飽和型レギュレーター　３Ｖ５００ｍＡ　ＮＪＭ２８８４Ｕ１－０３: 半導体 秋月電子通商-電子部品・ネット通販とかでよさそう。\n→ ip3005のデータシートによると2.5V付近まで落ちるみたいなことが書いてあるので、これだとバッテリ残量少ないときダメそう。\n秋月で買えるやつでベストそうなのは低ドロップレギュレーター　２．５Ｖ１．５Ａ　ＬＴ１９６３ＡＥＳ８－２．５: 半導体 秋月電子通商-電子部品・ネット通販。これを使う。\nだいぶいいやつなので高い…(1個200円)。\n赤外線出力 矩形波生成 矩形波（方形波）発生回路の理論的な理解 - 電子工作で覚える！電子回路を参考にさせていただく。\n上記サイト中の式\n$$ T = 1.386 \\times C_1R_4 $$\nにおいて、$C_1 = 0.1 \\mu F$に固定した場合、","keywords":["ADALM2000","KiCad","PowerC"],"articleBody":"現在作成中である射的ゲームの銃ユニット用に、赤外線を周期的に(矩形波で)出力するモジュールを作成する。\n電源 まず必要な電圧・電流を調べる 今回使う赤外線LED → ５ｍｍ赤外線ＬＥＤ　９４０ｎｍ　ＯＳＩ５ＦＵ５１１１Ｃ－４０　（５個入）: LED(発光ダイオード) 秋月電子通商-電子部品・ネット通販\n赤外線LEDの絶対最大定格\n 最大順方向電流 If : 100mA  赤外線LEDの電気的特性\n 順方向電圧 : If=100mAの時 代表値 1.35V、 最大値 1.6V  If=100mAとなっているが(なかなか高出力…)、50%の50mAが流れるように設計する。\n電源の選定 50mA流しても大丈夫 + 1.35V以上を確保できる電源を選ぶ。\n値段等も考えると、1000円でバッテリー+電池保護+電源管理がついてるPowerCが自分にとって使いやすそう。\nM5StickCは使わないので、BATピンだけ活用する。\nPowerCの給電周りの仕組みについては公式ドキュメントとM5StickCのバッテリー拡張HATをためす – Lang-shipを参考にさせていただいた。\n安定化 定電圧をとるために3端子レギュレータをかます。\n低飽和型レギュレーター　３Ｖ５００ｍＡ　ＮＪＭ２８８４Ｕ１－０３: 半導体 秋月電子通商-電子部品・ネット通販とかでよさそう。\n→ ip3005のデータシートによると2.5V付近まで落ちるみたいなことが書いてあるので、これだとバッテリ残量少ないときダメそう。\n秋月で買えるやつでベストそうなのは低ドロップレギュレーター　２．５Ｖ１．５Ａ　ＬＴ１９６３ＡＥＳ８－２．５: 半導体 秋月電子通商-電子部品・ネット通販。これを使う。\nだいぶいいやつなので高い…(1個200円)。\n赤外線出力 矩形波生成 矩形波（方形波）発生回路の理論的な理解 - 電子工作で覚える！電子回路を参考にさせていただく。\n上記サイト中の式\n$$ T = 1.386 \\times C_1R_4 $$\nにおいて、$C_1 = 0.1 \\mu F$に固定した場合、\n$$ R_4 = \\frac{T}{1.386} \\times 10^{7} $$\n今回は周期$T$を2ms, 4ms, 6ms,…と変更できるようにしたいので、$R_4=14.43k, 28.86k, 43.29k, …$のような値をとれる必要がある。\n以下のような回路にすれば恐らくスライドスイッチで周期を管理できる(ショートする危険性があるので本当はよろしくないが)。\nスイッチング 赤外線LEDに流れる電流はトランジスタで増幅させる。\nトランジスタはリッチにトランジスタ　ＴＴＣ００４Ｂ　１６０Ｖ１．５Ａ: 半導体 秋月電子通商-電子部品・ネット通販を使う。\n諸々抵抗値の計算はトランジスタ(NPN)の使い方 [Arduino]を参考にさせていただく。\nデータシートより$h_{FE}=140$($I_C=0.1A$)として諸々計算する。\nベース電流 = 50mA(負荷に流すコレクタ電流) ÷ 140($h_{FE}$) = 0.357mA\nベース抵抗 = 2.5V(ベース電圧) - 1.0V(ベース・エミッタ間飽和電圧) ÷ 0.357mA ≒ 4.0kΩ\nエミッタ抵抗は他のサイトの例も見つつ、とりあえず10kΩにする。\n基板設計 KiCadを使って回路図、パターン図を作成する。\n回路図 パターン図 3Dイメージ プリント基板発注、実装 今回はElecrowでプリント基板を発注した。\nスケジュールとしては以下のような感じだった。\n5/30：発注 → 6/5：発送 → 6/8：到着\n代金は5枚の注文で2113円だった。うち4分の3が送料(OCS)なので、少量注文だとかなり割高になる。\nプリント基板が届いたので、部品を実装する。\nPowerCとの接続部分のピン配置を間違っていた。悲しみ。\nとりあえずジャンパ線でなんとかした。\n動作確認 出力電圧をデジタルオシロADALM2000を使って確認する。\n周期の誤差は10%~15%ほど出ていそうだが、まあそれっぽい電圧は出ている。\nハマったところ 最初、オペアンプにNJM4580DDを使ったのだが、低電圧時が0Vでなくて1.3Vくらいになっており、高電圧時も2.5V出ていなかった。\nデータシートを見ると、このオペアンプは最大出力電圧=電源電圧ではないらしい。\n出力電圧=電源電圧としたい場合は入出力フルスイングオペアンプというものを使う必要があるらしく、最終的にNJM2732Dを使った。\nアフィリエイト\nKiCadではじめる「プリント基板」製作posted with ヨメレバ外川貴規 工学社 2018年02月 楽天ブックスで購入Amazonで購入 ","wordCount":"139","inLanguage":"en","image":"https://kouya17.com/media/photos/20/06/21/result.png","datePublished":"2020-06-21T18:17:42+09:00","dateModified":"2020-06-21T18:17:42+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kouya17.com/posts/33/"},"publisher":{"@type":"Organization","name":"kouya17.com","logo":{"@type":"ImageObject","url":"https://kouya17.com/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"赤外線を周期的に(矩形波で)出力するモジュールを作る","name":"赤外線を周期的に(矩形波で)出力するモジュールを作る","description":"現在作成中である射的ゲームの銃ユニット用に、赤外線を周期的に(矩形波で)出力するモジュールを作成する。\n電源 まず必要な電圧・電流を調べる 今回使う赤外線LED → ５ｍｍ赤外線ＬＥＤ　９４０ｎｍ　ＯＳＩ５ＦＵ５１１１Ｃ－４０　（５個入）: LED(発光ダイオード) 秋月電子通商-電子部品・ネット通販\n赤外線LEDの絶対最大定格\n 最大順方向電流 If : 100mA  赤外線LEDの電気的特性\n 順方向電圧 : If=100mAの時 代表値 1.35V、 最大値 1.6V  If=100mAとなっているが(なかなか高出力…)、50%の50mAが流れるように設計する。\n電源の選定 50mA流しても大丈夫 + 1.35V以上を確保できる電源を選ぶ。\n値段等も考えると、1000円でバッテリー+電池保護+電源管理がついてるPowerCが自分にとって使いやすそう。\nM5StickCは使わないので、BATピンだけ活用する。\nPowerCの給電周りの仕組みについては公式ドキュメントとM5StickCのバッテリー拡張HATをためす – Lang-shipを参考にさせていただいた。\n安定化 定電圧をとるために3端子レギュレータをかます。\n低飽和型レギュレーター　３Ｖ５００ｍＡ　ＮＪＭ２８８４Ｕ１－０３: 半導体 秋月電子通商-電子部品・ネット通販とかでよさそう。\n→ ip3005のデータシートによると2.5V付近まで落ちるみたいなことが書いてあるので、これだとバッテリ残量少ないときダメそう。\n秋月で買えるやつでベストそうなのは低ドロップレギュレーター　２．５Ｖ１．５Ａ　ＬＴ１９６３ＡＥＳ８－２．５: 半導体 秋月電子通商-電子部品・ネット通販。これを使う。\nだいぶいいやつなので高い…(1個200円)。\n赤外線出力 矩形波生成 矩形波（方形波）発生回路の理論的な理解 - 電子工作で覚える！電子回路を参考にさせていただく。\n上記サイト中の式\n$$ T = 1.386 \\times C_1R_4 $$\nにおいて、\\(C_1 = 0.1 \\mu F\\)に固定した場合、","keywords":["ADALM2000","KiCad","PowerC"],"articleBody":"現在作成中である射的ゲームの銃ユニット用に、赤外線を周期的に(矩形波で)出力するモジュールを作成する。\n電源 まず必要な電圧・電流を調べる 今回使う赤外線LED → ５ｍｍ赤外線ＬＥＤ　９４０ｎｍ　ＯＳＩ５ＦＵ５１１１Ｃ－４０　（５個入）: LED(発光ダイオード) 秋月電子通商-電子部品・ネット通販\n赤外線LEDの絶対最大定格\n 最大順方向電流 If : 100mA  赤外線LEDの電気的特性\n 順方向電圧 : If=100mAの時 代表値 1.35V、 最大値 1.6V  If=100mAとなっているが(なかなか高出力…)、50%の50mAが流れるように設計する。\n電源の選定 50mA流しても大丈夫 + 1.35V以上を確保できる電源を選ぶ。\n値段等も考えると、1000円でバッテリー+電池保護+電源管理がついてるPowerCが自分にとって使いやすそう。\nM5StickCは使わないので、BATピンだけ活用する。\nPowerCの給電周りの仕組みについては公式ドキュメントとM5StickCのバッテリー拡張HATをためす – Lang-shipを参考にさせていただいた。\n安定化 定電圧をとるために3端子レギュレータをかます。\n低飽和型レギュレーター　３Ｖ５００ｍＡ　ＮＪＭ２８８４Ｕ１－０３: 半導体 秋月電子通商-電子部品・ネット通販とかでよさそう。\n→ ip3005のデータシートによると2.5V付近まで落ちるみたいなことが書いてあるので、これだとバッテリ残量少ないときダメそう。\n秋月で買えるやつでベストそうなのは低ドロップレギュレーター　２．５Ｖ１．５Ａ　ＬＴ１９６３ＡＥＳ８－２．５: 半導体 秋月電子通商-電子部品・ネット通販。これを使う。\nだいぶいいやつなので高い…(1個200円)。\n赤外線出力 矩形波生成 矩形波（方形波）発生回路の理論的な理解 - 電子工作で覚える！電子回路を参考にさせていただく。\n上記サイト中の式\n$$ T = 1.386 \\times C_1R_4 $$\nにおいて、\\(C_1 = 0.1 \\mu F\\)に固定した場合、\n$$ R_4 = \\frac{T}{1.386} \\times 10^{7} $$\n今回は周期\\(T\\)を2ms, 4ms, 6ms,…と変更できるようにしたいので、\\(R_4=14.43k, 28.86k, 43.29k, …\\)のような値をとれる必要がある。\n以下のような回路にすれば恐らくスライドスイッチで周期を管理できる(ショートする危険性があるので本当はよろしくないが)。\nスイッチング 赤外線LEDに流れる電流はトランジスタで増幅させる。\nトランジスタはリッチにトランジスタ　ＴＴＣ００４Ｂ　１６０Ｖ１．５Ａ: 半導体 秋月電子通商-電子部品・ネット通販を使う。\n諸々抵抗値の計算はトランジスタ(NPN)の使い方 [Arduino]を参考にさせていただく。\nデータシートより\\(h_{FE}=140\\)(\\(I_C=0.1A\\))として諸々計算する。\nベース電流 = 50mA(負荷に流すコレクタ電流) ÷ 140(\\(h_{FE}\\)) = 0.357mA\nベース抵抗 = 2.5V(ベース電圧) - 1.0V(ベース・エミッタ間飽和電圧) ÷ 0.357mA ≒ 4.0kΩ\nエミッタ抵抗は他のサイトの例も見つつ、とりあえず10kΩにする。\n基板設計 KiCadを使って回路図、パターン図を作成する。\n回路図 パターン図 3Dイメージ プリント基板発注、実装 今回はElecrowでプリント基板を発注した。\nスケジュールとしては以下のような感じだった。\n5/30：発注 → 6/5：発送 → 6/8：到着\n代金は5枚の注文で2113円だった。うち4分の3が送料(OCS)なので、少量注文だとかなり割高になる。\nプリント基板が届いたので、部品を実装する。\nPowerCとの接続部分のピン配置を間違っていた。悲しみ。\nとりあえずジャンパ線でなんとかした。\n動作確認 出力電圧をデジタルオシロADALM2000を使って確認する。\n周期の誤差は10%~15%ほど出ていそうだが、まあそれっぽい電圧は出ている。\nハマったところ 最初、オペアンプにNJM4580DDを使ったのだが、低電圧時が0Vでなくて1.3Vくらいになっており、高電圧時も2.5V出ていなかった。\nデータシートを見ると、このオペアンプは最大出力電圧=電源電圧ではないらしい。\n出力電圧=電源電圧としたい場合は入出力フルスイングオペアンプというものを使う必要があるらしく、最終的にNJM2732Dを使った。\nアフィリエイト\nKiCadではじめる「プリント基板」製作posted with ヨメレバ外川貴規 工学社 2018年02月 楽天ブックスで購入Amazonで購入 ","wordCount":"139","inLanguage":"en","image":"https://kouya17.com/media/photos/20/06/21/result.png","datePublished":"2020-06-21T18:17:42+09:00","dateModified":"2020-06-21T18:17:42+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kouya17.com/posts/33/"},"publisher":{"@type":"Organization","name":"kouya17.com","logo":{"@type":"ImageObject","url":"https://kouya17.com/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -199,11 +202,11 @@ M5StickCは使わないので、BATピンだけ活用する。</p>
 <p>$$
 T = 1.386 \times C_1R_4
 $$</p>
-<p>において、$C_1 = 0.1 \mu F$に固定した場合、</p>
+<p>において、\(C_1 = 0.1 \mu F\)に固定した場合、</p>
 <p>$$
 R_4 = \frac{T}{1.386} \times 10^{7}
 $$</p>
-<p>今回は周期$T$を2ms, 4ms, 6ms,&mldr;と変更できるようにしたいので、$R_4=14.43k, 28.86k, 43.29k, &mldr;$のような値をとれる必要がある。<br>
+<p>今回は周期\(T\)を2ms, 4ms, 6ms,&mldr;と変更できるようにしたいので、\(R_4=14.43k, 28.86k, 43.29k, &mldr;\)のような値をとれる必要がある。<br>
 以下のような回路にすれば恐らくスライドスイッチで周期を管理できる(ショートする危険性があるので本当はよろしくないが)。</p>
 <p><img loading=lazy src=/media/markdownx/41c92541-a9a5-4e19-8043-be62db5113ef.png alt>
 </p>
@@ -211,8 +214,8 @@ $$</p>
 <p>赤外線LEDに流れる電流はトランジスタで増幅させる。<br>
 トランジスタはリッチに<a href=http://akizukidenshi.com/catalog/g/gI-10232/>トランジスタ　ＴＴＣ００４Ｂ　１６０Ｖ１．５Ａ: 半導体 秋月電子通商-電子部品・ネット通販</a>を使う。</p>
 <p>諸々抵抗値の計算は<a href=https://www.petitmonte.com/robot/howto_transistor_npn.html>トランジスタ(NPN)の使い方 [Arduino]</a>を参考にさせていただく。</p>
-<p>データシートより$h_{FE}=140$($I_C=0.1A$)として諸々計算する。<br>
-ベース電流 = 50mA(負荷に流すコレクタ電流) ÷ 140($h_{FE}$) = 0.357mA<br>
+<p>データシートより\(h_{FE}=140\)(\(I_C=0.1A\))として諸々計算する。<br>
+ベース電流 = 50mA(負荷に流すコレクタ電流) ÷ 140(\(h_{FE}\)) = 0.357mA<br>
 ベース抵抗 = 2.5V(ベース電圧) - 1.0V(ベース・エミッタ間飽和電圧) ÷ 0.357mA ≒ 4.0kΩ<br>
 エミッタ抵抗は他のサイトの例も見つつ、とりあえず10kΩにする。</p>
 <h2 id=基板設計>基板設計<a hidden class=anchor aria-hidden=true href=#基板設計>#</a></h2>

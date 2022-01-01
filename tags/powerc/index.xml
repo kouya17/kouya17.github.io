@@ -15,7 +15,7 @@ PowerCの給電周りの仕組みについては公式ドキュメントとM5Sti
 赤外線出力 矩形波生成 矩形波（方形波）発生回路の理論的な理解 - 電子工作で覚える！電子回路を参考にさせていただく。
 上記サイト中の式
 $$ T = 1.386 \times C_1R_4 $$
-において、$C_1 = 0.1 \mu F$に固定した場合、</description></item><item><title>Ambientを使って、PowerCに接続されているバッテリーの情報を記録する</title><link>https://kouya17.com/posts/32/</link><pubDate>Sat, 06 Jun 2020 22:57:28 +0900</pubDate><guid>https://kouya17.com/posts/32/</guid><description>Ambientとは 本当にすばらしいサービス。
+において、\(C_1 = 0.1 \mu F\)に固定した場合、</description></item><item><title>Ambientを使って、PowerCに接続されているバッテリーの情報を記録する</title><link>https://kouya17.com/posts/32/</link><pubDate>Sat, 06 Jun 2020 22:57:28 +0900</pubDate><guid>https://kouya17.com/posts/32/</guid><description>Ambientとは 本当にすばらしいサービス。
 Ambient – IoTデーター可視化サービス
 データをテキストでダウンロードできるということで、今回使用させていただくことを決めた。
 データーのダウンロード機能をリリースしました – Ambient

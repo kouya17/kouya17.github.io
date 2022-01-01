@@ -15,7 +15,7 @@ PowerCの給電周りの仕組みについては公式ドキュメントとM5Sti
 赤外線出力 矩形波生成 矩形波（方形波）発生回路の理論的な理解 - 電子工作で覚える！電子回路を参考にさせていただく。
 上記サイト中の式
 $$ T = 1.386 \times C_1R_4 $$
-において、$C_1 = 0.1 \mu F$に固定した場合、</description></item><item><title>elecrow発注用zipファイル作成ソフト(KiCad向け)を作った</title><link>https://kouya17.com/posts/9/</link><pubDate>Sun, 06 Oct 2019 16:26:24 +0900</pubDate><guid>https://kouya17.com/posts/9/</guid><description>elecrowへプリント基板を発注する際に必要なファイル変換作業をソフトで自動化した。
+において、\(C_1 = 0.1 \mu F\)に固定した場合、</description></item><item><title>elecrow発注用zipファイル作成ソフト(KiCad向け)を作った</title><link>https://kouya17.com/posts/9/</link><pubDate>Sun, 06 Oct 2019 16:26:24 +0900</pubDate><guid>https://kouya17.com/posts/9/</guid><description>elecrowへプリント基板を発注する際に必要なファイル変換作業をソフトで自動化した。
 作成ソフト 動作OS：Windows 開発環境：Visual Studio 2017 以下のGitHubのページから実行ファイルをダウンロードできる。 https://github.com/kouya17/KiCadHelper/releases
 (ページ中のAssets内KiCadHelper.zipをクリック)
 本ソフトが代替する作業 本ソフトは以下書籍(KiCadではじめる「プリント基板」製作)中のp131-p133の作業を代替する。
