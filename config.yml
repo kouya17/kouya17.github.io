@@ -47,6 +47,8 @@ params:
   
   cover:
     hidden: true
+  
+  math: true
 
 menu:
   main:
