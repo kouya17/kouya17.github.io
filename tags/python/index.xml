@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>python on kouya17.com</title><link>https://kouya17.github.io/tags/python/</link><description>Recent content in python on kouya17.com</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 01 Nov 2021 22:45:01 +0900</lastBuildDate><atom:link href="https://kouya17.github.io/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>機械学習を使ってApexのプレイ動画から武器使用率を算出する</title><link>https://kouya17.github.io/posts/44/</link><pubDate>Mon, 01 Nov 2021 22:45:01 +0900</pubDate><guid>https://kouya17.github.io/posts/44/</guid><description>最終的な目標はプレイスタイルの解析 近年、動画投稿・配信サービスの普及により、ゲーム実況というものがエンタメの1カテゴリとして確立してきていると思う。感染症流行の影響が大きいと思うが、2021年1月～3月の主要ゲーム配信サイト(Twitch、YouTube Gaming、Facebook Gaming)の合計視聴時間が前年同期比で80%増加したというデータもある。1ゲームのジャンルとしてはアクション・RPG・シミュレーションなどあらゆるものが実況の対象になるが、今回はFPSのゲーム実況にスポットを当てる。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>python on kouya17.com</title><link>https://kouya17.com/tags/python/</link><description>Recent content in python on kouya17.com</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 01 Nov 2021 22:45:01 +0900</lastBuildDate><atom:link href="https://kouya17.com/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>機械学習を使ってApexのプレイ動画から武器使用率を算出する</title><link>https://kouya17.com/posts/44/</link><pubDate>Mon, 01 Nov 2021 22:45:01 +0900</pubDate><guid>https://kouya17.com/posts/44/</guid><description>最終的な目標はプレイスタイルの解析 近年、動画投稿・配信サービスの普及により、ゲーム実況というものがエンタメの1カテゴリとして確立してきていると思う。感染症流行の影響が大きいと思うが、2021年1月～3月の主要ゲーム配信サイト(Twitch、YouTube Gaming、Facebook Gaming)の合計視聴時間が前年同期比で80%増加したというデータもある。1ゲームのジャンルとしてはアクション・RPG・シミュレーションなどあらゆるものが実況の対象になるが、今回はFPSのゲーム実況にスポットを当てる。
 FPSの分野では、オンライン対戦システムおよび、いわゆるランクシステムが整備されているものが多くなっている。ランクシステムは、プレイヤーの習熟度のようなものを可視化する。こうしたランクに関する情報は、視聴者にとって、プレイヤーのことをパッと理解するために非常に役立っていると思う。
 現状、ランク情報やダメージ数、キルデス比等はゲームシステムから参照できるようになっていることが多いと思う。ただ、個人的にはより細かい、プレイヤーのプレイスタイルのようなものを可視化できる情報があると、プレイヤーについて理解を深めるためのよい材料になると思った。
 最終的にはゲームシステムから直接確認出来るデータだけでなく、ゲームプレイ動画の解析結果から、プレイヤーのプレイスタイルをうまく可視化したい。今回は、Apexを題材にし、プレイヤーのプレイスタイルを示す1つの指標として、武器使用率をゲームプレイ動画から解析できないか試す。まあ、こういった情報はわざわざ動画を解析しなくても、ゲームシステム側で実装してもらえれば、より正確で容易にデータが取れるとは思う。
@@ -31,7 +31,7 @@ Optunaを使ってハイパーパラメータを調整しつつ、成績の良�
 ゼロから作るDeep Learning ―Pythonで学ぶディープラーニングの理論と実装 オライリージャパン (2016/9/24) Amazon 楽天市場 また、上記書籍を数年前に読んだときは誤差逆伝播法がいまいち理解できなかった。しかし、Twitterのタイムラインで流れてきた以下の動画が非常に参考になり、とりあえず分かった気にはなれた。出来るだけ条件を簡易にして、高校数学の範囲で説明されている。
 まとめ 機械学習を利用してApexのプレイ動画から武器使用率を算出するためのツール群を作成した。解析結果には誤差が含まれるため、利用するためにはまだ工夫をする必要があると思う。
 色々試行錯誤をする中で、モデルの性能に最も寄与したのはデータセットの作り方だった。データセットに偏りがあると、それを学習したモデルも偏りのある結果を出力する。データセットの質の重要性を、身をもって実感した。この部分については本記事で書けなかったので、またどこかで記事を書くかもしれない。
-Q1 2021 Live Game Streaming Trends - Stream Hatchet&amp;#160;&amp;#x21a9;&amp;#xfe0e;</description></item><item><title>顔認識+サーボモーターで顔追従モニターの作成</title><link>https://kouya17.github.io/posts/43/</link><pubDate>Fri, 23 Jul 2021 05:14:50 +0900</pubDate><guid>https://kouya17.github.io/posts/43/</guid><description>先日、NT金沢2021というイベントに、リモートで出展参加した。「リモートで出展参加」というのは、具体的に言うと、展示物としてはオンラインで遊べるものをポスターで出展して、私はGoogleMeet(ビデオ会議)をつないでリモートで一部作品の説明をしていた。(関係機材は現地出展した友人に運んでもらった。)
+Q1 2021 Live Game Streaming Trends - Stream Hatchet&amp;#160;&amp;#x21a9;&amp;#xfe0e;</description></item><item><title>顔認識+サーボモーターで顔追従モニターの作成</title><link>https://kouya17.com/posts/43/</link><pubDate>Fri, 23 Jul 2021 05:14:50 +0900</pubDate><guid>https://kouya17.com/posts/43/</guid><description>先日、NT金沢2021というイベントに、リモートで出展参加した。「リモートで出展参加」というのは、具体的に言うと、展示物としてはオンラインで遊べるものをポスターで出展して、私はGoogleMeet(ビデオ会議)をつないでリモートで一部作品の説明をしていた。(関係機材は現地出展した友人に運んでもらった。)
 GoogleMeetをつなぐには、とりあえずPCが現地(NT金沢の会場)にあれば事足りる。ただせっかくなので、モニターが、話している相手の顔を追跡するようにした。
 動作の様子 人の顔に追従するモニタを試作中…。
 ■使用素材
@@ -43,7 +43,7 @@ WebカメラはとりあえずAmazonで安いものを適当に買った。1種�
 顔追従用プログラムのソース ソースは以下に置いてある。
 顔追従用プログラムのセットアップ周り 上記のソースを動かすには、関係ライブラリをインストールする必要がある。
 PCA9685用ライブラリのインストール サーボ制御モジュールPCA9685をPythonから制御するためのPythonパッケージをインストールする。まず以下のコマンドでpip3をインストールする。
-sudo apt-get install python3-pip 参考元: NVIDIA Jetson Nano 開発者キットに TensorFlow をインストールする - Qiita</description></item><item><title>html要素の背景色が変化するアニメーションをCSSで(無理やり)実装する</title><link>https://kouya17.github.io/posts/39/</link><pubDate>Sun, 07 Feb 2021 16:27:14 +0900</pubDate><guid>https://kouya17.github.io/posts/39/</guid><description>CSSによるアニメーションについて CSSではanimationプロパティを利用することによって、JavaScriptを使うことなく、HTML要素にアニメーションを付与することができる。
+sudo apt-get install python3-pip 参考元: NVIDIA Jetson Nano 開発者キットに TensorFlow をインストールする - Qiita</description></item><item><title>html要素の背景色が変化するアニメーションをCSSで(無理やり)実装する</title><link>https://kouya17.com/posts/39/</link><pubDate>Sun, 07 Feb 2021 16:27:14 +0900</pubDate><guid>https://kouya17.com/posts/39/</guid><description>CSSによるアニメーションについて CSSではanimationプロパティを利用することによって、JavaScriptを使うことなく、HTML要素にアニメーションを付与することができる。
 CSSアニメーションの概要は以下の記事を参考にさせていただいた。
 今回作りたいもの 今回、以下のような流れでアニメーションする要素を作りたい。
 要素の左端から背景色がだんだん元々の背景色Aから色B変わっていき、背景全体が色Bになる。この時、色Aと色Bの境界はグラデーションにする。 背景全体が色Bのまましばらく維持する。 要素の左端から背景色がだんだん色Bから色Aに変わっていき、背景全体が色Aにもどる。この時、色Bと色Aの境界はグラデーションにする。 少し調べてみると、グラデーションは&amp;lt;gradient&amp;gt;データ型を利用すれば問題なさそうだった。問題は、グラデーションの境界位置をアニメーションする部分である。以下のように、ただ単に0%と100%のkeyframeを指定しただけでは、思ったようなアニメーションにならなかった。
@@ -54,7 +54,7 @@ See the Pen linear and ease-in-out by kouya17 (@kouya17) on CodePen. 先ほど�
 pythonでベジェ曲線生成クラスを作成する pythonでベジェ曲線を生成するためのクラスを以下のように作成した。
 上のスクリプトを実行すると p0=[0,0], p1=[0,1], p2=[1,0], p3=[1,1] とした時の3次ベジェ曲線が生成される。グラフにプロットすると以下のような曲線になる。
 keyframes生成用のpythonスクリプトを修正する 先ほど作成したkeyframes生成用のスクリプトにベジェ曲線生成用クラスを組み込む。組み込んだ後のスクリプトは以下のようになる。
-このスクリプトを使って、 p0=[0,0], p1=[0,0.</description></item><item><title>ロジスティック回帰を使ってYouTubeタイトルから投稿者を推論する</title><link>https://kouya17.github.io/posts/30/</link><pubDate>Mon, 25 May 2020 21:36:26 +0900</pubDate><guid>https://kouya17.github.io/posts/30/</guid><description>Pythonでロジスティック回帰を使って、VTuberの動画タイトルから投稿者を推論してみる。
+このスクリプトを使って、 p0=[0,0], p1=[0,0.</description></item><item><title>ロジスティック回帰を使ってYouTubeタイトルから投稿者を推論する</title><link>https://kouya17.com/posts/30/</link><pubDate>Mon, 25 May 2020 21:36:26 +0900</pubDate><guid>https://kouya17.com/posts/30/</guid><description>Pythonでロジスティック回帰を使って、VTuberの動画タイトルから投稿者を推論してみる。
 ただ、投稿者を推論するといっても、二値分類なので、投稿者が A か B かを分類するのみ。
 使用するライブラリ 今回は以下のライブラリを使用する。
 scikit-learn : テキストのベクトル化、ロジスティック回帰 MeCab : 日本語形態素解析 データセット 適当に選んだRan Channel / 日ノ隈らん 【あにまーれ】さんとKuzuha Channelさんの動画タイトルをデータセットとして使う。
@@ -76,7 +76,7 @@ Ice breaker / ChroNoiR けんきさんとあびつんさんとランクいって
 以下でwordとtf_idfというラベルで出力しているものが、それぞれ単語名及びtf-idfという手法によって得られた、各単語の重要度になる。
 ただ、このデータに関してはすべての単語について、学習元データに含まれていなかったため、this word does not existと表示されている。
 つまり、上記推論結果で0.45と出ているが、これは切片(バイアス)成分によるものである。
-title_index: 0 word: Ice tf_idf: this word dose not exist word: breaker tf_idf: this word dose not exist word: / tf_idf: this word dose not exist word: ChroNoiR tf_idf: this word dose not exist 次に２行目のタイトルの各単語の結果は以下の通り。</description></item><item><title>全国規模の感染シミュレーションと結果の可視化をしてみる</title><link>https://kouya17.github.io/posts/29/</link><pubDate>Wed, 20 May 2020 22:37:30 +0900</pubDate><guid>https://kouya17.github.io/posts/29/</guid><description>先日、都道府県間通勤・通学を考慮した感染症流行のシミュレーションを行った。
+title_index: 0 word: Ice tf_idf: this word dose not exist word: breaker tf_idf: this word dose not exist word: / tf_idf: this word dose not exist word: ChroNoiR tf_idf: this word dose not exist 次に２行目のタイトルの各単語の結果は以下の通り。</description></item><item><title>全国規模の感染シミュレーションと結果の可視化をしてみる</title><link>https://kouya17.com/posts/29/</link><pubDate>Wed, 20 May 2020 22:37:30 +0900</pubDate><guid>https://kouya17.com/posts/29/</guid><description>先日、都道府県間通勤・通学を考慮した感染症流行のシミュレーションを行った。
 この時は関東のみのシミュレーションだったが、今回は全国規模の感染シミュレーションを実施してみる。
 なお、この記事ではモデルに関する説明は特に記載しないため、モデルの詳細は以下過去の記事を参照していただきたい。
 感染症数理モデルについて触りの部分だけ学ぶ | kouya17.com
@@ -110,14 +110,14 @@ japanmapという、日本地図を都道府県別に色分けできるライブ
 累計感染者数に関しては、通勤・通学者数を絞っても変化はない。
 ソースコード 今回使用したコードは以下に置いてある。
 ただし、全然整理できていない…。
-統計局ホームページ/平成27年国勢調査/調査の結果&amp;#160;&amp;#x21a9;&amp;#xfe0e;</description></item><item><title>LogisticRegression().fit()のConvergenceWarningを解消する</title><link>https://kouya17.github.io/posts/27/</link><pubDate>Sat, 16 May 2020 14:45:12 +0900</pubDate><guid>https://kouya17.github.io/posts/27/</guid><description>環境 Anacondaの環境情報
+統計局ホームページ/平成27年国勢調査/調査の結果&amp;#160;&amp;#x21a9;&amp;#xfe0e;</description></item><item><title>LogisticRegression().fit()のConvergenceWarningを解消する</title><link>https://kouya17.com/posts/27/</link><pubDate>Sat, 16 May 2020 14:45:12 +0900</pubDate><guid>https://kouya17.com/posts/27/</guid><description>環境 Anacondaの環境情報
 &amp;gt;conda info conda version : 4.8.2 conda-build version : 3.18.11 python version : 3.7.6.final.0 platform : win-64 現象 pythonでLogisticRegression.fit()を実行したところ、以下のワーニングが出た。
 ConvergenceWarning: lbfgs failed to converge (status=1): STOP: TOTAL NO. of ITERATIONS REACHED LIMIT. 実行時のjupyter notebookは以下のような感じ。
 一応正解率は出せているらしい。
 解決策の1つ モデルが収束していないそうなので、max_iterを明示的に設定して、反復回数を増やす。
 max_iterの初期値は100だが、上の例では1000に設定している。
 今回はこれで警告が出なくなったので、よしとする。
-参考 見て試してわかる機械学習アルゴリズムの仕組み 機械学習図鑑posted with ヨメレバ秋庭 伸也/杉山 阿聖 翔泳社 2019年04月17日 楽天ブックスで購入楽天koboで購入Amazonで購入Kindleで購入</description></item><item><title>都道府県間通勤・通学を考慮したパンデミックシミュレーションもどき</title><link>https://kouya17.github.io/posts/25/</link><pubDate>Tue, 05 May 2020 21:35:17 +0900</pubDate><guid>https://kouya17.github.io/posts/25/</guid><description>先日、SEIRモデルを用いた感染症流行のシミュレーションを行った。
+参考 見て試してわかる機械学習アルゴリズムの仕組み 機械学習図鑑posted with ヨメレバ秋庭 伸也/杉山 阿聖 翔泳社 2019年04月17日 楽天ブックスで購入楽天koboで購入Amazonで購入Kindleで購入</description></item><item><title>都道府県間通勤・通学を考慮したパンデミックシミュレーションもどき</title><link>https://kouya17.com/posts/25/</link><pubDate>Tue, 05 May 2020 21:35:17 +0900</pubDate><guid>https://kouya17.com/posts/25/</guid><description>先日、SEIRモデルを用いた感染症流行のシミュレーションを行った。
 このプログラムを少し拡張して、都道府県間通勤・通学を考慮したパンデミックシミュレーションもどきを行う。
 ※本シミュレーションや上記リンク先のシミュレーションは、実測値等には全く基づいていないため、完全に空想上のシミュレーションになります。
 本シミュレーションの結果が実情を反映していたり、今後の予測を示していたりはしません。
@@ -138,7 +138,7 @@ $S$:$E$:$I$:$R$比は移動元の都道府県データの比と等しくする�
 シミュレーション内の時刻が17:00になった時、人口移動用のグループを移動元のデータに合流させる。
 上の図中の値もすべて適当だが、以上のような形で、都道府県間の感染伝播をシミュレートする。
 計算する 人口データについて 人口データは各自治体のページを参考に、以下の値を使う。
-都道府県 人口[人] 備考 東京都 13951635 2020年1月1日時点推計2 茨城県 2866325 2020年1月1日時点推計3 栃木県 1942313 2019年10月1日時点推計4 群馬県 1938053 2019年10月1日時点推計5 埼玉県 7341794 2020年4月1日時点推計6 千葉県 6280344 2020年4月1日時点推計7 神奈川県 9204965 2020年4月1日時点推計8 各都道府県毎の通勤・通学による流入・流出人口は総務省統計局「平成27年国勢調査結果」1より、以下の値(単位は[人])を使う。縦が流出元で横が流出先。</description></item><item><title>感染症数理モデルについて触りの部分だけ学ぶ</title><link>https://kouya17.github.io/posts/24/</link><pubDate>Sat, 02 May 2020 22:58:59 +0900</pubDate><guid>https://kouya17.github.io/posts/24/</guid><description>目的 特にしっかりした目的はない。
+都道府県 人口[人] 備考 東京都 13951635 2020年1月1日時点推計2 茨城県 2866325 2020年1月1日時点推計3 栃木県 1942313 2019年10月1日時点推計4 群馬県 1938053 2019年10月1日時点推計5 埼玉県 7341794 2020年4月1日時点推計6 千葉県 6280344 2020年4月1日時点推計7 神奈川県 9204965 2020年4月1日時点推計8 各都道府県毎の通勤・通学による流入・流出人口は総務省統計局「平成27年国勢調査結果」1より、以下の値(単位は[人])を使う。縦が流出元で横が流出先。</description></item><item><title>感染症数理モデルについて触りの部分だけ学ぶ</title><link>https://kouya17.com/posts/24/</link><pubDate>Sat, 02 May 2020 22:58:59 +0900</pubDate><guid>https://kouya17.com/posts/24/</guid><description>目的 特にしっかりした目的はない。
 なんとなく数値シミュレーションについて学び直したくなったため、現在身近にある現象を題材にして学ぶ。
 ネットの情報を参考に、適当にシミュレーションを走らせてみる。
 ※本シミュレーションは、実測値等には全く基づいていないため、完全に空想上のシミュレーションになります。
@@ -152,7 +152,7 @@ SEIRモデルとは SEIRモデル(エスイーアイアールモデル)とは感
 $$ \begin{aligned} \frac{dS}{dt} &amp;amp;= m(N - S) - bSI &amp;amp;(1) \cr \frac{dE}{dt} &amp;amp;= bSI - (m + a)E &amp;amp;(2) \cr \frac{dI}{dt} &amp;amp;= aE - (m + g)I &amp;amp;(3) \cr \frac{dR}{dt} &amp;amp;= gI - mR &amp;amp;(4) \end{aligned} $$
 ここで$t$は時間、$m$は出生率及び死亡率、$a$は感染症の発生率、$b$は感染症への感染率、$g$は感染症からの回復率を表す。
 また$N$は全人口を示し、
-$$N \equiv S + E + I + R　(5)$$</description></item><item><title>カメラ画像から対象物の向きを検出する(OpenCV)</title><link>https://kouya17.github.io/posts/18/</link><pubDate>Mon, 24 Feb 2020 14:32:15 +0900</pubDate><guid>https://kouya17.github.io/posts/18/</guid><description>やりたいこと 俯瞰で見ているUSBカメラの画像を使って、自律的に動いているロボットの向きを検出する。
+$$N \equiv S + E + I + R　(5)$$</description></item><item><title>カメラ画像から対象物の向きを検出する(OpenCV)</title><link>https://kouya17.com/posts/18/</link><pubDate>Mon, 24 Feb 2020 14:32:15 +0900</pubDate><guid>https://kouya17.com/posts/18/</guid><description>やりたいこと 俯瞰で見ているUSBカメラの画像を使って、自律的に動いているロボットの向きを検出する。
 また、カメラ画像における指定の座標と、ロボットがなす角を算出する。
 動作環境 ターゲットボード JetsonNano OS Ubuntu 18.04.4 LTS 使用ライブラリ Python版 OpenCV 4.1.1 処理結果 今回実装した処理の結果は、画像で示すと以下のような感じになる。
 方法 今回実装した方法は以下の通り。

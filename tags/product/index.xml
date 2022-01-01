@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>product on kouya17.com</title><link>https://kouya17.github.io/tags/product/</link><description>Recent content in product on kouya17.com</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 03 Apr 2021 23:09:39 +0900</lastBuildDate><atom:link href="https://kouya17.github.io/tags/product/index.xml" rel="self" type="application/rss+xml"/><item><title>所定のYouTubeチャンネルの配信予定をLEDで通知する(M5StickC)</title><link>https://kouya17.github.io/posts/40/</link><pubDate>Sat, 03 Apr 2021 23:09:39 +0900</pubDate><guid>https://kouya17.github.io/posts/40/</guid><description>できたもの 動画の出来が色々とアレだが、動作時の様子を以下の動画の後半で確認できる。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>product on kouya17.com</title><link>https://kouya17.com/tags/product/</link><description>Recent content in product on kouya17.com</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 03 Apr 2021 23:09:39 +0900</lastBuildDate><atom:link href="https://kouya17.com/tags/product/index.xml" rel="self" type="application/rss+xml"/><item><title>所定のYouTubeチャンネルの配信予定をLEDで通知する(M5StickC)</title><link>https://kouya17.com/posts/40/</link><pubDate>Sat, 03 Apr 2021 23:09:39 +0900</pubDate><guid>https://kouya17.com/posts/40/</guid><description>できたもの 動画の出来が色々とアレだが、動作時の様子を以下の動画の後半で確認できる。
 動画だと映りが悪いが、写真だとLEDをつけた時の様子は以下のような感じになる。
 作成目的 M5系列からYouTube Data APIを使った作例を作ってみたくて、作成した。
 使用部品 M5StickC　1個 PCA9685 16チャンネル PWMモジュール　3個 フルカラーLED　12個 筐体設計 STLデータは以下に公開してある。
@@ -15,7 +15,7 @@ M5StickCからYouTube Data APIを利用する部分は、以下のAPIラッパ�
 std::vector&amp;lt;String&amp;gt; YoutubeApi::getUpcomingBroadcasts(char *channelId) 指定されたChannelIDのチャンネルの配信予定(VideoID)を取得する。 BroadcastDetails YoutubeApi::getBroadcastDetails(char *videoId) 指定されたVideoIDの動画の配信詳細情報を取得する。 配信開始予定時刻は詳細情報からしか取れない。 課題 きちんと検証はしていないが、現状のソースだと、YouTube Data APIのクォータを異常に消費する。本当は1分ごとに情報取得とかをしたかったが、無料枠ではクォータが足りなくなる。
 各LEDに紐づくチャンネルIDと、LEDの色がハードコーディングされているので、外部から設定できるようにしたい。
 アフィリエイト
-M5Stack M5StickC ESP32ミニIoT開発ボードm5stack iotキット フィンガーコンピューターカラー0.</description></item><item><title>今年(2020年)作ったものを振り返る</title><link>https://kouya17.github.io/posts/37/</link><pubDate>Wed, 30 Dec 2020 21:43:06 +0900</pubDate><guid>https://kouya17.github.io/posts/37/</guid><description>今年もあっという間だったがもう終わるらしい。この1年で周りの環境は急激に変わった。ただ、自分の趣味のモノづくり周りについては、やってることは特に去年と変わらず、自分の作りたいものを作るという感じだった。
+M5Stack M5StickC ESP32ミニIoT開発ボードm5stack iotキット フィンガーコンピューターカラー0.</description></item><item><title>今年(2020年)作ったものを振り返る</title><link>https://kouya17.com/posts/37/</link><pubDate>Wed, 30 Dec 2020 21:43:06 +0900</pubDate><guid>https://kouya17.com/posts/37/</guid><description>今年もあっという間だったがもう終わるらしい。この1年で周りの環境は急激に変わった。ただ、自分の趣味のモノづくり周りについては、やってることは特に去年と変わらず、自分の作りたいものを作るという感じだった。
 ついでに過去の振り返りもリンクを貼り付けておく。
 今年(2019年)作ったものを振り返る | kouya17.com
 今年作ったもの 去年11月~2月　ボール収集ロボの作成 色が付いたボールを所定の場所に集めるロボコンのようなものに参加する機会があったので、作成した。
@@ -30,7 +30,7 @@ M5Stack M5StickC ESP32ミニIoT開発ボードm5stack iotキット フィンガ�
 関連記事 マトリクスLEDドライバを使ってフルカラーLEDを制御してみる | kouya17.com 赤外線を周期的に(矩形波で)出力するモジュールを作る | kouya17.com 5月　感染シミュレーション用プログラムの作成 学生時代に勉強していた数値計算の復習がてら、感染シミュレーション用のプログラムを作成した。
 SEIRモデルという単語は結構色んなところで見かけるようになったので、ここで少し勉強して、理解を深めておいて良かったと思っている。
 できたもの
-関連記事 感染症数理モデルについて触りの部分だけ学ぶ | kouya17.com 都道府県間通勤・通学を考慮したパンデミックシミュレーションもどき | kouya17.com 全国規模の感染シミュレーションと結果の可視化をしてみる | kouya17.com 10月　換気状況モニタの作成 感染症関連で何か作れないか考え、二酸化炭素濃度モニタを作成した。こういった環境モニタ系はもっと利用シーンが増えると思っていた(店舗が換気状況のアピールに使う等)のだが、今のところあまりそういった(利用シーンが増えた・よく見かけるようになった)実感はない。</description></item><item><title>Laravel+Vue.jsでSPA(シングルページアプリケーション)を作成した</title><link>https://kouya17.github.io/posts/20/</link><pubDate>Sun, 15 Mar 2020 22:59:47 +0900</pubDate><guid>https://kouya17.github.io/posts/20/</guid><description>今回作成したサイト 今回作成したサイトは以下のサイト。
+関連記事 感染症数理モデルについて触りの部分だけ学ぶ | kouya17.com 都道府県間通勤・通学を考慮したパンデミックシミュレーションもどき | kouya17.com 全国規模の感染シミュレーションと結果の可視化をしてみる | kouya17.com 10月　換気状況モニタの作成 感染症関連で何か作れないか考え、二酸化炭素濃度モニタを作成した。こういった環境モニタ系はもっと利用シーンが増えると思っていた(店舗が換気状況のアピールに使う等)のだが、今のところあまりそういった(利用シーンが増えた・よく見かけるようになった)実感はない。</description></item><item><title>Laravel+Vue.jsでSPA(シングルページアプリケーション)を作成した</title><link>https://kouya17.com/posts/20/</link><pubDate>Sun, 15 Mar 2020 22:59:47 +0900</pubDate><guid>https://kouya17.com/posts/20/</guid><description>今回作成したサイト 今回作成したサイトは以下のサイト。
 ClubPage
 私が所属している電子工作サークルのホームページを作った。
 このブログからcssを流用しているので、見た目がだいぶ似ている。
@@ -70,7 +70,7 @@ SPAのパフォーマンス向上はバンドルサイズの削減こそ正義 �
 最初特に何も考えずにサイトを作っていたら、パフォーマンスが崩壊した。
 今もパフォーマンスが良いとは言えないが、バンドルサイズを削減することで、パフォーマンスが向上した。
 こういったパフォーマンス向上のための施策は必要不可欠だなと感じた。
-まとめ 今回はLaravelとVue.jsを使ってサイトを作った。</description></item><item><title>今年(2019年)作ったものを振り返る</title><link>https://kouya17.github.io/posts/16/</link><pubDate>Sat, 28 Dec 2019 22:35:40 +0900</pubDate><guid>https://kouya17.github.io/posts/16/</guid><description>今年もあっという間だったがもう終わるらしい。 この1年で作った物の振り返りをしたいと思う。
+まとめ 今回はLaravelとVue.jsを使ってサイトを作った。</description></item><item><title>今年(2019年)作ったものを振り返る</title><link>https://kouya17.com/posts/16/</link><pubDate>Sat, 28 Dec 2019 22:35:40 +0900</pubDate><guid>https://kouya17.com/posts/16/</guid><description>今年もあっという間だったがもう終わるらしい。 この1年で作った物の振り返りをしたいと思う。
 今年作ったもの 1月～2月　ロボサッカー用ロボ作成 2月終わりごろにロボカップジュニア同等のルールのロボコンに出る機会があり、プログラムの一部作成を担当した。
 ロボの構成は大体以下の通り。
 機体はLEGOのマインドストーム 赤外線センサでボールの位置を検出 ラズパイを使って、カメラからの画像を解析しゴール位置を検出 3人でチームを組んでおり、進捗管理ツールとしてtrello、情報共有ツールとしてslack、ソースコード管理ツールとしてGitHubを使った。
@@ -82,7 +82,7 @@ ArduinoとPCの通信(USBシリアル通信) PCとラズパイの通信(HTTP) PC
 できたもの github.ioページ 8月　KiCad用ツール作成 KiCadを使う機会が多くなってきたので基板発注用の簡単なツール(Windowsアプリ)を作ってみた。
 こちらの記事で少し内容について紹介している。
 できたもの KiCadHelper(GitHub) 8月～　射的ゲーム作成 赤外線を使った射的ゲームを現在も作成中。同じようなものを以前一度作成していて、今回は複数人プレイに対応させる予定。
-できたもの 鋭意諸々作成中 今年を振り返ってみて 今年は電子工作に割ける時間が結構多かった。ただこうして振り返ってみると、かけた時間に比べ、出来上がった物の量がいまいち物足りないな…と思う。</description></item><item><title>elecrow発注用zipファイル作成ソフト(KiCad向け)を作った</title><link>https://kouya17.github.io/posts/9/</link><pubDate>Sun, 06 Oct 2019 16:26:24 +0900</pubDate><guid>https://kouya17.github.io/posts/9/</guid><description>elecrowへプリント基板を発注する際に必要なファイル変換作業をソフトで自動化した。
+できたもの 鋭意諸々作成中 今年を振り返ってみて 今年は電子工作に割ける時間が結構多かった。ただこうして振り返ってみると、かけた時間に比べ、出来上がった物の量がいまいち物足りないな…と思う。</description></item><item><title>elecrow発注用zipファイル作成ソフト(KiCad向け)を作った</title><link>https://kouya17.com/posts/9/</link><pubDate>Sun, 06 Oct 2019 16:26:24 +0900</pubDate><guid>https://kouya17.com/posts/9/</guid><description>elecrowへプリント基板を発注する際に必要なファイル変換作業をソフトで自動化した。
 作成ソフト 動作OS：Windows 開発環境：Visual Studio 2017 以下のGitHubのページから実行ファイルをダウンロードできる。 https://github.com/kouya17/KiCadHelper/releases
 (ページ中のAssets内KiCadHelper.zipをクリック)
 本ソフトが代替する作業 本ソフトは以下書籍(KiCadではじめる「プリント基板」製作)中のp131-p133の作業を代替する。
@@ -91,7 +91,7 @@ KiCadではじめる「プリント基板」製作
 売り上げランキング : 楽天ブックスで購入Amazonで購入 by ヨメレバ 具体的には以下の処理を行う。
 製造ファイル・ドリルファイルのファイル名統一 拡張子の変更(.drl→.txt、.gm1→.gml) 必要ファイルをzipに圧縮 各ファイル及びzipファイル名は「elecrow-プロジェクトフォルダ名-日付」となる。
 zip圧縮前のフォルダはプロジェクトフォルダ下に残る。
-使い方 ソフトを起動する プロジェクトフォルダに、すでに製造ファイル・ドリルファイルを出力済みのKiCadプロジェクトのフォルダを指定する zipファイル出力先に、発注用のzipファイルを出力する場所を指定する 開始ボタンを押す 画面下部にログが表示され、処理中にエラー等があればエラーログが出力される。</description></item><item><title>LEDの色で天気通知する(ESP32)</title><link>https://kouya17.github.io/posts/1/</link><pubDate>Tue, 01 Jan 2019 23:07:37 +0900</pubDate><guid>https://kouya17.github.io/posts/1/</guid><description>ソースコード https://github.com/kouya17/esp32_weather_light
+使い方 ソフトを起動する プロジェクトフォルダに、すでに製造ファイル・ドリルファイルを出力済みのKiCadプロジェクトのフォルダを指定する zipファイル出力先に、発注用のzipファイルを出力する場所を指定する 開始ボタンを押す 画面下部にログが表示され、処理中にエラー等があればエラーログが出力される。</description></item><item><title>LEDの色で天気通知する(ESP32)</title><link>https://kouya17.com/posts/1/</link><pubDate>Tue, 01 Jan 2019 23:07:37 +0900</pubDate><guid>https://kouya17.com/posts/1/</guid><description>ソースコード https://github.com/kouya17/esp32_weather_light
 説明 ESP32を使って、LEDの色で天気通知をしてくれるプログラムを作りました。
 単3電池2本駆動で8時間程度しか持たないのが課題ですね…。
 IoT開発スタートブック　── ESP32でクラウドにつなげる電子工作をはじめよう！ 技術評論社 Amazon Kindle 楽天 楽天Kobo</description></item></channel></rss>
