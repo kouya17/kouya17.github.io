@@ -1,0 +1,73 @@
+baseURL: "https://kouya17.github.io/tech-blog"
+canonifyURLs: true
+languageCode: "en-us"
+title: "kouya17.com"
+theme: "PaperMod"
+
+enableRobotsTXT: true
+
+googleAnalytics: UA-92576104-3
+
+params:
+  env: production
+  title: kouya17.com
+  defaultTheme: auto
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  disableSpecial1stPost: true
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: true
+  tocopen: false
+
+  homeInfoParams:
+    Title: kouya17.com
+    Content: 全ての分野において、初心者を脱することができない者による技術ブログ
+
+  socialIcons:
+    - name: twitter
+      url: "https://twitter.com/aoki_kouya"
+    - name: github
+      url: "https://github.com/kouya17"
+
+  # for search
+  # https://fusejs.io/api/options.html
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+
+menu:
+  main:
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 20
+    - identifier: search
+      name: Search
+      url: search/
+      weight: 10
+    - identifier: archives
+      name: Archives
+      url: archives/
+      weight: 10
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # is necessary
