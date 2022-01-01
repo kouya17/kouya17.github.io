@@ -41,8 +41,8 @@ FPSの分野では、オンライン対戦システムおよび、いわゆる�
   Q1 2021 Live Game Streaming Trends - Stream Hatchet&#160;&#8617;&#xfe0e;">
 <meta name=author content>
 <link rel=canonical href=https://kouya17.com/posts/44/>
-<link crossorigin=anonymous href=https://kouya17.com/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style>
-<script defer crossorigin=anonymous src=https://kouya17.com/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://kouya17.com/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://kouya17.com/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://kouya17.com/favicon-32x32.png>
@@ -208,13 +208,13 @@ FPSの分野では、オンライン対戦システムおよび、いわゆる�
 <p>最終的にはゲームシステムから直接確認出来るデータだけでなく、ゲームプレイ動画の解析結果から、プレイヤーのプレイスタイルをうまく可視化したい。今回は、<a href=https://www.ea.com/ja-jp/games/apex-legends/about>Apex</a>を題材にし、プレイヤーのプレイスタイルを示す1つの指標として、<strong>武器使用率</strong>をゲームプレイ動画から解析できないか試す。まあ、こういった情報はわざわざ動画を解析しなくても、ゲームシステム側で実装してもらえれば、より正確で容易にデータが取れるとは思う。</p>
 <h2 id=全体の作業の流れ>全体の作業の流れ<a hidden class=anchor aria-hidden=true href=#全体の作業の流れ>#</a></h2>
 <p>今回の全体の作業の流れは以下のようになっている。</p>
-<p><img loading=lazy src=https://kouya17.com/media/markdownx/3e064e23-6b41-4214-98fa-f54806b7bd88.png alt>
+<p><img loading=lazy src=/media/markdownx/3e064e23-6b41-4214-98fa-f54806b7bd88.png alt>
 </p>
 <p>各作業の内容について説明していく。ただし、ゲームプレイ動画のキャプチャ作業については特に説明することがないので、何も説明しない。</p>
 <h2 id=武器名表示領域の切り取り>武器名表示領域の切り取り<a hidden class=anchor aria-hidden=true href=#武器名表示領域の切り取り>#</a></h2>
 <p>データセットを整備するために、ゲーム画面のうち、武器名を表示している領域のみを切り取った画像を作成する必要がある。今回は、<strong>動画に対して一定時間ごとのフレームを画像化→特定領域を切り取り→特定の場所に画像ファイルとして保存</strong>、という流れでデータセット用の画像を作成した。</p>
 <p>一連の画像切り取り作業実施のために、ツールを作成した。GUI部分は<a href=https://github.com/PySimpleGUI/PySimpleGUI>PySimpleGUI</a>を利用している。</p>
-<p><img loading=lazy src=https://kouya17.com/media/markdownx/dde3c115-8ff4-46bb-8210-fda5c7d0a1b2.png alt>
+<p><img loading=lazy src=/media/markdownx/dde3c115-8ff4-46bb-8210-fda5c7d0a1b2.png alt>
 </p>
 <p>主に以下を設定できる。</p>
 <ul>
@@ -230,10 +230,10 @@ FPSの分野では、オンライン対戦システムおよび、いわゆる�
 <h2 id=画像に対して正解ラベルを付ける>画像に対して正解ラベルを付ける<a hidden class=anchor aria-hidden=true href=#画像に対して正解ラベルを付ける>#</a></h2>
 <p>データセットの正解ラベル付けについて、どのような形式で保存するのが一般的かを私は知らないのだが、今回は<strong>各正解ラベル(武器名)ごとに保存フォルダを分ける</strong>ことにした。</p>
 <p>以下のように、全武器+&ldquo;武器なし&rdquo;(_None)について画像をフォルダ分けした。</p>
-<p><img loading=lazy src=https://kouya17.com/media/markdownx/852b6df6-142f-4db0-ab9e-51bac8c86912.png alt>
+<p><img loading=lazy src=/media/markdownx/852b6df6-142f-4db0-ab9e-51bac8c86912.png alt>
 </p>
 <p>この作業にも専用ツールを作成した。</p>
-<p><img loading=lazy src=https://kouya17.com/media/markdownx/56ec032b-4d48-4b37-a395-c6b372a7c6e2.png alt>
+<p><img loading=lazy src=/media/markdownx/56ec032b-4d48-4b37-a395-c6b372a7c6e2.png alt>
 </p>
 <p>データセットが置かれている場所を指定して、startボタンを押すと、所定の個数づつ未分類の画像が表示される。表示された画像について、正解となる武器名のボタンをポチポチしていき、画像をフォルダ分けする。</p>
 <p>ただ、今回データセットの元にしたキャプチャ動画は武器を決まった順番で使うようにしていた。そのため、切り抜かれた画像が最初から決まった武器順で並んでおり、結局このツールはあまり使わなかった。</p>
@@ -246,18 +246,18 @@ FPSの分野では、オンライン対戦システムおよび、いわゆる�
 <p><a href=https://github.com/optuna/optuna>Optuna</a>を使ってハイパーパラメータを調整しつつ、成績の良いモデルを保存する。(といってもマシンが貧弱で学習に時間がかかるので、5回しか試行を回していない。)</p>
 <script src=https://gist.github.com/kouya17/67cf547bc2f291d69d0b9a151cbe2974.js></script>
 <p>上記のコードを実行したところ、とりあえず今回はテストデータの正解率が99.89%のモデルが出来た。テストデータの推論結果を<a href=https://github.com/matplotlib/matplotlib>Matplotlib</a>を使って画像とともに確認してみる。</p>
-<p><img loading=lazy src=https://kouya17.com/media/markdownx/2b0d0805-89cc-4d6b-ae78-5d7cf3087e43.png alt>
+<p><img loading=lazy src=/media/markdownx/2b0d0805-89cc-4d6b-ae78-5d7cf3087e43.png alt>
 </p>
 <p>いい感じに推論できてそうだ。誤答をしたデータについても確認してみる。</p>
-<p><img loading=lazy src=https://kouya17.com/media/markdownx/12d216dc-52ce-4216-b618-6a7dd3bb7a1c.png alt>
+<p><img loading=lazy src=/media/markdownx/12d216dc-52ce-4216-b618-6a7dd3bb7a1c.png alt>
 </p>
 <p>今回は2つのデータの推論が間違っていたようだ。上は正答がFlatlineなのに対し、Devotionと推論してしまっており、下は正答がNoneなのに対し、R-301と推論してしまっている。</p>
 <h2 id=作成したモデルによるプレイ動画の解析>作成したモデルによるプレイ動画の解析<a hidden class=anchor aria-hidden=true href=#作成したモデルによるプレイ動画の解析>#</a></h2>
 <p>モデルが出来たので、動画を解析する。解析用のソフトを作成した。</p>
-<p><img loading=lazy src=https://kouya17.com/media/markdownx/51930553-1f33-4e2a-9684-6935dfa1ea28.png alt>
+<p><img loading=lazy src=/media/markdownx/51930553-1f33-4e2a-9684-6935dfa1ea28.png alt>
 </p>
 <p>学習用に使ったデータとは別のキャプチャ動画を使って解析したところ、以下のような結果になった。</p>
-<p><img loading=lazy src=https://kouya17.com/media/markdownx/3c162404-31df-4c3d-9134-b8a756e4ed2e.png alt>
+<p><img loading=lazy src=/media/markdownx/3c162404-31df-4c3d-9134-b8a756e4ed2e.png alt>
 </p>
 <p>解析結果を見たところ、大体は合っていると思うが、誤検出されている武器名が末尾に並んでいる。解析結果は正確なものではないため、データの扱いは少し考えないといけない。</p>
 <h2 id=最初は自作モデルを作らなくても行けると思っていた>最初は自作モデルを作らなくても行けると思っていた<a hidden class=anchor aria-hidden=true href=#最初は自作モデルを作らなくても行けると思っていた>#</a></h2>
