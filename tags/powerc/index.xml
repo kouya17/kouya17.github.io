@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>PowerC on kouya17.com</title><link>https://kouya17.github.io/tech-blog/tags/powerc/</link><description>Recent content in PowerC on kouya17.com</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 21 Jun 2020 18:17:42 +0900</lastBuildDate><atom:link href="https://kouya17.github.io/tech-blog/tags/powerc/index.xml" rel="self" type="application/rss+xml"/><item><title>赤外線を周期的に(矩形波で)出力するモジュールを作る</title><link>https://kouya17.github.io/tech-blog/posts/33/</link><pubDate>Sun, 21 Jun 2020 18:17:42 +0900</pubDate><guid>https://kouya17.github.io/tech-blog/posts/33/</guid><description>現在作成中である射的ゲームの銃ユニット用に、赤外線を周期的に(矩形波で)出力するモジュールを作成する。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>PowerC on kouya17.com</title><link>https://kouya17.github.io/tags/powerc/</link><description>Recent content in PowerC on kouya17.com</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 21 Jun 2020 18:17:42 +0900</lastBuildDate><atom:link href="https://kouya17.github.io/tags/powerc/index.xml" rel="self" type="application/rss+xml"/><item><title>赤外線を周期的に(矩形波で)出力するモジュールを作る</title><link>https://kouya17.github.io/posts/33/</link><pubDate>Sun, 21 Jun 2020 18:17:42 +0900</pubDate><guid>https://kouya17.github.io/posts/33/</guid><description>現在作成中である射的ゲームの銃ユニット用に、赤外線を周期的に(矩形波で)出力するモジュールを作成する。
 電源 まず必要な電圧・電流を調べる 今回使う赤外線LED → ５ｍｍ赤外線ＬＥＤ　９４０ｎｍ　ＯＳＩ５ＦＵ５１１１Ｃ－４０　（５個入）: LED(発光ダイオード) 秋月電子通商-電子部品・ネット通販
 赤外線LEDの絶対最大定格
 最大順方向電流 If : 100mA 赤外線LEDの電気的特性
@@ -15,7 +15,7 @@ PowerCの給電周りの仕組みについては公式ドキュメントとM5Sti
 赤外線出力 矩形波生成 矩形波（方形波）発生回路の理論的な理解 - 電子工作で覚える！電子回路を参考にさせていただく。
 上記サイト中の式
 $$ T = 1.386 \times C_1R_4 $$
-において、$C_1 = 0.1 \mu F$に固定した場合、</description></item><item><title>Ambientを使って、PowerCに接続されているバッテリーの情報を記録する</title><link>https://kouya17.github.io/tech-blog/posts/32/</link><pubDate>Sat, 06 Jun 2020 22:57:28 +0900</pubDate><guid>https://kouya17.github.io/tech-blog/posts/32/</guid><description>Ambientとは 本当にすばらしいサービス。
+において、$C_1 = 0.1 \mu F$に固定した場合、</description></item><item><title>Ambientを使って、PowerCに接続されているバッテリーの情報を記録する</title><link>https://kouya17.github.io/posts/32/</link><pubDate>Sat, 06 Jun 2020 22:57:28 +0900</pubDate><guid>https://kouya17.github.io/posts/32/</guid><description>Ambientとは 本当にすばらしいサービス。
 Ambient – IoTデーター可視化サービス
 データをテキストでダウンロードできるということで、今回使用させていただくことを決めた。
 データーのダウンロード機能をリリースしました – Ambient
