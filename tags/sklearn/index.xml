@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>sklearn on kouya17.com</title><link>https://kouya17.github.io/tech-blog/tags/sklearn/</link><description>Recent content in sklearn on kouya17.com</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 25 May 2020 21:36:26 +0900</lastBuildDate><atom:link href="https://kouya17.github.io/tech-blog/tags/sklearn/index.xml" rel="self" type="application/rss+xml"/><item><title>ロジスティック回帰を使ってYouTubeタイトルから投稿者を推論する</title><link>https://kouya17.github.io/tech-blog/posts/30/</link><pubDate>Mon, 25 May 2020 21:36:26 +0900</pubDate><guid>https://kouya17.github.io/tech-blog/posts/30/</guid><description>Pythonでロジスティック回帰を使って、VTuberの動画タイトルから投稿者を推論してみる。
+ただ、投稿者を推論するといっても、二値分類なので、投稿者が A か B かを分類するのみ。
+使用するライブラリ 今回は以下のライブラリを使用する。
+scikit-learn : テキストのベクトル化、ロジスティック回帰 MeCab : 日本語形態素解析 データセット 適当に選んだRan Channel / 日ノ隈らん 【あにまーれ】さんとKuzuha Channelさんの動画タイトルをデータセットとして使う。
+動画タイトルはYouTube Data APIを使って取得した。
+1日のAPIリクエスト上限に引っかかって、すべては取得できなかったが、日ノ隈らんさんのタイトルは475個、葛葉さんのタイトルは456個取得できた。
+タイトル取得に使用したプログラムは以下に置いてある。
+また、タイトル中の【】内には大体投稿者名が入っている。
+これを使うと簡単に分類できてしまうと思うので、今回は削除する。
+(まあ、【】内でなくても、投稿者名が入っていることがあるので結局、というところもあるが…)
+プログラムと推論結果 今回推論に使用したプログラムは以下に置いてある。
+テストデータは直近(このプログラムを作成中)に投稿された以下のタイトルを使う。
+Ice breaker / ChroNoiR けんきさんとあびつんさんとランクいってくる！！！ １行目が葛葉さんの動画タイトルで、2行目が日ノ隈らんさんの動画タイトルになっている。
+推論結果 推論結果は以下のようになった。
+[0.45 0.69] なお、1個目が1行目の結果で、2個目が2行目の結果になる。
+また、この結果が 1.0 に近いほど日ノ隈らんさんのタイトル、 0 に近いほど葛葉さんのタイトル&amp;quot;っぽい&amp;quot;と判断できる。
+推論結果の分析 どういった理由で今回の推論結果が出たのか分析する。
+ロジスティック回帰では各特徴量の係数(重み)と切片(バイアス)を見ることができる。 今回の特徴量はタイトルに含まれる単語なので、各単語について係数(重み)を見てみる。
+まず1行目のタイトルの各単語の結果は以下の通り。
+以下でwordとtf_idfというラベルで出力しているものが、それぞれ単語名及びtf-idfという手法によって得られた、各単語の重要度になる。
+ただ、このデータに関してはすべての単語について、学習元データに含まれていなかったため、this word does not existと表示されている。
+つまり、上記推論結果で0.45と出ているが、これは切片(バイアス)成分によるものである。
+title_index: 0 word: Ice tf_idf: this word dose not exist word: breaker tf_idf: this word dose not exist word: / tf_idf: this word dose not exist word: ChroNoiR tf_idf: this word dose not exist 次に２行目のタイトルの各単語の結果は以下の通り。</description></item><item><title>LogisticRegression().fit()のConvergenceWarningを解消する</title><link>https://kouya17.github.io/tech-blog/posts/27/</link><pubDate>Sat, 16 May 2020 14:45:12 +0900</pubDate><guid>https://kouya17.github.io/tech-blog/posts/27/</guid><description>環境 Anacondaの環境情報
+&amp;gt;conda info conda version : 4.8.2 conda-build version : 3.18.11 python version : 3.7.6.final.0 platform : win-64 現象 pythonでLogisticRegression.fit()を実行したところ、以下のワーニングが出た。
+ConvergenceWarning: lbfgs failed to converge (status=1): STOP: TOTAL NO. of ITERATIONS REACHED LIMIT. 実行時のjupyter notebookは以下のような感じ。
+一応正解率は出せているらしい。
+解決策の1つ モデルが収束していないそうなので、max_iterを明示的に設定して、反復回数を増やす。
+max_iterの初期値は100だが、上の例では1000に設定している。
+今回はこれで警告が出なくなったので、よしとする。
+参考 見て試してわかる機械学習アルゴリズムの仕組み 機械学習図鑑posted with ヨメレバ秋庭 伸也/杉山 阿聖 翔泳社 2019年04月17日 楽天ブックスで購入楽天koboで購入Amazonで購入Kindleで購入</description></item></channel></rss>

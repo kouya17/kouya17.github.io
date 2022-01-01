@@ -1,0 +1,170 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>esp32 | kouya17.com</title>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=author content>
+<link rel=canonical href=https://kouya17.github.io/tech-blog/tags/esp32/>
+<link crossorigin=anonymous href=https://kouya17.github.io/tech-blog/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style>
+<link rel=icon href=https://kouya17.github.io/tech-blog/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://kouya17.github.io/tech-blog/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://kouya17.github.io/tech-blog/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://kouya17.github.io/tech-blog/apple-touch-icon.png>
+<link rel=mask-icon href=https://kouya17.github.io/tech-blog/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.91.2">
+<link rel=alternate type=application/rss+xml href=https://kouya17.github.io/tech-blog/tags/esp32/index.xml>
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-92576104-3','auto'),ga('send','pageview'))</script><meta property="og:title" content="esp32">
+<meta property="og:description" content>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kouya17.github.io/tech-blog/tags/esp32/"><meta property="og:site_name" content="kouya17.com">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="esp32">
+<meta name=twitter:description content>
+</head>
+<body class=list id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://kouya17.github.io/tech-blog accesskey=h title="kouya17.com (Alt + H)">kouya17.com</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://kouya17.github.io/tech-blog/archives/ title=Archives>
+<span>Archives</span>
+</a>
+</li>
+<li>
+<a href=https://kouya17.github.io/tech-blog/search/ title="Search (Alt + /)" accesskey=/>
+<span>Search</span>
+</a>
+</li>
+<li>
+<a href=https://kouya17.github.io/tags/ title=Tags>
+<span>Tags</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<header class=page-header><div class=breadcrumbs><a href=https://kouya17.github.io/tech-blog>Home</a>&nbsp;»&nbsp;<a href=https://kouya17.github.io/tech-blog/tags/>Tags</a></div>
+<h1>esp32</h1>
+</header>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>UIFlowの環境でHuskyLensを使えるようにする
+</h2>
+</header>
+<section class=entry-content>
+<p>UIFlowとは M5Stack系列がサポートしている開発環境の1つ。主な特徴は以下の通り。
+Web上でコーディングから書き込みまでできる。 ビジュアルプログラミング言語Blockly及びMicroPythonをサポートしている。 HuskyLensとは AI処理向けのSoC Kendryte K210 を搭載したAIカメラモジュール。顔認識、オブジェクト追跡、オブジェクト認識、ライン追跡、色認識、タグ（AprilTag）認識などの機能が実装されている。接続インタフェースはUART及びI2C。
+MicroPython環境でHuskyLensを使う Pythonで実装されたHuskyLensとの通信用ライブラリは、RaspberryPiでの利用向けに公開されている。
+MicroPython上でHuskyLensを使う場合、基本的にはここから必要な処理をコピペして使えば良さそうなのだが、一部 MicroPython(on ESP32) でサポートされていないモジュールを利用している箇所があるため、その部分を書き換える必要がある。ただし、今回はUARTでの通信を前提とする。
+環境 UIFlowファームウェア : ver1.4.5.1 HuskyLens用Pythonライブラリ : 2020/06/28時点の最新 書き換えが必要な箇所 UART通信用オブジェクト生成部分 書き換え前
+self.huskylensSer = serial.Serial(port=comPort, baudrate=speed) 書き換え後例
+self.serial = machine.UART(1, tx=32, rx=33) self.serial.init(9600, bits=8, parity=None, stop=1) MicroPythonではmachineモジュールがもつクラスUARTを使ってUART通信バスにアクセスできる。ピン番号やボーレートは自分の環境に合わせて設定する。
+参考 : クラス UART -- 二重シリアル通信バス — MicroPython 1.12 ドキュメント
+16進数文字列からバイナリデータへの変換部分 書き換え前
+def cmdToBytes(self, cmd): return bytes.fromhex(cmd) 書き換え後例
+import ubinascii def cmdToBytes(self, cmd): return ubinascii....</p>
+</section>
+<footer class=entry-footer><span title="2020-06-28 20:47:32 +0900 +0900">June 28, 2020</span>&nbsp;·&nbsp;1 min</footer>
+<a class=entry-link aria-label="post link to UIFlowの環境でHuskyLensを使えるようにする" href=https://kouya17.github.io/tech-blog/posts/34/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Ambientを使って、PowerCに接続されているバッテリーの情報を記録する
+</h2>
+</header>
+<section class=entry-content>
+<p>Ambientとは 本当にすばらしいサービス。
+Ambient – IoTデーター可視化サービス
+データをテキストでダウンロードできるということで、今回使用させていただくことを決めた。
+データーのダウンロード機能をリリースしました – Ambient
+PowerCとは M5StickCと接続できるバッテリー充電モジュール。
+16340バッテリー(3.7V/700mAh)を2個搭載できる。
+USB Type-A端子から、外部へ電源供給(5V/1.5A)ができる。
+Ambientを使ってバッテリーの電圧を記録する 今回はAmbientの使い方の勉強を兼ねて、PowerCを使ってバッテリーの情報を記録する。
+PowerCは電源管理IC IP5209 が付いており、I2C通信によってバッテリーの情報を確認できる。
+IP5209から取得できる情報 PowerCのサンプルスケッチをみると、電圧値と電流(電気量)を取得できるらしい。
+スイッチサイエンスの紹介ページには
+M5StickCと接続すると、I2C（アドレス0x75）を通じて、電圧、電流、その他の情報を確認できます。
+とあり、その他も取得できるとあるので、他にどんな情報を取得できるかIP5209の以下のデータシートを読んでみた。
+IP5209-Injoinic.pdf
+このデータシートには
+The built-in 14bit ADC in IP5209 measures battery voltage and current accurately. ADC data are available on I2C interface. IP5209 has integrated a fuel gauge algorithm, acquiring battery’s state of charge precisely.
+とあり、バッテリーの電圧と電流が測定できるとしか書かれていない。
+私が見つけたこのデータシートにはレジスタの情報が(私が読んだ範囲では)見つからなかった。
+もうちょっと探せば他の形式のデータシートがあるかもしれない。
+少し調べてみると、M5Stackで使われている電源IC IP5306 はカスタム品で、出回っているデータシートにはレジスタの情報がないらしい。
+以下のようなTweetを見つけたので引用させていただく。...</p>
+</section>
+<footer class=entry-footer><span title="2020-06-06 22:57:28 +0900 +0900">June 6, 2020</span>&nbsp;·&nbsp;1 min</footer>
+<a class=entry-link aria-label="post link to Ambientを使って、PowerCに接続されているバッテリーの情報を記録する" href=https://kouya17.github.io/tech-blog/posts/32/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>マトリクスLEDドライバを使ってフルカラーLEDを制御してみる
+</h2>
+</header>
+<section class=entry-content>
+<p>今回の経緯 フルカラーLEDを最大5個制御したい！ 最初NeoPixel(マイコン内蔵LED)を使う予定だったが、いろいろ試した結果、今回の条件では使えなさそうという結論になった。 マイコン内蔵ではない、通常のフルカラーLEDを使うことにする。 ただ、使用できるピン数は限られているため、マイコンボードからはI2CやSPI等で制御する形にしたい。 フルカラーLEDドライバを探す。 スイッチサイエンスで探したらよさそうなのがあったけど値が張る。 秋月でさがしたらこんなのがあった。 安い。もともとはドットマトリクス制御用らしいが、フルカラーLED制御にも転用できそう。 準備物 部品名 購入先 ESPr Developer 32 スイッチサイエンス 16×8LEDマトリクスドライバーモジュール(HT16K33) 秋月電子通商 RGBフルカラーLED 秋月電子通商 結果 とりあえず2個のフルカラーLEDを制御できた。 ただし、r, g, bはそれぞれ0(OFF)か1(ON)でしか調整することは出来ない。 プログラムとハマりポイント プログラム GitHub ハマりポイント I2Cアドレスでハマった。 秋月の解説ページでは初期状態なら0xE0(write)と書いてあったので、Arduinoのスケッチでアドレスを0xE0に指定したがなにも反応しなかった。 調べてみるとこの方法は誤りで、Arduinoの場合は最下位ビットを除いた7ビット分をアドレス値に設定する必要があるらしい。 スレーブアドレスを0x70と設定したらうまくいった。 参考：https://tool-lab.com/make/pic-practice-37/ 雑記 いま探したらaitendoでもっと安い、100円のフルカラーLEDドライバ(単体)があった。 ただこっちはチップ単体の値段だし、データシートが中文で読むのが大変そう…。 IoT開発スタートブック　── ESP32でクラウドにつなげる電子工作をはじめよう！ 技術評論社 Amazon Kindle 楽天 楽天Kobo </p>
+</section>
+<footer class=entry-footer><span title="2019-12-08 21:37:24 +0900 +0900">December 8, 2019</span>&nbsp;·&nbsp;1 min</footer>
+<a class=entry-link aria-label="post link to マトリクスLEDドライバを使ってフルカラーLEDを制御してみる" href=https://kouya17.github.io/tech-blog/posts/15/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>NeoPixelをESP32開発ボードで点灯させるのに丸1日かかった話
+</h2>
+</header>
+<section class=entry-content>
+<p>概要 当初ESPr Developer 32でNeoPixelを1個制御したかった 点灯自体はするのだが、色が正しく反映されない(赤を指定してるつもりでも、緑や青色になる) 上記問題を解消するのに丸1日かかった 結論 NeoPixelの動作電圧5Vに対し、IOの電圧を3.3Vにしてしまっていた 丸1日、試したこと 最初に、今回使用したNeoPixelの動作電圧がデータシート上4.5V~6Vということで、NeoPixelのVCCは5V、DINはESPr Developer 32のIO27ピンに接続した。 ライブラリAdafruit_NeoPixelを使って動作確認用プログラムを作成。 なんか色がおかしい！clear()も正常に働いていない。 “esp32 NeoPixel"でググる。 なんか他の人は大体正常に動作してるっぽい。 ネットの記事が比較的古い情報だったので、ライブラリのバージョンを疑う。 ライブラリAdafruit_NeoPixelのバージョンをネットの記事に合わせて下げる(ver1.3.0→ver1.2.3)。 動作不良変わりなし。 Arduino core for the ESP32のバージョンを下げる(ver1.0.4→ver1.0.0)。 動作不良変わりなし。 ライブラリAdafruit_NeoPixelがESP32ボードだとうまく使えないという記事を見かけ、NeoPixelライブラリ自体を疑う。 代替ライブラリとしてFastLEDのサンプルを動かす。 これも色がおかしい！ 代替ライブラリとしてNeoPixelBusのサンプルを動かす。 相変わらず色がおかしい。 Arduino Pro Mini互換機でAdafruit_NeoPixelのサンプルを動かす。 ちゃんと想定通りの色が出る。 ネットで再度ググるが"ESP32でもNeoPixelは使える"という情報ばかり。 動作確認に使っていたESPr Developer 32ボードを疑う。 違うESPr Developer 32ボードで動作確認する。 動作不良変わりなし。 同じESP32開発ボードであるESP32 DevKitCを使って動作確認する。 動作不良変わりなし。 電源だけArduino ProMini互換機からとってみたりする。 動作不良変わりなし。 ライブラリAdafruit_NeoPixelの実装を見てみる。 ESP32関係ボードの場合は、マクロF_CPUの値からCPU動作周波数を確認し、インラインアセンブラで信号のHIGH/LOWのタイミングを制御しているらしい。 一応マクロF_CPUの値をシリアル出力させて確認してみる。 F_CPU=240000000(240MHz)で想定通り。 本当に240MHzで動いてるのかを確認しようかとも思ったが、確認方法もパッとわからないので後回しにする。 ビルドオプションでCPU動作周波数を変えてみる。 動作不良変わりなし。 Adafruit_NeoPixelのProjectページ(GitHub)のissueを確認して類似の問題がないか確認する。 https://github.com/adafruit/Adafruit_NeoPixel/issues/139を見つける。 細かいことはよくわからないがNeoPixelBusを使えば正常に動いたという報告があるみたい。 といっても前述の通りNeoPixelBusのサンプルをそのまま動かしただけでは正常に動作しなかったため、NeoPixelBusのProjectページ(GitHub)のwikiを見る。 https://github.com/Makuna/NeoPixelBus/wiki/FAQ-%232を見つける。 自分の無知さに絶望する。 対策 とりあえず以下のいずれかの方法で正常な色が出力されることを確認。...</p>
+</section>
+<footer class=entry-footer><span title="2019-11-02 21:21:29 +0900 +0900">November 2, 2019</span>&nbsp;·&nbsp;1 min</footer>
+<a class=entry-link aria-label="post link to NeoPixelをESP32開発ボードで点灯させるのに丸1日かかった話" href=https://kouya17.github.io/tech-blog/posts/13/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>LEDの色で天気通知する(ESP32)
+</h2>
+</header>
+<section class=entry-content>
+<p>ソースコード https://github.com/kouya17/esp32_weather_light
+説明 ESP32を使って、LEDの色で天気通知をしてくれるプログラムを作りました。
+単3電池2本駆動で8時間程度しか持たないのが課題ですね…。
+IoT開発スタートブック　── ESP32でクラウドにつなげる電子工作をはじめよう！ 技術評論社 Amazon Kindle 楽天 楽天Kobo </p>
+</section>
+<footer class=entry-footer><span title="2019-01-01 23:07:37 +0900 +0900">January 1, 2019</span>&nbsp;·&nbsp;1 min</footer>
+<a class=entry-link aria-label="post link to LEDの色で天気通知する(ESP32)" href=https://kouya17.github.io/tech-blog/posts/1/></a>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2022 <a href=https://kouya17.github.io/tech-blog>kouya17.com</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>

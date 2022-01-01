@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://kouya17.github.io/tech-blog/sitemap.xml

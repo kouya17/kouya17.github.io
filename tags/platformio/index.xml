@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>PlatformIO on kouya17.com</title><link>https://kouya17.github.io/tech-blog/tags/platformio/</link><description>Recent content in PlatformIO on kouya17.com</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 21 Nov 2020 17:30:42 +0900</lastBuildDate><atom:link href="https://kouya17.github.io/tech-blog/tags/platformio/index.xml" rel="self" type="application/rss+xml"/><item><title>Windows10でPlatformIOが起動しない問題の解消</title><link>https://kouya17.github.io/tech-blog/posts/36/</link><pubDate>Sat, 21 Nov 2020 17:30:42 +0900</pubDate><guid>https://kouya17.github.io/tech-blog/posts/36/</guid><description>環境 OS: Windows10 Home 1903 VSCode: version 1.51.1 PlatformIO IDE: version 2.2.1 PlatformIOとは PlafrotmIOとは、組み込みソフト開発向けの、様々なプラットフォーム・アーキテクチャ・フレームワークに対応した開発用ツール。
+公式のドキュメントによると、このツールは以下の課題を解消することを目的としている。
+特定のMCU/ボード用の開発ソフトウェアをセットアップするためのプロセスが複雑であること。そして、そのソフトウェアがサポートされているOSを搭載しているPCを入手する必要があること。 それぞれのハードウェアプラットフォームはそれぞれ異なるツールチェーン、IDE等を必要とし、開発環境の学習に時間がかかること。 一般的なセンサやアクチュエータの使用方法を示す適切なライブラリやコードサンプルを探す必要があること。 チームメンバと、それぞれが使用しているOSに依らずにプロジェクトを共有する必要があること。 上記の課題はPlatformIOを用いれば、次の手段によって解決される。
+platform.iniに対象のボードを設定する。 ボードのリストに基づいて、PlatformIOは必要なツールチェーンをダウンロード・インストールする。 ユーザはコードを開発し、PlatformIOはコードがコンパイルされ、対象のボードに書き込めるように手配する。 要するに、組み込みソフト開発向けの、開発環境整備用ツールらしい。 様々なIDE向けのプラグインを提供しているが、公式が推奨しているIDEはVSCodeとCLion。
+今回はM5Stack用のプログラムを作成しようと思って、開発環境周りを少し調べたら、 PlatformIOが良い という記事を見かけたので試してみた。ただし、この記事ではPlafromIOの使い方については特に触れない。
+PlatformIOのHome画面がloading状態のままスタックする VSCodeに、以下のPlatformIOプラグインを入れた。
+PlatformIOには以下のようなHome画面がある。
+インストール直後は、この画面が以下のように loading&amp;hellip; という表示のまま数分経っても変わらなかった。以前他のPCにインストールした時はこのようなことはなかったので、何かよろしくない環境にハマったのだろうと思った。
+プラグインをインストールし直しても状況は変わらず 以下の公式コミュニティへの問い合わせを参考に、pip uninstall platformio後に~/.platformio/を削除し、プラグインを再インストールしたが、状況は変わらなかった。
+久しぶりに起動したPCで、色々アップデートが走っていたので、諸々のバージョンの整合性等が合ってないのかなと思っていたが、そうではないようだった。
+IEを無効化したら解消した 以下の問い合わせを参考に、IEを無効化したら解消した。
+IEの無効化は以下のwindowsの機能の有効化または無効化の画面から設定できる。
+PlatformIOのHome画面は、IEだと表示できないらしい。なぜ表示ブラウザとしてIEが選択されたのか等はわからないが、とりあえず問題が解消されたので良しとする。
+なお、一度表示されるようになってからは、IEの無効化を解除しても、表示されるようになった。
+アフィリエイト
+みんなのM5Stack入門 リックテレコム (2019/11/8) Amazon Kindle 楽天ブックス 楽天Kobo</description></item></channel></rss>

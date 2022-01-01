@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ambient on kouya17.com</title><link>https://kouya17.github.io/tech-blog/tags/ambient/</link><description>Recent content in Ambient on kouya17.com</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 06 Jun 2020 22:57:28 +0900</lastBuildDate><atom:link href="https://kouya17.github.io/tech-blog/tags/ambient/index.xml" rel="self" type="application/rss+xml"/><item><title>Ambientを使って、PowerCに接続されているバッテリーの情報を記録する</title><link>https://kouya17.github.io/tech-blog/posts/32/</link><pubDate>Sat, 06 Jun 2020 22:57:28 +0900</pubDate><guid>https://kouya17.github.io/tech-blog/posts/32/</guid><description>Ambientとは 本当にすばらしいサービス。
+Ambient – IoTデーター可視化サービス
+データをテキストでダウンロードできるということで、今回使用させていただくことを決めた。
+データーのダウンロード機能をリリースしました – Ambient
+PowerCとは M5StickCと接続できるバッテリー充電モジュール。
+16340バッテリー(3.7V/700mAh)を2個搭載できる。
+USB Type-A端子から、外部へ電源供給(5V/1.5A)ができる。
+Ambientを使ってバッテリーの電圧を記録する 今回はAmbientの使い方の勉強を兼ねて、PowerCを使ってバッテリーの情報を記録する。
+PowerCは電源管理IC IP5209 が付いており、I2C通信によってバッテリーの情報を確認できる。
+IP5209から取得できる情報 PowerCのサンプルスケッチをみると、電圧値と電流(電気量)を取得できるらしい。
+スイッチサイエンスの紹介ページには
+M5StickCと接続すると、I2C（アドレス0x75）を通じて、電圧、電流、その他の情報を確認できます。
+とあり、その他も取得できるとあるので、他にどんな情報を取得できるかIP5209の以下のデータシートを読んでみた。
+IP5209-Injoinic.pdf
+このデータシートには
+The built-in 14bit ADC in IP5209 measures battery voltage and current accurately. ADC data are available on I2C interface. IP5209 has integrated a fuel gauge algorithm, acquiring battery’s state of charge precisely.
+とあり、バッテリーの電圧と電流が測定できるとしか書かれていない。
+私が見つけたこのデータシートにはレジスタの情報が(私が読んだ範囲では)見つからなかった。
+もうちょっと探せば他の形式のデータシートがあるかもしれない。
+少し調べてみると、M5Stackで使われている電源IC IP5306 はカスタム品で、出回っているデータシートにはレジスタの情報がないらしい。
+以下のようなTweetを見つけたので引用させていただく。</description></item></channel></rss>

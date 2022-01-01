@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Blockchain on kouya17.com</title><link>https://kouya17.github.io/tech-blog/tags/blockchain/</link><description>Recent content in Blockchain on kouya17.com</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 04 May 2021 16:24:57 +0900</lastBuildDate><atom:link href="https://kouya17.github.io/tech-blog/tags/blockchain/index.xml" rel="self" type="application/rss+xml"/><item><title>Dartでブロックチェーン(のようなもの)を実装してみた</title><link>https://kouya17.github.io/tech-blog/posts/42/</link><pubDate>Tue, 04 May 2021 16:24:57 +0900</pubDate><guid>https://kouya17.github.io/tech-blog/posts/42/</guid><description>以下の記事を参考にさせていただき、Dartを使ってブロックチェーン(のようなもの)を実装してみた。
+動作の様子 お試しノードをHeroku上で動かしている。https://dart-blockchain-test-app.herokuapp.com/publicにアクセスすることで、 お試しノードの情報を色々見る事ができる。
+ブロックチェーンは特にファイル等で永続的に残しているわけではない。Herokuはしばらくアクセスがないとアプリが停止するため、そのタイミングで情報がリセットされる。
+ソースコードとローカルでのノードの立て方 ソースコードは以下に置いてある。設計部分は参考元サイトとほぼほぼ同じになっている。
+ローカルPCでノードを立てる場合は、Dartの実行環境を整えた状態で、ソースコードをダウンロードし、以下のコマンドを実行すれば良い。
+dart pub get dart pub global activate webdev webdev build --output web:public dart bin/back.dart --port 6565 上記コマンドを実行後、ブラウザでhttp://localhost:6565/publicにアクセスすると、ノードの情報を確認できる。
+bin/back.dartを実行する際、--peerオプションで、P2P通信を行うノードを指定できる。Heroku上のお試しノードを立ち上げた状態で、以下のようにbin/back.dartを実行すれば、Heroku上のノードとの取引を行うこともできる。
+dart bin/back.dart --port 6565 --peer ws://dart-blockchain-test-app.herokuapp.com/ws ローカルPC上のノードとHeroku上のノードはWebSocketでP2P通信を実現しており、簡単な構成図を書くと以下のようになる。
+HerokuでDartアプリを動かす 今回Heroku上でDartアプリを実行できるようにした。Heroku上の設定周りは以下のリポジトリを利用させていただいた。
+なお、上記リポジトリのREADME中にはheroku config:add BUILDPACK_URL=https://github.com/igrigorik/heroku-buildpack-dart.gitというコマンドでビルドパックを適用するよう書いてある。しかし、以下のプルリクエストにある通り、今はheroku buildpacks:set https://github.com/igrigorik/heroku-buildpack-dart.gitというコマンドでビルドパックを登録するのが正しいらしい。
+とりあえず形にはなったが、まだまだ不明点がある 今回、ブロックチェーン(みたいなもの)を実装することで、ブロックチェーンへの理解が深まった。ただ、実装していく過程で、Bitcoinに対する疑問点が新たに出てきた。
+マイナーへの報酬は普通のトランザクションと比べて特殊な形式になると思うが、どのような形式になっているか。 大体のネット上の記事では&amp;quot;悪意のあるブロックチェーンを生成するには、善意のブロックチェーンよりも長いチェーンを生成する必要があるため困難&amp;quot;という説明がされている。difficultyを改竄できれば、計算能力が乏しくても、いくらでも長い悪意のあるブロックチェーンを生成できそうだが、そこら辺はどのように回避しているか。 P2P通信をどのように実現しているか。 アフィリエイト
+絵で見てわかるブロックチェーンの仕組み 翔泳社 (2020/12/21) Amazon Kindle 楽天ブックス 楽天Kobo</description></item><item><title>Bitcoinのブロックチェーンの中身を見てみる</title><link>https://kouya17.github.io/tech-blog/posts/41/</link><pubDate>Thu, 29 Apr 2021 05:05:55 +0900</pubDate><guid>https://kouya17.github.io/tech-blog/posts/41/</guid><description>ただのにわかではあるが、ブロックチェーンは信頼性が重要な技術だと思っている。傍目から見たら、これだけ広く不特定多数に使われていても、これまで特に技術自体について大きく信頼性が揺らぐような事象は起きていないように見える。実用に十分耐えうる技術のようだ。なんとなく興味が出てきたのでゴールデンウィークの期間を使って色々勉強してみる。
+Bitcoin Coreのインストール まずは暗号通貨Bitcoinを題材に、ブロックチェーンの&amp;quot;ブロック&amp;quot;の中身を見てみる。現在までのブロックを全て取得するために、以下を参考にBitcoin Coreをインストールする。
+初回起動時はデータ保存場所を聞かれるが、デフォルトの場所を使うようにする。
+起動後はブロックチェーンデータの同期が始まる。
+完全な同期までは数日かかるらしい。自分の場合は3日ほど放置していたら完了していた。
+ブロックの中身を読んでみる デフォルトだとMacOSは/Users/&amp;lt;username&amp;gt;/Library/Application Support/Bitcoin/blocks/以下にブロックデータが置かれるらしい。データの総サイズを確認してみる。
+$ du -hs /Users/&amp;lt;username&amp;gt;/Library/Application\ Support/Bitcoin/blocks/ 361G /Users/&amp;lt;username&amp;gt;/Library/Application Support/Bitcoin/blocks/ サイズがだいぶでかい。これはこれからもトランザクションが発生するごとに増えていくのだろう。
+中身はバイナリになっている。フォーマットは以下のようになっているらしい。
+フィールド サイズ magic bytes 4 bytes size 4 bytes block header 80 bytes tx count 可変 transaction date 可変 引用元
+上記引用元サイトの情報を参考に、バイナリを読んでみる。(といっても、バイナリを読まなくても、上記引用元サイトに、必要な情報は全て書かれているので、ほぼ上記サイトの内容をかいつまんで日本語訳するような内容になる。)
+$ hexdump -C -n 293 blk00000.dat 00000000 f9 be b4 d9 1d 01 00 00 01 00 00 00 00 00 00 00 |.</description></item></channel></rss>
