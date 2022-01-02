@@ -378,6 +378,10 @@ h6:hover .anchor {
     background: rgb(163, 163, 165);
 }
 
+.gist .blob-code-inner {
+    font-size: 12px !important;
+}
+
 .gist table::-webkit-scrollbar-thumb {
     border: 2px solid rgb(255, 255, 255);
     background: rgb(173, 173, 173);
