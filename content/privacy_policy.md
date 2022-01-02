@@ -9,17 +9,17 @@ kouya17.com（以下、「当サイト」とします。）におけるプライ
 
 ## 広告について
 
-### Google AdSense
+### Googleアドセンス
 
-当サイトでは、Googleが提供している広告配信サービス「Google Adsense」を使用して広告を掲載しています。
+当サイトでは、Googleが提供している広告配信サービス「Google AdSense」を使用して広告を掲載しています。
 
-「Google Adsense」では、ユーザーの興味や関心に基づく広告を配信するために、匿名のデータとしてCookieを使用しています。
+「Google AdSense」では、ユーザーの興味や関心に基づく広告を配信するために、匿名のデータとしてCookieを使用しています。
 
 Cookieを無効にする設定およびGoogleアドセンスに関する詳細は以下のページをご覧ください。
 
 [広告 – ポリシーと規約 – Google](https://policies.google.com/technologies/ads?hl=ja)
 
-### Amasonアソシエイト
+### Amazonアソシエイト
 
 当サイトは「Amazonアソシエイト」などのアフィリエイトプログラムに参加しています。
 
