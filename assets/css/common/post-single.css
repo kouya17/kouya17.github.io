@@ -379,7 +379,7 @@ h6:hover .anchor {
 }
 
 .gist .blob-code-inner {
-    font-size: 12px !important;
+    -webkit-text-size-adjust: 100%;
 }
 
 .gist table::-webkit-scrollbar-thumb {
