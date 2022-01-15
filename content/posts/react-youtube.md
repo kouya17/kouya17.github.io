@@ -10,7 +10,7 @@ cover:
 
 ## 作成したサンプルサイト
 
-<iframe class="hatenablogcard" style="width:100%;height:155px;margin:15px 0;max-width:680px;" title="https://youtube-iframe.kouya17.com" src="http://hatenablog.com/embed?url=https://youtube-iframe.kouya17.com/" frameborder="0" scrolling="no"></iframe>
+<iframe class="hatenablogcard" style="width:100%;height:155px;margin:15px 0;max-width:680px;" title="https://youtube-iframe.kouya17.com" src="https://hatenablog.com/embed?url=https://youtube-iframe.kouya17.com/" frameborder="0" scrolling="no"></iframe>
 
 ページを開くと、特定のYouTube動画が読みこまれる。YouTubeプレーヤーを操作する毎に操作情報が記録される。記録された操作は、YouTubeプレーヤー下にテキストで表示される。操作情報は、「download」ボタンを押すことでファイルとして出力できる。
 
@@ -41,6 +41,8 @@ cover:
 
 ソースコードは以下に公開している。
 
+<iframe class="hatenablogcard" style="width:100%;height:155px;margin:15px 0;max-width:680px;" title="kouya17/youtube-iframe" src="https://hatenablog.com/embed?url=https://github.com/kouya17/youtube-iframe" frameborder="0" scrolling="no"></iframe>
+
 サンプルサイトは`GitHub Pages`を使って稼働させている。`GitHub Pages`へのデプロイは、`GitHub Actions`を利用して、`main`ブランチ更新時に自動で行われるようにしている。ここら辺は、以下のサイトを参考にさせていただいた。
 
-<iframe class="hatenablogcard" style="width:100%;height:155px;margin:15px 0;max-width:680px;" title="Next.js アプリを GitHub Actions でビルドして GitHub Pages で公開する｜まくろぐ" src="http://hatenablog.com/embed?url=https://maku.blog/p/au8ju6g/" frameborder="0" scrolling="no"></iframe>
+<iframe class="hatenablogcard" style="width:100%;height:155px;margin:15px 0;max-width:680px;" title="Next.js アプリを GitHub Actions でビルドして GitHub Pages で公開する｜まくろぐ" src="https://hatenablog.com/embed?url=https://maku.blog/p/au8ju6g/" frameborder="0" scrolling="no"></iframe>
