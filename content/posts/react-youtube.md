@@ -12,7 +12,7 @@ cover:
 
 <iframe class="hatenablogcard" style="width:100%;height:155px;margin:15px 0;max-width:680px;" title="https://youtube-iframe.kouya17.com" src="https://hatenablog.com/embed?url=https://youtube-iframe.kouya17.com/" frameborder="0" scrolling="no"></iframe>
 
-ページを開くと、特定のYouTube動画が読みこまれる。YouTubeプレーヤーを操作する毎に操作情報が記録される。記録された操作は、YouTubeプレーヤー下にテキストで表示される。操作情報は、「download」ボタンを押すことでファイルとして出力できる。
+ページを開くと、特定のYouTube動画が読みこまれる。YouTubeプレーヤーを操作する毎に操作情報(+操作時の再生位置)が記録される。記録された操作は、YouTubeプレーヤー下にテキストで表示される。操作情報は、「download」ボタンを押すことでファイルとして出力できる。
 
 上記サンプルサイトでは、現状以下の操作のみ記録する。
 
