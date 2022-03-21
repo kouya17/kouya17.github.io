@@ -35,7 +35,7 @@ cover:
 - OS
   - Raspberry Pi OS(Legacy) 2022-01-28
 
-現時点(2022/03/21)で推奨OSとなっているRaspberry Pi OSは`bullseye`だが、`buster`(Legacy)の方を使う。これは、`ffmpeg`(今回利用するマルチメディア処理ソフト)まわりの環境が`bullseye`と`buster`で異なっているため。`bullseye`を利用する場合、ハードウェアエンコードを有効にするために、`ffmpeg`をビルドする必要が出てくる。
+現時点(2022/03/21)で推奨OSとなっているRaspberry Pi OSは`bullseye`版だが、`buster`版(Legacy)の方を使う。これは、`ffmpeg`(今回利用するマルチメディア処理ソフト)まわりの環境が`bullseye`版と`buster`版で異なっているため。`bullseye`版を利用する場合、ハードウェアエンコードを有効にするために、`ffmpeg`をビルドする必要が出てくる。
 
 ## 必要な部品
 
