@@ -4,7 +4,7 @@
 動画の出力条件のうち、主な項目は以下の通り。
 再生速度: 30倍速 fps: 30 bps: 3Mbps HLS形式 音声なし 料理の動画を掲載しているのは、特に他にコンスタントに撮影できる対象が考えつかなかったため。これらの動画の撮影のために、3Dプリンターでプリントした部品を使ってラズパイとカメラを固定し、台所上部に吊り下げている。
 Raspberry Pi Zeroを使って、思い付きでタイムラプスカメラを作りました。 pic.twitter.com/w1fCBfPVzm
-&amp;mdash; 青木晃也 (@aoki_kouya) March 5, 2022 確認済み動作条件 ボード Raspberry Pi Zero W OS Raspberry Pi OS(Legacy) 2022-01-28 現時点(2022/03/21)で推奨OSとなっているRaspberry Pi OSはbullseyeだが、buster(Legacy)の方を使う。これは、ffmpeg(今回利用するマルチメディア処理ソフト)まわりの環境がbullseyeとbusterで異なっているため。bullseyeを利用する場合、ハードウェアエンコードを有効にするために、ffmpegをビルドする必要が出てくる。
+&amp;mdash; 青木晃也 (@aoki_kouya) March 5, 2022 確認済み動作条件 ボード Raspberry Pi Zero W OS Raspberry Pi OS(Legacy) 2022-01-28 現時点(2022/03/21)で推奨OSとなっているRaspberry Pi OSはbullseye版だが、buster版(Legacy)の方を使う。これは、ffmpeg(今回利用するマルチメディア処理ソフト)まわりの環境がbullseye版とbuster版で異なっているため。bullseye版を利用する場合、ハードウェアエンコードを有効にするために、ffmpegをビルドする必要が出てくる。
 必要な部品 Raspberry Pi Zero W (スイッチサイエンス) microSDカード (Amazon) Raspberry Pi カメラモジュール (スイッチサイエンス) Raspberry Pi Zero用カメラケーブル (スイッチサイエンス) ELECROW 3.</description></item><item><title>ReactでYouTubeのプレーヤーを制御する</title><link>https://kouya17.com/posts/react-youtube/</link><pubDate>Sat, 15 Jan 2022 13:15:00 +0900</pubDate><guid>https://kouya17.com/posts/react-youtube/</guid><description>react-youtubeというReactコンポーネントを利用したサンプルサイトを作成したので、紹介する。
 作成したサンプルサイト ページを開くと、特定のYouTube動画が読みこまれる。YouTubeプレーヤーを操作する毎に操作情報(+操作時の再生位置)が記録される。記録された操作は、YouTubeプレーヤー下にテキストで表示される。操作情報は、「download」ボタンを押すことでファイルとして出力できる。
 上記サンプルサイトでは、現状以下の操作のみ記録する。
