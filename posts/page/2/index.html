@@ -8,7 +8,7 @@
 <meta name=description content="Posts - kouya17.com">
 <meta name=author content>
 <link rel=canonical href=https://kouya17.com/posts/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.73ad85cadca68eda3279da1beb950532d7d564829b6c153876b5481ead3d9a4e.css integrity="sha256-c62Fytymjtoyedob65UFMtfVZIKbbBU4drVIHq09mk4=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.a97cdb2d52ff3547f5b45210b2262edb8517a9ced99357596eea2f6dda9f6aad.css integrity="sha256-qXzbLVL/NUf1tFIQsiYu24UXqc7Zk1dZbuovbdqfaq0=" rel="preload stylesheet" as=style>
 <link rel=icon href=https://kouya17.com/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://kouya17.com/favicon-16x16.png>
 <link rel=icon type=image/png sizes=32x32 href=https://kouya17.com/favicon-32x32.png>
@@ -68,6 +68,32 @@
 <header class=page-header><div class=breadcrumbs><a href=https://kouya17.com>Home</a></div>
 <h1>Posts</h1>
 </header>
+<article class=post-entry>
+<header class=entry-header>
+<h2>Windows10でPlatformIOが起動しない問題の解消
+</h2>
+</header>
+<section class=entry-content>
+<p>環境 OS: Windows10 Home 1903 VSCode: version 1.51.1 PlatformIO IDE: version 2.2.1 PlatformIOとは PlafrotmIOとは、組み込みソフト開発向けの、様々なプラットフォーム・アーキテクチャ・フレームワークに対応した開発用ツール。
+公式のドキュメントによると、このツールは以下の課題を解消することを目的としている。
+特定のMCU/ボード用の開発ソフトウェアをセットアップするためのプロセスが複雑であること。そして、そのソフトウェアがサポートされているOSを搭載しているPCを入手する必要があること。 それぞれのハードウェアプラットフォームはそれぞれ異なるツールチェーン、IDE等を必要とし、開発環境の学習に時間がかかること。 一般的なセンサやアクチュエータの使用方法を示す適切なライブラリやコードサンプルを探す必要があること。 チームメンバと、それぞれが使用しているOSに依らずにプロジェクトを共有する必要があること。 上記の課題はPlatformIOを用いれば、次の手段によって解決される。
+platform.iniに対象のボードを設定する。 ボードのリストに基づいて、PlatformIOは必要なツールチェーンをダウンロード・インストールする。 ユーザはコードを開発し、PlatformIOはコードがコンパイルされ、対象のボードに書き込めるように手配する。 要するに、組み込みソフト開発向けの、開発環境整備用ツールらしい。 様々なIDE向けのプラグインを提供しているが、公式が推奨しているIDEはVSCodeとCLion。
+今回はM5Stack用のプログラムを作成しようと思って、開発環境周りを少し調べたら、 PlatformIOが良い という記事を見かけたので試してみた。ただし、この記事ではPlafromIOの使い方については特に触れない。
+PlatformIOのHome画面がloading状態のままスタックする VSCodeに、以下のPlatformIOプラグインを入れた。
+PlatformIOには以下のようなHome画面がある。
+インストール直後は、この画面が以下のように loading… という表示のまま数分経っても変わらなかった。以前他のPCにインストールした時はこのようなことはなかったので、何かよろしくない環境にハマったのだろうと思った。
+プラグインをインストールし直しても状況は変わらず 以下の公式コミュニティへの問い合わせを参考に、pip uninstall platformio後に~/.platformio/を削除し、プラグインを再インストールしたが、状況は変わらなかった。
+久しぶりに起動したPCで、色々アップデートが走っていたので、諸々のバージョンの整合性等が合ってないのかなと思っていたが、そうではないようだった。
+IEを無効化したら解消した 以下の問い合わせを参考に、IEを無効化したら解消した。
+IEの無効化は以下のwindowsの機能の有効化または無効化の画面から設定できる。
+PlatformIOのHome画面は、IEだと表示できないらしい。なぜ表示ブラウザとしてIEが選択されたのか等はわからないが、とりあえず問題が解消されたので良しとする。
+なお、一度表示されるようになってからは、IEの無効化を解除しても、表示されるようになった。
+アフィリエイト
+みんなのM5Stack入門 リックテレコム (2019/11/8) Amazon Kindle 楽天ブックス 楽天Kobo </p>
+</section>
+<footer class=entry-footer><span title="2020-11-21 17:30:42 +0900 +0900">November 21, 2020</span>&nbsp;·&nbsp;1 min</footer>
+<a class=entry-link aria-label="post link to Windows10でPlatformIOが起動しない問題の解消" href=https://kouya17.com/posts/36/></a>
+</article>
 <article class=post-entry>
 <header class=entry-header>
 <h2>Spresense VSCode IDEトラブルシューティング(適宜更新予定)
@@ -296,38 +322,6 @@ max_iterの初期値は100だが、上の例では1000に設定している。
 </section>
 <footer class=entry-footer><span title="2020-05-06 19:45:05 +0900 +0900">May 6, 2020</span>&nbsp;·&nbsp;1 min</footer>
 <a class=entry-link aria-label="post link to Vue.jsでローディング表示を実装する" href=https://kouya17.com/posts/26/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>都道府県間通勤・通学を考慮したパンデミックシミュレーションもどき
-</h2>
-</header>
-<section class=entry-content>
-<p>先日、SEIRモデルを用いた感染症流行のシミュレーションを行った。
-このプログラムを少し拡張して、都道府県間通勤・通学を考慮したパンデミックシミュレーションもどきを行う。
-※本シミュレーションや上記リンク先のシミュレーションは、実測値等には全く基づいていないため、完全に空想上のシミュレーションになります。
-本シミュレーションの結果が実情を反映していたり、今後の予測を示していたりはしません。
-都道府県間通勤・通学をシミュレーションに組み込む 都道府県間通勤・通学の影響をシミュレーションに組み込むため、総務省統計局「平成27年国勢調査結果」1を参考にする。
-今回は東京都・群馬県・栃木県・茨城県・埼玉県・千葉県・神奈川県間の自宅外就業者数及び通学者数データを扱う。
-モデルへの組み込み方としては、移動用のグループを形成し、移動用のグループは移動先のデータと感染率を共有するという方法を採る。
-なお、今回はシミュレーション内時刻が8:00の時に通勤・通学者が一斉に(移動時間0で)移動し、シミュレーション内時刻が17:00の時に通勤・通学者が一斉に(移動時間0で)帰宅すると仮定する。
-東京都と千葉県間の人口移動を例にして説明する。
-まず、初期状態として以下のような状態になっているとする。
-値はすべて適当だが、東京都に10人感染者(\(I\))がいるとする。
-この後、時間を進行させる。
-シミュレーション内の時刻が8:00になった時、人口移動用のグループを分割する。
-移動用グループの総人数は総務省統計局「平成27年国勢調査結果」1における自宅外就業者数及び通学者数に従う。
-\(S:E:I:R\)比は移動元の都道府県データの比と等しくする。
-ここで、移動用グループは移動先の都道府県のデータと、感染率\(\frac{R_0I}{iN}\)を共有する。
-感染率を共有させた状態で、時間を進行させる。
-なお、感染率を共有する関係で、非感染者から潜伏感染者への遷移に関する項については時間刻みに対して1次精度になってしまう。
-シミュレーション内の時刻が17:00になった時、人口移動用のグループを移動元のデータに合流させる。
-上の図中の値もすべて適当だが、以上のような形で、都道府県間の感染伝播をシミュレートする。
-計算する 人口データについて 人口データは各自治体のページを参考に、以下の値を使う。
-都道府県 人口[人] 備考 東京都 13951635 2020年1月1日時点推計2 茨城県 2866325 2020年1月1日時点推計3 栃木県 1942313 2019年10月1日時点推計4 群馬県 1938053 2019年10月1日時点推計5 埼玉県 7341794 2020年4月1日時点推計6 千葉県 6280344 2020年4月1日時点推計7 神奈川県 9204965 2020年4月1日時点推計8 各都道府県毎の通勤・通学による流入・流出人口は総務省統計局「平成27年国勢調査結果」1より、以下の値(単位は[人])を使う。縦が流出元で横が流出先。...</p>
-</section>
-<footer class=entry-footer><span title="2020-05-05 21:35:17 +0900 +0900">May 5, 2020</span>&nbsp;·&nbsp;1 min</footer>
-<a class=entry-link aria-label="post link to 都道府県間通勤・通学を考慮したパンデミックシミュレーションもどき" href=https://kouya17.com/posts/25/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
