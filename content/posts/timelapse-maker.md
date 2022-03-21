@@ -1,5 +1,5 @@
 ---
-title: "raspberryPi Zero W を使ってタイムラプス生成デバイスを作成する"
+title: "Raspberry Pi Zero W を使ってタイムラプス生成デバイスを作成する"
 date: 2022-03-21T13:03:00+09:00
 tags: ["raspi", "ffmpeg"]
 cover:
