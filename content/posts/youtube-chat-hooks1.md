@@ -1,7 +1,7 @@
 ---
 title: "[C#]YouTubeLiveチャットに特定の文字列が書き込まれたことを検知する"
 date: 2022-06-12T18:44:00+09:00
-tags: ["youtube", "C#", "windows"]
+tags: ["youtube", "windows"]
 cover:
   image: "media/covers/youtube-chat-hooks1/cover.jpg"
 ---
