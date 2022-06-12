@@ -3,7 +3,7 @@ title: "[C#]YouTubeLiveチャットに特定の文字列が書き込まれたこ
 date: 2022-06-12T18:44:00+09:00
 tags: ["youtube", "windows"]
 cover:
-  image: "media/covers/youtube-chat-hooks1/cover.jpg"
+  image: "media/covers/youtube-chat-hooks1/cover.png"
 ---
 
 ## 試作ソフト動作時の様子
