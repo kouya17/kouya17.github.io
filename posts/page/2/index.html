@@ -70,6 +70,32 @@
 </header>
 <article class=post-entry>
 <header class=entry-header>
+<h2>今年(2020年)作ったものを振り返る
+</h2>
+</header>
+<section class=entry-content>
+<p>今年もあっという間だったがもう終わるらしい。この1年で周りの環境は急激に変わった。ただ、自分の趣味のモノづくり周りについては、やってることは特に去年と変わらず、自分の作りたいものを作るという感じだった。
+ついでに過去の振り返りもリンクを貼り付けておく。
+今年(2019年)作ったものを振り返る | kouya17.com
+今年作ったもの 去年11月~2月　ボール収集ロボの作成 色が付いたボールを所定の場所に集めるロボコンのようなものに参加する機会があったので、作成した。
+機体は3Dプリンタで作成し、ラズパイ4とラズパイ用カメラを搭載している。カメラからの画像を処理し、所定の色のボールを認識し、ボールに近づく。ボールにある程度近づいたらボールを確保する。
+機体の写真を以下に載せる。
+機体上部に謎の模様があるのは、より広い範囲が見えるカメラが取り付けられているJetsonNanoから機体を制御するため。JetsonNanoは機体の向きを確認し、ソケット通信によって機体に指令を送る。
+できたもの
+関連記事 カメラ画像から対象物の向きを検出する(OpenCV) | kouya17.com 2月~4月　所属サークルのHP作成 Laravelの勉強がてら、HPを作成した。初めてVue.jsを使ってSPAを作成したこともあり、フロントエンドとバックエンドの分離についての理解を深めることができた。
+画面デザインやリソースの構造についてあまりしっかり検討せずに進めてしまったのが少し心残りではある。特にリソースの構造については、現状、記事を作品カテゴリとコラムカテゴリにカテゴリ分けしているのだが、特にカテゴリ分けの意味がないという問題がある。ここについては何とか出来たんじゃないかなと思っている。
+できたもの 関連記事 Laravel+Vue.jsでLighthouseのスコアを0点から97点にした(バンドルサイズ削減) | kouya17.com Laravel+Vue.jsでSPA(シングルページアプリケーション)を作成した | kouya17.com Vue.jsを使ったSPAにおいてTwitter等でのリンク表示がいい感じになるようにする | kouya17.com 3月~　射的ゲーム作成 今年の大部分はこの作業をしていた。昨年から引き続きこの作業はしているが、まだしっかりとした形にはなっていない。来年にはどこかで公開できるようにしたい。
+できたもの まだ公開できるものはなし。
+関連記事 マトリクスLEDドライバを使ってフルカラーLEDを制御してみる | kouya17.com 赤外線を周期的に(矩形波で)出力するモジュールを作る | kouya17.com 5月　感染シミュレーション用プログラムの作成 学生時代に勉強していた数値計算の復習がてら、感染シミュレーション用のプログラムを作成した。
+SEIRモデルという単語は結構色んなところで見かけるようになったので、ここで少し勉強して、理解を深めておいて良かったと思っている。
+できたもの
+関連記事 感染症数理モデルについて触りの部分だけ学ぶ | kouya17.com 都道府県間通勤・通学を考慮したパンデミックシミュレーションもどき | kouya17.com 全国規模の感染シミュレーションと結果の可視化をしてみる | kouya17.com 10月　換気状況モニタの作成 感染症関連で何か作れないか考え、二酸化炭素濃度モニタを作成した。こういった環境モニタ系はもっと利用シーンが増えると思っていた(店舗が換気状況のアピールに使う等)のだが、今のところあまりそういった(利用シーンが増えた・よく見かけるようになった)実感はない。...</p>
+</section>
+<footer class=entry-footer><span title="2020-12-30 21:43:06 +0900 +0900">December 30, 2020</span>&nbsp;·&nbsp;1 min</footer>
+<a class=entry-link aria-label="post link to 今年(2020年)作ったものを振り返る" href=https://kouya17.com/posts/37/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>Windows10でPlatformIOが起動しない問題の解消
 </h2>
 </header>
@@ -308,20 +334,6 @@ max_iterの初期値は100だが、上の例では1000に設定している。
 </section>
 <footer class=entry-footer><span title="2020-05-16 14:45:12 +0900 +0900">May 16, 2020</span>&nbsp;·&nbsp;1 min</footer>
 <a class=entry-link aria-label="post link to LogisticRegression().fit()のConvergenceWarningを解消する" href=https://kouya17.com/posts/27/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>Vue.jsでローディング表示を実装する
-</h2>
-</header>
-<section class=entry-content>
-<p>ローディング表示モジュールの調査 vue.jsでローディング表示を行う場合、ローディング表示に関係するモジュールについて調査する。 出来れば、
-実装が簡単 よく見かけるような見た目(独自性がない) メンテされている という条件にあてはまるものを採用したい。
-調べた結果を以下の表にまとめた。
-名前 種類 GitHub Star 最終更新(2020/05/06時点) 備考 vue-loading Vueコンポーネント 2018/12/22 紹介している記事が多い vue-spinner Vueコンポーネント 2017/10/07 Vue2.0をサポートしていない Single Element CSS Spinners css 2019/12/09 よく見かける見た目 vue-loading-overlay Vueコンポーネント 2020/04/18 全画面に表示するらしい vue-wait Vueコンポーネント 2019/10/08 だいぶ機能がリッチそう ajaxload.info gif - - よく見かける見た目 調べて出てきた候補は以上。...</p>
-</section>
-<footer class=entry-footer><span title="2020-05-06 19:45:05 +0900 +0900">May 6, 2020</span>&nbsp;·&nbsp;1 min</footer>
-<a class=entry-link aria-label="post link to Vue.jsでローディング表示を実装する" href=https://kouya17.com/posts/26/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

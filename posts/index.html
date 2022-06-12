@@ -70,6 +70,26 @@
 </header>
 <article class=post-entry>
 <header class=entry-header>
+<h2>[C#]YouTubeLiveチャットに特定の文字列が書き込まれたことを検知する
+</h2>
+</header>
+<section class=entry-content>
+<p>試作ソフト動作時の様子 APIキー及び対象配信のURLを入力し、チャットを取得する。取得したチャットに対し、特定文字列が含まれているものを抽出して表示する。
+上記GIF右側にあるソフトのコードは以下に置いている。
+実装内容の詳細 YouTubeLiveチャットの取得 YouTubeLiveチャットはYouTube Data APIを利用して取得する。YouTube Data APIは、YouTubeが公開している、YouTube上の情報を参照及び変更できるAPIである。コードサンプルページを見ると、以下の言語向けのクライアントライブラリがあることを確認できる。
+Go Java JavaScript .NET PHP Python Ruby 今回は.NET用のGoogleAPIクライアントライブラリを使う。
+APIキーの準備 YouTube Data APIを利用するために、APIキーを作成する必要がある。APIキーの作成方法はここでは詳しく記載しない。以下のサイト等を参考にしてほしい。
+プロジェクトへのライブラリーの追加 プロジェクトにGoogle.Apis.YouTube.v3をインストールする。以下手順の説明はVisual Studio 2022の利用を想定している。
+Visual Studio 2022のタブから プロジェクト > NuGetパッケージの管理 を選択する。 Google.Apis.YouTube.v3を検索し、最新バージョンをインストールする。 プログラムの実装 チャットを取得するコードを実装する。チャットを取得するまでの流れは以下のような形にしている。
+配信URLからVideo IDを取得する。 Video IDからData APIを使って対象配信のChat IDを取得する。 Chat IDからLive Streaming APIを使ってチャットのデータを取得する。 配信URLからVideo IDを取得する Video IDは配信URLのクエリパラメータ中のvパラメータに相当する。例えば、配信URLがhttps://www.youtube.com/watch?v=fLM31tHrD5MであればfLM31tHrD5MがVideo IDである。
+Video ID抽出のための処理はSystem.Web.HttpUtility.ParseQueryString()を利用した。以下に実装のサンプルを記載する。なお、下記サンプルはvパラメータがない場合を想定していない。
+var uri = new Uri(stringUrl); // stringUrlには配信URLが入る var query = System....</p>
+</section>
+<footer class=entry-footer><span title="2022-06-12 18:44:00 +0900 +0900">June 12, 2022</span>&nbsp;·&nbsp;2 min</footer>
+<a class=entry-link aria-label="post link to [C#]YouTubeLiveチャットに特定の文字列が書き込まれたことを検知する" href=https://kouya17.com/posts/youtube-chat-hooks1/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>Raspberry Pi Zero W を使ってタイムラプス生成デバイスを作成する
 </h2>
 </header>
@@ -280,32 +300,6 @@ Access to XMLHttpRequest at 'http://&lt;localIP>:50001/' from origin 'http://&lt
 </section>
 <footer class=entry-footer><span title="2021-01-16 15:46:11 +0900 +0900">January 16, 2021</span>&nbsp;·&nbsp;2 min</footer>
 <a class=entry-link aria-label="post link to Chromeからactix-webにHTTPリクエストを実行した際に発生したCORSエラーの解消" href=https://kouya17.com/posts/38/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>今年(2020年)作ったものを振り返る
-</h2>
-</header>
-<section class=entry-content>
-<p>今年もあっという間だったがもう終わるらしい。この1年で周りの環境は急激に変わった。ただ、自分の趣味のモノづくり周りについては、やってることは特に去年と変わらず、自分の作りたいものを作るという感じだった。
-ついでに過去の振り返りもリンクを貼り付けておく。
-今年(2019年)作ったものを振り返る | kouya17.com
-今年作ったもの 去年11月~2月　ボール収集ロボの作成 色が付いたボールを所定の場所に集めるロボコンのようなものに参加する機会があったので、作成した。
-機体は3Dプリンタで作成し、ラズパイ4とラズパイ用カメラを搭載している。カメラからの画像を処理し、所定の色のボールを認識し、ボールに近づく。ボールにある程度近づいたらボールを確保する。
-機体の写真を以下に載せる。
-機体上部に謎の模様があるのは、より広い範囲が見えるカメラが取り付けられているJetsonNanoから機体を制御するため。JetsonNanoは機体の向きを確認し、ソケット通信によって機体に指令を送る。
-できたもの
-関連記事 カメラ画像から対象物の向きを検出する(OpenCV) | kouya17.com 2月~4月　所属サークルのHP作成 Laravelの勉強がてら、HPを作成した。初めてVue.jsを使ってSPAを作成したこともあり、フロントエンドとバックエンドの分離についての理解を深めることができた。
-画面デザインやリソースの構造についてあまりしっかり検討せずに進めてしまったのが少し心残りではある。特にリソースの構造については、現状、記事を作品カテゴリとコラムカテゴリにカテゴリ分けしているのだが、特にカテゴリ分けの意味がないという問題がある。ここについては何とか出来たんじゃないかなと思っている。
-できたもの 関連記事 Laravel+Vue.jsでLighthouseのスコアを0点から97点にした(バンドルサイズ削減) | kouya17.com Laravel+Vue.jsでSPA(シングルページアプリケーション)を作成した | kouya17.com Vue.jsを使ったSPAにおいてTwitter等でのリンク表示がいい感じになるようにする | kouya17.com 3月~　射的ゲーム作成 今年の大部分はこの作業をしていた。昨年から引き続きこの作業はしているが、まだしっかりとした形にはなっていない。来年にはどこかで公開できるようにしたい。
-できたもの まだ公開できるものはなし。
-関連記事 マトリクスLEDドライバを使ってフルカラーLEDを制御してみる | kouya17.com 赤外線を周期的に(矩形波で)出力するモジュールを作る | kouya17.com 5月　感染シミュレーション用プログラムの作成 学生時代に勉強していた数値計算の復習がてら、感染シミュレーション用のプログラムを作成した。
-SEIRモデルという単語は結構色んなところで見かけるようになったので、ここで少し勉強して、理解を深めておいて良かったと思っている。
-できたもの
-関連記事 感染症数理モデルについて触りの部分だけ学ぶ | kouya17.com 都道府県間通勤・通学を考慮したパンデミックシミュレーションもどき | kouya17.com 全国規模の感染シミュレーションと結果の可視化をしてみる | kouya17.com 10月　換気状況モニタの作成 感染症関連で何か作れないか考え、二酸化炭素濃度モニタを作成した。こういった環境モニタ系はもっと利用シーンが増えると思っていた(店舗が換気状況のアピールに使う等)のだが、今のところあまりそういった(利用シーンが増えた・よく見かけるようになった)実感はない。...</p>
-</section>
-<footer class=entry-footer><span title="2020-12-30 21:43:06 +0900 +0900">December 30, 2020</span>&nbsp;·&nbsp;1 min</footer>
-<a class=entry-link aria-label="post link to 今年(2020年)作ったものを振り返る" href=https://kouya17.com/posts/37/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
