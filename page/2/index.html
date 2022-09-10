@@ -67,6 +67,18 @@
 <main class=main>
 <article class=post-entry>
 <header class=entry-header>
+<h2>Chromeからactix-webにHTTPリクエストを実行した際に発生したCORSエラーの解消
+</h2>
+</header>
+<section class=entry-content>
+<p>環境についてざっくり クライアント側 ブラウザ: Google Chrome バージョン 87.0.4280.141 (Official Build) (64ビット) OS: Windows 10 Home 19041.746 HTTPクライアント: axios v0.21.1 サーバ側 OS: Raspbian GNU/Linux 10 (buster) webフレームワーク: actix-web v3.3.2 現象 Access to XMLHttpRequest ... has been blocked by CORS policyというエラーが出力される Raspberry Pi 4 Model B上でバックエンド(actix-web)とフロントエンド(Vue CLI)を稼働させている。WindowsPCからブラウザを使ってフロントエンドにアクセスし、axiosを使ってバックエンド(actix-web)にGETリクエストを実行した。すると、ブラウザのコンソールに以下のようなエラーが出力された。(ローカルIPが記述されていたところは一部編集している。)
+Access to XMLHttpRequest at 'http://&lt;localIP>:50001/' from origin 'http://&lt;localIP>:8080' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource....</p>
+</section>
+<footer class=entry-footer><span title="2021-01-16 15:46:11 +0900 +0900">January 16, 2021</span>&nbsp;·&nbsp;2 min</footer>
+<a class=entry-link aria-label="post link to Chromeからactix-webにHTTPリクエストを実行した際に発生したCORSエラーの解消" href=https://kouya17.com/posts/38/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>今年(2020年)作ったものを振り返る
 </h2>
 </header>
@@ -313,24 +325,6 @@ japanmapという、日本地図を都道府県別に色分けできるライブ
 </section>
 <footer class=entry-footer><span title="2020-05-20 22:37:30 +0900 +0900">May 20, 2020</span>&nbsp;·&nbsp;1 min</footer>
 <a class=entry-link aria-label="post link to 全国規模の感染シミュレーションと結果の可視化をしてみる" href=https://kouya17.com/posts/29/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>LogisticRegression().fit()のConvergenceWarningを解消する
-</h2>
-</header>
-<section class=entry-content>
-<p>環境 Anacondaの環境情報
->conda info conda version : 4.8.2 conda-build version : 3.18.11 python version : 3.7.6.final.0 platform : win-64 現象 pythonでLogisticRegression.fit()を実行したところ、以下のワーニングが出た。
-ConvergenceWarning: lbfgs failed to converge (status=1): STOP: TOTAL NO. of ITERATIONS REACHED LIMIT. 実行時のjupyter notebookは以下のような感じ。
-一応正解率は出せているらしい。
-解決策の1つ モデルが収束していないそうなので、max_iterを明示的に設定して、反復回数を増やす。
-max_iterの初期値は100だが、上の例では1000に設定している。
-今回はこれで警告が出なくなったので、よしとする。
-参考 見て試してわかる機械学習アルゴリズムの仕組み 機械学習図鑑posted with ヨメレバ秋庭 伸也/杉山 阿聖 翔泳社 2019年04月17日 楽天ブックスで購入楽天koboで購入Amazonで購入Kindleで購入 </p>
-</section>
-<footer class=entry-footer><span title="2020-05-16 14:45:12 +0900 +0900">May 16, 2020</span>&nbsp;·&nbsp;1 min</footer>
-<a class=entry-link aria-label="post link to LogisticRegression().fit()のConvergenceWarningを解消する" href=https://kouya17.com/posts/27/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
