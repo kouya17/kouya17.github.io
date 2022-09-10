@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>dialy on kouya17.com</title><link>https://kouya17.com/tags/dialy/</link><description>Recent content in dialy on kouya17.com</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 28 Dec 2019 22:35:40 +0900</lastBuildDate><atom:link href="https://kouya17.com/tags/dialy/index.xml" rel="self" type="application/rss+xml"/><item><title>今年(2019年)作ったものを振り返る</title><link>https://kouya17.com/posts/16/</link><pubDate>Sat, 28 Dec 2019 22:35:40 +0900</pubDate><guid>https://kouya17.com/posts/16/</guid><description>今年もあっという間だったがもう終わるらしい。 この1年で作った物の振り返りをしたいと思う。
+今年作ったもの 1月～2月　ロボサッカー用ロボ作成 2月終わりごろにロボカップジュニア同等のルールのロボコンに出る機会があり、プログラムの一部作成を担当した。
+ロボの構成は大体以下の通り。
+機体はLEGOのマインドストーム 赤外線センサでボールの位置を検出 ラズパイを使って、カメラからの画像を解析しゴール位置を検出 3人でチームを組んでおり、進捗管理ツールとしてtrello、情報共有ツールとしてslack、ソースコード管理ツールとしてGitHubを使った。
+trello、slackあたりはあまり活用できなかったが、GitHubはやはり便利だなと思った。
+できたもの マインドストーム側プログラム(GitHub) ラズパイ側プログラム(GitHub) 3月～7月　イライラ棒作成 私が所属している電子工作サークル「メカトロ同行会エルチカ」の作成物として、イライラ棒ゲームを作成した。基本的にプログラム部分を担当した。上の写真はNT名古屋出展時のもの。
+この作品では以下のように色んな機器の通信を試してみた。
+ArduinoとPCの通信(USBシリアル通信) PCとラズパイの通信(HTTP) PCとESP32の通信(HTTP) ラズパイとwebアプリの通信(HTTP) 色んな機器を連携させる作品を初めて作ってみたが、どれか一つが動かないと全部ダメになる仕組みに一部なってしまった。
+できたもの イライラ棒wikiページ スコア表示用ソフト(GitHub) 結果プリント用ラズパイプログラム(GitHub) スタートモジュール用プログラム(GitHub) ゴールモジュール用プログラム(GitHub) イライラ棒結果ランキングページ 4月　github.ioページ公開 github.ioを使ってwebページを公開した。なお、現在更新はしていない。
+できたもの github.ioページ 8月　KiCad用ツール作成 KiCadを使う機会が多くなってきたので基板発注用の簡単なツール(Windowsアプリ)を作ってみた。
+こちらの記事で少し内容について紹介している。
+できたもの KiCadHelper(GitHub) 8月～　射的ゲーム作成 赤外線を使った射的ゲームを現在も作成中。同じようなものを以前一度作成していて、今回は複数人プレイに対応させる予定。
+できたもの 鋭意諸々作成中 今年を振り返ってみて 今年は電子工作に割ける時間が結構多かった。ただこうして振り返ってみると、かけた時間に比べ、出来上がった物の量がいまいち物足りないな…と思う。</description></item></channel></rss>
