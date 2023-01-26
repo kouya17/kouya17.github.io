@@ -83,6 +83,29 @@
 </article>
 <article class=post-entry>
 <header class=entry-header>
+<h2>PostgreSQL+Echo+cron+Next.jsでWebスクレイピングシステムを構成する
+</h2>
+</header>
+<section class=entry-content>
+<p>今回作ったシステムのデモ 以下が今回作ったシステムの動作時の動画になる。
+上の動画のように、情報を取得したい物件一覧が表示されるURL及びジョブを識別するためのタグを登録する。登録されたジョブはキューに保存される。上の動画では分からないが、ジョブは毎分1件ずつ実行される。
+ジョブが実行され、システムに保存された情報は以下のような一覧画面から確認できる。
+システムの全体構成図 本システムの全体構成は以下のようになっている。
+Webスクレイピングの流れ 本システムにおけるWebスクレイピングの流れは以下のとおりである。
+ジョブを登録する データの取得先URLを登録する。このURLは、不動産情報サイトの検索結果ページを指定する。今は数種類のサイトに対応している。また、タグを指定することでそのジョブに名前のようなものをつけることができる。
+ジョブが実行される 登録されたジョブは1個ずつ順番に実行される。実行が開始されると、ジョブ一覧画面で対象ジョブの「Status」が「running」に変化する。
+ジョブは登録されたURLによって検索表示される不動産情報を1個ずつ、ある程度の時間間隔を空けながら取得する。すべての不動産情報が取得出来たら地価情報サイトから対象物件付近の地価(1平米あたり)を取得する。この情報も「AreaPrice」として物件情報に含める。この地価情報と土地面積及び物件価格から建物の想定価格を計算し、「EstimatedBuildingPrice」として物件情報に含める。なお、地価は頻繁に変わる情報ではないのでデータベースに保存しておき再利用する。
+実行が終了するとジョブ一覧画面で対象ジョブの「Status」が「completed」に変化する。
+物件情報一覧画面から取得した物件情報を確認する 物件一覧ページにおいて、最新ジョブで取得された行は赤枠で表示される。検索欄で「JobId」を範囲指定することもできるので、複数ジョブを実行した場合はそれらのジョブによって取得されたものを絞り込むこともできる。
+なお、すでに登録されている物件URLと同じURLを持つ物件が取得された場合は、価格を比較する。価格が更新されていた場合は物件情報とJobIdを上書きする。
+物件一覧において、行をクリックすると対象物件ページに遷移する。対象物件をクリックした回数も保持しており、1回以上クリックした物件は黄色で塗りつぶされて表示される。そのため、過去自分が詳細をチェックした物件かどうか一目で見分けがつくようになっている。
+ソースコード </p>
+</section>
+<footer class=entry-footer><span title="2023-01-26 20:02:00 +0900 +0900">January 26, 2023</span>&nbsp;·&nbsp;1 min</footer>
+<a class=entry-link aria-label="post link to PostgreSQL+Echo+cron+Next.jsでWebスクレイピングシステムを構成する" href=https://kouya17.com/posts/real_estate_app/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>Maker Faire Tokyo 2022に出展した
 </h2>
 </header>
@@ -298,28 +321,6 @@ M5Stack M5StickC ESP32ミニIoT開発ボードm5stack iotキット フィンガ�
 <footer class=entry-footer><span title="2021-04-03 23:09:39 +0900 +0900">April 3, 2021</span>&nbsp;·&nbsp;1 min</footer>
 <a class=entry-link aria-label="post link to 所定のYouTubeチャンネルの配信予定をLEDで通知する(M5StickC)" href=https://kouya17.com/posts/40/></a>
 </article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>html要素の背景色が変化するアニメーションをCSSで(無理やり)実装する
-</h2>
-</header>
-<section class=entry-content>
-<p>CSSによるアニメーションについて CSSではanimationプロパティを利用することによって、JavaScriptを使うことなく、HTML要素にアニメーションを付与することができる。
-CSSアニメーションの概要は以下の記事を参考にさせていただいた。
-今回作りたいもの 今回、以下のような流れでアニメーションする要素を作りたい。
-要素の左端から背景色がだんだん元々の背景色Aから色B変わっていき、背景全体が色Bになる。この時、色Aと色Bの境界はグラデーションにする。 背景全体が色Bのまましばらく維持する。 要素の左端から背景色がだんだん色Bから色Aに変わっていき、背景全体が色Aにもどる。この時、色Bと色Aの境界はグラデーションにする。 少し調べてみると、グラデーションは&lt;gradient>データ型を利用すれば問題なさそうだった。問題は、グラデーションの境界位置をアニメーションする部分である。以下のように、ただ単に0%と100%のkeyframeを指定しただけでは、思ったようなアニメーションにならなかった。
-See the Pen wrong case by kouya17 (@kouya17) on CodePen. 私の知識ではスマートなやり方が分からなかったので、keyframeを0%から100%まですべて指定する形で(無理やり)実装することにした。 keyframes生成用のpythonスクリプトを作成する pythonで、以下のようなkeyframes生成用のプログラムを作成した。
-このスクリプトによって生成したテキストをkeyframesとしてCSSに貼り付けると、以下のようなアニメーションになる。
-See the Pen linear by kouya17 (@kouya17) on CodePen. とりあえずやりたいことは出来た。しかし、完成したアニメーションを見ると、動きにメリハリがない。アニメーションの進行具合はCSSの`animation`要素の`animation-timing-function`プロパティを設定すればいじることができる。 ただ、今回のパターンだと、うまく設定できないようだ。下の例はanimation-timing-functionプロパティをlinearとease-in-outにそれぞれ設定したものを並べた例である。それぞれのアニメーションの進行具合に違いが生じるはずだが、特に差がない。
-See the Pen linear and ease-in-out by kouya17 (@kouya17) on CodePen. 先ほど作成したpythonスクリプトを修正して、イージングの要素も取り入れることにする。 イージングの要素を実装する イージングの要素を実装するには、3次ベジェ曲線について把握しておく必要がある。ベジェ曲線については以下の記事を参考にさせていただいた。
-pythonでベジェ曲線生成クラスを作成する pythonでベジェ曲線を生成するためのクラスを以下のように作成した。
-上のスクリプトを実行すると p0=[0,0], p1=[0,1], p2=[1,0], p3=[1,1] とした時の3次ベジェ曲線が生成される。グラフにプロットすると以下のような曲線になる。
-keyframes生成用のpythonスクリプトを修正する 先ほど作成したkeyframes生成用のスクリプトにベジェ曲線生成用クラスを組み込む。組み込んだ後のスクリプトは以下のようになる。
-このスクリプトを使って、 p0=[0,0], p1=[0,0....</p>
-</section>
-<footer class=entry-footer><span title="2021-02-07 16:27:14 +0900 +0900">February 7, 2021</span>&nbsp;·&nbsp;1 min</footer>
-<a class=entry-link aria-label="post link to html要素の背景色が変化するアニメーションをCSSで(無理やり)実装する" href=https://kouya17.com/posts/39/></a>
-</article>
 <footer class=page-footer>
 <nav class=pagination>
 <a class=next href=https://kouya17.com/page/2/>Next Page »</a>
@@ -332,7 +333,7 @@ keyframes生成用のpythonスクリプトを修正する 先ほど作成したk
 <span><a href=https://kouya17.com/disclaimer/>免責事項</a></span> |
 <span><a href="https://docs.google.com/forms/d/e/1FAIpQLSc_W9GfxBmAbLEK2id4LWDJDVTv6s4XUH86ww62e7i8e4dTjg/viewform?usp=sf_link">お問い合わせ</a></span>
 </p>
-<span>&copy; 2022 <a href=https://kouya17.com>kouya17.com</a></span>
+<span>&copy; 2023 <a href=https://kouya17.com>kouya17.com</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &

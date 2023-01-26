@@ -70,6 +70,30 @@
 </header>
 <article class=post-entry>
 <header class=entry-header>
+<h2>Djangoでタグクラウドを実装した
+</h2>
+</header>
+<section class=entry-content>
+<p>参考ページ https://programmer-jobs.blogspot.com/2012/12/djangodjango-taggit.html
+django-taggitとdjango-taggit-templatetagsがあればできるらしい。 実装した流れ 1 setting.pyを確認し、taggitが導入されていることを確認(taggitは昔すでに導入済み)
+ただ、taggit-templatetagsは導入されていなかった。
+2 pip install django-taggit-templatetagsでインストール
+3 setting.pyのINSTALLED_APPSにtaggit-templatetagsを追加
+INSTALLED_APPS = ( ... "taggit", "taggit_templatetags", ... ) 4 pip freezeでインストールしたtaggit-templatetagsのバージョンを確認
+$ pip freeze ... django-taggit-templatetags==0.2.5 ... 5 requirements.txtに4.で確認したバージョン情報を追記
+... django-taggit-templatetags==0.2.5 ... 6 デプロイ
+7 動作確認したらエラー発生
+File "...templatetag_sugar/parser.py", line 5, in &lt;module> from django.db.models.loading import cache No module named 'django.db.models.loading' django.db.models.loadingがないらしい。
+google先生に聞くと、django.db.models.loadingはDjango1.9で廃止され、現在はdjango.appを使う必要があるようだ。
+https://stackoverflow.com/questions/36234635/what-is-the-equivalent-of-django-db-models-loading-get-model-in-django-1-9
+8 tamplatetag_sugar/parser.pyを修正
+- from django.db.models.loading import cache + from django.apps import apps ....</p>
+</section>
+<footer class=entry-footer><span title="2019-09-15 15:07:15 +0900 +0900">September 15, 2019</span>&nbsp;·&nbsp;1 min</footer>
+<a class=entry-link aria-label="post link to Djangoでタグクラウドを実装した" href=https://kouya17.com/posts/7/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>VirtualBox6.0で共有フォルダの自動マウント機能が働かない
 </h2>
 </header>
@@ -132,7 +156,7 @@ IoT開発スタートブック　── ESP32でクラウドにつなげる電�
 <span><a href=https://kouya17.com/disclaimer/>免責事項</a></span> |
 <span><a href="https://docs.google.com/forms/d/e/1FAIpQLSc_W9GfxBmAbLEK2id4LWDJDVTv6s4XUH86ww62e7i8e4dTjg/viewform?usp=sf_link">お問い合わせ</a></span>
 </p>
-<span>&copy; 2022 <a href=https://kouya17.com>kouya17.com</a></span>
+<span>&copy; 2023 <a href=https://kouya17.com>kouya17.com</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
