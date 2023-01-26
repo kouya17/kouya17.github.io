@@ -3,7 +3,7 @@ title: "PostgreSQL+Echo+cron+Next.jsでWebスクレイピングシステムを�
 date: 2023-01-26T20:02:00+09:00
 tags: ["web", "golang", "TypeScript"]
 cover:
-  image: "media/covers/real_estate_app/list.png"
+  image: "media/covers/real_estate_app/scsave.png"
 ---
 
 ## 今回作ったシステムのデモ
