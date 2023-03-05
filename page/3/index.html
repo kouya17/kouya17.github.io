@@ -67,6 +67,39 @@
 <main class=main>
 <article class=post-entry>
 <header class=entry-header>
+<h2>ロジスティック回帰を使ってYouTubeタイトルから投稿者を推論する
+</h2>
+</header>
+<section class=entry-content>
+<p>Pythonでロジスティック回帰を使って、VTuberの動画タイトルから投稿者を推論してみる。
+ただ、投稿者を推論するといっても、二値分類なので、投稿者が A か B かを分類するのみ。
+使用するライブラリ 今回は以下のライブラリを使用する。
+scikit-learn : テキストのベクトル化、ロジスティック回帰 MeCab : 日本語形態素解析 データセット 適当に選んだRan Channel / 日ノ隈らん 【あにまーれ】さんとKuzuha Channelさんの動画タイトルをデータセットとして使う。
+動画タイトルはYouTube Data APIを使って取得した。
+1日のAPIリクエスト上限に引っかかって、すべては取得できなかったが、日ノ隈らんさんのタイトルは475個、葛葉さんのタイトルは456個取得できた。
+タイトル取得に使用したプログラムは以下に置いてある。
+また、タイトル中の【】内には大体投稿者名が入っている。
+これを使うと簡単に分類できてしまうと思うので、今回は削除する。
+(まあ、【】内でなくても、投稿者名が入っていることがあるので結局、というところもあるが…)
+プログラムと推論結果 今回推論に使用したプログラムは以下に置いてある。
+テストデータは直近(このプログラムを作成中)に投稿された以下のタイトルを使う。
+Ice breaker / ChroNoiR けんきさんとあびつんさんとランクいってくる！！！ １行目が葛葉さんの動画タイトルで、2行目が日ノ隈らんさんの動画タイトルになっている。
+推論結果 推論結果は以下のようになった。
+[0.45 0.69] なお、1個目が1行目の結果で、2個目が2行目の結果になる。
+また、この結果が 1.0 に近いほど日ノ隈らんさんのタイトル、 0 に近いほど葛葉さんのタイトル"っぽい"と判断できる。
+推論結果の分析 どういった理由で今回の推論結果が出たのか分析する。
+ロジスティック回帰では各特徴量の係数(重み)と切片(バイアス)を見ることができる。 今回の特徴量はタイトルに含まれる単語なので、各単語について係数(重み)を見てみる。
+まず1行目のタイトルの各単語の結果は以下の通り。
+以下でwordとtf_idfというラベルで出力しているものが、それぞれ単語名及びtf-idfという手法によって得られた、各単語の重要度になる。
+ただ、このデータに関してはすべての単語について、学習元データに含まれていなかったため、this word does not existと表示されている。
+つまり、上記推論結果で0.45と出ているが、これは切片(バイアス)成分によるものである。
+title_index: 0 word: Ice tf_idf: this word dose not exist word: breaker tf_idf: this word dose not exist word: / tf_idf: this word dose not exist word: ChroNoiR tf_idf: this word dose not exist 次に２行目のタイトルの各単語の結果は以下の通り。...</p>
+</section>
+<footer class=entry-footer><span title="2020-05-25 21:36:26 +0900 +0900">May 25, 2020</span>&nbsp;·&nbsp;2 min</footer>
+<a class=entry-link aria-label="post link to ロジスティック回帰を使ってYouTubeタイトルから投稿者を推論する" href=https://kouya17.com/posts/30/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>全国規模の感染シミュレーションと結果の可視化をしてみる
 </h2>
 </header>
@@ -353,41 +386,6 @@ SPAのパフォーマンス向上はバンドルサイズの削減こそ正義 �
 </section>
 <footer class=entry-footer><span title="2020-03-15 22:59:47 +0900 +0900">March 15, 2020</span>&nbsp;·&nbsp;1 min</footer>
 <a class=entry-link aria-label="post link to Laravel+Vue.jsでSPA(シングルページアプリケーション)を作成した" href=https://kouya17.com/posts/20/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>Laravel+Vue.jsでLighthouseのスコアを0点から97点にした(バンドルサイズ削減)
-</h2>
-</header>
-<section class=entry-content>
-<p>Laravel+Vue.jsで作成していたwebサイトの応答速度が激遅だったので、対策を実施した。
-環境 Laravel 6.14.0 Vue.js 2.6.11 対策前はページロードに20秒かかっていた 特に何も考えずにwebサイトを作っていたら、トップページのロードに20秒ほどかかっていた。 これではさすがにwebサイトとして成立しない。
-Googleが提供しているwebページ分析ツールLighthouseを使ってパフォーマンスの測定を行ったところ、以下のような結果になった。
-堂々の0点である。提示されている対応策の詳細を見ると、以下のように書かれていた。
-どうやらバンドル後のapp.jsのサイズが約4MBと、超巨大になっているらしい。対応策としてapp.jsのサイズ削減を行った。
-対策1：本番用ビルド設定を適用する バンドルサイズ 3.86MB(app.js) → 1.59MB(app.js)
-解説 そもそもビルド設定が間違っていた…。ビルドコマンドとして
-npm run dev を実行していたが、これは開発用のビルドコマンドらしい。
-本番用のビルドコマンド
-npm run prod を実行したところ、バンドルサイズは3.86MB→1.59MBと、約40%になった。
-Lighthouseの結果 0点→10点に上昇した。
-対策2：gzipで圧縮する バンドルサイズ 1.59MB(app.js) → 395KB(app.js.gz)
-解説 以下のページを参考に、gzipでapp.jsを圧縮した。
-そのままコピペで適用できた。
-Lighthouseの結果 10点→63点に上昇した。
-対策3：ページごとにJSファイルを分割する バンドルサイズ 395KB(app.js.gz) → 243KB(app.js.gz)
-解説 以下のページを参考に、ページごとにJSファイルを分割した。
-こちらも特に詰まることはなく、ほぼコピペで実装できた。
-この対策を実装したことで、ビルド後のJSファイルが以下のように、分割されて生成されるようになった。
-Lighthouseの結果 63点→87点に上昇した。
-対策4：bootstrap-vueの選択的インポート バンドルサイズ 243KB(app.js.gz) → 129KB(app.js.gz)
-解説 対策1～3で、あらかた大きなところは対策できたと思ったので、より細かいところを対応するため、webpack-bundle-analyzerを使ってバンドル結果の分析をした。
-webpack-bundle-analyzerの出力結果は以下のようになった。
-この結果から
-bootstrap-vue ckeditor lodash あたりのサイズが大きいらしいことが分かった。...</p>
-</section>
-<footer class=entry-footer><span title="2020-03-08 17:05:20 +0900 +0900">March 8, 2020</span>&nbsp;·&nbsp;1 min</footer>
-<a class=entry-link aria-label="post link to Laravel+Vue.jsでLighthouseのスコアを0点から97点にした(バンドルサイズ削減)" href=https://kouya17.com/posts/19/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

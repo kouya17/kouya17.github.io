@@ -67,6 +67,24 @@
 <main class=main>
 <article class=post-entry>
 <header class=entry-header>
+<h2>Djangoで記事をカード型で表示するようにした
+</h2>
+</header>
+<section class=entry-content>
+<p>参考サイト Bootstrap公式ドキュメント
+https://getbootstrap.com/docs/4.3/components/card/
+Card decksの部分をほぼそのまま使った。
+css部分は以下のQiitaの記事を参考にさせていただいた。
+https://qiita.com/iwato/items/840b831ad66fec0dd4c1
+コード html &lt;div class="col-sm-4"> &lt;div class="card card-link post-card"> &lt;a href="{% url 'posts:post_detail' post.id %}">&lt;/a> &lt;img class="card-img-top" src="{{ post.middle_image.url }}" alt="thumbnail"> &lt;div class="card-body"> &lt;h5 class="card-title">{{ post.title }}&lt;/h5> &lt;/div> &lt;div class="card-footer"> &lt;small class="text-muted">published at {{ post.published|date:"Y/n/j" }}&lt;/small> &lt;/div> &lt;/div> &lt;/div> 一行に最大3つ記事を表示するためにcol-sm-4を指定している。
+記事のサムネイル、タイトル、公開日を表示するようにしている。
+css /*div要素全体にリンクをつけるために必要な要素*/ .card-link { position: relative; } .card-link a { position: absolute; top: 0; left: 0; height:100%; width: 100%; } .post-card { margin-top: 5px; margin-bottom: 5px; } カード全体にリンクをつけるために....</p>
+</section>
+<footer class=entry-footer><span title="2019-10-03 22:52:14 +0900 +0900">October 3, 2019</span>&nbsp;·&nbsp;1 min</footer>
+<a class=entry-link aria-label="post link to Djangoで記事をカード型で表示するようにした" href=https://kouya17.com/posts/8/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>Djangoでタグクラウドを実装した
 </h2>
 </header>

@@ -70,6 +70,22 @@
 </header>
 <article class=post-entry>
 <header class=entry-header>
+<h2>音声ライブ配信ができるWebアプリを作成した
+</h2>
+</header>
+<section class=entry-content>
+<p>デモ 本Webアプリは以下からアクセスできる。
+動作時の動画は以下の通り。
+機能一覧 WebRTCによる音声のインジェスト 連続稼働は30分まで HLSによる音声の配信 各配信ごとのチャットルームの作成・参加 配信終了1時間後のデータ自動削除 音声データの流れ 本アプリケーションにおける音声データの流れを図示すると以下のようになる。
+付属機能補足 チャット チャットは簡易的にWebSocketを利用して実装している。
+配信ごとのルーム管理のため、配信開始時に別プロセスでチャット用プログラムを都度実行する形になっている(“管理"といえるほどのものではない)。
+データ自動削除 サーバー側で、音声ファイルが格納されているディレクトリの最終更新日時をcronで定期的に監視し、最終更新日時が1時間より前のものを削除している。</p>
+</section>
+<footer class=entry-footer><span title="2023-03-05 15:33:00 +0900 +0900">March 5, 2023</span>&nbsp;·&nbsp;1 min</footer>
+<a class=entry-link aria-label="post link to 音声ライブ配信ができるWebアプリを作成した" href=https://kouya17.com/posts/wedio/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>PostgreSQL+Echo+cron+Next.jsでWebスクレイピングシステムを構成する
 </h2>
 </header>
@@ -281,34 +297,6 @@ $ hexdump -C -n 293 blk00000.dat 00000000 f9 be b4 d9 1d 01 00 00 01 00 00 00 00
 </section>
 <footer class=entry-footer><span title="2021-04-29 05:05:55 +0900 +0900">April 29, 2021</span>&nbsp;·&nbsp;3 min</footer>
 <a class=entry-link aria-label="post link to Bitcoinのブロックチェーンの中身を見てみる" href=https://kouya17.com/posts/41/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>所定のYouTubeチャンネルの配信予定をLEDで通知する(M5StickC)
-</h2>
-</header>
-<section class=entry-content>
-<p>できたもの 動画の出来が色々とアレだが、動作時の様子を以下の動画の後半で確認できる。
-動画だと映りが悪いが、写真だとLEDをつけた時の様子は以下のような感じになる。
-作成目的 M5系列からYouTube Data APIを使った作例を作ってみたくて、作成した。
-使用部品 M5StickC　1個 PCA9685 16チャンネル PWMモジュール　3個 フルカラーLED　12個 筐体設計 STLデータは以下に公開してある。
-M5StickCとPCA9685モジュールが3個入るような箱を設計した。最初はだいぶコンパクトに設計していたのだが、配線が箱に収まらないことが分かり、途中で拡張した。もともとはM5StickCも箱の中に収める想定だったのだが、入らなかったので、横につけることにした。
-フルカラーLEDは配置する場所に自由度を持たせられるように、個別に格納する箱を作成して、それぞれ4本の配線でM5StickC側の箱と接続するようにした。
-配線 今回の配線の概要図を以下に示す。
-PCA9685モジュールとフルカラーLEDの接続部分はテキトーになっているが、LEDについてはRGB順で1個目のLEDは1個目のPCA9685モジュールの0,1,2chに接続、2個目のLEDは1個目のPCA9685モジュールの3,4,5chに接続…という形で接続している。
-ここが一番しんどかった。PCA9685モジュールを3個使っているのでやろうと思えば最大16個のフルカラーLEDを接続できるが、12個配線したところで力尽きた。
-ソフト実装 ソフト全体は以下のリポジトリに置いてある。
-src/main.cppについて以下の部分は各ユーザー毎に書き換える必要がある。
-APIキー アクセスポイントのSSID アクセスポイントのパスワード あと、src/main.cpp中のchannelsをいじれば対象とするYouTubeチャンネルとLEDの色を変更できる。
-M5StickCからYouTube Data APIを利用する部分は、以下のAPIラッパーを利用させていただいた。
-ただし、このままではチャンネル情報しか取得できないため、以下の関数等を追加している。
-std::vector&lt;String> YoutubeApi::getUpcomingBroadcasts(char *channelId) 指定されたChannelIDのチャンネルの配信予定(VideoID)を取得する。 BroadcastDetails YoutubeApi::getBroadcastDetails(char *videoId) 指定されたVideoIDの動画の配信詳細情報を取得する。 配信開始予定時刻は詳細情報からしか取れない。 課題 きちんと検証はしていないが、現状のソースだと、YouTube Data APIのクォータを異常に消費する。本当は1分ごとに情報取得とかをしたかったが、無料枠ではクォータが足りなくなる。
-各LEDに紐づくチャンネルIDと、LEDの色がハードコーディングされているので、外部から設定できるようにしたい。
-アフィリエイト
-M5Stack M5StickC ESP32ミニIoT開発ボードm5stack iotキット フィンガーコンピューターカラー0....</p>
-</section>
-<footer class=entry-footer><span title="2021-04-03 23:09:39 +0900 +0900">April 3, 2021</span>&nbsp;·&nbsp;1 min</footer>
-<a class=entry-link aria-label="post link to 所定のYouTubeチャンネルの配信予定をLEDで通知する(M5StickC)" href=https://kouya17.com/posts/40/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
