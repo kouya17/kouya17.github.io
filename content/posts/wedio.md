@@ -1,5 +1,5 @@
 ---
-title: "音声ライブ配信ができるWebアプリを作成した"
+title: "音声ライブ配信ができるWebアプリWEDIO.JPを作成した"
 date: 2023-03-05T15:33:00+09:00
 tags: ["golang", "ffmpeg"]
 cover:
