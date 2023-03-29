@@ -96,7 +96,7 @@ WebカメラはとりあえずAmazonで安いものを適当に買った。1種�
 顔追従用プログラムのセットアップ周り 上記のソースを動かすには、関係ライブラリをインストールする必要がある。
 PCA9685用ライブラリのインストール サーボ制御モジュールPCA9685をPythonから制御するためのPythonパッケージをインストールする。まず以下のコマンドでpip3をインストールする。
 sudo apt-get install python3-pip 参考元: NVIDIA Jetson Nano 開発者キットに TensorFlow をインストールする - Qiita</description></item><item><title>Dartでブロックチェーン(のようなもの)を実装してみた</title><link>https://kouya17.com/posts/42/</link><pubDate>Tue, 04 May 2021 16:24:57 +0900</pubDate><guid>https://kouya17.com/posts/42/</guid><description>以下の記事を参考にさせていただき、Dartを使ってブロックチェーン(のようなもの)を実装してみた。
-動作の様子 お試しノードをHeroku上で動かしている。https://dart-blockchain-test-app.herokuapp.com/publicにアクセスすることで、 お試しノードの情報を色々見る事ができる。
+動作の様子 以下がデモプログラムの動作時の動画になる。
 ブロックチェーンは特にファイル等で永続的に残しているわけではない。Herokuはしばらくアクセスがないとアプリが停止するため、そのタイミングで情報がリセットされる。
 ソースコードとローカルでのノードの立て方 ソースコードは以下に置いてある。設計部分は参考元サイトとほぼほぼ同じになっている。
 ローカルPCでノードを立てる場合は、Dartの実行環境を整えた状態で、ソースコードをダウンロードし、以下のコマンドを実行すれば良い。
@@ -106,8 +106,7 @@ dart bin/back.dart --port 6565 --peer ws://dart-blockchain-test-app.herokuapp.co
 HerokuでDartアプリを動かす 今回Heroku上でDartアプリを実行できるようにした。Heroku上の設定周りは以下のリポジトリを利用させていただいた。
 なお、上記リポジトリのREADME中にはheroku config:add BUILDPACK_URL=https://github.com/igrigorik/heroku-buildpack-dart.gitというコマンドでビルドパックを適用するよう書いてある。しかし、以下のプルリクエストにある通り、今はheroku buildpacks:set https://github.com/igrigorik/heroku-buildpack-dart.gitというコマンドでビルドパックを登録するのが正しいらしい。
 とりあえず形にはなったが、まだまだ不明点がある 今回、ブロックチェーン(みたいなもの)を実装することで、ブロックチェーンへの理解が深まった。ただ、実装していく過程で、Bitcoinに対する疑問点が新たに出てきた。
-マイナーへの報酬は普通のトランザクションと比べて特殊な形式になると思うが、どのような形式になっているか。 大体のネット上の記事では&amp;quot;悪意のあるブロックチェーンを生成するには、善意のブロックチェーンよりも長いチェーンを生成する必要があるため困難&amp;quot;という説明がされている。difficultyを改竄できれば、計算能力が乏しくても、いくらでも長い悪意のあるブロックチェーンを生成できそうだが、そこら辺はどのように回避しているか。 P2P通信をどのように実現しているか。 アフィリエイト
-絵で見てわかるブロックチェーンの仕組み 翔泳社 (2020/12/21) Amazon Kindle 楽天ブックス 楽天Kobo</description></item><item><title>Bitcoinのブロックチェーンの中身を見てみる</title><link>https://kouya17.com/posts/41/</link><pubDate>Thu, 29 Apr 2021 05:05:55 +0900</pubDate><guid>https://kouya17.com/posts/41/</guid><description>ただのにわかではあるが、ブロックチェーンは信頼性が重要な技術だと思っている。傍目から見たら、これだけ広く不特定多数に使われていても、これまで特に技術自体について大きく信頼性が揺らぐような事象は起きていないように見える。実用に十分耐えうる技術のようだ。なんとなく興味が出てきたのでゴールデンウィークの期間を使って色々勉強してみる。
+マイナーへの報酬は普通のトランザクションと比べて特殊な形式になると思うが、どのような形式になっているか。 大体のネット上の記事では&amp;quot;悪意のあるブロックチェーンを生成するには、善意のブロックチェーンよりも長いチェーンを生成する必要があるため困難&amp;quot;という説明がされている。difficultyを改竄できれば、計算能力が乏しくても、いくらでも長い悪意のあるブロックチェーンを生成できそうだが、そこら辺はどのように回避しているか。 P2P通信をどのように実現しているか。 アフィリエイト 絵で見てわかるブロックチェーンの仕組み 翔泳社 (2020/12/21) Amazon Kindle 楽天ブックス 楽天Kobo --</description></item><item><title>Bitcoinのブロックチェーンの中身を見てみる</title><link>https://kouya17.com/posts/41/</link><pubDate>Thu, 29 Apr 2021 05:05:55 +0900</pubDate><guid>https://kouya17.com/posts/41/</guid><description>ただのにわかではあるが、ブロックチェーンは信頼性が重要な技術だと思っている。傍目から見たら、これだけ広く不特定多数に使われていても、これまで特に技術自体について大きく信頼性が揺らぐような事象は起きていないように見える。実用に十分耐えうる技術のようだ。なんとなく興味が出てきたのでゴールデンウィークの期間を使って色々勉強してみる。
 Bitcoin Coreのインストール まずは暗号通貨Bitcoinを題材に、ブロックチェーンの&amp;quot;ブロック&amp;quot;の中身を見てみる。現在までのブロックを全て取得するために、以下を参考にBitcoin Coreをインストールする。
 初回起動時はデータ保存場所を聞かれるが、デフォルトの場所を使うようにする。
 起動後はブロックチェーンデータの同期が始まる。
@@ -132,9 +131,7 @@ APIキー アクセスポイントのSSID アクセスポイントのパスワ�
 M5StickCからYouTube Data APIを利用する部分は、以下のAPIラッパーを利用させていただいた。
 ただし、このままではチャンネル情報しか取得できないため、以下の関数等を追加している。
 std::vector&amp;lt;String&amp;gt; YoutubeApi::getUpcomingBroadcasts(char *channelId) 指定されたChannelIDのチャンネルの配信予定(VideoID)を取得する。 BroadcastDetails YoutubeApi::getBroadcastDetails(char *videoId) 指定されたVideoIDの動画の配信詳細情報を取得する。 配信開始予定時刻は詳細情報からしか取れない。 課題 きちんと検証はしていないが、現状のソースだと、YouTube Data APIのクォータを異常に消費する。本当は1分ごとに情報取得とかをしたかったが、無料枠ではクォータが足りなくなる。
-各LEDに紐づくチャンネルIDと、LEDの色がハードコーディングされているので、外部から設定できるようにしたい。
-アフィリエイト
-M5Stack M5StickC ESP32ミニIoT開発ボードm5stack iotキット フィンガーコンピューターカラー0.</description></item><item><title>html要素の背景色が変化するアニメーションをCSSで(無理やり)実装する</title><link>https://kouya17.com/posts/39/</link><pubDate>Sun, 07 Feb 2021 16:27:14 +0900</pubDate><guid>https://kouya17.com/posts/39/</guid><description>CSSによるアニメーションについて CSSではanimationプロパティを利用することによって、JavaScriptを使うことなく、HTML要素にアニメーションを付与することができる。
+各LEDに紐づくチャンネルIDと、LEDの色がハードコーディングされているので、外部から設定できるようにしたい。</description></item><item><title>html要素の背景色が変化するアニメーションをCSSで(無理やり)実装する</title><link>https://kouya17.com/posts/39/</link><pubDate>Sun, 07 Feb 2021 16:27:14 +0900</pubDate><guid>https://kouya17.com/posts/39/</guid><description>CSSによるアニメーションについて CSSではanimationプロパティを利用することによって、JavaScriptを使うことなく、HTML要素にアニメーションを付与することができる。
 CSSアニメーションの概要は以下の記事を参考にさせていただいた。
 今回作りたいもの 今回、以下のような流れでアニメーションする要素を作りたい。
 要素の左端から背景色がだんだん元々の背景色Aから色B変わっていき、背景全体が色Bになる。この時、色Aと色Bの境界はグラデーションにする。 背景全体が色Bのまましばらく維持する。 要素の左端から背景色がだんだん色Bから色Aに変わっていき、背景全体が色Aにもどる。この時、色Bと色Aの境界はグラデーションにする。 少し調べてみると、グラデーションは&amp;lt;gradient&amp;gt;データ型を利用すれば問題なさそうだった。問題は、グラデーションの境界位置をアニメーションする部分である。以下のように、ただ単に0%と100%のkeyframeを指定しただけでは、思ったようなアニメーションにならなかった。
@@ -175,8 +172,7 @@ IEを無効化したら解消した 以下の問い合わせを参考に、IEを
 IEの無効化は以下のwindowsの機能の有効化または無効化の画面から設定できる。
 PlatformIOのHome画面は、IEだと表示できないらしい。なぜ表示ブラウザとしてIEが選択されたのか等はわからないが、とりあえず問題が解消されたので良しとする。
 なお、一度表示されるようになってからは、IEの無効化を解除しても、表示されるようになった。
-アフィリエイト
-みんなのM5Stack入門 リックテレコム (2019/11/8) Amazon Kindle 楽天ブックス 楽天Kobo</description></item><item><title>Spresense VSCode IDEトラブルシューティング(適宜更新予定)</title><link>https://kouya17.com/posts/35/</link><pubDate>Sat, 11 Jul 2020 13:23:52 +0900</pubDate><guid>https://kouya17.com/posts/35/</guid><description>ASMPワーカープログラム作成後、プロジェクトのクリーンに失敗する 環境 OS : macOS Mojave v10.14.6 Spesense SDK : v2.0.1 Spresense VSCode IDE : v1.2.0 現象 公式のマルチコアアプリケーション作成ガイドに沿って、プロジェクトをビルドし、ボードに書き込んだ。
+アフィリエイト みんなのM5Stack入門 リックテレコム (2019/11/8) Amazon Kindle 楽天ブックス 楽天Kobo --</description></item><item><title>Spresense VSCode IDEトラブルシューティング(適宜更新予定)</title><link>https://kouya17.com/posts/35/</link><pubDate>Sat, 11 Jul 2020 13:23:52 +0900</pubDate><guid>https://kouya17.com/posts/35/</guid><description>ASMPワーカープログラム作成後、プロジェクトのクリーンに失敗する 環境 OS : macOS Mojave v10.14.6 Spesense SDK : v2.0.1 Spresense VSCode IDE : v1.2.0 現象 公式のマルチコアアプリケーション作成ガイドに沿って、プロジェクトをビルドし、ボードに書き込んだ。
 しかし思った通りにアプリケーションが動かなかったため、プロジェクトのクリーンを一度行ったら以下のようなエラーが出た。
 &amp;gt; Executing task in folder myproject: .vscode/build.sh clean &amp;lt; usage: grep [-abcDEFGHhIiJLlmnOoqRSsUVvwxZ] [-A num] [-B num] [-C[num]] [-e pattern] [-f file] [--binary-files=value] [--color=when] [--context[=num]] [--directories=action] [--label] [--line-buffered] [--null] [pattern] [file ...] Create .version make[3]: Nothing to be done for `clean&amp;#39;. Makefile:12: /Users/username/spresense/spresense/sdk/apps/.vscode/worker.mk: No such file or directory make[6]: *** No rule to make target `/Users/username/spresense/spresense/sdk/apps/.</description></item><item><title>UIFlowの環境でHuskyLensを使えるようにする</title><link>https://kouya17.com/posts/34/</link><pubDate>Sun, 28 Jun 2020 20:47:32 +0900</pubDate><guid>https://kouya17.com/posts/34/</guid><description>UIFlowとは M5Stack系列がサポートしている開発環境の1つ。主な特徴は以下の通り。
 Web上でコーディングから書き込みまでできる。 ビジュアルプログラミング言語Blockly及びMicroPythonをサポートしている。 HuskyLensとは AI処理向けのSoC Kendryte K210 を搭載したAIカメラモジュール。顔認識、オブジェクト追跡、オブジェクト認識、ライン追跡、色認識、タグ（AprilTag）認識などの機能が実装されている。接続インタフェースはUART及びI2C。
@@ -302,7 +298,7 @@ ConvergenceWarning: lbfgs failed to converge (status=1): STOP: TOTAL NO. of ITER
 解決策の1つ モデルが収束していないそうなので、max_iterを明示的に設定して、反復回数を増やす。
 max_iterの初期値は100だが、上の例では1000に設定している。
 今回はこれで警告が出なくなったので、よしとする。
-参考 見て試してわかる機械学習アルゴリズムの仕組み 機械学習図鑑posted with ヨメレバ秋庭 伸也/杉山 阿聖 翔泳社 2019年04月17日 楽天ブックスで購入楽天koboで購入Amazonで購入Kindleで購入</description></item><item><title>Vue.jsでローディング表示を実装する</title><link>https://kouya17.com/posts/26/</link><pubDate>Wed, 06 May 2020 19:45:05 +0900</pubDate><guid>https://kouya17.com/posts/26/</guid><description>ローディング表示モジュールの調査 vue.jsでローディング表示を行う場合、ローディング表示に関係するモジュールについて調査する。 出来れば、
+参考 見て試してわかる機械学習アルゴリズムの仕組み 機械学習図鑑posted with ヨメレバ秋庭 伸也/杉山 阿聖 翔泳社 2019年04月17日 楽天ブックスで購入楽天koboで購入Amazonで購入Kindleで購入 --</description></item><item><title>Vue.jsでローディング表示を実装する</title><link>https://kouya17.com/posts/26/</link><pubDate>Wed, 06 May 2020 19:45:05 +0900</pubDate><guid>https://kouya17.com/posts/26/</guid><description>ローディング表示モジュールの調査 vue.jsでローディング表示を行う場合、ローディング表示に関係するモジュールについて調査する。 出来れば、
 実装が簡単 よく見かけるような見た目(独自性がない) メンテされている という条件にあてはまるものを採用したい。
 調べた結果を以下の表にまとめた。
 名前 種類 GitHub Star 最終更新(2020/05/06時点) 備考 vue-loading Vueコンポーネント 2018/12/22 紹介している記事が多い vue-spinner Vueコンポーネント 2017/10/07 Vue2.0をサポートしていない Single Element CSS Spinners css 2019/12/09 よく見かける見た目 vue-loading-overlay Vueコンポーネント 2020/04/18 全画面に表示するらしい vue-wait Vueコンポーネント 2019/10/08 だいぶ機能がリッチそう ajaxload.info gif - - よく見かける見た目 調べて出てきた候補は以上。</description></item><item><title>都道府県間通勤・通学を考慮したパンデミックシミュレーションもどき</title><link>https://kouya17.com/posts/25/</link><pubDate>Tue, 05 May 2020 21:35:17 +0900</pubDate><guid>https://kouya17.com/posts/25/</guid><description>先日、SEIRモデルを用いた感染症流行のシミュレーションを行った。
@@ -387,7 +383,7 @@ SPAでOGP設定を適切に行う場合はここら辺の対処が必要。
 また、OGP対応用のControllerを新規に作成する必要があり、Controllerが単純に1個増える。
 なお、各サービスのクローラーの情報は以下のサイトを参考にさせていただいた。
 雑記 Twitterでのリンク表示内容確認には以下の公式のサイトが便利。
-これからはじめるVue.js実践入門 山田 祥寛 Amazon Kindle 楽天 楽天Kobo</description></item><item><title>Chart.jsで横軸が日付のグラフを作成する</title><link>https://kouya17.com/posts/21/</link><pubDate>Sun, 05 Apr 2020 00:39:30 +0900</pubDate><guid>https://kouya17.com/posts/21/</guid><description>webサイト上で横軸が日付情報のグラフを作りたかったのでChart.js周りで色々調べた。
+これからはじめるVue.js実践入門 山田 祥寛 Amazon Kindle 楽天 楽天Kobo --</description></item><item><title>Chart.jsで横軸が日付のグラフを作成する</title><link>https://kouya17.com/posts/21/</link><pubDate>Sun, 05 Apr 2020 00:39:30 +0900</pubDate><guid>https://kouya17.com/posts/21/</guid><description>webサイト上で横軸が日付情報のグラフを作りたかったのでChart.js周りで色々調べた。
 横軸が単純な数値じゃない場合は面倒くさくなるかなと思っていたが、Chart.jsが非常に使いやすく、すんなりできた。
 最終的に作ったもの 画像で貼ろうと思ったが、結構サイズが大きいのでリンクで貼り付けておく。
 Chart.jsとは グラフ類を描画するためのJavaScriptライブラリ。
@@ -410,11 +406,7 @@ main.jsを上記のように変更し、index.htmlをブラウザで開くと以
 横軸が日付になっており、横軸の間隔もデータに合わせていい感じになっている。
 まとめ Chart.jsを使って横軸が日付情報のデータをプロットできた。
 色々と描画オプションがあるようなので、それぞれ変更させるとどのようにグラフが変化するか、また今度まとめたい。
-確かな力が身につくJavaScript「超」入門 第2版 狩野 祐東 Amazon Kindle 楽天 楽天Kobo</description></item><item><title>Laravel+Vue.jsでSPA(シングルページアプリケーション)を作成した</title><link>https://kouya17.com/posts/20/</link><pubDate>Sun, 15 Mar 2020 22:59:47 +0900</pubDate><guid>https://kouya17.com/posts/20/</guid><description>今回作成したサイト 今回作成したサイトは以下のサイト。
-ClubPage
-私が所属している電子工作サークルのホームページを作った。
-このブログからcssを流用しているので、見た目がだいぶ似ている。
-構成 Laravel Vue.js バックエンドはLaravel、フロントエンドはVue.jsを使っている。
+確かな力が身につくJavaScript「超」入門 第2版 狩野 祐東 Amazon Kindle 楽天 楽天Kobo --</description></item><item><title>Laravel+Vue.jsでSPA(シングルページアプリケーション)を作成した</title><link>https://kouya17.com/posts/20/</link><pubDate>Sun, 15 Mar 2020 22:59:47 +0900</pubDate><guid>https://kouya17.com/posts/20/</guid><description>作成したサイトの構成 Laravel Vue.js バックエンドはLaravel、フロントエンドはVue.jsを使っている。
 シングルページアプリケーションとは 今回はシングルページアプリケーション(SPA)という構成を採用した。
 シングルページアプリケーションとは
 シングルページアプリケーション（英: single-page application、SPA）とは、単一のWebページのみから構成することで、デスクトップアプリケーションのようなユーザ体験を提供するWebアプリケーションまたはWebサイトである。必要なコード（HTML、JavaScript、CSS）は最初にまとめて読み込むか[1]、ユーザの操作などに応じて動的にサーバと通信し、必要なものだけ読み込みを行う。 Wikipediaより
@@ -450,7 +442,9 @@ SPAのパフォーマンス向上はバンドルサイズの削減こそ正義 �
 最初特に何も考えずにサイトを作っていたら、パフォーマンスが崩壊した。
 今もパフォーマンスが良いとは言えないが、バンドルサイズを削減することで、パフォーマンスが向上した。
 こういったパフォーマンス向上のための施策は必要不可欠だなと感じた。
-まとめ 今回はLaravelとVue.jsを使ってサイトを作った。</description></item><item><title>Laravel+Vue.jsでLighthouseのスコアを0点から97点にした(バンドルサイズ削減)</title><link>https://kouya17.com/posts/19/</link><pubDate>Sun, 08 Mar 2020 17:05:20 +0900</pubDate><guid>https://kouya17.com/posts/19/</guid><description>Laravel+Vue.jsで作成していたwebサイトの応答速度が激遅だったので、対策を実施した。
+まとめ 今回はLaravelとVue.jsを使ってサイトを作った。
+web系をいじっていると時間を無限に吸われる。
+これからはじめるVue.js実践入門 山田 祥寛 Amazon Kindle 楽天 楽天Kobo --</description></item><item><title>Laravel+Vue.jsでLighthouseのスコアを0点から97点にした(バンドルサイズ削減)</title><link>https://kouya17.com/posts/19/</link><pubDate>Sun, 08 Mar 2020 17:05:20 +0900</pubDate><guid>https://kouya17.com/posts/19/</guid><description>Laravel+Vue.jsで作成していたwebサイトの応答速度が激遅だったので、対策を実施した。
 環境 Laravel 6.14.0 Vue.js 2.6.11 対策前はページロードに20秒かかっていた 特に何も考えずにwebサイトを作っていたら、トップページのロードに20秒ほどかかっていた。 これではさすがにwebサイトとして成立しない。
 Googleが提供しているwebページ分析ツールLighthouseを使ってパフォーマンスの測定を行ったところ、以下のような結果になった。
 堂々の0点である。提示されている対応策の詳細を見ると、以下のように書かれていた。
@@ -497,13 +491,7 @@ GPUが稼働していない。GPUを使うようにすれば高速化できる�
 今回は黄色の画用紙の上に、面積の異なる黒色の画用紙を2つ(前方に面積が大きいもの、後方に面積の小さいもの)つけて目印にした。
 単純だが、思っていたより認識出来ていたと思う。しっかりしたベンチマークはとっていないが。
 最初はQRコードの活用を考えていた。OpenCVにはQRコード認識処理が実装されており、向きも検出出来そうだったので。今後複数台ロボットを同時に動かすことを考えても、QRコードだったら文字列情報を付加できるので、各ロボットの識別に使えそうとも思っていた。
-ただ、ある程度QRコードが大きく写っていないと認識できなかった。今回はカメラと認識対象ロボットの距離が遠い時でも認識できるようにしたかったので、QRコード案はやめた。</description></item><item><title>VTuberの簡易ランキングサイトを作った</title><link>https://kouya17.com/posts/17/</link><pubDate>Fri, 17 Jan 2020 23:02:41 +0900</pubDate><guid>https://kouya17.com/posts/17/</guid><description>概要 適当に抽出したVTuberについて、チャンネル登録者数増加数のランキングサイトを作成した。
-1日1回、午前5時30分ごろ更新。
-構成 Golang + Gin + Bootstrap
-雑記 Golangを使ったwebアプリを初めて作成した。Golangは未使用の変数、importがデフォルトでコンパイルエラーになるのが印象的だった。ルールが厳格な印象。
-YouTubeの現在の仕様で、チャンネル登録者数が多いほど、刻み幅が大きくなる。その刻み幅分を超えないと、増加量が0になってしまうので、1日単位だと正確なランキングにならない。
-今回のサイトを作るにあたって、既存サイトを調べてみた。色々凝っているサイトが多数あった。やはりここら辺(YouTube周り)は色んなビジネスが成り立っているんだろうなと思った。
-改訂2版 みんなのGo言語 技術評論社 Amazon Kindle 楽天 楽天Kobo</description></item><item><title>今年(2019年)作ったものを振り返る</title><link>https://kouya17.com/posts/16/</link><pubDate>Sat, 28 Dec 2019 22:35:40 +0900</pubDate><guid>https://kouya17.com/posts/16/</guid><description>今年もあっという間だったがもう終わるらしい。 この1年で作った物の振り返りをしたいと思う。
+ただ、ある程度QRコードが大きく写っていないと認識できなかった。今回はカメラと認識対象ロボットの距離が遠い時でも認識できるようにしたかったので、QRコード案はやめた。</description></item><item><title>今年(2019年)作ったものを振り返る</title><link>https://kouya17.com/posts/16/</link><pubDate>Sat, 28 Dec 2019 22:35:40 +0900</pubDate><guid>https://kouya17.com/posts/16/</guid><description>今年もあっという間だったがもう終わるらしい。 この1年で作った物の振り返りをしたいと思う。
 今年作ったもの 1月～2月　ロボサッカー用ロボ作成 2月終わりごろにロボカップジュニア同等のルールのロボコンに出る機会があり、プログラムの一部作成を担当した。
 ロボの構成は大体以下の通り。
 機体はLEGOのマインドストーム 赤外線センサでボールの位置を検出 ラズパイを使って、カメラからの画像を解析しゴール位置を検出 3人でチームを組んでおり、進捗管理ツールとしてtrello、情報共有ツールとしてslack、ソースコード管理ツールとしてGitHubを使った。
@@ -515,7 +503,7 @@ ArduinoとPCの通信(USBシリアル通信) PCとラズパイの通信(HTTP) PC
 できたもの github.ioページ 8月　KiCad用ツール作成 KiCadを使う機会が多くなってきたので基板発注用の簡単なツール(Windowsアプリ)を作ってみた。
 こちらの記事で少し内容について紹介している。
 できたもの KiCadHelper(GitHub) 8月～　射的ゲーム作成 赤外線を使った射的ゲームを現在も作成中。同じようなものを以前一度作成していて、今回は複数人プレイに対応させる予定。
-できたもの 鋭意諸々作成中 今年を振り返ってみて 今年は電子工作に割ける時間が結構多かった。ただこうして振り返ってみると、かけた時間に比べ、出来上がった物の量がいまいち物足りないな…と思う。</description></item><item><title>マトリクスLEDドライバを使ってフルカラーLEDを制御してみる</title><link>https://kouya17.com/posts/15/</link><pubDate>Sun, 08 Dec 2019 21:37:24 +0900</pubDate><guid>https://kouya17.com/posts/15/</guid><description>今回の経緯 フルカラーLEDを最大5個制御したい！ 最初NeoPixel(マイコン内蔵LED)を使う予定だったが、いろいろ試した結果、今回の条件では使えなさそうという結論になった。 マイコン内蔵ではない、通常のフルカラーLEDを使うことにする。 ただ、使用できるピン数は限られているため、マイコンボードからはI2CやSPI等で制御する形にしたい。 フルカラーLEDドライバを探す。 スイッチサイエンスで探したらよさそうなのがあったけど値が張る。 秋月でさがしたらこんなのがあった。 安い。もともとはドットマトリクス制御用らしいが、フルカラーLED制御にも転用できそう。 準備物 部品名 購入先 ESPr Developer 32 スイッチサイエンス 16×8LEDマトリクスドライバーモジュール(HT16K33) 秋月電子通商 RGBフルカラーLED 秋月電子通商 結果 とりあえず2個のフルカラーLEDを制御できた。 ただし、r, g, bはそれぞれ0(OFF)か1(ON)でしか調整することは出来ない。 プログラムとハマりポイント プログラム GitHub ハマりポイント I2Cアドレスでハマった。 秋月の解説ページでは初期状態なら0xE0(write)と書いてあったので、Arduinoのスケッチでアドレスを0xE0に指定したがなにも反応しなかった。 調べてみるとこの方法は誤りで、Arduinoの場合は最下位ビットを除いた7ビット分をアドレス値に設定する必要があるらしい。 スレーブアドレスを0x70と設定したらうまくいった。 参考：https://tool-lab.com/make/pic-practice-37/ 雑記 いま探したらaitendoでもっと安い、100円のフルカラーLEDドライバ(単体)があった。 ただこっちはチップ単体の値段だし、データシートが中文で読むのが大変そう…。 IoT開発スタートブック　── ESP32でクラウドにつなげる電子工作をはじめよう！ 技術評論社 Amazon Kindle 楽天 楽天Kobo</description></item><item><title>Spresense SDKでカメラモジュール用のサンプルを動かした</title><link>https://kouya17.com/posts/14/</link><pubDate>Sat, 30 Nov 2019 20:43:11 +0900</pubDate><guid>https://kouya17.com/posts/14/</guid><description>概要 ソニーのシングルボードコンピュータSpresense及びSpresense用カメラモジュールを使って、公式で公開されているサンプルプログラムを動かした。 大体READMEの手順に従ったが、ところどころ詰まるところがあったのでメモとして残しておく。 Spresenseの簡単な説明 ソニーが開発したシングルボードコンピュータ。 Arduino IDEで開発可能。 NuttXというリアルタイムOSベースのSpresense SDKでも開発できる(今回はこっち)。 機能の主な特徴は以下。 GPSが標準で内蔵されている。 マルチコア(6コア!)プロセッサ。 メインボード単体だとネットワーク機能が使えないという点が個人的にはネックだと思っている。 Spresenseが出る少し前に流行し始めたEPS32系にすべて持っていかれている印象がある。 サンプル実行手順 今回動かしたサンプル 今回はカメラモジュールの動作確認がしたかったので公式が公開しているexamples/cameraを動かした。
+できたもの 鋭意諸々作成中 今年を振り返ってみて 今年は電子工作に割ける時間が結構多かった。ただこうして振り返ってみると、かけた時間に比べ、出来上がった物の量がいまいち物足りないな…と思う。</description></item><item><title>マトリクスLEDドライバを使ってフルカラーLEDを制御してみる</title><link>https://kouya17.com/posts/15/</link><pubDate>Sun, 08 Dec 2019 21:37:24 +0900</pubDate><guid>https://kouya17.com/posts/15/</guid><description>今回の経緯 フルカラーLEDを最大5個制御したい！ 最初NeoPixel(マイコン内蔵LED)を使う予定だったが、いろいろ試した結果、今回の条件では使えなさそうという結論になった。 マイコン内蔵ではない、通常のフルカラーLEDを使うことにする。 ただ、使用できるピン数は限られているため、マイコンボードからはI2CやSPI等で制御する形にしたい。 フルカラーLEDドライバを探す。 スイッチサイエンスで探したらよさそうなのがあったけど値が張る。 秋月でさがしたらこんなのがあった。 安い。もともとはドットマトリクス制御用らしいが、フルカラーLED制御にも転用できそう。 準備物 部品名 購入先 ESPr Developer 32 スイッチサイエンス 16×8LEDマトリクスドライバーモジュール(HT16K33) 秋月電子通商 RGBフルカラーLED 秋月電子通商 結果 とりあえず2個のフルカラーLEDを制御できた。 ただし、r, g, bはそれぞれ0(OFF)か1(ON)でしか調整することは出来ない。 プログラムとハマりポイント プログラム GitHub ハマりポイント I2Cアドレスでハマった。 秋月の解説ページでは初期状態なら0xE0(write)と書いてあったので、Arduinoのスケッチでアドレスを0xE0に指定したがなにも反応しなかった。 調べてみるとこの方法は誤りで、Arduinoの場合は最下位ビットを除いた7ビット分をアドレス値に設定する必要があるらしい。 スレーブアドレスを0x70と設定したらうまくいった。 参考：https://tool-lab.com/make/pic-practice-37/ 雑記 いま探したらaitendoでもっと安い、100円のフルカラーLEDドライバ(単体)があった。 ただこっちはチップ単体の値段だし、データシートが中文で読むのが大変そう…。 IoT開発スタートブック　── ESP32でクラウドにつなげる電子工作をはじめよう！ 技術評論社 Amazon Kindle 楽天 楽天Kobo --</description></item><item><title>Spresense SDKでカメラモジュール用のサンプルを動かした</title><link>https://kouya17.com/posts/14/</link><pubDate>Sat, 30 Nov 2019 20:43:11 +0900</pubDate><guid>https://kouya17.com/posts/14/</guid><description>概要 ソニーのシングルボードコンピュータSpresense及びSpresense用カメラモジュールを使って、公式で公開されているサンプルプログラムを動かした。 大体READMEの手順に従ったが、ところどころ詰まるところがあったのでメモとして残しておく。 Spresenseの簡単な説明 ソニーが開発したシングルボードコンピュータ。 Arduino IDEで開発可能。 NuttXというリアルタイムOSベースのSpresense SDKでも開発できる(今回はこっち)。 機能の主な特徴は以下。 GPSが標準で内蔵されている。 マルチコア(6コア!)プロセッサ。 メインボード単体だとネットワーク機能が使えないという点が個人的にはネックだと思っている。 Spresenseが出る少し前に流行し始めたEPS32系にすべて持っていかれている印象がある。 サンプル実行手順 今回動かしたサンプル 今回はカメラモジュールの動作確認がしたかったので公式が公開しているexamples/cameraを動かした。
 実行環境 OS：Windows10上のWSL(Ubuntu16.04) 開発環境：Spresense SDK 手順 基本はスタートガイド参照。
 1.開発ツールのセットアップ、ブートローダのインストールを行う。
 ここは公式の手順通りでいけるはずなので省略。 2.手順1.でSpresenseのプロジェクト一式をGitHubから落としてきているはずなので、その中のexamples/camera/README.txtを確認する。
@@ -563,7 +551,7 @@ https://www.souichi.club/technology/virtualbox-share/
 ただ、上記サイト内の記述だとうまくパスワード入力が省略されなかった。
 以下のサイトの記述を参考にしたらうまくいった。
 https://www.usagi1975.com/31jan172009/
-ハッキング・ラボのつくりかた 仮想環境におけるハッカー体験学習 翔泳社 Amazon Kindle 楽天 楽天Kobo</description></item><item><title>GitHub Pagesを使って静的サイトを公開した</title><link>https://kouya17.com/posts/4/</link><pubDate>Thu, 02 May 2019 15:04:03 +0900</pubDate><guid>https://kouya17.com/posts/4/</guid><description>概要 GitHub Pagesを使って簡易ブログを公開しました。
+ハッキング・ラボのつくりかた 仮想環境におけるハッカー体験学習 翔泳社 Amazon Kindle 楽天 楽天Kobo --</description></item><item><title>GitHub Pagesを使って静的サイトを公開した</title><link>https://kouya17.com/posts/4/</link><pubDate>Thu, 02 May 2019 15:04:03 +0900</pubDate><guid>https://kouya17.com/posts/4/</guid><description>概要 GitHub Pagesを使って簡易ブログを公開しました。
 https://kouya17.github.io
 構成 公開環境：GitHub Pages
 静的サイトジェネレータ：Hugo
@@ -571,7 +559,7 @@ https://kouya17.github.io
 雑記 無料でサイト公開できるのはすごい。
 静的サイトジェネレータとしてHexoも検討したが、ネット上の情報が中国語中心だったため断念した。
 作成物に関する投稿はGitHub Pagesのほうにして、こちらはより雑多なものを扱うことにする。
-独習Git 翔泳社 Amazon Kindle 楽天 楽天Kobo</description></item><item><title>LEDの色で天気通知する(ESP32)</title><link>https://kouya17.com/posts/1/</link><pubDate>Tue, 01 Jan 2019 23:07:37 +0900</pubDate><guid>https://kouya17.com/posts/1/</guid><description>ソースコード https://github.com/kouya17/esp32_weather_light
+独習Git 翔泳社 Amazon Kindle 楽天 楽天Kobo --</description></item><item><title>LEDの色で天気通知する(ESP32)</title><link>https://kouya17.com/posts/1/</link><pubDate>Tue, 01 Jan 2019 23:07:37 +0900</pubDate><guid>https://kouya17.com/posts/1/</guid><description>ソースコード https://github.com/kouya17/esp32_weather_light
 説明 ESP32を使って、LEDの色で天気通知をしてくれるプログラムを作りました。
 単3電池2本駆動で8時間程度しか持たないのが課題ですね…。
-IoT開発スタートブック　── ESP32でクラウドにつなげる電子工作をはじめよう！ 技術評論社 Amazon Kindle 楽天 楽天Kobo</description></item></channel></rss>
+IoT開発スタートブック　── ESP32でクラウドにつなげる電子工作をはじめよう！ 技術評論社 Amazon Kindle 楽天 楽天Kobo --</description></item></channel></rss>

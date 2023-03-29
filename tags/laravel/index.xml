@@ -1,8 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Laravel on kouya17.com</title><link>https://kouya17.com/tags/laravel/</link><description>Recent content in Laravel on kouya17.com</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 15 Mar 2020 22:59:47 +0900</lastBuildDate><atom:link href="https://kouya17.com/tags/laravel/index.xml" rel="self" type="application/rss+xml"/><item><title>Laravel+Vue.jsでSPA(シングルページアプリケーション)を作成した</title><link>https://kouya17.com/posts/20/</link><pubDate>Sun, 15 Mar 2020 22:59:47 +0900</pubDate><guid>https://kouya17.com/posts/20/</guid><description>今回作成したサイト 今回作成したサイトは以下のサイト。
-ClubPage
-私が所属している電子工作サークルのホームページを作った。
-このブログからcssを流用しているので、見た目がだいぶ似ている。
-構成 Laravel Vue.js バックエンドはLaravel、フロントエンドはVue.jsを使っている。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Laravel on kouya17.com</title><link>https://kouya17.com/tags/laravel/</link><description>Recent content in Laravel on kouya17.com</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 15 Mar 2020 22:59:47 +0900</lastBuildDate><atom:link href="https://kouya17.com/tags/laravel/index.xml" rel="self" type="application/rss+xml"/><item><title>Laravel+Vue.jsでSPA(シングルページアプリケーション)を作成した</title><link>https://kouya17.com/posts/20/</link><pubDate>Sun, 15 Mar 2020 22:59:47 +0900</pubDate><guid>https://kouya17.com/posts/20/</guid><description>作成したサイトの構成 Laravel Vue.js バックエンドはLaravel、フロントエンドはVue.jsを使っている。
 シングルページアプリケーションとは 今回はシングルページアプリケーション(SPA)という構成を採用した。
 シングルページアプリケーションとは
 シングルページアプリケーション（英: single-page application、SPA）とは、単一のWebページのみから構成することで、デスクトップアプリケーションのようなユーザ体験を提供するWebアプリケーションまたはWebサイトである。必要なコード（HTML、JavaScript、CSS）は最初にまとめて読み込むか[1]、ユーザの操作などに応じて動的にサーバと通信し、必要なものだけ読み込みを行う。 Wikipediaより
@@ -38,7 +34,9 @@ SPAのパフォーマンス向上はバンドルサイズの削減こそ正義 �
 最初特に何も考えずにサイトを作っていたら、パフォーマンスが崩壊した。
 今もパフォーマンスが良いとは言えないが、バンドルサイズを削減することで、パフォーマンスが向上した。
 こういったパフォーマンス向上のための施策は必要不可欠だなと感じた。
-まとめ 今回はLaravelとVue.jsを使ってサイトを作った。</description></item><item><title>Laravel+Vue.jsでLighthouseのスコアを0点から97点にした(バンドルサイズ削減)</title><link>https://kouya17.com/posts/19/</link><pubDate>Sun, 08 Mar 2020 17:05:20 +0900</pubDate><guid>https://kouya17.com/posts/19/</guid><description>Laravel+Vue.jsで作成していたwebサイトの応答速度が激遅だったので、対策を実施した。
+まとめ 今回はLaravelとVue.jsを使ってサイトを作った。
+web系をいじっていると時間を無限に吸われる。
+これからはじめるVue.js実践入門 山田 祥寛 Amazon Kindle 楽天 楽天Kobo --</description></item><item><title>Laravel+Vue.jsでLighthouseのスコアを0点から97点にした(バンドルサイズ削減)</title><link>https://kouya17.com/posts/19/</link><pubDate>Sun, 08 Mar 2020 17:05:20 +0900</pubDate><guid>https://kouya17.com/posts/19/</guid><description>Laravel+Vue.jsで作成していたwebサイトの応答速度が激遅だったので、対策を実施した。
 環境 Laravel 6.14.0 Vue.js 2.6.11 対策前はページロードに20秒かかっていた 特に何も考えずにwebサイトを作っていたら、トップページのロードに20秒ほどかかっていた。 これではさすがにwebサイトとして成立しない。
 Googleが提供しているwebページ分析ツールLighthouseを使ってパフォーマンスの測定を行ったところ、以下のような結果になった。
 堂々の0点である。提示されている対応策の詳細を見ると、以下のように書かれていた。

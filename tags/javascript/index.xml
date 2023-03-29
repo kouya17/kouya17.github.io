@@ -39,7 +39,7 @@ main.jsを上記のように変更し、index.htmlをブラウザで開くと以
 横軸が日付になっており、横軸の間隔もデータに合わせていい感じになっている。
 まとめ Chart.jsを使って横軸が日付情報のデータをプロットできた。
 色々と描画オプションがあるようなので、それぞれ変更させるとどのようにグラフが変化するか、また今度まとめたい。
-確かな力が身につくJavaScript「超」入門 第2版 狩野 祐東 Amazon Kindle 楽天 楽天Kobo</description></item><item><title>Laravel+Vue.jsでLighthouseのスコアを0点から97点にした(バンドルサイズ削減)</title><link>https://kouya17.com/posts/19/</link><pubDate>Sun, 08 Mar 2020 17:05:20 +0900</pubDate><guid>https://kouya17.com/posts/19/</guid><description>Laravel+Vue.jsで作成していたwebサイトの応答速度が激遅だったので、対策を実施した。
+確かな力が身につくJavaScript「超」入門 第2版 狩野 祐東 Amazon Kindle 楽天 楽天Kobo --</description></item><item><title>Laravel+Vue.jsでLighthouseのスコアを0点から97点にした(バンドルサイズ削減)</title><link>https://kouya17.com/posts/19/</link><pubDate>Sun, 08 Mar 2020 17:05:20 +0900</pubDate><guid>https://kouya17.com/posts/19/</guid><description>Laravel+Vue.jsで作成していたwebサイトの応答速度が激遅だったので、対策を実施した。
 環境 Laravel 6.14.0 Vue.js 2.6.11 対策前はページロードに20秒かかっていた 特に何も考えずにwebサイトを作っていたら、トップページのロードに20秒ほどかかっていた。 これではさすがにwebサイトとして成立しない。
 Googleが提供しているwebページ分析ツールLighthouseを使ってパフォーマンスの測定を行ったところ、以下のような結果になった。
 堂々の0点である。提示されている対応策の詳細を見ると、以下のように書かれていた。

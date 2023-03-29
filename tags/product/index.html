@@ -89,9 +89,7 @@ APIキー アクセスポイントのSSID アクセスポイントのパスワ�
 M5StickCからYouTube Data APIを利用する部分は、以下のAPIラッパーを利用させていただいた。
 ただし、このままではチャンネル情報しか取得できないため、以下の関数等を追加している。
 std::vector&lt;String> YoutubeApi::getUpcomingBroadcasts(char *channelId) 指定されたChannelIDのチャンネルの配信予定(VideoID)を取得する。 BroadcastDetails YoutubeApi::getBroadcastDetails(char *videoId) 指定されたVideoIDの動画の配信詳細情報を取得する。 配信開始予定時刻は詳細情報からしか取れない。 課題 きちんと検証はしていないが、現状のソースだと、YouTube Data APIのクォータを異常に消費する。本当は1分ごとに情報取得とかをしたかったが、無料枠ではクォータが足りなくなる。
-各LEDに紐づくチャンネルIDと、LEDの色がハードコーディングされているので、外部から設定できるようにしたい。
-アフィリエイト
-M5Stack M5StickC ESP32ミニIoT開発ボードm5stack iotキット フィンガーコンピューターカラー0....</p>
+各LEDに紐づくチャンネルIDと、LEDの色がハードコーディングされているので、外部から設定できるようにしたい。</p>
 </section>
 <footer class=entry-footer><span title="2021-04-03 23:09:39 +0900 +0900">April 3, 2021</span>&nbsp;·&nbsp;1 min</footer>
 <a class=entry-link aria-label="post link to 所定のYouTubeチャンネルの配信予定をLEDで通知する(M5StickC)" href=https://kouya17.com/posts/40/></a>
@@ -128,11 +126,7 @@ SEIRモデルという単語は結構色んなところで見かけるように�
 </h2>
 </header>
 <section class=entry-content>
-<p>今回作成したサイト 今回作成したサイトは以下のサイト。
-ClubPage
-私が所属している電子工作サークルのホームページを作った。
-このブログからcssを流用しているので、見た目がだいぶ似ている。
-構成 Laravel Vue.js バックエンドはLaravel、フロントエンドはVue.jsを使っている。
+<p>作成したサイトの構成 Laravel Vue.js バックエンドはLaravel、フロントエンドはVue.jsを使っている。
 シングルページアプリケーションとは 今回はシングルページアプリケーション(SPA)という構成を採用した。
 シングルページアプリケーションとは
 シングルページアプリケーション（英: single-page application、SPA）とは、単一のWebページのみから構成することで、デスクトップアプリケーションのようなユーザ体験を提供するWebアプリケーションまたはWebサイトである。必要なコード（HTML、JavaScript、CSS）は最初にまとめて読み込むか[1]、ユーザの操作などに応じて動的にサーバと通信し、必要なものだけ読み込みを行う。 Wikipediaより
@@ -168,7 +162,9 @@ SPAのパフォーマンス向上はバンドルサイズの削減こそ正義 �
 最初特に何も考えずにサイトを作っていたら、パフォーマンスが崩壊した。
 今もパフォーマンスが良いとは言えないが、バンドルサイズを削減することで、パフォーマンスが向上した。
 こういったパフォーマンス向上のための施策は必要不可欠だなと感じた。
-まとめ 今回はLaravelとVue.jsを使ってサイトを作った。...</p>
+まとめ 今回はLaravelとVue.jsを使ってサイトを作った。
+web系をいじっていると時間を無限に吸われる。
+これからはじめるVue.js実践入門 山田 祥寛 Amazon Kindle 楽天 楽天Kobo -- </p>
 </section>
 <footer class=entry-footer><span title="2020-03-15 22:59:47 +0900 +0900">March 15, 2020</span>&nbsp;·&nbsp;1 min</footer>
 <a class=entry-link aria-label="post link to Laravel+Vue.jsでSPA(シングルページアプリケーション)を作成した" href=https://kouya17.com/posts/20/></a>
@@ -225,7 +221,7 @@ zip圧縮前のフォルダはプロジェクトフォルダ下に残る。
 <p>ソースコード https://github.com/kouya17/esp32_weather_light
 説明 ESP32を使って、LEDの色で天気通知をしてくれるプログラムを作りました。
 単3電池2本駆動で8時間程度しか持たないのが課題ですね…。
-IoT開発スタートブック　── ESP32でクラウドにつなげる電子工作をはじめよう！ 技術評論社 Amazon Kindle 楽天 楽天Kobo </p>
+IoT開発スタートブック　── ESP32でクラウドにつなげる電子工作をはじめよう！ 技術評論社 Amazon Kindle 楽天 楽天Kobo -- </p>
 </section>
 <footer class=entry-footer><span title="2019-01-01 23:07:37 +0900 +0900">January 1, 2019</span>&nbsp;·&nbsp;1 min</footer>
 <a class=entry-link aria-label="post link to LEDの色で天気通知する(ESP32)" href=https://kouya17.com/posts/1/></a>

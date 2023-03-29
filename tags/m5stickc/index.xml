@@ -13,9 +13,7 @@ APIキー アクセスポイントのSSID アクセスポイントのパスワ�
 M5StickCからYouTube Data APIを利用する部分は、以下のAPIラッパーを利用させていただいた。
 ただし、このままではチャンネル情報しか取得できないため、以下の関数等を追加している。
 std::vector&amp;lt;String&amp;gt; YoutubeApi::getUpcomingBroadcasts(char *channelId) 指定されたChannelIDのチャンネルの配信予定(VideoID)を取得する。 BroadcastDetails YoutubeApi::getBroadcastDetails(char *videoId) 指定されたVideoIDの動画の配信詳細情報を取得する。 配信開始予定時刻は詳細情報からしか取れない。 課題 きちんと検証はしていないが、現状のソースだと、YouTube Data APIのクォータを異常に消費する。本当は1分ごとに情報取得とかをしたかったが、無料枠ではクォータが足りなくなる。
-各LEDに紐づくチャンネルIDと、LEDの色がハードコーディングされているので、外部から設定できるようにしたい。
-アフィリエイト
-M5Stack M5StickC ESP32ミニIoT開発ボードm5stack iotキット フィンガーコンピューターカラー0.</description></item><item><title>Ambientを使って、PowerCに接続されているバッテリーの情報を記録する</title><link>https://kouya17.com/posts/32/</link><pubDate>Sat, 06 Jun 2020 22:57:28 +0900</pubDate><guid>https://kouya17.com/posts/32/</guid><description>Ambientとは 本当にすばらしいサービス。
+各LEDに紐づくチャンネルIDと、LEDの色がハードコーディングされているので、外部から設定できるようにしたい。</description></item><item><title>Ambientを使って、PowerCに接続されているバッテリーの情報を記録する</title><link>https://kouya17.com/posts/32/</link><pubDate>Sat, 06 Jun 2020 22:57:28 +0900</pubDate><guid>https://kouya17.com/posts/32/</guid><description>Ambientとは 本当にすばらしいサービス。
 Ambient – IoTデーター可視化サービス
 データをテキストでダウンロードできるということで、今回使用させていただくことを決めた。
 データーのダウンロード機能をリリースしました – Ambient

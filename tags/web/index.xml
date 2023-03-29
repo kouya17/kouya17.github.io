@@ -45,7 +45,7 @@ SPAでOGP設定を適切に行う場合はここら辺の対処が必要。
 また、OGP対応用のControllerを新規に作成する必要があり、Controllerが単純に1個増える。
 なお、各サービスのクローラーの情報は以下のサイトを参考にさせていただいた。
 雑記 Twitterでのリンク表示内容確認には以下の公式のサイトが便利。
-これからはじめるVue.js実践入門 山田 祥寛 Amazon Kindle 楽天 楽天Kobo</description></item><item><title>Chart.jsで横軸が日付のグラフを作成する</title><link>https://kouya17.com/posts/21/</link><pubDate>Sun, 05 Apr 2020 00:39:30 +0900</pubDate><guid>https://kouya17.com/posts/21/</guid><description>webサイト上で横軸が日付情報のグラフを作りたかったのでChart.js周りで色々調べた。
+これからはじめるVue.js実践入門 山田 祥寛 Amazon Kindle 楽天 楽天Kobo --</description></item><item><title>Chart.jsで横軸が日付のグラフを作成する</title><link>https://kouya17.com/posts/21/</link><pubDate>Sun, 05 Apr 2020 00:39:30 +0900</pubDate><guid>https://kouya17.com/posts/21/</guid><description>webサイト上で横軸が日付情報のグラフを作りたかったのでChart.js周りで色々調べた。
 横軸が単純な数値じゃない場合は面倒くさくなるかなと思っていたが、Chart.jsが非常に使いやすく、すんなりできた。
 最終的に作ったもの 画像で貼ろうと思ったが、結構サイズが大きいのでリンクで貼り付けておく。
 Chart.jsとは グラフ類を描画するためのJavaScriptライブラリ。
@@ -68,11 +68,7 @@ main.jsを上記のように変更し、index.htmlをブラウザで開くと以
 横軸が日付になっており、横軸の間隔もデータに合わせていい感じになっている。
 まとめ Chart.jsを使って横軸が日付情報のデータをプロットできた。
 色々と描画オプションがあるようなので、それぞれ変更させるとどのようにグラフが変化するか、また今度まとめたい。
-確かな力が身につくJavaScript「超」入門 第2版 狩野 祐東 Amazon Kindle 楽天 楽天Kobo</description></item><item><title>Laravel+Vue.jsでSPA(シングルページアプリケーション)を作成した</title><link>https://kouya17.com/posts/20/</link><pubDate>Sun, 15 Mar 2020 22:59:47 +0900</pubDate><guid>https://kouya17.com/posts/20/</guid><description>今回作成したサイト 今回作成したサイトは以下のサイト。
-ClubPage
-私が所属している電子工作サークルのホームページを作った。
-このブログからcssを流用しているので、見た目がだいぶ似ている。
-構成 Laravel Vue.js バックエンドはLaravel、フロントエンドはVue.jsを使っている。
+確かな力が身につくJavaScript「超」入門 第2版 狩野 祐東 Amazon Kindle 楽天 楽天Kobo --</description></item><item><title>Laravel+Vue.jsでSPA(シングルページアプリケーション)を作成した</title><link>https://kouya17.com/posts/20/</link><pubDate>Sun, 15 Mar 2020 22:59:47 +0900</pubDate><guid>https://kouya17.com/posts/20/</guid><description>作成したサイトの構成 Laravel Vue.js バックエンドはLaravel、フロントエンドはVue.jsを使っている。
 シングルページアプリケーションとは 今回はシングルページアプリケーション(SPA)という構成を採用した。
 シングルページアプリケーションとは
 シングルページアプリケーション（英: single-page application、SPA）とは、単一のWebページのみから構成することで、デスクトップアプリケーションのようなユーザ体験を提供するWebアプリケーションまたはWebサイトである。必要なコード（HTML、JavaScript、CSS）は最初にまとめて読み込むか[1]、ユーザの操作などに応じて動的にサーバと通信し、必要なものだけ読み込みを行う。 Wikipediaより
@@ -108,7 +104,9 @@ SPAのパフォーマンス向上はバンドルサイズの削減こそ正義 �
 最初特に何も考えずにサイトを作っていたら、パフォーマンスが崩壊した。
 今もパフォーマンスが良いとは言えないが、バンドルサイズを削減することで、パフォーマンスが向上した。
 こういったパフォーマンス向上のための施策は必要不可欠だなと感じた。
-まとめ 今回はLaravelとVue.jsを使ってサイトを作った。</description></item><item><title>Laravel+Vue.jsでLighthouseのスコアを0点から97点にした(バンドルサイズ削減)</title><link>https://kouya17.com/posts/19/</link><pubDate>Sun, 08 Mar 2020 17:05:20 +0900</pubDate><guid>https://kouya17.com/posts/19/</guid><description>Laravel+Vue.jsで作成していたwebサイトの応答速度が激遅だったので、対策を実施した。
+まとめ 今回はLaravelとVue.jsを使ってサイトを作った。
+web系をいじっていると時間を無限に吸われる。
+これからはじめるVue.js実践入門 山田 祥寛 Amazon Kindle 楽天 楽天Kobo --</description></item><item><title>Laravel+Vue.jsでLighthouseのスコアを0点から97点にした(バンドルサイズ削減)</title><link>https://kouya17.com/posts/19/</link><pubDate>Sun, 08 Mar 2020 17:05:20 +0900</pubDate><guid>https://kouya17.com/posts/19/</guid><description>Laravel+Vue.jsで作成していたwebサイトの応答速度が激遅だったので、対策を実施した。
 環境 Laravel 6.14.0 Vue.js 2.6.11 対策前はページロードに20秒かかっていた 特に何も考えずにwebサイトを作っていたら、トップページのロードに20秒ほどかかっていた。 これではさすがにwebサイトとして成立しない。
 Googleが提供しているwebページ分析ツールLighthouseを使ってパフォーマンスの測定を行ったところ、以下のような結果になった。
 堂々の0点である。提示されている対応策の詳細を見ると、以下のように書かれていた。
@@ -132,13 +130,7 @@ Lighthouseの結果 63点→87点に上昇した。
 解説 対策1～3で、あらかた大きなところは対策できたと思ったので、より細かいところを対応するため、webpack-bundle-analyzerを使ってバンドル結果の分析をした。
 webpack-bundle-analyzerの出力結果は以下のようになった。
 この結果から
-bootstrap-vue ckeditor lodash あたりのサイズが大きいらしいことが分かった。</description></item><item><title>VTuberの簡易ランキングサイトを作った</title><link>https://kouya17.com/posts/17/</link><pubDate>Fri, 17 Jan 2020 23:02:41 +0900</pubDate><guid>https://kouya17.com/posts/17/</guid><description>概要 適当に抽出したVTuberについて、チャンネル登録者数増加数のランキングサイトを作成した。
-1日1回、午前5時30分ごろ更新。
-構成 Golang + Gin + Bootstrap
-雑記 Golangを使ったwebアプリを初めて作成した。Golangは未使用の変数、importがデフォルトでコンパイルエラーになるのが印象的だった。ルールが厳格な印象。
-YouTubeの現在の仕様で、チャンネル登録者数が多いほど、刻み幅が大きくなる。その刻み幅分を超えないと、増加量が0になってしまうので、1日単位だと正確なランキングにならない。
-今回のサイトを作るにあたって、既存サイトを調べてみた。色々凝っているサイトが多数あった。やはりここら辺(YouTube周り)は色んなビジネスが成り立っているんだろうなと思った。
-改訂2版 みんなのGo言語 技術評論社 Amazon Kindle 楽天 楽天Kobo</description></item><item><title>Djangoで記事をカード型で表示するようにした</title><link>https://kouya17.com/posts/8/</link><pubDate>Thu, 03 Oct 2019 22:52:14 +0900</pubDate><guid>https://kouya17.com/posts/8/</guid><description>参考サイト Bootstrap公式ドキュメント
+bootstrap-vue ckeditor lodash あたりのサイズが大きいらしいことが分かった。</description></item><item><title>Djangoで記事をカード型で表示するようにした</title><link>https://kouya17.com/posts/8/</link><pubDate>Thu, 03 Oct 2019 22:52:14 +0900</pubDate><guid>https://kouya17.com/posts/8/</guid><description>参考サイト Bootstrap公式ドキュメント
 https://getbootstrap.com/docs/4.3/components/card/
 Card decksの部分をほぼそのまま使った。
 css部分は以下のQiitaの記事を参考にさせていただいた。
@@ -166,4 +158,4 @@ https://kouya17.github.io
 雑記 無料でサイト公開できるのはすごい。
 静的サイトジェネレータとしてHexoも検討したが、ネット上の情報が中国語中心だったため断念した。
 作成物に関する投稿はGitHub Pagesのほうにして、こちらはより雑多なものを扱うことにする。
-独習Git 翔泳社 Amazon Kindle 楽天 楽天Kobo</description></item></channel></rss>
+独習Git 翔泳社 Amazon Kindle 楽天 楽天Kobo --</description></item></channel></rss>

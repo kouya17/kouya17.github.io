@@ -117,7 +117,7 @@ ConvergenceWarning: lbfgs failed to converge (status=1): STOP: TOTAL NO. of ITER
 解決策の1つ モデルが収束していないそうなので、max_iterを明示的に設定して、反復回数を増やす。
 max_iterの初期値は100だが、上の例では1000に設定している。
 今回はこれで警告が出なくなったので、よしとする。
-参考 見て試してわかる機械学習アルゴリズムの仕組み 機械学習図鑑posted with ヨメレバ秋庭 伸也/杉山 阿聖 翔泳社 2019年04月17日 楽天ブックスで購入楽天koboで購入Amazonで購入Kindleで購入</description></item><item><title>都道府県間通勤・通学を考慮したパンデミックシミュレーションもどき</title><link>https://kouya17.com/posts/25/</link><pubDate>Tue, 05 May 2020 21:35:17 +0900</pubDate><guid>https://kouya17.com/posts/25/</guid><description>先日、SEIRモデルを用いた感染症流行のシミュレーションを行った。
+参考 見て試してわかる機械学習アルゴリズムの仕組み 機械学習図鑑posted with ヨメレバ秋庭 伸也/杉山 阿聖 翔泳社 2019年04月17日 楽天ブックスで購入楽天koboで購入Amazonで購入Kindleで購入 --</description></item><item><title>都道府県間通勤・通学を考慮したパンデミックシミュレーションもどき</title><link>https://kouya17.com/posts/25/</link><pubDate>Tue, 05 May 2020 21:35:17 +0900</pubDate><guid>https://kouya17.com/posts/25/</guid><description>先日、SEIRモデルを用いた感染症流行のシミュレーションを行った。
 このプログラムを少し拡張して、都道府県間通勤・通学を考慮したパンデミックシミュレーションもどきを行う。
 ※本シミュレーションや上記リンク先のシミュレーションは、実測値等には全く基づいていないため、完全に空想上のシミュレーションになります。
 本シミュレーションの結果が実情を反映していたり、今後の予測を示していたりはしません。

@@ -32,12 +32,4 @@ APIキー アクセスポイントのSSID アクセスポイントのパスワ�
 M5StickCからYouTube Data APIを利用する部分は、以下のAPIラッパーを利用させていただいた。
 ただし、このままではチャンネル情報しか取得できないため、以下の関数等を追加している。
 std::vector&amp;lt;String&amp;gt; YoutubeApi::getUpcomingBroadcasts(char *channelId) 指定されたChannelIDのチャンネルの配信予定(VideoID)を取得する。 BroadcastDetails YoutubeApi::getBroadcastDetails(char *videoId) 指定されたVideoIDの動画の配信詳細情報を取得する。 配信開始予定時刻は詳細情報からしか取れない。 課題 きちんと検証はしていないが、現状のソースだと、YouTube Data APIのクォータを異常に消費する。本当は1分ごとに情報取得とかをしたかったが、無料枠ではクォータが足りなくなる。
-各LEDに紐づくチャンネルIDと、LEDの色がハードコーディングされているので、外部から設定できるようにしたい。
-アフィリエイト
-M5Stack M5StickC ESP32ミニIoT開発ボードm5stack iotキット フィンガーコンピューターカラー0.</description></item><item><title>VTuberの簡易ランキングサイトを作った</title><link>https://kouya17.com/posts/17/</link><pubDate>Fri, 17 Jan 2020 23:02:41 +0900</pubDate><guid>https://kouya17.com/posts/17/</guid><description>概要 適当に抽出したVTuberについて、チャンネル登録者数増加数のランキングサイトを作成した。
-1日1回、午前5時30分ごろ更新。
-構成 Golang + Gin + Bootstrap
-雑記 Golangを使ったwebアプリを初めて作成した。Golangは未使用の変数、importがデフォルトでコンパイルエラーになるのが印象的だった。ルールが厳格な印象。
-YouTubeの現在の仕様で、チャンネル登録者数が多いほど、刻み幅が大きくなる。その刻み幅分を超えないと、増加量が0になってしまうので、1日単位だと正確なランキングにならない。
-今回のサイトを作るにあたって、既存サイトを調べてみた。色々凝っているサイトが多数あった。やはりここら辺(YouTube周り)は色んなビジネスが成り立っているんだろうなと思った。
-改訂2版 みんなのGo言語 技術評論社 Amazon Kindle 楽天 楽天Kobo</description></item></channel></rss>
+各LEDに紐づくチャンネルIDと、LEDの色がハードコーディングされているので、外部から設定できるようにしたい。</description></item></channel></rss>

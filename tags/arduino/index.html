@@ -89,9 +89,7 @@ APIキー アクセスポイントのSSID アクセスポイントのパスワ�
 M5StickCからYouTube Data APIを利用する部分は、以下のAPIラッパーを利用させていただいた。
 ただし、このままではチャンネル情報しか取得できないため、以下の関数等を追加している。
 std::vector&lt;String> YoutubeApi::getUpcomingBroadcasts(char *channelId) 指定されたChannelIDのチャンネルの配信予定(VideoID)を取得する。 BroadcastDetails YoutubeApi::getBroadcastDetails(char *videoId) 指定されたVideoIDの動画の配信詳細情報を取得する。 配信開始予定時刻は詳細情報からしか取れない。 課題 きちんと検証はしていないが、現状のソースだと、YouTube Data APIのクォータを異常に消費する。本当は1分ごとに情報取得とかをしたかったが、無料枠ではクォータが足りなくなる。
-各LEDに紐づくチャンネルIDと、LEDの色がハードコーディングされているので、外部から設定できるようにしたい。
-アフィリエイト
-M5Stack M5StickC ESP32ミニIoT開発ボードm5stack iotキット フィンガーコンピューターカラー0....</p>
+各LEDに紐づくチャンネルIDと、LEDの色がハードコーディングされているので、外部から設定できるようにしたい。</p>
 </section>
 <footer class=entry-footer><span title="2021-04-03 23:09:39 +0900 +0900">April 3, 2021</span>&nbsp;·&nbsp;1 min</footer>
 <a class=entry-link aria-label="post link to 所定のYouTubeチャンネルの配信予定をLEDで通知する(M5StickC)" href=https://kouya17.com/posts/40/></a>
@@ -102,7 +100,7 @@ M5Stack M5StickC ESP32ミニIoT開発ボードm5stack iotキット フィンガ�
 </h2>
 </header>
 <section class=entry-content>
-<p>今回の経緯 フルカラーLEDを最大5個制御したい！ 最初NeoPixel(マイコン内蔵LED)を使う予定だったが、いろいろ試した結果、今回の条件では使えなさそうという結論になった。 マイコン内蔵ではない、通常のフルカラーLEDを使うことにする。 ただ、使用できるピン数は限られているため、マイコンボードからはI2CやSPI等で制御する形にしたい。 フルカラーLEDドライバを探す。 スイッチサイエンスで探したらよさそうなのがあったけど値が張る。 秋月でさがしたらこんなのがあった。 安い。もともとはドットマトリクス制御用らしいが、フルカラーLED制御にも転用できそう。 準備物 部品名 購入先 ESPr Developer 32 スイッチサイエンス 16×8LEDマトリクスドライバーモジュール(HT16K33) 秋月電子通商 RGBフルカラーLED 秋月電子通商 結果 とりあえず2個のフルカラーLEDを制御できた。 ただし、r, g, bはそれぞれ0(OFF)か1(ON)でしか調整することは出来ない。 プログラムとハマりポイント プログラム GitHub ハマりポイント I2Cアドレスでハマった。 秋月の解説ページでは初期状態なら0xE0(write)と書いてあったので、Arduinoのスケッチでアドレスを0xE0に指定したがなにも反応しなかった。 調べてみるとこの方法は誤りで、Arduinoの場合は最下位ビットを除いた7ビット分をアドレス値に設定する必要があるらしい。 スレーブアドレスを0x70と設定したらうまくいった。 参考：https://tool-lab.com/make/pic-practice-37/ 雑記 いま探したらaitendoでもっと安い、100円のフルカラーLEDドライバ(単体)があった。 ただこっちはチップ単体の値段だし、データシートが中文で読むのが大変そう…。 IoT開発スタートブック　── ESP32でクラウドにつなげる電子工作をはじめよう！ 技術評論社 Amazon Kindle 楽天 楽天Kobo </p>
+<p>今回の経緯 フルカラーLEDを最大5個制御したい！ 最初NeoPixel(マイコン内蔵LED)を使う予定だったが、いろいろ試した結果、今回の条件では使えなさそうという結論になった。 マイコン内蔵ではない、通常のフルカラーLEDを使うことにする。 ただ、使用できるピン数は限られているため、マイコンボードからはI2CやSPI等で制御する形にしたい。 フルカラーLEDドライバを探す。 スイッチサイエンスで探したらよさそうなのがあったけど値が張る。 秋月でさがしたらこんなのがあった。 安い。もともとはドットマトリクス制御用らしいが、フルカラーLED制御にも転用できそう。 準備物 部品名 購入先 ESPr Developer 32 スイッチサイエンス 16×8LEDマトリクスドライバーモジュール(HT16K33) 秋月電子通商 RGBフルカラーLED 秋月電子通商 結果 とりあえず2個のフルカラーLEDを制御できた。 ただし、r, g, bはそれぞれ0(OFF)か1(ON)でしか調整することは出来ない。 プログラムとハマりポイント プログラム GitHub ハマりポイント I2Cアドレスでハマった。 秋月の解説ページでは初期状態なら0xE0(write)と書いてあったので、Arduinoのスケッチでアドレスを0xE0に指定したがなにも反応しなかった。 調べてみるとこの方法は誤りで、Arduinoの場合は最下位ビットを除いた7ビット分をアドレス値に設定する必要があるらしい。 スレーブアドレスを0x70と設定したらうまくいった。 参考：https://tool-lab.com/make/pic-practice-37/ 雑記 いま探したらaitendoでもっと安い、100円のフルカラーLEDドライバ(単体)があった。 ただこっちはチップ単体の値段だし、データシートが中文で読むのが大変そう…。 IoT開発スタートブック　── ESP32でクラウドにつなげる電子工作をはじめよう！ 技術評論社 Amazon Kindle 楽天 楽天Kobo -- </p>
 </section>
 <footer class=entry-footer><span title="2019-12-08 21:37:24 +0900 +0900">December 8, 2019</span>&nbsp;·&nbsp;1 min</footer>
 <a class=entry-link aria-label="post link to マトリクスLEDドライバを使ってフルカラーLEDを制御してみる" href=https://kouya17.com/posts/15/></a>

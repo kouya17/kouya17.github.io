@@ -31,4 +31,4 @@ SPAでOGP設定を適切に行う場合はここら辺の対処が必要。
 また、OGP対応用のControllerを新規に作成する必要があり、Controllerが単純に1個増える。
 なお、各サービスのクローラーの情報は以下のサイトを参考にさせていただいた。
 雑記 Twitterでのリンク表示内容確認には以下の公式のサイトが便利。
-これからはじめるVue.js実践入門 山田 祥寛 Amazon Kindle 楽天 楽天Kobo</description></item></channel></rss>
+これからはじめるVue.js実践入門 山田 祥寛 Amazon Kindle 楽天 楽天Kobo --</description></item></channel></rss>

@@ -86,9 +86,7 @@ APIキー アクセスポイントのSSID アクセスポイントのパスワ�
 M5StickCからYouTube Data APIを利用する部分は、以下のAPIラッパーを利用させていただいた。
 ただし、このままではチャンネル情報しか取得できないため、以下の関数等を追加している。
 std::vector&lt;String> YoutubeApi::getUpcomingBroadcasts(char *channelId) 指定されたChannelIDのチャンネルの配信予定(VideoID)を取得する。 BroadcastDetails YoutubeApi::getBroadcastDetails(char *videoId) 指定されたVideoIDの動画の配信詳細情報を取得する。 配信開始予定時刻は詳細情報からしか取れない。 課題 きちんと検証はしていないが、現状のソースだと、YouTube Data APIのクォータを異常に消費する。本当は1分ごとに情報取得とかをしたかったが、無料枠ではクォータが足りなくなる。
-各LEDに紐づくチャンネルIDと、LEDの色がハードコーディングされているので、外部から設定できるようにしたい。
-アフィリエイト
-M5Stack M5StickC ESP32ミニIoT開発ボードm5stack iotキット フィンガーコンピューターカラー0....</p>
+各LEDに紐づくチャンネルIDと、LEDの色がハードコーディングされているので、外部から設定できるようにしたい。</p>
 </section>
 <footer class=entry-footer><span title="2021-04-03 23:09:39 +0900 +0900">April 3, 2021</span>&nbsp;·&nbsp;1 min</footer>
 <a class=entry-link aria-label="post link to 所定のYouTubeチャンネルの配信予定をLEDで通知する(M5StickC)" href=https://kouya17.com/posts/40/></a>
@@ -173,8 +171,7 @@ IEを無効化したら解消した 以下の問い合わせを参考に、IEを
 IEの無効化は以下のwindowsの機能の有効化または無効化の画面から設定できる。
 PlatformIOのHome画面は、IEだと表示できないらしい。なぜ表示ブラウザとしてIEが選択されたのか等はわからないが、とりあえず問題が解消されたので良しとする。
 なお、一度表示されるようになってからは、IEの無効化を解除しても、表示されるようになった。
-アフィリエイト
-みんなのM5Stack入門 リックテレコム (2019/11/8) Amazon Kindle 楽天ブックス 楽天Kobo </p>
+アフィリエイト みんなのM5Stack入門 リックテレコム (2019/11/8) Amazon Kindle 楽天ブックス 楽天Kobo -- </p>
 </section>
 <footer class=entry-footer><span title="2020-11-21 17:30:42 +0900 +0900">November 21, 2020</span>&nbsp;·&nbsp;1 min</footer>
 <a class=entry-link aria-label="post link to Windows10でPlatformIOが起動しない問題の解消" href=https://kouya17.com/posts/36/></a>

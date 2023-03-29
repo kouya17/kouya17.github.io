@@ -72,4 +72,4 @@ ConvergenceWarning: lbfgs failed to converge (status=1): STOP: TOTAL NO. of ITER
 解決策の1つ モデルが収束していないそうなので、max_iterを明示的に設定して、反復回数を増やす。
 max_iterの初期値は100だが、上の例では1000に設定している。
 今回はこれで警告が出なくなったので、よしとする。
-参考 見て試してわかる機械学習アルゴリズムの仕組み 機械学習図鑑posted with ヨメレバ秋庭 伸也/杉山 阿聖 翔泳社 2019年04月17日 楽天ブックスで購入楽天koboで購入Amazonで購入Kindleで購入</description></item></channel></rss>
+参考 見て試してわかる機械学習アルゴリズムの仕組み 機械学習図鑑posted with ヨメレバ秋庭 伸也/杉山 阿聖 翔泳社 2019年04月17日 楽天ブックスで購入楽天koboで購入Amazonで購入Kindleで購入 --</description></item></channel></rss>

@@ -17,13 +17,7 @@ Next.jsコンテナ Echoコンテナ cronコンテナ PostgreSQLコンテナ Web
 物件情報一覧画面から取得した物件情報を確認する 物件一覧ページにおいて、最新ジョブで取得された行は赤枠で表示される。検索欄でJobIdを範囲指定することもできるので、複数ジョブを実行した場合はそれらのジョブによって取得されたものを絞り込むこともできる。
 なお、すでに登録されている物件URLと同じURLを持つ物件が取得された場合は、価格を比較する。価格が更新されていた場合は物件情報とJobIdを上書きする。
 物件一覧において、行をクリックすると対象物件ページに遷移する。対象物件をクリックした回数も保持しており、1回以上クリックした物件は黄色で塗りつぶされて表示される。そのため、過去自分が詳細をチェックした物件かどうか一目で見分けがつくようになっている。
-ソースコード</description></item><item><title>VTuberの簡易ランキングサイトを作った</title><link>https://kouya17.com/posts/17/</link><pubDate>Fri, 17 Jan 2020 23:02:41 +0900</pubDate><guid>https://kouya17.com/posts/17/</guid><description>概要 適当に抽出したVTuberについて、チャンネル登録者数増加数のランキングサイトを作成した。
-1日1回、午前5時30分ごろ更新。
-構成 Golang + Gin + Bootstrap
-雑記 Golangを使ったwebアプリを初めて作成した。Golangは未使用の変数、importがデフォルトでコンパイルエラーになるのが印象的だった。ルールが厳格な印象。
-YouTubeの現在の仕様で、チャンネル登録者数が多いほど、刻み幅が大きくなる。その刻み幅分を超えないと、増加量が0になってしまうので、1日単位だと正確なランキングにならない。
-今回のサイトを作るにあたって、既存サイトを調べてみた。色々凝っているサイトが多数あった。やはりここら辺(YouTube周り)は色んなビジネスが成り立っているんだろうなと思った。
-改訂2版 みんなのGo言語 技術評論社 Amazon Kindle 楽天 楽天Kobo</description></item><item><title>GitHub Pagesを使って静的サイトを公開した</title><link>https://kouya17.com/posts/4/</link><pubDate>Thu, 02 May 2019 15:04:03 +0900</pubDate><guid>https://kouya17.com/posts/4/</guid><description>概要 GitHub Pagesを使って簡易ブログを公開しました。
+ソースコード</description></item><item><title>GitHub Pagesを使って静的サイトを公開した</title><link>https://kouya17.com/posts/4/</link><pubDate>Thu, 02 May 2019 15:04:03 +0900</pubDate><guid>https://kouya17.com/posts/4/</guid><description>概要 GitHub Pagesを使って簡易ブログを公開しました。
 https://kouya17.github.io
 構成 公開環境：GitHub Pages
 静的サイトジェネレータ：Hugo
@@ -31,4 +25,4 @@ https://kouya17.github.io
 雑記 無料でサイト公開できるのはすごい。
 静的サイトジェネレータとしてHexoも検討したが、ネット上の情報が中国語中心だったため断念した。
 作成物に関する投稿はGitHub Pagesのほうにして、こちらはより雑多なものを扱うことにする。
-独習Git 翔泳社 Amazon Kindle 楽天 楽天Kobo</description></item></channel></rss>
+独習Git 翔泳社 Amazon Kindle 楽天 楽天Kobo --</description></item></channel></rss>
