@@ -1,24 +1,11 @@
-<!doctype html><html lang=en dir=auto>
+<!doctype html><html lang=ja dir=auto>
 <head><meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
 <title>Djangoでタグクラウドを実装した | kouya17.com</title>
 <meta name=keywords content="Django,web">
-<meta name=description content="参考ページ  https://programmer-jobs.blogspot.com/2012/12/djangodjango-taggit.html
-django-taggitとdjango-taggit-templatetagsがあればできるらしい。  実装した流れ 1 setting.pyを確認し、taggitが導入されていることを確認(taggitは昔すでに導入済み)
-ただ、taggit-templatetagsは導入されていなかった。
-2 pip install django-taggit-templatetagsでインストール
-3 setting.pyのINSTALLED_APPSにtaggit-templatetagsを追加
- INSTALLED_APPS = ( ... &#34;taggit&#34;, &#34;taggit_templatetags&#34;, ... ) 4 pip freezeでインストールしたtaggit-templatetagsのバージョンを確認
-$ pip freeze ... django-taggit-templatetags==0.2.5 ... 5 requirements.txtに4.で確認したバージョン情報を追記
-... django-taggit-templatetags==0.2.5 ... 6 デプロイ
-7 動作確認したらエラー発生
- File &#34;...templatetag_sugar/parser.py&#34;, line 5, in <module> from django.db.models.loading import cache No module named 'django.db.models.loading' django.db.models.loadingがないらしい。
-google先生に聞くと、django.db.models.loadingはDjango1.9で廃止され、現在はdjango.appを使う必要があるようだ。
-https://stackoverflow.com/questions/36234635/what-is-the-equivalent-of-django-db-models-loading-get-model-in-django-1-9
-8 tamplatetag_sugar/parser.pyを修正
-- from django.db.models.loading import cache + from django.apps import apps .">
+<meta name=description content="参考ページ https://programmer-jobs.blogspot.com/2012/12/djangodjango-taggit.html django-taggitとdjango-taggit-templatetagsがあればできるらしい。 実装した流れ 1 settin">
 <meta name=author content>
 <link rel=canonical href=https://kouya17.com/posts/7/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.a97cdb2d52ff3547f5b45210b2262edb8517a9ced99357596eea2f6dda9f6aad.css integrity="sha256-qXzbLVL/NUf1tFIQsiYu24UXqc7Zk1dZbuovbdqfaq0=" rel="preload stylesheet" as=style>
@@ -39,20 +26,7 @@ https://stackoverflow.com/questions/36234635/what-is-the-equivalent-of-django-db
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body)></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-92576104-3','auto'),ga('send','pageview'))</script><meta property="og:title" content="Djangoでタグクラウドを実装した">
-<meta property="og:description" content="参考ページ  https://programmer-jobs.blogspot.com/2012/12/djangodjango-taggit.html
-django-taggitとdjango-taggit-templatetagsがあればできるらしい。  実装した流れ 1 setting.pyを確認し、taggitが導入されていることを確認(taggitは昔すでに導入済み)
-ただ、taggit-templatetagsは導入されていなかった。
-2 pip install django-taggit-templatetagsでインストール
-3 setting.pyのINSTALLED_APPSにtaggit-templatetagsを追加
- INSTALLED_APPS = ( ... &#34;taggit&#34;, &#34;taggit_templatetags&#34;, ... ) 4 pip freezeでインストールしたtaggit-templatetagsのバージョンを確認
-$ pip freeze ... django-taggit-templatetags==0.2.5 ... 5 requirements.txtに4.で確認したバージョン情報を追記
-... django-taggit-templatetags==0.2.5 ... 6 デプロイ
-7 動作確認したらエラー発生
- File &#34;...templatetag_sugar/parser.py&#34;, line 5, in <module> from django.db.models.loading import cache No module named 'django.db.models.loading' django.db.models.loadingがないらしい。
-google先生に聞くと、django.db.models.loadingはDjango1.9で廃止され、現在はdjango.appを使う必要があるようだ。
-https://stackoverflow.com/questions/36234635/what-is-the-equivalent-of-django-db-models-loading-get-model-in-django-1-9
-8 tamplatetag_sugar/parser.pyを修正
-- from django.db.models.loading import cache + from django.apps import apps .">
+<meta property="og:description" content="参考ページ https://programmer-jobs.blogspot.com/2012/12/djangodjango-taggit.html django-taggitとdjango-taggit-templatetagsがあればできるらしい。 実装した流れ 1 settin">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kouya17.com/posts/7/">
 <meta property="og:image" content="https://kouya17.com/media/photos/19/10/02/django.png"><meta property="article:section" content="posts">
@@ -61,22 +35,9 @@ https://stackoverflow.com/questions/36234635/what-is-the-equivalent-of-django-db
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://kouya17.com/media/photos/19/10/02/django.png">
 <meta name=twitter:title content="Djangoでタグクラウドを実装した">
-<meta name=twitter:description content="参考ページ  https://programmer-jobs.blogspot.com/2012/12/djangodjango-taggit.html
-django-taggitとdjango-taggit-templatetagsがあればできるらしい。  実装した流れ 1 setting.pyを確認し、taggitが導入されていることを確認(taggitは昔すでに導入済み)
-ただ、taggit-templatetagsは導入されていなかった。
-2 pip install django-taggit-templatetagsでインストール
-3 setting.pyのINSTALLED_APPSにtaggit-templatetagsを追加
- INSTALLED_APPS = ( ... &#34;taggit&#34;, &#34;taggit_templatetags&#34;, ... ) 4 pip freezeでインストールしたtaggit-templatetagsのバージョンを確認
-$ pip freeze ... django-taggit-templatetags==0.2.5 ... 5 requirements.txtに4.で確認したバージョン情報を追記
-... django-taggit-templatetags==0.2.5 ... 6 デプロイ
-7 動作確認したらエラー発生
- File &#34;...templatetag_sugar/parser.py&#34;, line 5, in <module> from django.db.models.loading import cache No module named 'django.db.models.loading' django.db.models.loadingがないらしい。
-google先生に聞くと、django.db.models.loadingはDjango1.9で廃止され、現在はdjango.appを使う必要があるようだ。
-https://stackoverflow.com/questions/36234635/what-is-the-equivalent-of-django-db-models-loading-get-model-in-django-1-9
-8 tamplatetag_sugar/parser.pyを修正
-- from django.db.models.loading import cache + from django.apps import apps .">
+<meta name=twitter:description content="参考ページ https://programmer-jobs.blogspot.com/2012/12/djangodjango-taggit.html django-taggitとdjango-taggit-templatetagsがあればできるらしい。 実装した流れ 1 settin">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://kouya17.com/posts/"},{"@type":"ListItem","position":3,"name":"Djangoでタグクラウドを実装した","item":"https://kouya17.com/posts/7/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Djangoでタグクラウドを実装した","name":"Djangoでタグクラウドを実装した","description":"参考ページ  https://programmer-jobs.blogspot.com/2012/12/djangodjango-taggit.html\ndjango-taggitとdjango-taggit-templatetagsがあればできるらしい。  実装した流れ 1 setting.pyを確認し、taggitが導入されていることを確認(taggitは昔すでに導入済み)\nただ、taggit-templatetagsは導入されていなかった。\n2 pip install django-taggit-templatetagsでインストール\n3 setting.pyのINSTALLED_APPSにtaggit-templatetagsを追加\n INSTALLED_APPS = ( ... \u0026quot;taggit\u0026quot;, \u0026quot;taggit_templatetags\u0026quot;, ... ) 4 pip freezeでインストールしたtaggit-templatetagsのバージョンを確認\n$ pip freeze ... django-taggit-templatetags==0.2.5 ... 5 requirements.txtに4.で確認したバージョン情報を追記\n... django-taggit-templatetags==0.2.5 ... 6 デプロイ\n7 動作確認したらエラー発生\n File \u0026quot;...templatetag_sugar/parser.py\u0026quot;, line 5, in \u0026lt;module\u0026gt; from django.db.models.loading import cache No module named 'django.db.models.loading' django.db.models.loadingがないらしい。\ngoogle先生に聞くと、django.db.models.loadingはDjango1.9で廃止され、現在はdjango.appを使う必要があるようだ。\nhttps://stackoverflow.com/questions/36234635/what-is-the-equivalent-of-django-db-models-loading-get-model-in-django-1-9\n8 tamplatetag_sugar/parser.pyを修正\n- from django.db.models.loading import cache + from django.apps import apps .","keywords":["Django","web"],"articleBody":"参考ページ  https://programmer-jobs.blogspot.com/2012/12/djangodjango-taggit.html\ndjango-taggitとdjango-taggit-templatetagsがあればできるらしい。  実装した流れ 1 setting.pyを確認し、taggitが導入されていることを確認(taggitは昔すでに導入済み)\nただ、taggit-templatetagsは導入されていなかった。\n2 pip install django-taggit-templatetagsでインストール\n3 setting.pyのINSTALLED_APPSにtaggit-templatetagsを追加\n INSTALLED_APPS = ( ... \"taggit\", \"taggit_templatetags\", ... ) 4 pip freezeでインストールしたtaggit-templatetagsのバージョンを確認\n$ pip freeze ... django-taggit-templatetags==0.2.5 ... 5 requirements.txtに4.で確認したバージョン情報を追記\n... django-taggit-templatetags==0.2.5 ... 6 デプロイ\n7 動作確認したらエラー発生\n File \"...templatetag_sugar/parser.py\", line 5, in  from django.db.models.loading import cache No module named 'django.db.models.loading' django.db.models.loadingがないらしい。\ngoogle先生に聞くと、django.db.models.loadingはDjango1.9で廃止され、現在はdjango.appを使う必要があるようだ。\nhttps://stackoverflow.com/questions/36234635/what-is-the-equivalent-of-django-db-models-loading-get-model-in-django-1-9\n8 tamplatetag_sugar/parser.pyを修正\n- from django.db.models.loading import cache + from django.apps import apps ... - return [(self, self.name, cache.get_model(app, model))] + return [(self, self.name, apps.get_model(app, model))] 9 動いた\n雑記 GitHubを見ると、django-taggit-templatetagsは9年前から更新されてないようだった。\nとりあえずググったらこれがトップにあったので使ったが、今はより適したパッケージがあるかもしれない。\n Djangoビギナーズブック カットシステム Amazon 楽天    -- ","wordCount":"91","inLanguage":"en","image":"https://kouya17.com/media/photos/19/10/02/django.png","datePublished":"2019-09-15T15:07:15+09:00","dateModified":"2019-09-15T15:07:15+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kouya17.com/posts/7/"},"publisher":{"@type":"Organization","name":"kouya17.com","logo":{"@type":"ImageObject","url":"https://kouya17.com/favicon.ico"}}}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8855472249928298" crossorigin=anonymous></script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Djangoでタグクラウドを実装した","name":"Djangoでタグクラウドを実装した","description":"参考ページ https://programmer-jobs.blogspot.com/2012/12/djangodjango-taggit.html django-taggitとdjango-taggit-templatetagsがあればできるらしい。 実装した流れ 1 settin","keywords":["Django","web"],"articleBody":"参考ページ  https://programmer-jobs.blogspot.com/2012/12/djangodjango-taggit.html\ndjango-taggitとdjango-taggit-templatetagsがあればできるらしい。  実装した流れ 1 setting.pyを確認し、taggitが導入されていることを確認(taggitは昔すでに導入済み)\nただ、taggit-templatetagsは導入されていなかった。\n2 pip install django-taggit-templatetagsでインストール\n3 setting.pyのINSTALLED_APPSにtaggit-templatetagsを追加\n INSTALLED_APPS = ( ... \"taggit\", \"taggit_templatetags\", ... ) 4 pip freezeでインストールしたtaggit-templatetagsのバージョンを確認\n$ pip freeze ... django-taggit-templatetags==0.2.5 ... 5 requirements.txtに4.で確認したバージョン情報を追記\n... django-taggit-templatetags==0.2.5 ... 6 デプロイ\n7 動作確認したらエラー発生\n File \"...templatetag_sugar/parser.py\", line 5, in  from django.db.models.loading import cache No module named 'django.db.models.loading' django.db.models.loadingがないらしい。\ngoogle先生に聞くと、django.db.models.loadingはDjango1.9で廃止され、現在はdjango.appを使う必要があるようだ。\nhttps://stackoverflow.com/questions/36234635/what-is-the-equivalent-of-django-db-models-loading-get-model-in-django-1-9\n8 tamplatetag_sugar/parser.pyを修正\n- from django.db.models.loading import cache + from django.apps import apps ... - return [(self, self.name, cache.get_model(app, model))] + return [(self, self.name, apps.get_model(app, model))] 9 動いた\n雑記 GitHubを見ると、django-taggit-templatetagsは9年前から更新されてないようだった。\nとりあえずググったらこれがトップにあったので使ったが、今はより適したパッケージがあるかもしれない。\n Djangoビギナーズブック カットシステム Amazon 楽天    -- ","wordCount":"663","inLanguage":"ja","image":"https://kouya17.com/media/photos/19/10/02/django.png","datePublished":"2019-09-15T15:07:15+09:00","dateModified":"2019-09-15T15:07:15+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kouya17.com/posts/7/"},"publisher":{"@type":"Organization","name":"kouya17.com","logo":{"@type":"ImageObject","url":"https://kouya17.com/favicon.ico"}}}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8855472249928298" crossorigin=anonymous></script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -115,12 +76,12 @@ https://stackoverflow.com/questions/36234635/what-is-the-equivalent-of-django-db
 <h1 class=post-title>
 Djangoでタグクラウドを実装した
 </h1>
-<div class=post-meta><span title="2019-09-15 15:07:15 +0900 +0900">September 15, 2019</span>&nbsp;·&nbsp;1 min
+<div class=post-meta><span title="2019-09-15 15:07:15 +0900 +0900">9月 15, 2019</span>&nbsp;·&nbsp;2 分
 </div>
 </header> <div class=toc>
 <details>
 <summary accesskey=c title="(Alt + C)">
-<span class=details>Table of Contents</span>
+<span class=details>目次</span>
 </summary>
 <div class=inner><ul>
 <li>
@@ -185,12 +146,12 @@ google先生に聞くと、<code>django.db.models.loading</code>は<code>Django1
 </ul>
 <nav class=paginav>
 <a class=prev href=https://kouya17.com/posts/8/>
-<span class=title>« Prev Page</span>
+<span class=title>« 前のページ</span>
 <br>
 <span>Djangoで記事をカード型で表示するようにした</span>
 </a>
 <a class=next href=https://kouya17.com/posts/6/>
-<span class=title>Next Page »</span>
+<span class=title>次のページ »</span>
 <br>
 <span>VirtualBox6.0で共有フォルダの自動マウント機能が働かない</span>
 </a>

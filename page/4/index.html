@@ -1,4 +1,4 @@
-<!doctype html><html lang=en dir=auto>
+<!doctype html><html lang=ja dir=auto>
 <head><meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
@@ -71,33 +71,9 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>Laravel+Vue.jsで作成していたwebサイトの応答速度が激遅だったので、対策を実施した。
-環境 Laravel 6.14.0 Vue.js 2.6.11 対策前はページロードに20秒かかっていた 特に何も考えずにwebサイトを作っていたら、トップページのロードに20秒ほどかかっていた。 これではさすがにwebサイトとして成立しない。
-Googleが提供しているwebページ分析ツールLighthouseを使ってパフォーマンスの測定を行ったところ、以下のような結果になった。
-堂々の0点である。提示されている対応策の詳細を見ると、以下のように書かれていた。
-どうやらバンドル後のapp.jsのサイズが約4MBと、超巨大になっているらしい。対応策としてapp.jsのサイズ削減を行った。
-対策1：本番用ビルド設定を適用する バンドルサイズ 3.86MB(app.js) → 1.59MB(app.js)
-解説 そもそもビルド設定が間違っていた…。ビルドコマンドとして
-npm run dev を実行していたが、これは開発用のビルドコマンドらしい。
-本番用のビルドコマンド
-npm run prod を実行したところ、バンドルサイズは3.86MB→1.59MBと、約40%になった。
-Lighthouseの結果 0点→10点に上昇した。
-対策2：gzipで圧縮する バンドルサイズ 1.59MB(app.js) → 395KB(app.js.gz)
-解説 以下のページを参考に、gzipでapp.jsを圧縮した。
-そのままコピペで適用できた。
-Lighthouseの結果 10点→63点に上昇した。
-対策3：ページごとにJSファイルを分割する バンドルサイズ 395KB(app.js.gz) → 243KB(app.js.gz)
-解説 以下のページを参考に、ページごとにJSファイルを分割した。
-こちらも特に詰まることはなく、ほぼコピペで実装できた。
-この対策を実装したことで、ビルド後のJSファイルが以下のように、分割されて生成されるようになった。
-Lighthouseの結果 63点→87点に上昇した。
-対策4：bootstrap-vueの選択的インポート バンドルサイズ 243KB(app.js.gz) → 129KB(app.js.gz)
-解説 対策1～3で、あらかた大きなところは対策できたと思ったので、より細かいところを対応するため、webpack-bundle-analyzerを使ってバンドル結果の分析をした。
-webpack-bundle-analyzerの出力結果は以下のようになった。
-この結果から
-bootstrap-vue ckeditor lodash あたりのサイズが大きいらしいことが分かった。...</p>
+<p>Laravel+Vue.jsで作成していたwebサイトの応答速度が激遅だったので、対策を実施した。 環境 Laravel 6.14.0 Vue.js 2.6.11 対策前はページロードに20秒か...</p>
 </section>
-<footer class=entry-footer><span title="2020-03-08 17:05:20 +0900 +0900">March 8, 2020</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2020-03-08 17:05:20 +0900 +0900">3月 8, 2020</span>&nbsp;·&nbsp;3 分</footer>
 <a class=entry-link aria-label="post link to Laravel+Vue.jsでLighthouseのスコアを0点から97点にした(バンドルサイズ削減)" href=https://kouya17.com/posts/19/></a>
 </article>
 <article class=post-entry>
@@ -106,32 +82,9 @@ bootstrap-vue ckeditor lodash あたりのサイズが大きいらしいこと�
 </h2>
 </header>
 <section class=entry-content>
-<p>やりたいこと 俯瞰で見ているUSBカメラの画像を使って、自律的に動いているロボットの向きを検出する。
-また、カメラ画像における指定の座標と、ロボットがなす角を算出する。
-動作環境 ターゲットボード JetsonNano OS Ubuntu 18.04.4 LTS 使用ライブラリ Python版 OpenCV 4.1.1 処理結果 今回実装した処理の結果は、画像で示すと以下のような感じになる。
-方法 今回実装した方法は以下の通り。
-カメラ画像をHSV形式に変換 カメラ画像のうち指定のHSV範囲に従ってマスク画像を作成 マスク画像から輪郭を抽出し、1番面積の大きい領域のみ残したマスク画像を作成 カメラ画像とマスク画像の共通領域を抽出 4.で作成した画像から黒色領域を抽出 5.で抽出した黒色領域のうち、1番面積の大きい領域の重心p1、2番目に面積の大きい領域の重心p2を計算 p2からp1へのベクトルと、p1とp2の中点から指定の座標へのベクトルのなす角を計算 処理順に従って中間生成画像を並べると以下のような感じになる。
-元画像
-手順3.で作成したマスク画像
-手順5.で抽出した黒色領域
-手順6.で算出した各黒色領域の重心
-処理結果
-ソースコード 一部自作モジュールもimportしているのでコピペでは動きません。
-呼び出し方は例えば以下のように。
-処理時間や実行時のリソース使用量など 処理時間 今回の一連の処理呼び出しにどれだけ時間がかかっているか計測したところ、以下の通りだった。
-elapsed_time:0.49050045013427734[sec] elapsed_time:0.500530481338501[sec] elapsed_time:0.49204468727111816[sec] だいたい0.5秒ほどかかっている。このままだとリアルタイム性が求められる場合は使えない。
-リソース使用量 Jetsonのモニタツールjtopの出力は以下のような感じ。
-プログラム稼働中
-GPUが稼働していない。GPUを使うようにすれば高速化できるのだろうか(全然そこらへんは調べていない)。
-なぜこの処理を実装したか 全体を俯瞰できるカメラの情報を使って、ロボットを指定位置に誘導したかった。
-カメラ側がロボットに指定の位置に対する角度・距離情報を伝え、ロボット側でその情報を使って、モータ値を計算する。
-設計の経緯や苦労したところなど 目印をどう設計するか 向き検出のための目印をどう設計するかが、検出精度や処理速度に最も影響を与える部分だと思う。
-今回は黄色の画用紙の上に、面積の異なる黒色の画用紙を2つ(前方に面積が大きいもの、後方に面積の小さいもの)つけて目印にした。
-単純だが、思っていたより認識出来ていたと思う。しっかりしたベンチマークはとっていないが。
-最初はQRコードの活用を考えていた。OpenCVにはQRコード認識処理が実装されており、向きも検出出来そうだったので。今後複数台ロボットを同時に動かすことを考えても、QRコードだったら文字列情報を付加できるので、各ロボットの識別に使えそうとも思っていた。
-ただ、ある程度QRコードが大きく写っていないと認識できなかった。今回はカメラと認識対象ロボットの距離が遠い時でも認識できるようにしたかったので、QRコード案はやめた。...</p>
+<p>やりたいこと 俯瞰で見ているUSBカメラの画像を使って、自律的に動いているロボットの向きを検出する。 また、カメラ画像における指定の座標と、ロボ...</p>
 </section>
-<footer class=entry-footer><span title="2020-02-24 14:32:15 +0900 +0900">February 24, 2020</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2020-02-24 14:32:15 +0900 +0900">2月 24, 2020</span>&nbsp;·&nbsp;3 分</footer>
 <a class=entry-link aria-label="post link to カメラ画像から対象物の向きを検出する(OpenCV)" href=https://kouya17.com/posts/18/></a>
 </article>
 <article class=post-entry>
@@ -140,21 +93,9 @@ GPUが稼働していない。GPUを使うようにすれば高速化できる�
 </h2>
 </header>
 <section class=entry-content>
-<p>今年もあっという間だったがもう終わるらしい。 この1年で作った物の振り返りをしたいと思う。
-今年作ったもの 1月～2月　ロボサッカー用ロボ作成 2月終わりごろにロボカップジュニア同等のルールのロボコンに出る機会があり、プログラムの一部作成を担当した。
-ロボの構成は大体以下の通り。
-機体はLEGOのマインドストーム 赤外線センサでボールの位置を検出 ラズパイを使って、カメラからの画像を解析しゴール位置を検出 3人でチームを組んでおり、進捗管理ツールとしてtrello、情報共有ツールとしてslack、ソースコード管理ツールとしてGitHubを使った。
-trello、slackあたりはあまり活用できなかったが、GitHubはやはり便利だなと思った。
-できたもの マインドストーム側プログラム(GitHub) ラズパイ側プログラム(GitHub) 3月～7月　イライラ棒作成 私が所属している電子工作サークル「メカトロ同行会エルチカ」の作成物として、イライラ棒ゲームを作成した。基本的にプログラム部分を担当した。上の写真はNT名古屋出展時のもの。
-この作品では以下のように色んな機器の通信を試してみた。
-ArduinoとPCの通信(USBシリアル通信) PCとラズパイの通信(HTTP) PCとESP32の通信(HTTP) ラズパイとwebアプリの通信(HTTP) 色んな機器を連携させる作品を初めて作ってみたが、どれか一つが動かないと全部ダメになる仕組みに一部なってしまった。
-できたもの イライラ棒wikiページ スコア表示用ソフト(GitHub) 結果プリント用ラズパイプログラム(GitHub) スタートモジュール用プログラム(GitHub) ゴールモジュール用プログラム(GitHub) イライラ棒結果ランキングページ 4月　github.ioページ公開 github.ioを使ってwebページを公開した。なお、現在更新はしていない。
-できたもの github.ioページ 8月　KiCad用ツール作成 KiCadを使う機会が多くなってきたので基板発注用の簡単なツール(Windowsアプリ)を作ってみた。
-こちらの記事で少し内容について紹介している。
-できたもの KiCadHelper(GitHub) 8月～　射的ゲーム作成 赤外線を使った射的ゲームを現在も作成中。同じようなものを以前一度作成していて、今回は複数人プレイに対応させる予定。
-できたもの 鋭意諸々作成中 今年を振り返ってみて 今年は電子工作に割ける時間が結構多かった。ただこうして振り返ってみると、かけた時間に比べ、出来上がった物の量がいまいち物足りないな…と思う。</p>
+<p>今年もあっという間だったがもう終わるらしい。 この1年で作った物の振り返りをしたいと思う。 今年作ったもの 1月～2月 ロボサッカー用ロボ作成 2月終...</p>
 </section>
-<footer class=entry-footer><span title="2019-12-28 22:35:40 +0900 +0900">December 28, 2019</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2019-12-28 22:35:40 +0900 +0900">12月 28, 2019</span>&nbsp;·&nbsp;3 分</footer>
 <a class=entry-link aria-label="post link to 今年(2019年)作ったものを振り返る" href=https://kouya17.com/posts/16/></a>
 </article>
 <article class=post-entry>
@@ -163,9 +104,9 @@ ArduinoとPCの通信(USBシリアル通信) PCとラズパイの通信(HTTP) PC
 </h2>
 </header>
 <section class=entry-content>
-<p>今回の経緯 フルカラーLEDを最大5個制御したい！ 最初NeoPixel(マイコン内蔵LED)を使う予定だったが、いろいろ試した結果、今回の条件では使えなさそうという結論になった。 マイコン内蔵ではない、通常のフルカラーLEDを使うことにする。 ただ、使用できるピン数は限られているため、マイコンボードからはI2CやSPI等で制御する形にしたい。 フルカラーLEDドライバを探す。 スイッチサイエンスで探したらよさそうなのがあったけど値が張る。 秋月でさがしたらこんなのがあった。 安い。もともとはドットマトリクス制御用らしいが、フルカラーLED制御にも転用できそう。 準備物 部品名 購入先 ESPr Developer 32 スイッチサイエンス 16×8LEDマトリクスドライバーモジュール(HT16K33) 秋月電子通商 RGBフルカラーLED 秋月電子通商 結果 とりあえず2個のフルカラーLEDを制御できた。 ただし、r, g, bはそれぞれ0(OFF)か1(ON)でしか調整することは出来ない。 プログラムとハマりポイント プログラム GitHub ハマりポイント I2Cアドレスでハマった。 秋月の解説ページでは初期状態なら0xE0(write)と書いてあったので、Arduinoのスケッチでアドレスを0xE0に指定したがなにも反応しなかった。 調べてみるとこの方法は誤りで、Arduinoの場合は最下位ビットを除いた7ビット分をアドレス値に設定する必要があるらしい。 スレーブアドレスを0x70と設定したらうまくいった。 参考：https://tool-lab.com/make/pic-practice-37/ 雑記 いま探したらaitendoでもっと安い、100円のフルカラーLEDドライバ(単体)があった。 ただこっちはチップ単体の値段だし、データシートが中文で読むのが大変そう…。 IoT開発スタートブック　── ESP32でクラウドにつなげる電子工作をはじめよう！ 技術評論社 Amazon Kindle 楽天 楽天Kobo -- </p>
+<p>今回の経緯 フルカラーLEDを最大5個制御したい！ 最初NeoPixel(マイコン内蔵LED)を使う予定だったが、いろいろ試した結果、今回の条件...</p>
 </section>
-<footer class=entry-footer><span title="2019-12-08 21:37:24 +0900 +0900">December 8, 2019</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2019-12-08 21:37:24 +0900 +0900">12月 8, 2019</span>&nbsp;·&nbsp;2 分</footer>
 <a class=entry-link aria-label="post link to マトリクスLEDドライバを使ってフルカラーLEDを制御してみる" href=https://kouya17.com/posts/15/></a>
 </article>
 <article class=post-entry>
@@ -174,14 +115,9 @@ ArduinoとPCの通信(USBシリアル通信) PCとラズパイの通信(HTTP) PC
 </h2>
 </header>
 <section class=entry-content>
-<p>概要 ソニーのシングルボードコンピュータSpresense及びSpresense用カメラモジュールを使って、公式で公開されているサンプルプログラムを動かした。 大体READMEの手順に従ったが、ところどころ詰まるところがあったのでメモとして残しておく。 Spresenseの簡単な説明 ソニーが開発したシングルボードコンピュータ。 Arduino IDEで開発可能。 NuttXというリアルタイムOSベースのSpresense SDKでも開発できる(今回はこっち)。 機能の主な特徴は以下。 GPSが標準で内蔵されている。 マルチコア(6コア!)プロセッサ。 メインボード単体だとネットワーク機能が使えないという点が個人的にはネックだと思っている。 Spresenseが出る少し前に流行し始めたEPS32系にすべて持っていかれている印象がある。 サンプル実行手順 今回動かしたサンプル 今回はカメラモジュールの動作確認がしたかったので公式が公開しているexamples/cameraを動かした。
-実行環境 OS：Windows10上のWSL(Ubuntu16.04) 開発環境：Spresense SDK 手順 基本はスタートガイド参照。
-1.開発ツールのセットアップ、ブートローダのインストールを行う。
-ここは公式の手順通りでいけるはずなので省略。 2.手順1.でSpresenseのプロジェクト一式をGitHubから落としてきているはずなので、その中のexamples/camera/README.txtを確認する。
-READMEを読むと、液晶コントローラILI9340で駆動しているLCDを使って、カメラが取得した画像を表示できるようになっていることが分かる。 3.ILI9340で駆動しているLCDを用意してSpresenseにつなぐ。
-今回はちょうど手元にILI9341で駆動している2.2インチTFTがあったのでそれを使った。 ここが引っかかるポイントその1(だと思う)。 READMEを読むと、拡張ボードを使わない場合はSPI5のピンにSPI関係の4ピンをつなげばよいということは書いてあるのだが、TFTのDCピンとRESETピンの配線先ピンが分からない。 この問題に関しては、コードを読みこむ必要があり(本当はどこかに説明書きがあるのかもしれないが…)、/sdk/bsp/board/spresense/include/board.h198行目～に定義されている。 #if defined(CONFIG_LCD_ON_MAIN_BOARD) /* Display connected to main board. */#define DISPLAY_RST PIN_I2S0_BCK #define DISPLAY_DC PIN_I2S0_LRCK #define DISPLAY_SPI 5 この記述から、DCピンはI2S0 LRCKピン、RESETピンはI2S0 BCKピンにつなげば良いことがわかる。 4....</p>
+<p>概要 ソニーのシングルボードコンピュータSpresense及びSpresense用カメラモジュールを使って、公式で公開されているサンプルプログ...</p>
 </section>
-<footer class=entry-footer><span title="2019-11-30 20:43:11 +0900 +0900">November 30, 2019</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2019-11-30 20:43:11 +0900 +0900">11月 30, 2019</span>&nbsp;·&nbsp;4 分</footer>
 <a class=entry-link aria-label="post link to Spresense SDKでカメラモジュール用のサンプルを動かした" href=https://kouya17.com/posts/14/></a>
 </article>
 <article class=post-entry>
@@ -190,9 +126,9 @@ READMEを読むと、液晶コントローラILI9340で駆動しているLCDを�
 </h2>
 </header>
 <section class=entry-content>
-<p>概要 当初ESPr Developer 32でNeoPixelを1個制御したかった 点灯自体はするのだが、色が正しく反映されない(赤を指定してるつもりでも、緑や青色になる) 上記問題を解消するのに丸1日かかった 結論 NeoPixelの動作電圧5Vに対し、IOの電圧を3.3Vにしてしまっていた 丸1日、試したこと 最初に、今回使用したNeoPixelの動作電圧がデータシート上4.5V~6Vということで、NeoPixelのVCCは5V、DINはESPr Developer 32のIO27ピンに接続した。 ライブラリAdafruit_NeoPixelを使って動作確認用プログラムを作成。 なんか色がおかしい！clear()も正常に働いていない。 “esp32 NeoPixel"でググる。 なんか他の人は大体正常に動作してるっぽい。 ネットの記事が比較的古い情報だったので、ライブラリのバージョンを疑う。 ライブラリAdafruit_NeoPixelのバージョンをネットの記事に合わせて下げる(ver1.3.0→ver1.2.3)。 動作不良変わりなし。 Arduino core for the ESP32のバージョンを下げる(ver1.0.4→ver1.0.0)。 動作不良変わりなし。 ライブラリAdafruit_NeoPixelがESP32ボードだとうまく使えないという記事を見かけ、NeoPixelライブラリ自体を疑う。 代替ライブラリとしてFastLEDのサンプルを動かす。 これも色がおかしい！ 代替ライブラリとしてNeoPixelBusのサンプルを動かす。 相変わらず色がおかしい。 Arduino Pro Mini互換機でAdafruit_NeoPixelのサンプルを動かす。 ちゃんと想定通りの色が出る。 ネットで再度ググるが"ESP32でもNeoPixelは使える"という情報ばかり。 動作確認に使っていたESPr Developer 32ボードを疑う。 違うESPr Developer 32ボードで動作確認する。 動作不良変わりなし。 同じESP32開発ボードであるESP32 DevKitCを使って動作確認する。 動作不良変わりなし。 電源だけArduino ProMini互換機からとってみたりする。 動作不良変わりなし。 ライブラリAdafruit_NeoPixelの実装を見てみる。 ESP32関係ボードの場合は、マクロF_CPUの値からCPU動作周波数を確認し、インラインアセンブラで信号のHIGH/LOWのタイミングを制御しているらしい。 一応マクロF_CPUの値をシリアル出力させて確認してみる。 F_CPU=240000000(240MHz)で想定通り。 本当に240MHzで動いてるのかを確認しようかとも思ったが、確認方法もパッとわからないので後回しにする。 ビルドオプションでCPU動作周波数を変えてみる。 動作不良変わりなし。 Adafruit_NeoPixelのProjectページ(GitHub)のissueを確認して類似の問題がないか確認する。 https://github.com/adafruit/Adafruit_NeoPixel/issues/139を見つける。 細かいことはよくわからないがNeoPixelBusを使えば正常に動いたという報告があるみたい。 といっても前述の通りNeoPixelBusのサンプルをそのまま動かしただけでは正常に動作しなかったため、NeoPixelBusのProjectページ(GitHub)のwikiを見る。 https://github.com/Makuna/NeoPixelBus/wiki/FAQ-%232を見つける。 自分の無知さに絶望する。 対策 とりあえず以下のいずれかの方法で正常な色が出力されることを確認。...</p>
+<p>概要 当初ESPr Developer 32でNeoPixelを1個制御したかった 点灯自体はするのだが、色が正しく反映されない(赤を指定してるつもりでも、緑や青色...</p>
 </section>
-<footer class=entry-footer><span title="2019-11-02 21:21:29 +0900 +0900">November 2, 2019</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2019-11-02 21:21:29 +0900 +0900">11月 2, 2019</span>&nbsp;·&nbsp;4 分</footer>
 <a class=entry-link aria-label="post link to NeoPixelをESP32開発ボードで点灯させるのに丸1日かかった話" href=https://kouya17.com/posts/13/></a>
 </article>
 <article class=post-entry>
@@ -209,7 +145,7 @@ Implement Select /etc/rc.local at this time
 Edit /home/pi/Boot/boot_syateki_server.py as below
 import serial # open serial port s = serial.Serial('/dev/serial0', 9600, timeout=10) # set volume 0x16 (0x00 - 0x1E) s....</p>
 </section>
-<footer class=entry-footer><span title="2019-10-13 19:22:50 +0900 +0900">October 13, 2019</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2019-10-13 19:22:50 +0900 +0900">10月 13, 2019</span>&nbsp;·&nbsp;1 分</footer>
 <a class=entry-link aria-label="post link to [Raspi Zero W]Play startup sound with UART MP3 Voice Module" href=https://kouya17.com/posts/12/></a>
 </article>
 <article class=post-entry>
@@ -218,9 +154,9 @@ import serial # open serial port s = serial.Serial('/dev/serial0', 9600, timeout
 </h2>
 </header>
 <section class=entry-content>
-<p>Environment Board Raspberry Pi Zero W OS result of lsb_release -a No LSB modules are available. Distributor ID: Raspbian Description: Raspbian GNU/Linux 10 (buster) Release: 10 Codename: buster OLED display HiLetgo 0.96" I2C シリアル 128×64 OLED LCDディスプレイSSD1306液晶 Setting i2c Enabling i2c sudo raspi-config select 5 Interfacing Options select P5 I2C select Yes Installing packages sudo apt-get update sudo apt-get install i2c-tools python-smbus Connect to OLED Wiring confirm pin assign http://xn–ccke1di9d4h....</p>
+<p>Environment Board Raspberry Pi Zero W OS result of lsb_release -a No LSB modules are available. Distributor ID: Raspbian Description: Raspbian GNU/Linux 10 (buster) Release: 10 Codename: buster OLED display HiLetgo 0.96" I2C シリアル 128×64 OLED LCDディスプレイSSD1306液晶 Setting i2c Enabling i2c sudo raspi-config select 5...</p>
 </section>
-<footer class=entry-footer><span title="2019-10-12 23:11:21 +0900 +0900">October 12, 2019</span>&nbsp;·&nbsp;2 min</footer>
+<footer class=entry-footer><span title="2019-10-12 23:11:21 +0900 +0900">10月 12, 2019</span>&nbsp;·&nbsp;1 分</footer>
 <a class=entry-link aria-label="post link to Using an I2C OLED Display with the Raspberry Pi Zero W" href=https://kouya17.com/posts/11/></a>
 </article>
 <article class=post-entry>
@@ -229,18 +165,9 @@ import serial # open serial port s = serial.Serial('/dev/serial0', 9600, timeout
 </h2>
 </header>
 <section class=entry-content>
-<p>elecrowへプリント基板を発注する際に必要なファイル変換作業をソフトで自動化した。
-作成ソフト 動作OS：Windows 開発環境：Visual Studio 2017 以下のGitHubのページから実行ファイルをダウンロードできる。 https://github.com/kouya17/KiCadHelper/releases
-(ページ中のAssets内KiCadHelper.zipをクリック)
-本ソフトが代替する作業 本ソフトは以下書籍(KiCadではじめる「プリント基板」製作)中のp131-p133の作業を代替する。
-KiCadではじめる「プリント基板」製作
-外川貴規 工学社 2018年02月
-売り上げランキング : 楽天ブックスで購入Amazonで購入 by ヨメレバ 具体的には以下の処理を行う。
-製造ファイル・ドリルファイルのファイル名統一 拡張子の変更(.drl→.txt、.gm1→.gml) 必要ファイルをzipに圧縮 各ファイル及びzipファイル名は「elecrow-プロジェクトフォルダ名-日付」となる。
-zip圧縮前のフォルダはプロジェクトフォルダ下に残る。
-使い方 ソフトを起動する プロジェクトフォルダに、すでに製造ファイル・ドリルファイルを出力済みのKiCadプロジェクトのフォルダを指定する zipファイル出力先に、発注用のzipファイルを出力する場所を指定する 開始ボタンを押す 画面下部にログが表示され、処理中にエラー等があればエラーログが出力される。</p>
+<p>elecrowへプリント基板を発注する際に必要なファイル変換作業をソフトで自動化した。 作成ソフト 動作OS：Windows 開発環境：Visua...</p>
 </section>
-<footer class=entry-footer><span title="2019-10-06 16:26:24 +0900 +0900">October 6, 2019</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2019-10-06 16:26:24 +0900 +0900">10月 6, 2019</span>&nbsp;·&nbsp;2 分</footer>
 <a class=entry-link aria-label="post link to elecrow発注用zipファイル作成ソフト(KiCad向け)を作った" href=https://kouya17.com/posts/9/></a>
 </article>
 <article class=post-entry>
@@ -249,22 +176,15 @@ zip圧縮前のフォルダはプロジェクトフォルダ下に残る。
 </h2>
 </header>
 <section class=entry-content>
-<p>参考サイト Bootstrap公式ドキュメント
-https://getbootstrap.com/docs/4.3/components/card/
-Card decksの部分をほぼそのまま使った。
-css部分は以下のQiitaの記事を参考にさせていただいた。
-https://qiita.com/iwato/items/840b831ad66fec0dd4c1
-コード html &lt;div class="col-sm-4"> &lt;div class="card card-link post-card"> &lt;a href="{% url 'posts:post_detail' post.id %}">&lt;/a> &lt;img class="card-img-top" src="{{ post.middle_image.url }}" alt="thumbnail"> &lt;div class="card-body"> &lt;h5 class="card-title">{{ post.title }}&lt;/h5> &lt;/div> &lt;div class="card-footer"> &lt;small class="text-muted">published at {{ post.published|date:"Y/n/j" }}&lt;/small> &lt;/div> &lt;/div> &lt;/div> 一行に最大3つ記事を表示するためにcol-sm-4を指定している。
-記事のサムネイル、タイトル、公開日を表示するようにしている。
-css /*div要素全体にリンクをつけるために必要な要素*/ .card-link { position: relative; } .card-link a { position: absolute; top: 0; left: 0; height:100%; width: 100%; } .post-card { margin-top: 5px; margin-bottom: 5px; } カード全体にリンクをつけるために....</p>
+<p>参考サイト Bootstrap公式ドキュメント https://getbootstrap.com/docs/4.3/components/card/ Card decksの部分をほぼそのまま使った。 css部分は以下のQiitaの記事を参考にさせていただ...</p>
 </section>
-<footer class=entry-footer><span title="2019-10-03 22:52:14 +0900 +0900">October 3, 2019</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2019-10-03 22:52:14 +0900 +0900">10月 3, 2019</span>&nbsp;·&nbsp;1 分</footer>
 <a class=entry-link aria-label="post link to Djangoで記事をカード型で表示するようにした" href=https://kouya17.com/posts/8/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
-<a class=prev href=https://kouya17.com/page/3/>« Prev Page</a>
-<a class=next href=https://kouya17.com/page/5/>Next Page »</a>
+<a class=prev href=https://kouya17.com/page/3/>« 前のページ</a>
+<a class=next href=https://kouya17.com/page/5/>次のページ »</a>
 </nav>
 </footer>
 </main>

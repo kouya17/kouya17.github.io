@@ -1,21 +1,11 @@
-<!doctype html><html lang=en dir=auto>
+<!doctype html><html lang=ja dir=auto>
 <head><meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
 <title>UIFlowの環境でHuskyLensを使えるようにする | kouya17.com</title>
 <meta name=keywords content="HuskyLens,MicroPython,UIFlow,esp32">
-<meta name=description content="UIFlowとは  M5Stack系列がサポートしている開発環境の1つ。主な特徴は以下の通り。
- Web上でコーディングから書き込みまでできる。 ビジュアルプログラミング言語Blockly及びMicroPythonをサポートしている。  HuskyLensとは  AI処理向けのSoC Kendryte K210 を搭載したAIカメラモジュール。顔認識、オブジェクト追跡、オブジェクト認識、ライン追跡、色認識、タグ（AprilTag）認識などの機能が実装されている。接続インタフェースはUART及びI2C。
-MicroPython環境でHuskyLensを使う Pythonで実装されたHuskyLensとの通信用ライブラリは、RaspberryPiでの利用向けに公開されている。
- MicroPython上でHuskyLensを使う場合、基本的にはここから必要な処理をコピペして使えば良さそうなのだが、一部 MicroPython(on ESP32) でサポートされていないモジュールを利用している箇所があるため、その部分を書き換える必要がある。ただし、今回はUARTでの通信を前提とする。
-環境  UIFlowファームウェア : ver1.4.5.1 HuskyLens用Pythonライブラリ : 2020/06/28時点の最新  書き換えが必要な箇所 UART通信用オブジェクト生成部分 書き換え前
-self.huskylensSer = serial.Serial(port=comPort, baudrate=speed) 書き換え後例
-self.serial = machine.UART(1, tx=32, rx=33) self.serial.init(9600, bits=8, parity=None, stop=1) MicroPythonではmachineモジュールがもつクラスUARTを使ってUART通信バスにアクセスできる。ピン番号やボーレートは自分の環境に合わせて設定する。
-参考 : クラス UART -- 二重シリアル通信バス — MicroPython 1.12 ドキュメント
-16進数文字列からバイナリデータへの変換部分 書き換え前
-def cmdToBytes(self, cmd): return bytes.fromhex(cmd) 書き換え後例
-import ubinascii def cmdToBytes(self, cmd): return ubinascii.">
+<meta name=description content="UIFlowとは M5Stack系列がサポートしている開発環境の1つ。主な特徴は以下の通り。 Web上でコーディングから書き込みまでできる。 ビジ">
 <meta name=author content>
 <link rel=canonical href=https://kouya17.com/posts/34/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.a97cdb2d52ff3547f5b45210b2262edb8517a9ced99357596eea2f6dda9f6aad.css integrity="sha256-qXzbLVL/NUf1tFIQsiYu24UXqc7Zk1dZbuovbdqfaq0=" rel="preload stylesheet" as=style>
@@ -36,17 +26,7 @@ import ubinascii def cmdToBytes(self, cmd): return ubinascii.">
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body)></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-92576104-3','auto'),ga('send','pageview'))</script><meta property="og:title" content="UIFlowの環境でHuskyLensを使えるようにする">
-<meta property="og:description" content="UIFlowとは  M5Stack系列がサポートしている開発環境の1つ。主な特徴は以下の通り。
- Web上でコーディングから書き込みまでできる。 ビジュアルプログラミング言語Blockly及びMicroPythonをサポートしている。  HuskyLensとは  AI処理向けのSoC Kendryte K210 を搭載したAIカメラモジュール。顔認識、オブジェクト追跡、オブジェクト認識、ライン追跡、色認識、タグ（AprilTag）認識などの機能が実装されている。接続インタフェースはUART及びI2C。
-MicroPython環境でHuskyLensを使う Pythonで実装されたHuskyLensとの通信用ライブラリは、RaspberryPiでの利用向けに公開されている。
- MicroPython上でHuskyLensを使う場合、基本的にはここから必要な処理をコピペして使えば良さそうなのだが、一部 MicroPython(on ESP32) でサポートされていないモジュールを利用している箇所があるため、その部分を書き換える必要がある。ただし、今回はUARTでの通信を前提とする。
-環境  UIFlowファームウェア : ver1.4.5.1 HuskyLens用Pythonライブラリ : 2020/06/28時点の最新  書き換えが必要な箇所 UART通信用オブジェクト生成部分 書き換え前
-self.huskylensSer = serial.Serial(port=comPort, baudrate=speed) 書き換え後例
-self.serial = machine.UART(1, tx=32, rx=33) self.serial.init(9600, bits=8, parity=None, stop=1) MicroPythonではmachineモジュールがもつクラスUARTを使ってUART通信バスにアクセスできる。ピン番号やボーレートは自分の環境に合わせて設定する。
-参考 : クラス UART -- 二重シリアル通信バス — MicroPython 1.12 ドキュメント
-16進数文字列からバイナリデータへの変換部分 書き換え前
-def cmdToBytes(self, cmd): return bytes.fromhex(cmd) 書き換え後例
-import ubinascii def cmdToBytes(self, cmd): return ubinascii.">
+<meta property="og:description" content="UIFlowとは M5Stack系列がサポートしている開発環境の1つ。主な特徴は以下の通り。 Web上でコーディングから書き込みまでできる。 ビジ">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kouya17.com/posts/34/">
 <meta property="og:image" content="https://kouya17.com/media/photos/20/06/28/esp32.png"><meta property="article:section" content="posts">
@@ -55,19 +35,9 @@ import ubinascii def cmdToBytes(self, cmd): return ubinascii.">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://kouya17.com/media/photos/20/06/28/esp32.png">
 <meta name=twitter:title content="UIFlowの環境でHuskyLensを使えるようにする">
-<meta name=twitter:description content="UIFlowとは  M5Stack系列がサポートしている開発環境の1つ。主な特徴は以下の通り。
- Web上でコーディングから書き込みまでできる。 ビジュアルプログラミング言語Blockly及びMicroPythonをサポートしている。  HuskyLensとは  AI処理向けのSoC Kendryte K210 を搭載したAIカメラモジュール。顔認識、オブジェクト追跡、オブジェクト認識、ライン追跡、色認識、タグ（AprilTag）認識などの機能が実装されている。接続インタフェースはUART及びI2C。
-MicroPython環境でHuskyLensを使う Pythonで実装されたHuskyLensとの通信用ライブラリは、RaspberryPiでの利用向けに公開されている。
- MicroPython上でHuskyLensを使う場合、基本的にはここから必要な処理をコピペして使えば良さそうなのだが、一部 MicroPython(on ESP32) でサポートされていないモジュールを利用している箇所があるため、その部分を書き換える必要がある。ただし、今回はUARTでの通信を前提とする。
-環境  UIFlowファームウェア : ver1.4.5.1 HuskyLens用Pythonライブラリ : 2020/06/28時点の最新  書き換えが必要な箇所 UART通信用オブジェクト生成部分 書き換え前
-self.huskylensSer = serial.Serial(port=comPort, baudrate=speed) 書き換え後例
-self.serial = machine.UART(1, tx=32, rx=33) self.serial.init(9600, bits=8, parity=None, stop=1) MicroPythonではmachineモジュールがもつクラスUARTを使ってUART通信バスにアクセスできる。ピン番号やボーレートは自分の環境に合わせて設定する。
-参考 : クラス UART -- 二重シリアル通信バス — MicroPython 1.12 ドキュメント
-16進数文字列からバイナリデータへの変換部分 書き換え前
-def cmdToBytes(self, cmd): return bytes.fromhex(cmd) 書き換え後例
-import ubinascii def cmdToBytes(self, cmd): return ubinascii.">
+<meta name=twitter:description content="UIFlowとは M5Stack系列がサポートしている開発環境の1つ。主な特徴は以下の通り。 Web上でコーディングから書き込みまでできる。 ビジ">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://kouya17.com/posts/"},{"@type":"ListItem","position":3,"name":"UIFlowの環境でHuskyLensを使えるようにする","item":"https://kouya17.com/posts/34/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"UIFlowの環境でHuskyLensを使えるようにする","name":"UIFlowの環境でHuskyLensを使えるようにする","description":"UIFlowとは  M5Stack系列がサポートしている開発環境の1つ。主な特徴は以下の通り。\n Web上でコーディングから書き込みまでできる。 ビジュアルプログラミング言語Blockly及びMicroPythonをサポートしている。  HuskyLensとは  AI処理向けのSoC Kendryte K210 を搭載したAIカメラモジュール。顔認識、オブジェクト追跡、オブジェクト認識、ライン追跡、色認識、タグ（AprilTag）認識などの機能が実装されている。接続インタフェースはUART及びI2C。\nMicroPython環境でHuskyLensを使う Pythonで実装されたHuskyLensとの通信用ライブラリは、RaspberryPiでの利用向けに公開されている。\n MicroPython上でHuskyLensを使う場合、基本的にはここから必要な処理をコピペして使えば良さそうなのだが、一部 MicroPython(on ESP32) でサポートされていないモジュールを利用している箇所があるため、その部分を書き換える必要がある。ただし、今回はUARTでの通信を前提とする。\n環境  UIFlowファームウェア : ver1.4.5.1 HuskyLens用Pythonライブラリ : 2020/06/28時点の最新  書き換えが必要な箇所 UART通信用オブジェクト生成部分 書き換え前\nself.huskylensSer = serial.Serial(port=comPort, baudrate=speed) 書き換え後例\nself.serial = machine.UART(1, tx=32, rx=33) self.serial.init(9600, bits=8, parity=None, stop=1) MicroPythonではmachineモジュールがもつクラスUARTを使ってUART通信バスにアクセスできる。ピン番号やボーレートは自分の環境に合わせて設定する。\n参考 : クラス UART -- 二重シリアル通信バス — MicroPython 1.12 ドキュメント\n16進数文字列からバイナリデータへの変換部分 書き換え前\ndef cmdToBytes(self, cmd): return bytes.fromhex(cmd) 書き換え後例\nimport ubinascii def cmdToBytes(self, cmd): return ubinascii.","keywords":["HuskyLens","MicroPython","UIFlow","esp32"],"articleBody":"UIFlowとは  M5Stack系列がサポートしている開発環境の1つ。主な特徴は以下の通り。\n Web上でコーディングから書き込みまでできる。 ビジュアルプログラミング言語Blockly及びMicroPythonをサポートしている。  HuskyLensとは  AI処理向けのSoC Kendryte K210 を搭載したAIカメラモジュール。顔認識、オブジェクト追跡、オブジェクト認識、ライン追跡、色認識、タグ（AprilTag）認識などの機能が実装されている。接続インタフェースはUART及びI2C。\nMicroPython環境でHuskyLensを使う Pythonで実装されたHuskyLensとの通信用ライブラリは、RaspberryPiでの利用向けに公開されている。\n MicroPython上でHuskyLensを使う場合、基本的にはここから必要な処理をコピペして使えば良さそうなのだが、一部 MicroPython(on ESP32) でサポートされていないモジュールを利用している箇所があるため、その部分を書き換える必要がある。ただし、今回はUARTでの通信を前提とする。\n環境  UIFlowファームウェア : ver1.4.5.1 HuskyLens用Pythonライブラリ : 2020/06/28時点の最新  書き換えが必要な箇所 UART通信用オブジェクト生成部分 書き換え前\nself.huskylensSer = serial.Serial(port=comPort, baudrate=speed) 書き換え後例\nself.serial = machine.UART(1, tx=32, rx=33) self.serial.init(9600, bits=8, parity=None, stop=1) MicroPythonではmachineモジュールがもつクラスUARTを使ってUART通信バスにアクセスできる。ピン番号やボーレートは自分の環境に合わせて設定する。\n参考 : クラス UART -- 二重シリアル通信バス — MicroPython 1.12 ドキュメント\n16進数文字列からバイナリデータへの変換部分 書き換え前\ndef cmdToBytes(self, cmd): return bytes.fromhex(cmd) 書き換え後例\nimport ubinascii def cmdToBytes(self, cmd): return ubinascii.unhexlify(cmd) MicroPythonにはbytes.fromhex()は実装されていないらしい。実行しようとしたら そんな関数はない と怒られた。代わりにMicroPythonでも標準でサポートされているubinasciiモジュールを使う。\n参考 : ubinascii -- バイナリ/ASCII 変換 — MicroPython 1.12 ドキュメント\nバイナリデータから16進数文字列への変換部分 書き換え前\ncommandSplit = self.splitCommandToParts(byteString.hex()) 書き換え後例\ncommandSplit = self.splitCommandToParts(ubinascii.hexlify(byteString)) bytes.hex()も同様に実装されていないらしいので、代わりにubinasciiモジュールを使う。ただし、ubinascii.hexlify()は戻り値が文字列ではなく、バイト列であるため注意。\n受信データと文字列の比較部分 書き換え前\nif(commandSplit[3] == \"2e\"): return \"Knock Recieved\" 書き換え後\nif(commandSplit[3] == b'2e'): return \"Knock Recieved\" 先ほどの書き換えの影響で、commandSplitには文字列ではなくてバイト列が格納されている。そのため比較部分もバイト列と比較するようにする。\nアフィリエイト ゼロから作るDeep Learningposted with ヨメレバ斎藤 康毅 オライリー・ジャパン 2016年09月24日 楽天ブックスで購入Amazonで購入Kindleで購入  --  ","wordCount":"114","inLanguage":"en","image":"https://kouya17.com/media/photos/20/06/28/esp32.png","datePublished":"2020-06-28T20:47:32+09:00","dateModified":"2020-06-28T20:47:32+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kouya17.com/posts/34/"},"publisher":{"@type":"Organization","name":"kouya17.com","logo":{"@type":"ImageObject","url":"https://kouya17.com/favicon.ico"}}}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8855472249928298" crossorigin=anonymous></script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"UIFlowの環境でHuskyLensを使えるようにする","name":"UIFlowの環境でHuskyLensを使えるようにする","description":"UIFlowとは M5Stack系列がサポートしている開発環境の1つ。主な特徴は以下の通り。 Web上でコーディングから書き込みまでできる。 ビジ","keywords":["HuskyLens","MicroPython","UIFlow","esp32"],"articleBody":"UIFlowとは  M5Stack系列がサポートしている開発環境の1つ。主な特徴は以下の通り。\n Web上でコーディングから書き込みまでできる。 ビジュアルプログラミング言語Blockly及びMicroPythonをサポートしている。  HuskyLensとは  AI処理向けのSoC Kendryte K210 を搭載したAIカメラモジュール。顔認識、オブジェクト追跡、オブジェクト認識、ライン追跡、色認識、タグ（AprilTag）認識などの機能が実装されている。接続インタフェースはUART及びI2C。\nMicroPython環境でHuskyLensを使う Pythonで実装されたHuskyLensとの通信用ライブラリは、RaspberryPiでの利用向けに公開されている。\n MicroPython上でHuskyLensを使う場合、基本的にはここから必要な処理をコピペして使えば良さそうなのだが、一部 MicroPython(on ESP32) でサポートされていないモジュールを利用している箇所があるため、その部分を書き換える必要がある。ただし、今回はUARTでの通信を前提とする。\n環境  UIFlowファームウェア : ver1.4.5.1 HuskyLens用Pythonライブラリ : 2020/06/28時点の最新  書き換えが必要な箇所 UART通信用オブジェクト生成部分 書き換え前\nself.huskylensSer = serial.Serial(port=comPort, baudrate=speed) 書き換え後例\nself.serial = machine.UART(1, tx=32, rx=33) self.serial.init(9600, bits=8, parity=None, stop=1) MicroPythonではmachineモジュールがもつクラスUARTを使ってUART通信バスにアクセスできる。ピン番号やボーレートは自分の環境に合わせて設定する。\n参考 : クラス UART -- 二重シリアル通信バス — MicroPython 1.12 ドキュメント\n16進数文字列からバイナリデータへの変換部分 書き換え前\ndef cmdToBytes(self, cmd): return bytes.fromhex(cmd) 書き換え後例\nimport ubinascii def cmdToBytes(self, cmd): return ubinascii.unhexlify(cmd) MicroPythonにはbytes.fromhex()は実装されていないらしい。実行しようとしたら そんな関数はない と怒られた。代わりにMicroPythonでも標準でサポートされているubinasciiモジュールを使う。\n参考 : ubinascii -- バイナリ/ASCII 変換 — MicroPython 1.12 ドキュメント\nバイナリデータから16進数文字列への変換部分 書き換え前\ncommandSplit = self.splitCommandToParts(byteString.hex()) 書き換え後例\ncommandSplit = self.splitCommandToParts(ubinascii.hexlify(byteString)) bytes.hex()も同様に実装されていないらしいので、代わりにubinasciiモジュールを使う。ただし、ubinascii.hexlify()は戻り値が文字列ではなく、バイト列であるため注意。\n受信データと文字列の比較部分 書き換え前\nif(commandSplit[3] == \"2e\"): return \"Knock Recieved\" 書き換え後\nif(commandSplit[3] == b'2e'): return \"Knock Recieved\" 先ほどの書き換えの影響で、commandSplitには文字列ではなくてバイト列が格納されている。そのため比較部分もバイト列と比較するようにする。\nアフィリエイト ゼロから作るDeep Learningposted with ヨメレバ斎藤 康毅 オライリー・ジャパン 2016年09月24日 楽天ブックスで購入Amazonで購入Kindleで購入  --  ","wordCount":"1167","inLanguage":"ja","image":"https://kouya17.com/media/photos/20/06/28/esp32.png","datePublished":"2020-06-28T20:47:32+09:00","dateModified":"2020-06-28T20:47:32+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kouya17.com/posts/34/"},"publisher":{"@type":"Organization","name":"kouya17.com","logo":{"@type":"ImageObject","url":"https://kouya17.com/favicon.ico"}}}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8855472249928298" crossorigin=anonymous></script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -106,12 +76,12 @@ import ubinascii def cmdToBytes(self, cmd): return ubinascii.">
 <h1 class=post-title>
 UIFlowの環境でHuskyLensを使えるようにする
 </h1>
-<div class=post-meta><span title="2020-06-28 20:47:32 +0900 +0900">June 28, 2020</span>&nbsp;·&nbsp;1 min
+<div class=post-meta><span title="2020-06-28 20:47:32 +0900 +0900">6月 28, 2020</span>&nbsp;·&nbsp;3 分
 </div>
 </header> <div class=toc>
 <details>
 <summary accesskey=c title="(Alt + C)">
-<span class=details>Table of Contents</span>
+<span class=details>目次</span>
 </summary>
 <div class=inner><ul>
 <li>
@@ -206,12 +176,12 @@ self<span style=color:#f92672>.</span>serial<span style=color:#f92672>.</span>in
 </ul>
 <nav class=paginav>
 <a class=prev href=https://kouya17.com/posts/35/>
-<span class=title>« Prev Page</span>
+<span class=title>« 前のページ</span>
 <br>
 <span>Spresense VSCode IDEトラブルシューティング(適宜更新予定)</span>
 </a>
 <a class=next href=https://kouya17.com/posts/33/>
-<span class=title>Next Page »</span>
+<span class=title>次のページ »</span>
 <br>
 <span>赤外線を周期的に(矩形波で)出力するモジュールを作る</span>
 </a>

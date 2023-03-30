@@ -1,18 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>ADALM2000 on kouya17.com</title><link>https://kouya17.com/tags/adalm2000/</link><description>Recent content in ADALM2000 on kouya17.com</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 21 Jun 2020 18:17:42 +0900</lastBuildDate><atom:link href="https://kouya17.com/tags/adalm2000/index.xml" rel="self" type="application/rss+xml"/><item><title>赤外線を周期的に(矩形波で)出力するモジュールを作る</title><link>https://kouya17.com/posts/33/</link><pubDate>Sun, 21 Jun 2020 18:17:42 +0900</pubDate><guid>https://kouya17.com/posts/33/</guid><description>現在作成中である射的ゲームの銃ユニット用に、赤外線を周期的に(矩形波で)出力するモジュールを作成する。
-電源 まず必要な電圧・電流を調べる 今回使う赤外線LED → ５ｍｍ赤外線ＬＥＤ　９４０ｎｍ　ＯＳＩ５ＦＵ５１１１Ｃ－４０　（５個入）: LED(発光ダイオード) 秋月電子通商-電子部品・ネット通販
-赤外線LEDの絶対最大定格
-最大順方向電流 If : 100mA 赤外線LEDの電気的特性
-順方向電圧 : If=100mAの時 代表値 1.35V、 最大値 1.6V If=100mAとなっているが(なかなか高出力…)、50%の50mAが流れるように設計する。
-電源の選定 50mA流しても大丈夫 + 1.35V以上を確保できる電源を選ぶ。
-値段等も考えると、1000円でバッテリー+電池保護+電源管理がついてるPowerCが自分にとって使いやすそう。
-M5StickCは使わないので、BATピンだけ活用する。
-PowerCの給電周りの仕組みについては公式ドキュメントとM5StickCのバッテリー拡張HATをためす – Lang-shipを参考にさせていただいた。
-安定化 定電圧をとるために3端子レギュレータをかます。
-低飽和型レギュレーター　３Ｖ５００ｍＡ　ＮＪＭ２８８４Ｕ１－０３: 半導体 秋月電子通商-電子部品・ネット通販とかでよさそう。
-→ ip3005のデータシートによると2.5V付近まで落ちるみたいなことが書いてあるので、これだとバッテリ残量少ないときダメそう。
-秋月で買えるやつでベストそうなのは低ドロップレギュレーター　２．５Ｖ１．５Ａ　ＬＴ１９６３ＡＥＳ８－２．５: 半導体 秋月電子通商-電子部品・ネット通販。これを使う。
-だいぶいいやつなので高い…(1個200円)。
-赤外線出力 矩形波生成 矩形波（方形波）発生回路の理論的な理解 - 電子工作で覚える！電子回路を参考にさせていただく。
-上記サイト中の式
-$$ T = 1.386 \times C_1R_4 $$
-において、\(C_1 = 0.1 \mu F\)に固定した場合、</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>ADALM2000 on kouya17.com</title><link>https://kouya17.com/tags/adalm2000/</link><description>Recent content in ADALM2000 on kouya17.com</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sun, 21 Jun 2020 18:17:42 +0900</lastBuildDate><atom:link href="https://kouya17.com/tags/adalm2000/index.xml" rel="self" type="application/rss+xml"/><item><title>赤外線を周期的に(矩形波で)出力するモジュールを作る</title><link>https://kouya17.com/posts/33/</link><pubDate>Sun, 21 Jun 2020 18:17:42 +0900</pubDate><guid>https://kouya17.com/posts/33/</guid><description>現在作成中である射的ゲームの銃ユニット用に、赤外線を周期的に(矩形波で)出力するモジュールを作成する。 電源 まず必要な電圧・電流を調べる 今回使</description></item></channel></rss>

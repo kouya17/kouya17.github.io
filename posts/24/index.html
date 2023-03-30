@@ -1,25 +1,11 @@
-<!doctype html><html lang=en dir=auto>
+<!doctype html><html lang=ja dir=auto>
 <head><meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
 <title>感染症数理モデルについて触りの部分だけ学ぶ | kouya17.com</title>
 <meta name=keywords content="math,python,simulation">
-<meta name=description content="目的 特にしっかりした目的はない。
-なんとなく数値シミュレーションについて学び直したくなったため、現在身近にある現象を題材にして学ぶ。
-ネットの情報を参考に、適当にシミュレーションを走らせてみる。
-※本シミュレーションは、実測値等には全く基づいていないため、完全に空想上のシミュレーションになります。
-本シミュレーションの結果が実情を反映していたり、今後の予測を示していたりはしません。
-今回扱うシミュレーションモデル SEIRモデルを扱う。
-SEIRモデルとは  SEIRモデル(エスイーアイアールモデル)とは感染症流行の数理モデルである。
-モデルは
- 感染症に対して免疫を持たない者(Susceptible) 感染症が潜伏期間中の者(Exposed) 発症者(Infectious) 感染症から回復し免疫を獲得した者(Recovered)  から構成され、その頭文字をとってSEIRモデルと呼ばれる。
-(Wikipediaより)
- モデル式は以下のような式で表される。
-$$ \begin{aligned} \frac{dS}{dt} &= m(N - S) - bSI &(1) \cr \frac{dE}{dt} &= bSI - (m + a)E &(2) \cr \frac{dI}{dt} &= aE - (m + g)I &(3) \cr \frac{dR}{dt} &= gI - mR &(4) \end{aligned} $$
-ここで\(t\)は時間、\(m\)は出生率及び死亡率、\(a\)は感染症の発生率、\(b\)は感染症への感染率、\(g\)は感染症からの回復率を表す。
-また\(N\)は全人口を示し、
-$$N \equiv S + E + I + R　(5)$$">
+<meta name=description content="目的 特にしっかりした目的はない。 なんとなく数値シミュレーションについて学び直したくなったため、現在身近にある現象を題材にして学ぶ。 ネットの情">
 <meta name=author content>
 <link rel=canonical href=https://kouya17.com/posts/24/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.a97cdb2d52ff3547f5b45210b2262edb8517a9ced99357596eea2f6dda9f6aad.css integrity="sha256-qXzbLVL/NUf1tFIQsiYu24UXqc7Zk1dZbuovbdqfaq0=" rel="preload stylesheet" as=style>
@@ -40,21 +26,7 @@ $$N \equiv S + E + I + R　(5)$$">
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body)></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-92576104-3','auto'),ga('send','pageview'))</script><meta property="og:title" content="感染症数理モデルについて触りの部分だけ学ぶ">
-<meta property="og:description" content="目的 特にしっかりした目的はない。
-なんとなく数値シミュレーションについて学び直したくなったため、現在身近にある現象を題材にして学ぶ。
-ネットの情報を参考に、適当にシミュレーションを走らせてみる。
-※本シミュレーションは、実測値等には全く基づいていないため、完全に空想上のシミュレーションになります。
-本シミュレーションの結果が実情を反映していたり、今後の予測を示していたりはしません。
-今回扱うシミュレーションモデル SEIRモデルを扱う。
-SEIRモデルとは  SEIRモデル(エスイーアイアールモデル)とは感染症流行の数理モデルである。
-モデルは
- 感染症に対して免疫を持たない者(Susceptible) 感染症が潜伏期間中の者(Exposed) 発症者(Infectious) 感染症から回復し免疫を獲得した者(Recovered)  から構成され、その頭文字をとってSEIRモデルと呼ばれる。
-(Wikipediaより)
- モデル式は以下のような式で表される。
-$$ \begin{aligned} \frac{dS}{dt} &= m(N - S) - bSI &(1) \cr \frac{dE}{dt} &= bSI - (m + a)E &(2) \cr \frac{dI}{dt} &= aE - (m + g)I &(3) \cr \frac{dR}{dt} &= gI - mR &(4) \end{aligned} $$
-ここで\(t\)は時間、\(m\)は出生率及び死亡率、\(a\)は感染症の発生率、\(b\)は感染症への感染率、\(g\)は感染症からの回復率を表す。
-また\(N\)は全人口を示し、
-$$N \equiv S + E + I + R　(5)$$">
+<meta property="og:description" content="目的 特にしっかりした目的はない。 なんとなく数値シミュレーションについて学び直したくなったため、現在身近にある現象を題材にして学ぶ。 ネットの情">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kouya17.com/posts/24/">
 <meta property="og:image" content="https://kouya17.com/media/photos/20/05/02/r1_95.png"><meta property="article:section" content="posts">
@@ -63,23 +35,9 @@ $$N \equiv S + E + I + R　(5)$$">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://kouya17.com/media/photos/20/05/02/r1_95.png">
 <meta name=twitter:title content="感染症数理モデルについて触りの部分だけ学ぶ">
-<meta name=twitter:description content="目的 特にしっかりした目的はない。
-なんとなく数値シミュレーションについて学び直したくなったため、現在身近にある現象を題材にして学ぶ。
-ネットの情報を参考に、適当にシミュレーションを走らせてみる。
-※本シミュレーションは、実測値等には全く基づいていないため、完全に空想上のシミュレーションになります。
-本シミュレーションの結果が実情を反映していたり、今後の予測を示していたりはしません。
-今回扱うシミュレーションモデル SEIRモデルを扱う。
-SEIRモデルとは  SEIRモデル(エスイーアイアールモデル)とは感染症流行の数理モデルである。
-モデルは
- 感染症に対して免疫を持たない者(Susceptible) 感染症が潜伏期間中の者(Exposed) 発症者(Infectious) 感染症から回復し免疫を獲得した者(Recovered)  から構成され、その頭文字をとってSEIRモデルと呼ばれる。
-(Wikipediaより)
- モデル式は以下のような式で表される。
-$$ \begin{aligned} \frac{dS}{dt} &= m(N - S) - bSI &(1) \cr \frac{dE}{dt} &= bSI - (m + a)E &(2) \cr \frac{dI}{dt} &= aE - (m + g)I &(3) \cr \frac{dR}{dt} &= gI - mR &(4) \end{aligned} $$
-ここで\(t\)は時間、\(m\)は出生率及び死亡率、\(a\)は感染症の発生率、\(b\)は感染症への感染率、\(g\)は感染症からの回復率を表す。
-また\(N\)は全人口を示し、
-$$N \equiv S + E + I + R　(5)$$">
+<meta name=twitter:description content="目的 特にしっかりした目的はない。 なんとなく数値シミュレーションについて学び直したくなったため、現在身近にある現象を題材にして学ぶ。 ネットの情">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://kouya17.com/posts/"},{"@type":"ListItem","position":3,"name":"感染症数理モデルについて触りの部分だけ学ぶ","item":"https://kouya17.com/posts/24/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"感染症数理モデルについて触りの部分だけ学ぶ","name":"感染症数理モデルについて触りの部分だけ学ぶ","description":"目的 特にしっかりした目的はない。\nなんとなく数値シミュレーションについて学び直したくなったため、現在身近にある現象を題材にして学ぶ。\nネットの情報を参考に、適当にシミュレーションを走らせてみる。\n※本シミュレーションは、実測値等には全く基づいていないため、完全に空想上のシミュレーションになります。\n本シミュレーションの結果が実情を反映していたり、今後の予測を示していたりはしません。\n今回扱うシミュレーションモデル SEIRモデルを扱う。\nSEIRモデルとは  SEIRモデル(エスイーアイアールモデル)とは感染症流行の数理モデルである。\nモデルは\n 感染症に対して免疫を持たない者(Susceptible) 感染症が潜伏期間中の者(Exposed) 発症者(Infectious) 感染症から回復し免疫を獲得した者(Recovered)  から構成され、その頭文字をとってSEIRモデルと呼ばれる。\n(Wikipediaより)\n モデル式は以下のような式で表される。\n$$ \\begin{aligned} \\frac{dS}{dt} \u0026amp;= m(N - S) - bSI \u0026amp;(1) \\cr \\frac{dE}{dt} \u0026amp;= bSI - (m + a)E \u0026amp;(2) \\cr \\frac{dI}{dt} \u0026amp;= aE - (m + g)I \u0026amp;(3) \\cr \\frac{dR}{dt} \u0026amp;= gI - mR \u0026amp;(4) \\end{aligned} $$\nここで\\(t\\)は時間、\\(m\\)は出生率及び死亡率、\\(a\\)は感染症の発生率、\\(b\\)は感染症への感染率、\\(g\\)は感染症からの回復率を表す。\nまた\\(N\\)は全人口を示し、\n$$N \\equiv S + E + I + R　(5)$$","keywords":["math","python","simulation"],"articleBody":"目的 特にしっかりした目的はない。\nなんとなく数値シミュレーションについて学び直したくなったため、現在身近にある現象を題材にして学ぶ。\nネットの情報を参考に、適当にシミュレーションを走らせてみる。\n※本シミュレーションは、実測値等には全く基づいていないため、完全に空想上のシミュレーションになります。\n本シミュレーションの結果が実情を反映していたり、今後の予測を示していたりはしません。\n今回扱うシミュレーションモデル SEIRモデルを扱う。\nSEIRモデルとは  SEIRモデル(エスイーアイアールモデル)とは感染症流行の数理モデルである。\nモデルは\n 感染症に対して免疫を持たない者(Susceptible) 感染症が潜伏期間中の者(Exposed) 発症者(Infectious) 感染症から回復し免疫を獲得した者(Recovered)  から構成され、その頭文字をとってSEIRモデルと呼ばれる。\n(Wikipediaより)\n モデル式は以下のような式で表される。\n$$ \\begin{aligned} \\frac{dS}{dt} \u0026= m(N - S) - bSI \u0026(1) \\cr \\frac{dE}{dt} \u0026= bSI - (m + a)E \u0026(2) \\cr \\frac{dI}{dt} \u0026= aE - (m + g)I \u0026(3) \\cr \\frac{dR}{dt} \u0026= gI - mR \u0026(4) \\end{aligned} $$\nここで\\(t\\)は時間、\\(m\\)は出生率及び死亡率、\\(a\\)は感染症の発生率、\\(b\\)は感染症への感染率、\\(g\\)は感染症からの回復率を表す。\nまた\\(N\\)は全人口を示し、\n$$N \\equiv S + E + I + R　(5)$$\nで定義される。\nこの式をみて、以前私が扱ったことのある、化学反応モデルにおける各化学種の質量分率の計算式に似てるなと思った。\n化学反応も逐次的に進行するし、感染も未感染から回復まで逐次的に進行するから、モデル的には同じような扱いになるのだろうか。\n全体的に構成はシンプルだが、一つ気になったのは(1)式右辺の項bSIについて。\nこの項は非感染者と感染者の接触によってSusceptibleの人がExposedになる振る舞いを表しているのだと思う。\nここで接触率とかは対象の環境によるのだと思うのだが、式上では接触率のようなものは出てこない。\nパラメータbにそこらへんも含まれているのかもしれないが、ここら辺はもう少し調べないと分からないなと思った。\n計算してみる 上の式を数値的に解いてみる。\nシミュレーションを行う前に、上の式を少し修正し、適当にパラメータを決める。\n式を修正する 上の式はあくまで定義式なので、計算しやすいように、また、今回取り扱う問題に合うように修正する。\n修正する内容は以下の資料を参考にさせていただく。\nhttp://www.bs.s.u-tokyo.ac.jp/content/files/covid/COVID-19_SEIRmodel_full_ver4.1.pdf\n今回は扱うモデル式を以下のようにする。\n$$ \\begin{aligned} \\frac{dS}{dt} \u0026= -(\\frac{R_0}{i})\\frac{S}{N}I \u0026(6) \\cr \\frac{dE}{dt} \u0026= -(\\frac{R_0}{i})\\frac{S}{N}I - (\\frac{1}{l})E \u0026(7) \\cr \\frac{dI}{dt} \u0026= (\\frac{1}{l})E - (\\frac{1}{i})I \u0026(8) \\cr \\frac{dR}{dt} \u0026= (\\frac{1}{i})I \u0026(9) \\end{aligned} $$\nここで、\\(R_0\\)は基本再生産数、\\(l\\)は平均潜伏期間、\\(i\\)は平均発症期間である。\nwikipediaの式と比べて変わったところは、\n 出生・死亡については無視する 各パラメータについて、基本再生産数、平均潜伏期間、平均発症期間から与えられるように式を変形  なお、ここでの式変形については参考元のページに非常に分かりやすい説明があるため、そちらを参照いただきたい。\nパラメータを決める モデル式が決まったので、パラメータを決める。\n今回、式に含まれるパラメータは\\(R_0\\)、\\(l\\)、\\(i\\)の値、及び\\(S\\)、\\(E\\)、\\(I\\)、\\(R\\)の初期値である。\n\\(R_0\\)、\\(l\\)、\\(i\\)はネットの情報をもとにそれっぽい値に設定する。\n\\(R_0\\)を決める 今回のモデル式においては、このパラメータには人と人との接触率みたいなものも含まれるので、最も重要になると思う。\n基本再生産数について改めて調べてみると色々な調査結果がある。\n2月12日に公開されている論文1によると、1.4から6.49まで調査結果に開きがあるらしい。\nそれぞれ調査期間や場所、方法が違うため当然なのだが、今回はWHOが1月18日に調査したらしい結果、1.4-2.5(平均1.95)という結果を参考にする。\nとりあえず平均の1.95と、この値の変化による全体の傾向の変化をつかむため、1.5の場合と3.0の場合も計算しておく。\n\\(l\\)を決める 平均潜伏期間について調査する。\nこれについても様々な調査結果が報告されている。\nJohns Hopkins Bloomberg School of Public Healthの調査2によると、\n There were 181 confirmed cases with identifiable exposure and symptom onset windows to estimate the incubation period of COVID-19. The median incubation period was estimated to be 5.1 days (95% CI, 4.5 to 5.8 days), and 97.5% of those who develop symptoms will do so within 11.5 days (CI, 8.2 to 15.6 days) of infection.\n とあり、感染から発症までの潜伏期間の中央値は5.1日らしい。\n日本感染症学会のページ3には、\n 潜伏期間は1~14日で平均5.8日と報告されている。\n と書かれている。\n日本国内の自治体の報告例としては、福井県が、県内の罹患者のうち、潜伏期間が推定できたケースの平均値は5.2日であると報告4している。\nこれらの報告例から、今回の平均潜伏期間$l$はとりあえず5日と設定する。\n\\(i\\)を決める 平均発症期間について調査する。\nWHOの中国における調査結果5によると、\n Using available preliminary data, the median time from onset to clinical recovery for mild cases is approximately 2 weeks and is 3-6 weeks for patients with severe or critical disease. Preliminary data suggests that the time period from onset to the development of severe disease, including hypoxia, is 1 week. Among patients who have died, the time from symptom onset to outcome ranges from 2-8 weeks.\n とあり、軽症の場合は約2週間、重症以上の場合は3～6週間かかるらしい。\n国内の報告例としては国立感染症研究所が\n 入院開始日と退院日ともに判明している102例における入院期間の平均値（標準偏差）は14.3日（±5.2日）であった。\n と報告6している。\nこれらの報告例から、今回の平均発症期間$i$はとりあえず14日と設定する。\n\\(S\\),\\(E\\),\\(I\\),\\(R\\)の初期値を決める これは今回の本質とはあまり関係ないと思われる。\nとりあえず\\(S\\)の初期値は東京都の人口13,951,636人(令和2年1月1日推計7)に設定し、\\(I\\)の初期値は1、他の初期値は0にする。\nよって、東京都に一人の感染者がいる状態を初期状態とする。(もちろん都道府県間の人の移動は今回考慮しない。)\nプログラムを作成する pythonで書く。\nこの方程式は時間微分しかないためエクセルでも数値的に解けるが、勉強のためpythonを使ってみる。\nとくに急峻な値の変化はなさそうなので、数値安定性とかを気にする必要はなさそうだが、せっかくなので数値解析してる風にするため、時間発展手法には4段4次陽的ルンゲクッタ法を使う。\n4段4次陽的ルンゲクッタ法の計算式は以下のサイトを参考にさせていただいた。\n 作成したプログラムを以下に載せる。\n 計算結果を確認する とりあえず今回作成プログラムに問題がないか、参考元と同じパラメータを設定して結果を確認する。\n参考元の\\(R_0\\)=2.0のパターンと同じ条件で計算した結果、以下のようなグラフが得られた。\n大体同じ結果が得られていそうなのでよしとする。\n次に、先ほど検討したパラメータを設定して再度計算を行う。\n\\(R_0\\)=1.5の場合\n\\(R_0\\)=1.95の場合\n\\(R_0\\)=3.0の場合\n\\(R_0\\)が大きい(感染力が強い、人と人の接触率が高い)ほど\n ピークが急激 罹患者数が多い 収束が早い  という結果になるようだ。\n雑記 久しぶりに数値計算のコードを書いたが、やはり数値計算は対象とする現象への理解が重要だなと思った。 今回に関しても、コードを作成している時間よりも、パラメータ設定のための調査の方に時間がかかった。\n今回の感染症について調べてみて、色々なところが調査結果を出していることが改めて分かった。\nまた、ネットに落ちている情報としては予防や感染までの情報が多く、感染後の情報は比較的少ないと感じた。\n 感染症プラチナマニュアル 2020 岡 秀昭 Amazon 楽天市場 楽天ブックス    --   reproductive number of COVID-19 is higher compared to SARS coronavirus | Journal of Travel Medicine | Oxford Academic ↩︎\n The Incubation Period of COVID-19 From Publicly Reported Confirmed Cases | Annals of Internal Medicine | American College of Physicians ↩︎\n 新型コロナウイルス感染症（COVID-19 infection）｜症状からアプローチするインバウンド感染症への対応～東京2020大会にむけて～ - 感染症クイック・リファレンス｜日本感染症学会 ↩︎\n 新型コロナ潜伏期間は平均「5．2日」　福井県が暫定値算出　入院日数は「15．7日間」（福井新聞ＯＮＬＩＮＥ） - Yahoo!ニュース ↩︎\n https://www.who.int/docs/default-source/coronaviruse/who-china-joint-mission-on-covid-19-final-report.pdf ↩︎\n 感染症発生動向調査及び積極的疫学調査により報告された新型コロナウイルス感染症確定症例287例の記述疫学（2020年3月9日現在） ↩︎\n 「東京都の人口（推計）」の概要-令和2年1月1日現在｜東京都 ↩︎\n   ","wordCount":"355","inLanguage":"en","image":"https://kouya17.com/media/photos/20/05/02/r1_95.png","datePublished":"2020-05-02T22:58:59+09:00","dateModified":"2020-05-02T22:58:59+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kouya17.com/posts/24/"},"publisher":{"@type":"Organization","name":"kouya17.com","logo":{"@type":"ImageObject","url":"https://kouya17.com/favicon.ico"}}}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8855472249928298" crossorigin=anonymous></script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"感染症数理モデルについて触りの部分だけ学ぶ","name":"感染症数理モデルについて触りの部分だけ学ぶ","description":"目的 特にしっかりした目的はない。 なんとなく数値シミュレーションについて学び直したくなったため、現在身近にある現象を題材にして学ぶ。 ネットの情","keywords":["math","python","simulation"],"articleBody":"目的 特にしっかりした目的はない。\nなんとなく数値シミュレーションについて学び直したくなったため、現在身近にある現象を題材にして学ぶ。\nネットの情報を参考に、適当にシミュレーションを走らせてみる。\n※本シミュレーションは、実測値等には全く基づいていないため、完全に空想上のシミュレーションになります。\n本シミュレーションの結果が実情を反映していたり、今後の予測を示していたりはしません。\n今回扱うシミュレーションモデル SEIRモデルを扱う。\nSEIRモデルとは  SEIRモデル(エスイーアイアールモデル)とは感染症流行の数理モデルである。\nモデルは\n 感染症に対して免疫を持たない者(Susceptible) 感染症が潜伏期間中の者(Exposed) 発症者(Infectious) 感染症から回復し免疫を獲得した者(Recovered)  から構成され、その頭文字をとってSEIRモデルと呼ばれる。\n(Wikipediaより)\n モデル式は以下のような式で表される。\n$$ \\begin{aligned} \\frac{dS}{dt} \u0026= m(N - S) - bSI \u0026(1) \\cr \\frac{dE}{dt} \u0026= bSI - (m + a)E \u0026(2) \\cr \\frac{dI}{dt} \u0026= aE - (m + g)I \u0026(3) \\cr \\frac{dR}{dt} \u0026= gI - mR \u0026(4) \\end{aligned} $$\nここで\\(t\\)は時間、\\(m\\)は出生率及び死亡率、\\(a\\)は感染症の発生率、\\(b\\)は感染症への感染率、\\(g\\)は感染症からの回復率を表す。\nまた\\(N\\)は全人口を示し、\n$$N \\equiv S + E + I + R　(5)$$\nで定義される。\nこの式をみて、以前私が扱ったことのある、化学反応モデルにおける各化学種の質量分率の計算式に似てるなと思った。\n化学反応も逐次的に進行するし、感染も未感染から回復まで逐次的に進行するから、モデル的には同じような扱いになるのだろうか。\n全体的に構成はシンプルだが、一つ気になったのは(1)式右辺の項bSIについて。\nこの項は非感染者と感染者の接触によってSusceptibleの人がExposedになる振る舞いを表しているのだと思う。\nここで接触率とかは対象の環境によるのだと思うのだが、式上では接触率のようなものは出てこない。\nパラメータbにそこらへんも含まれているのかもしれないが、ここら辺はもう少し調べないと分からないなと思った。\n計算してみる 上の式を数値的に解いてみる。\nシミュレーションを行う前に、上の式を少し修正し、適当にパラメータを決める。\n式を修正する 上の式はあくまで定義式なので、計算しやすいように、また、今回取り扱う問題に合うように修正する。\n修正する内容は以下の資料を参考にさせていただく。\nhttp://www.bs.s.u-tokyo.ac.jp/content/files/covid/COVID-19_SEIRmodel_full_ver4.1.pdf\n今回は扱うモデル式を以下のようにする。\n$$ \\begin{aligned} \\frac{dS}{dt} \u0026= -(\\frac{R_0}{i})\\frac{S}{N}I \u0026(6) \\cr \\frac{dE}{dt} \u0026= -(\\frac{R_0}{i})\\frac{S}{N}I - (\\frac{1}{l})E \u0026(7) \\cr \\frac{dI}{dt} \u0026= (\\frac{1}{l})E - (\\frac{1}{i})I \u0026(8) \\cr \\frac{dR}{dt} \u0026= (\\frac{1}{i})I \u0026(9) \\end{aligned} $$\nここで、\\(R_0\\)は基本再生産数、\\(l\\)は平均潜伏期間、\\(i\\)は平均発症期間である。\nwikipediaの式と比べて変わったところは、\n 出生・死亡については無視する 各パラメータについて、基本再生産数、平均潜伏期間、平均発症期間から与えられるように式を変形  なお、ここでの式変形については参考元のページに非常に分かりやすい説明があるため、そちらを参照いただきたい。\nパラメータを決める モデル式が決まったので、パラメータを決める。\n今回、式に含まれるパラメータは\\(R_0\\)、\\(l\\)、\\(i\\)の値、及び\\(S\\)、\\(E\\)、\\(I\\)、\\(R\\)の初期値である。\n\\(R_0\\)、\\(l\\)、\\(i\\)はネットの情報をもとにそれっぽい値に設定する。\n\\(R_0\\)を決める 今回のモデル式においては、このパラメータには人と人との接触率みたいなものも含まれるので、最も重要になると思う。\n基本再生産数について改めて調べてみると色々な調査結果がある。\n2月12日に公開されている論文1によると、1.4から6.49まで調査結果に開きがあるらしい。\nそれぞれ調査期間や場所、方法が違うため当然なのだが、今回はWHOが1月18日に調査したらしい結果、1.4-2.5(平均1.95)という結果を参考にする。\nとりあえず平均の1.95と、この値の変化による全体の傾向の変化をつかむため、1.5の場合と3.0の場合も計算しておく。\n\\(l\\)を決める 平均潜伏期間について調査する。\nこれについても様々な調査結果が報告されている。\nJohns Hopkins Bloomberg School of Public Healthの調査2によると、\n There were 181 confirmed cases with identifiable exposure and symptom onset windows to estimate the incubation period of COVID-19. The median incubation period was estimated to be 5.1 days (95% CI, 4.5 to 5.8 days), and 97.5% of those who develop symptoms will do so within 11.5 days (CI, 8.2 to 15.6 days) of infection.\n とあり、感染から発症までの潜伏期間の中央値は5.1日らしい。\n日本感染症学会のページ3には、\n 潜伏期間は1~14日で平均5.8日と報告されている。\n と書かれている。\n日本国内の自治体の報告例としては、福井県が、県内の罹患者のうち、潜伏期間が推定できたケースの平均値は5.2日であると報告4している。\nこれらの報告例から、今回の平均潜伏期間$l$はとりあえず5日と設定する。\n\\(i\\)を決める 平均発症期間について調査する。\nWHOの中国における調査結果5によると、\n Using available preliminary data, the median time from onset to clinical recovery for mild cases is approximately 2 weeks and is 3-6 weeks for patients with severe or critical disease. Preliminary data suggests that the time period from onset to the development of severe disease, including hypoxia, is 1 week. Among patients who have died, the time from symptom onset to outcome ranges from 2-8 weeks.\n とあり、軽症の場合は約2週間、重症以上の場合は3～6週間かかるらしい。\n国内の報告例としては国立感染症研究所が\n 入院開始日と退院日ともに判明している102例における入院期間の平均値（標準偏差）は14.3日（±5.2日）であった。\n と報告6している。\nこれらの報告例から、今回の平均発症期間$i$はとりあえず14日と設定する。\n\\(S\\),\\(E\\),\\(I\\),\\(R\\)の初期値を決める これは今回の本質とはあまり関係ないと思われる。\nとりあえず\\(S\\)の初期値は東京都の人口13,951,636人(令和2年1月1日推計7)に設定し、\\(I\\)の初期値は1、他の初期値は0にする。\nよって、東京都に一人の感染者がいる状態を初期状態とする。(もちろん都道府県間の人の移動は今回考慮しない。)\nプログラムを作成する pythonで書く。\nこの方程式は時間微分しかないためエクセルでも数値的に解けるが、勉強のためpythonを使ってみる。\nとくに急峻な値の変化はなさそうなので、数値安定性とかを気にする必要はなさそうだが、せっかくなので数値解析してる風にするため、時間発展手法には4段4次陽的ルンゲクッタ法を使う。\n4段4次陽的ルンゲクッタ法の計算式は以下のサイトを参考にさせていただいた。\n 作成したプログラムを以下に載せる。\n 計算結果を確認する とりあえず今回作成プログラムに問題がないか、参考元と同じパラメータを設定して結果を確認する。\n参考元の\\(R_0\\)=2.0のパターンと同じ条件で計算した結果、以下のようなグラフが得られた。\n大体同じ結果が得られていそうなのでよしとする。\n次に、先ほど検討したパラメータを設定して再度計算を行う。\n\\(R_0\\)=1.5の場合\n\\(R_0\\)=1.95の場合\n\\(R_0\\)=3.0の場合\n\\(R_0\\)が大きい(感染力が強い、人と人の接触率が高い)ほど\n ピークが急激 罹患者数が多い 収束が早い  という結果になるようだ。\n雑記 久しぶりに数値計算のコードを書いたが、やはり数値計算は対象とする現象への理解が重要だなと思った。 今回に関しても、コードを作成している時間よりも、パラメータ設定のための調査の方に時間がかかった。\n今回の感染症について調べてみて、色々なところが調査結果を出していることが改めて分かった。\nまた、ネットに落ちている情報としては予防や感染までの情報が多く、感染後の情報は比較的少ないと感じた。\n 感染症プラチナマニュアル 2020 岡 秀昭 Amazon 楽天市場 楽天ブックス    --   reproductive number of COVID-19 is higher compared to SARS coronavirus | Journal of Travel Medicine | Oxford Academic ↩︎\n The Incubation Period of COVID-19 From Publicly Reported Confirmed Cases | Annals of Internal Medicine | American College of Physicians ↩︎\n 新型コロナウイルス感染症（COVID-19 infection）｜症状からアプローチするインバウンド感染症への対応～東京2020大会にむけて～ - 感染症クイック・リファレンス｜日本感染症学会 ↩︎\n 新型コロナ潜伏期間は平均「5．2日」　福井県が暫定値算出　入院日数は「15．7日間」（福井新聞ＯＮＬＩＮＥ） - Yahoo!ニュース ↩︎\n https://www.who.int/docs/default-source/coronaviruse/who-china-joint-mission-on-covid-19-final-report.pdf ↩︎\n 感染症発生動向調査及び積極的疫学調査により報告された新型コロナウイルス感染症確定症例287例の記述疫学（2020年3月9日現在） ↩︎\n 「東京都の人口（推計）」の概要-令和2年1月1日現在｜東京都 ↩︎\n   ","wordCount":"3473","inLanguage":"ja","image":"https://kouya17.com/media/photos/20/05/02/r1_95.png","datePublished":"2020-05-02T22:58:59+09:00","dateModified":"2020-05-02T22:58:59+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kouya17.com/posts/24/"},"publisher":{"@type":"Organization","name":"kouya17.com","logo":{"@type":"ImageObject","url":"https://kouya17.com/favicon.ico"}}}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8855472249928298" crossorigin=anonymous></script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -118,12 +76,12 @@ $$N \equiv S + E + I + R　(5)$$">
 <h1 class=post-title>
 感染症数理モデルについて触りの部分だけ学ぶ
 </h1>
-<div class=post-meta><span title="2020-05-02 22:58:59 +0900 +0900">May 2, 2020</span>&nbsp;·&nbsp;2 min
+<div class=post-meta><span title="2020-05-02 22:58:59 +0900 +0900">5月 2, 2020</span>&nbsp;·&nbsp;7 分
 </div>
 </header> <div class=toc>
 <details>
 <summary accesskey=c title="(Alt + C)">
-<span class=details>Table of Contents</span>
+<span class=details>目次</span>
 </summary>
 <div class=inner><ul>
 <li>
@@ -336,12 +294,12 @@ $$</p>
 </ul>
 <nav class=paginav>
 <a class=prev href=https://kouya17.com/posts/25/>
-<span class=title>« Prev Page</span>
+<span class=title>« 前のページ</span>
 <br>
 <span>都道府県間通勤・通学を考慮したパンデミックシミュレーションもどき</span>
 </a>
 <a class=next href=https://kouya17.com/posts/23/>
-<span class=title>Next Page »</span>
+<span class=title>次のページ »</span>
 <br>
 <span>Chart.jsで時刻データを扱う</span>
 </a>

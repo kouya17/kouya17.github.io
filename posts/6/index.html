@@ -1,19 +1,11 @@
-<!doctype html><html lang=en dir=auto>
+<!doctype html><html lang=ja dir=auto>
 <head><meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
 <title>VirtualBox6.0で共有フォルダの自動マウント機能が働かない | kouya17.com</title>
 <meta name=keywords content="Ubuntu,VirtualBox">
-<meta name=description content="概要 VirtualBox6.0で共有フォルダの自動マウント機能がうまく効かなかったが解消した。
-問題 VirtualBox6.0は共有フォルダの自動マウントをオンにしてもうまくマウントされないらしい。
-https://unofficialtokyo.com/2018/12/virtualbox-ubuntu1804-on-windows/#Ubuntu
-今回の解決法 毎ログイン時にmountコマンドを実行する。
-https://www.souichi.club/technology/virtualbox-share/
-ただ、上記サイト内の記述だとうまくパスワード入力が省略されなかった。
-以下のサイトの記述を参考にしたらうまくいった。
-https://www.usagi1975.com/31jan172009/
- ハッキング・ラボのつくりかた 仮想環境におけるハッカー体験学習 翔泳社 Amazon Kindle 楽天 楽天Kobo    -- ">
+<meta name=description content="概要 VirtualBox6.0で共有フォルダの自動マウント機能がうまく効かなかったが解消した。 問題 VirtualBox6.0は共有フォルダの">
 <meta name=author content>
 <link rel=canonical href=https://kouya17.com/posts/6/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.a97cdb2d52ff3547f5b45210b2262edb8517a9ced99357596eea2f6dda9f6aad.css integrity="sha256-qXzbLVL/NUf1tFIQsiYu24UXqc7Zk1dZbuovbdqfaq0=" rel="preload stylesheet" as=style>
@@ -34,15 +26,7 @@ https://www.usagi1975.com/31jan172009/
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body)></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-92576104-3','auto'),ga('send','pageview'))</script><meta property="og:title" content="VirtualBox6.0で共有フォルダの自動マウント機能が働かない">
-<meta property="og:description" content="概要 VirtualBox6.0で共有フォルダの自動マウント機能がうまく効かなかったが解消した。
-問題 VirtualBox6.0は共有フォルダの自動マウントをオンにしてもうまくマウントされないらしい。
-https://unofficialtokyo.com/2018/12/virtualbox-ubuntu1804-on-windows/#Ubuntu
-今回の解決法 毎ログイン時にmountコマンドを実行する。
-https://www.souichi.club/technology/virtualbox-share/
-ただ、上記サイト内の記述だとうまくパスワード入力が省略されなかった。
-以下のサイトの記述を参考にしたらうまくいった。
-https://www.usagi1975.com/31jan172009/
- ハッキング・ラボのつくりかた 仮想環境におけるハッカー体験学習 翔泳社 Amazon Kindle 楽天 楽天Kobo    -- ">
+<meta property="og:description" content="概要 VirtualBox6.0で共有フォルダの自動マウント機能がうまく効かなかったが解消した。 問題 VirtualBox6.0は共有フォルダの">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kouya17.com/posts/6/">
 <meta property="og:image" content="https://kouya17.com/media/photos/19/10/02/column.png"><meta property="article:section" content="posts">
@@ -51,17 +35,9 @@ https://www.usagi1975.com/31jan172009/
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://kouya17.com/media/photos/19/10/02/column.png">
 <meta name=twitter:title content="VirtualBox6.0で共有フォルダの自動マウント機能が働かない">
-<meta name=twitter:description content="概要 VirtualBox6.0で共有フォルダの自動マウント機能がうまく効かなかったが解消した。
-問題 VirtualBox6.0は共有フォルダの自動マウントをオンにしてもうまくマウントされないらしい。
-https://unofficialtokyo.com/2018/12/virtualbox-ubuntu1804-on-windows/#Ubuntu
-今回の解決法 毎ログイン時にmountコマンドを実行する。
-https://www.souichi.club/technology/virtualbox-share/
-ただ、上記サイト内の記述だとうまくパスワード入力が省略されなかった。
-以下のサイトの記述を参考にしたらうまくいった。
-https://www.usagi1975.com/31jan172009/
- ハッキング・ラボのつくりかた 仮想環境におけるハッカー体験学習 翔泳社 Amazon Kindle 楽天 楽天Kobo    -- ">
+<meta name=twitter:description content="概要 VirtualBox6.0で共有フォルダの自動マウント機能がうまく効かなかったが解消した。 問題 VirtualBox6.0は共有フォルダの">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://kouya17.com/posts/"},{"@type":"ListItem","position":3,"name":"VirtualBox6.0で共有フォルダの自動マウント機能が働かない","item":"https://kouya17.com/posts/6/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"VirtualBox6.0で共有フォルダの自動マウント機能が働かない","name":"VirtualBox6.0で共有フォルダの自動マウント機能が働かない","description":"概要 VirtualBox6.0で共有フォルダの自動マウント機能がうまく効かなかったが解消した。\n問題 VirtualBox6.0は共有フォルダの自動マウントをオンにしてもうまくマウントされないらしい。\nhttps://unofficialtokyo.com/2018/12/virtualbox-ubuntu1804-on-windows/#Ubuntu\n今回の解決法 毎ログイン時にmountコマンドを実行する。\nhttps://www.souichi.club/technology/virtualbox-share/\nただ、上記サイト内の記述だとうまくパスワード入力が省略されなかった。\n以下のサイトの記述を参考にしたらうまくいった。\nhttps://www.usagi1975.com/31jan172009/\n ハッキング・ラボのつくりかた 仮想環境におけるハッカー体験学習 翔泳社 Amazon Kindle 楽天 楽天Kobo    -- ","keywords":["Ubuntu","VirtualBox"],"articleBody":"概要 VirtualBox6.0で共有フォルダの自動マウント機能がうまく効かなかったが解消した。\n問題 VirtualBox6.0は共有フォルダの自動マウントをオンにしてもうまくマウントされないらしい。\nhttps://unofficialtokyo.com/2018/12/virtualbox-ubuntu1804-on-windows/#Ubuntu\n今回の解決法 毎ログイン時にmountコマンドを実行する。\nhttps://www.souichi.club/technology/virtualbox-share/\nただ、上記サイト内の記述だとうまくパスワード入力が省略されなかった。\n以下のサイトの記述を参考にしたらうまくいった。\nhttps://www.usagi1975.com/31jan172009/\n ハッキング・ラボのつくりかた 仮想環境におけるハッカー体験学習 翔泳社 Amazon Kindle 楽天 楽天Kobo    -- ","wordCount":"19","inLanguage":"en","image":"https://kouya17.com/media/photos/19/10/02/column.png","datePublished":"2019-08-16T04:34:30+09:00","dateModified":"2019-08-16T04:34:30+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kouya17.com/posts/6/"},"publisher":{"@type":"Organization","name":"kouya17.com","logo":{"@type":"ImageObject","url":"https://kouya17.com/favicon.ico"}}}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8855472249928298" crossorigin=anonymous></script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"VirtualBox6.0で共有フォルダの自動マウント機能が働かない","name":"VirtualBox6.0で共有フォルダの自動マウント機能が働かない","description":"概要 VirtualBox6.0で共有フォルダの自動マウント機能がうまく効かなかったが解消した。 問題 VirtualBox6.0は共有フォルダの","keywords":["Ubuntu","VirtualBox"],"articleBody":"概要 VirtualBox6.0で共有フォルダの自動マウント機能がうまく効かなかったが解消した。\n問題 VirtualBox6.0は共有フォルダの自動マウントをオンにしてもうまくマウントされないらしい。\nhttps://unofficialtokyo.com/2018/12/virtualbox-ubuntu1804-on-windows/#Ubuntu\n今回の解決法 毎ログイン時にmountコマンドを実行する。\nhttps://www.souichi.club/technology/virtualbox-share/\nただ、上記サイト内の記述だとうまくパスワード入力が省略されなかった。\n以下のサイトの記述を参考にしたらうまくいった。\nhttps://www.usagi1975.com/31jan172009/\n ハッキング・ラボのつくりかた 仮想環境におけるハッカー体験学習 翔泳社 Amazon Kindle 楽天 楽天Kobo    -- ","wordCount":"230","inLanguage":"ja","image":"https://kouya17.com/media/photos/19/10/02/column.png","datePublished":"2019-08-16T04:34:30+09:00","dateModified":"2019-08-16T04:34:30+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kouya17.com/posts/6/"},"publisher":{"@type":"Organization","name":"kouya17.com","logo":{"@type":"ImageObject","url":"https://kouya17.com/favicon.ico"}}}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8855472249928298" crossorigin=anonymous></script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -100,12 +76,12 @@ https://www.usagi1975.com/31jan172009/
 <h1 class=post-title>
 VirtualBox6.0で共有フォルダの自動マウント機能が働かない
 </h1>
-<div class=post-meta><span title="2019-08-16 04:34:30 +0900 +0900">August 16, 2019</span>&nbsp;·&nbsp;1 min
+<div class=post-meta><span title="2019-08-16 04:34:30 +0900 +0900">8月 16, 2019</span>&nbsp;·&nbsp;1 分
 </div>
 </header> <div class=toc>
 <details>
 <summary accesskey=c title="(Alt + C)">
-<span class=details>Table of Contents</span>
+<span class=details>目次</span>
 </summary>
 <div class=inner><ul>
 <li>
@@ -138,12 +114,12 @@ VirtualBox6.0で共有フォルダの自動マウント機能が働かない
 </ul>
 <nav class=paginav>
 <a class=prev href=https://kouya17.com/posts/7/>
-<span class=title>« Prev Page</span>
+<span class=title>« 前のページ</span>
 <br>
 <span>Djangoでタグクラウドを実装した</span>
 </a>
 <a class=next href=https://kouya17.com/posts/4/>
-<span class=title>Next Page »</span>
+<span class=title>次のページ »</span>
 <br>
 <span>GitHub Pagesを使って静的サイトを公開した</span>
 </a>

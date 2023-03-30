@@ -1,4 +1,4 @@
-<!doctype html><html lang=en dir=auto>
+<!doctype html><html lang=ja dir=auto>
 <head><meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
@@ -74,26 +74,9 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>現在作成中である射的ゲームの銃ユニット用に、赤外線を周期的に(矩形波で)出力するモジュールを作成する。
-電源 まず必要な電圧・電流を調べる 今回使う赤外線LED → ５ｍｍ赤外線ＬＥＤ　９４０ｎｍ　ＯＳＩ５ＦＵ５１１１Ｃ－４０　（５個入）: LED(発光ダイオード) 秋月電子通商-電子部品・ネット通販
-赤外線LEDの絶対最大定格
-最大順方向電流 If : 100mA 赤外線LEDの電気的特性
-順方向電圧 : If=100mAの時 代表値 1.35V、 最大値 1.6V If=100mAとなっているが(なかなか高出力…)、50%の50mAが流れるように設計する。
-電源の選定 50mA流しても大丈夫 + 1.35V以上を確保できる電源を選ぶ。
-値段等も考えると、1000円でバッテリー+電池保護+電源管理がついてるPowerCが自分にとって使いやすそう。
-M5StickCは使わないので、BATピンだけ活用する。
-PowerCの給電周りの仕組みについては公式ドキュメントとM5StickCのバッテリー拡張HATをためす – Lang-shipを参考にさせていただいた。
-安定化 定電圧をとるために3端子レギュレータをかます。
-低飽和型レギュレーター　３Ｖ５００ｍＡ　ＮＪＭ２８８４Ｕ１－０３: 半導体 秋月電子通商-電子部品・ネット通販とかでよさそう。
-→ ip3005のデータシートによると2.5V付近まで落ちるみたいなことが書いてあるので、これだとバッテリ残量少ないときダメそう。
-秋月で買えるやつでベストそうなのは低ドロップレギュレーター　２．５Ｖ１．５Ａ　ＬＴ１９６３ＡＥＳ８－２．５: 半導体 秋月電子通商-電子部品・ネット通販。これを使う。
-だいぶいいやつなので高い…(1個200円)。
-赤外線出力 矩形波生成 矩形波（方形波）発生回路の理論的な理解 - 電子工作で覚える！電子回路を参考にさせていただく。
-上記サイト中の式
-$$ T = 1.386 \times C_1R_4 $$
-において、\(C_1 = 0.1 \mu F\)に固定した場合、...</p>
+<p>現在作成中である射的ゲームの銃ユニット用に、赤外線を周期的に(矩形波で)出力するモジュールを作成する。 電源 まず必要な電圧・電流を調べる 今回使...</p>
 </section>
-<footer class=entry-footer><span title="2020-06-21 18:17:42 +0900 +0900">June 21, 2020</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2020-06-21 18:17:42 +0900 +0900">6月 21, 2020</span>&nbsp;·&nbsp;4 分</footer>
 <a class=entry-link aria-label="post link to 赤外線を周期的に(矩形波で)出力するモジュールを作る" href=https://kouya17.com/posts/33/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -102,29 +85,9 @@ $$ T = 1.386 \times C_1R_4 $$
 </h2>
 </header>
 <section class=entry-content>
-<p>Ambientとは 本当にすばらしいサービス。
-Ambient – IoTデーター可視化サービス
-データをテキストでダウンロードできるということで、今回使用させていただくことを決めた。
-データーのダウンロード機能をリリースしました – Ambient
-PowerCとは M5StickCと接続できるバッテリー充電モジュール。
-16340バッテリー(3.7V/700mAh)を2個搭載できる。
-USB Type-A端子から、外部へ電源供給(5V/1.5A)ができる。
-Ambientを使ってバッテリーの電圧を記録する 今回はAmbientの使い方の勉強を兼ねて、PowerCを使ってバッテリーの情報を記録する。
-PowerCは電源管理IC IP5209 が付いており、I2C通信によってバッテリーの情報を確認できる。
-IP5209から取得できる情報 PowerCのサンプルスケッチをみると、電圧値と電流(電気量)を取得できるらしい。
-スイッチサイエンスの紹介ページには
-M5StickCと接続すると、I2C（アドレス0x75）を通じて、電圧、電流、その他の情報を確認できます。
-とあり、その他も取得できるとあるので、他にどんな情報を取得できるかIP5209の以下のデータシートを読んでみた。
-IP5209-Injoinic.pdf
-このデータシートには
-The built-in 14bit ADC in IP5209 measures battery voltage and current accurately. ADC data are available on I2C interface. IP5209 has integrated a fuel gauge algorithm, acquiring battery’s state of charge precisely.
-とあり、バッテリーの電圧と電流が測定できるとしか書かれていない。
-私が見つけたこのデータシートにはレジスタの情報が(私が読んだ範囲では)見つからなかった。
-もうちょっと探せば他の形式のデータシートがあるかもしれない。
-少し調べてみると、M5Stackで使われている電源IC IP5306 はカスタム品で、出回っているデータシートにはレジスタの情報がないらしい。
-以下のようなTweetを見つけたので引用させていただく。...</p>
+<p>Ambientとは 本当にすばらしいサービス。 Ambient – IoTデーター可視化サービス データをテキストでダウンロードできるということで、今回使用させて...</p>
 </section>
-<footer class=entry-footer><span title="2020-06-06 22:57:28 +0900 +0900">June 6, 2020</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2020-06-06 22:57:28 +0900 +0900">6月 6, 2020</span>&nbsp;·&nbsp;3 分</footer>
 <a class=entry-link aria-label="post link to Ambientを使って、PowerCに接続されているバッテリーの情報を記録する" href=https://kouya17.com/posts/32/></a>
 </article>
 </main>

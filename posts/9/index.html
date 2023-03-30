@@ -1,20 +1,11 @@
-<!doctype html><html lang=en dir=auto>
+<!doctype html><html lang=ja dir=auto>
 <head><meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
 <title>elecrow発注用zipファイル作成ソフト(KiCad向け)を作った | kouya17.com</title>
 <meta name=keywords content="KiCad,product,windows">
-<meta name=description content="elecrowへプリント基板を発注する際に必要なファイル変換作業をソフトで自動化した。
-作成ソフト  動作OS：Windows 開発環境：Visual Studio 2017  以下のGitHubのページから実行ファイルをダウンロードできる。 https://github.com/kouya17/KiCadHelper/releases
-(ページ中のAssets内KiCadHelper.zipをクリック)
-本ソフトが代替する作業 本ソフトは以下書籍(KiCadではじめる「プリント基板」製作)中のp131-p133の作業を代替する。
-KiCadではじめる「プリント基板」製作
-外川貴規 工学社 2018年02月
-売り上げランキング : 楽天ブックスで購入Amazonで購入 by ヨメレバ 具体的には以下の処理を行う。
- 製造ファイル・ドリルファイルのファイル名統一 拡張子の変更(.drl→.txt、.gm1→.gml) 必要ファイルをzipに圧縮  各ファイル及びzipファイル名は「elecrow-プロジェクトフォルダ名-日付」となる。
-zip圧縮前のフォルダはプロジェクトフォルダ下に残る。
-使い方  ソフトを起動する プロジェクトフォルダに、すでに製造ファイル・ドリルファイルを出力済みのKiCadプロジェクトのフォルダを指定する zipファイル出力先に、発注用のzipファイルを出力する場所を指定する 開始ボタンを押す  画面下部にログが表示され、処理中にエラー等があればエラーログが出力される。">
+<meta name=description content="elecrowへプリント基板を発注する際に必要なファイル変換作業をソフトで自動化した。 作成ソフト 動作OS：Windows 開発環境：Visua">
 <meta name=author content>
 <link rel=canonical href=https://kouya17.com/posts/9/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.a97cdb2d52ff3547f5b45210b2262edb8517a9ced99357596eea2f6dda9f6aad.css integrity="sha256-qXzbLVL/NUf1tFIQsiYu24UXqc7Zk1dZbuovbdqfaq0=" rel="preload stylesheet" as=style>
@@ -35,16 +26,7 @@ zip圧縮前のフォルダはプロジェクトフォルダ下に残る。
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body)></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-92576104-3','auto'),ga('send','pageview'))</script><meta property="og:title" content="elecrow発注用zipファイル作成ソフト(KiCad向け)を作った">
-<meta property="og:description" content="elecrowへプリント基板を発注する際に必要なファイル変換作業をソフトで自動化した。
-作成ソフト  動作OS：Windows 開発環境：Visual Studio 2017  以下のGitHubのページから実行ファイルをダウンロードできる。 https://github.com/kouya17/KiCadHelper/releases
-(ページ中のAssets内KiCadHelper.zipをクリック)
-本ソフトが代替する作業 本ソフトは以下書籍(KiCadではじめる「プリント基板」製作)中のp131-p133の作業を代替する。
-KiCadではじめる「プリント基板」製作
-外川貴規 工学社 2018年02月
-売り上げランキング : 楽天ブックスで購入Amazonで購入 by ヨメレバ 具体的には以下の処理を行う。
- 製造ファイル・ドリルファイルのファイル名統一 拡張子の変更(.drl→.txt、.gm1→.gml) 必要ファイルをzipに圧縮  各ファイル及びzipファイル名は「elecrow-プロジェクトフォルダ名-日付」となる。
-zip圧縮前のフォルダはプロジェクトフォルダ下に残る。
-使い方  ソフトを起動する プロジェクトフォルダに、すでに製造ファイル・ドリルファイルを出力済みのKiCadプロジェクトのフォルダを指定する zipファイル出力先に、発注用のzipファイルを出力する場所を指定する 開始ボタンを押す  画面下部にログが表示され、処理中にエラー等があればエラーログが出力される。">
+<meta property="og:description" content="elecrowへプリント基板を発注する際に必要なファイル変換作業をソフトで自動化した。 作成ソフト 動作OS：Windows 開発環境：Visua">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kouya17.com/posts/9/">
 <meta property="og:image" content="https://kouya17.com/media/photos/19/10/06/window.png"><meta property="article:section" content="posts">
@@ -53,18 +35,9 @@ zip圧縮前のフォルダはプロジェクトフォルダ下に残る。
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://kouya17.com/media/photos/19/10/06/window.png">
 <meta name=twitter:title content="elecrow発注用zipファイル作成ソフト(KiCad向け)を作った">
-<meta name=twitter:description content="elecrowへプリント基板を発注する際に必要なファイル変換作業をソフトで自動化した。
-作成ソフト  動作OS：Windows 開発環境：Visual Studio 2017  以下のGitHubのページから実行ファイルをダウンロードできる。 https://github.com/kouya17/KiCadHelper/releases
-(ページ中のAssets内KiCadHelper.zipをクリック)
-本ソフトが代替する作業 本ソフトは以下書籍(KiCadではじめる「プリント基板」製作)中のp131-p133の作業を代替する。
-KiCadではじめる「プリント基板」製作
-外川貴規 工学社 2018年02月
-売り上げランキング : 楽天ブックスで購入Amazonで購入 by ヨメレバ 具体的には以下の処理を行う。
- 製造ファイル・ドリルファイルのファイル名統一 拡張子の変更(.drl→.txt、.gm1→.gml) 必要ファイルをzipに圧縮  各ファイル及びzipファイル名は「elecrow-プロジェクトフォルダ名-日付」となる。
-zip圧縮前のフォルダはプロジェクトフォルダ下に残る。
-使い方  ソフトを起動する プロジェクトフォルダに、すでに製造ファイル・ドリルファイルを出力済みのKiCadプロジェクトのフォルダを指定する zipファイル出力先に、発注用のzipファイルを出力する場所を指定する 開始ボタンを押す  画面下部にログが表示され、処理中にエラー等があればエラーログが出力される。">
+<meta name=twitter:description content="elecrowへプリント基板を発注する際に必要なファイル変換作業をソフトで自動化した。 作成ソフト 動作OS：Windows 開発環境：Visua">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://kouya17.com/posts/"},{"@type":"ListItem","position":3,"name":"elecrow発注用zipファイル作成ソフト(KiCad向け)を作った","item":"https://kouya17.com/posts/9/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"elecrow発注用zipファイル作成ソフト(KiCad向け)を作った","name":"elecrow発注用zipファイル作成ソフト(KiCad向け)を作った","description":"elecrowへプリント基板を発注する際に必要なファイル変換作業をソフトで自動化した。\n作成ソフト  動作OS：Windows 開発環境：Visual Studio 2017  以下のGitHubのページから実行ファイルをダウンロードできる。 https://github.com/kouya17/KiCadHelper/releases\n(ページ中のAssets内KiCadHelper.zipをクリック)\n本ソフトが代替する作業 本ソフトは以下書籍(KiCadではじめる「プリント基板」製作)中のp131-p133の作業を代替する。\nKiCadではじめる「プリント基板」製作\n外川貴規 工学社 2018年02月\n売り上げランキング : 楽天ブックスで購入Amazonで購入 by ヨメレバ 具体的には以下の処理を行う。\n 製造ファイル・ドリルファイルのファイル名統一 拡張子の変更(.drl→.txt、.gm1→.gml) 必要ファイルをzipに圧縮  各ファイル及びzipファイル名は「elecrow-プロジェクトフォルダ名-日付」となる。\nzip圧縮前のフォルダはプロジェクトフォルダ下に残る。\n使い方  ソフトを起動する プロジェクトフォルダに、すでに製造ファイル・ドリルファイルを出力済みのKiCadプロジェクトのフォルダを指定する zipファイル出力先に、発注用のzipファイルを出力する場所を指定する 開始ボタンを押す  画面下部にログが表示され、処理中にエラー等があればエラーログが出力される。","keywords":["KiCad","product","windows"],"articleBody":"elecrowへプリント基板を発注する際に必要なファイル変換作業をソフトで自動化した。\n作成ソフト  動作OS：Windows 開発環境：Visual Studio 2017  以下のGitHubのページから実行ファイルをダウンロードできる。 https://github.com/kouya17/KiCadHelper/releases\n(ページ中のAssets内KiCadHelper.zipをクリック)\n本ソフトが代替する作業 本ソフトは以下書籍(KiCadではじめる「プリント基板」製作)中のp131-p133の作業を代替する。\nKiCadではじめる「プリント基板」製作\n外川貴規 工学社 2018年02月\n売り上げランキング : 楽天ブックスで購入Amazonで購入 by ヨメレバ 具体的には以下の処理を行う。\n 製造ファイル・ドリルファイルのファイル名統一 拡張子の変更(.drl→.txt、.gm1→.gml) 必要ファイルをzipに圧縮  各ファイル及びzipファイル名は「elecrow-プロジェクトフォルダ名-日付」となる。\nzip圧縮前のフォルダはプロジェクトフォルダ下に残る。\n使い方  ソフトを起動する プロジェクトフォルダに、すでに製造ファイル・ドリルファイルを出力済みのKiCadプロジェクトのフォルダを指定する zipファイル出力先に、発注用のzipファイルを出力する場所を指定する 開始ボタンを押す  画面下部にログが表示され、処理中にエラー等があればエラーログが出力される。\n","wordCount":"32","inLanguage":"en","image":"https://kouya17.com/media/photos/19/10/06/window.png","datePublished":"2019-10-06T16:26:24+09:00","dateModified":"2019-10-06T16:26:24+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kouya17.com/posts/9/"},"publisher":{"@type":"Organization","name":"kouya17.com","logo":{"@type":"ImageObject","url":"https://kouya17.com/favicon.ico"}}}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8855472249928298" crossorigin=anonymous></script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"elecrow発注用zipファイル作成ソフト(KiCad向け)を作った","name":"elecrow発注用zipファイル作成ソフト(KiCad向け)を作った","description":"elecrowへプリント基板を発注する際に必要なファイル変換作業をソフトで自動化した。 作成ソフト 動作OS：Windows 開発環境：Visua","keywords":["KiCad","product","windows"],"articleBody":"elecrowへプリント基板を発注する際に必要なファイル変換作業をソフトで自動化した。\n作成ソフト  動作OS：Windows 開発環境：Visual Studio 2017  以下のGitHubのページから実行ファイルをダウンロードできる。 https://github.com/kouya17/KiCadHelper/releases\n(ページ中のAssets内KiCadHelper.zipをクリック)\n本ソフトが代替する作業 本ソフトは以下書籍(KiCadではじめる「プリント基板」製作)中のp131-p133の作業を代替する。\nKiCadではじめる「プリント基板」製作\n外川貴規 工学社 2018年02月\n売り上げランキング : 楽天ブックスで購入Amazonで購入 by ヨメレバ 具体的には以下の処理を行う。\n 製造ファイル・ドリルファイルのファイル名統一 拡張子の変更(.drl→.txt、.gm1→.gml) 必要ファイルをzipに圧縮  各ファイル及びzipファイル名は「elecrow-プロジェクトフォルダ名-日付」となる。\nzip圧縮前のフォルダはプロジェクトフォルダ下に残る。\n使い方  ソフトを起動する プロジェクトフォルダに、すでに製造ファイル・ドリルファイルを出力済みのKiCadプロジェクトのフォルダを指定する zipファイル出力先に、発注用のzipファイルを出力する場所を指定する 開始ボタンを押す  画面下部にログが表示され、処理中にエラー等があればエラーログが出力される。\n","wordCount":"564","inLanguage":"ja","image":"https://kouya17.com/media/photos/19/10/06/window.png","datePublished":"2019-10-06T16:26:24+09:00","dateModified":"2019-10-06T16:26:24+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kouya17.com/posts/9/"},"publisher":{"@type":"Organization","name":"kouya17.com","logo":{"@type":"ImageObject","url":"https://kouya17.com/favicon.ico"}}}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8855472249928298" crossorigin=anonymous></script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -103,12 +76,12 @@ zip圧縮前のフォルダはプロジェクトフォルダ下に残る。
 <h1 class=post-title>
 elecrow発注用zipファイル作成ソフト(KiCad向け)を作った
 </h1>
-<div class=post-meta><span title="2019-10-06 16:26:24 +0900 +0900">October 6, 2019</span>&nbsp;·&nbsp;1 min
+<div class=post-meta><span title="2019-10-06 16:26:24 +0900 +0900">10月 6, 2019</span>&nbsp;·&nbsp;2 分
 </div>
 </header> <div class=toc>
 <details>
 <summary accesskey=c title="(Alt + C)">
-<span class=details>Table of Contents</span>
+<span class=details>目次</span>
 </summary>
 <div class=inner><ul>
 <li>
@@ -159,12 +132,12 @@ zip圧縮前のフォルダはプロジェクトフォルダ下に残る。</p>
 </ul>
 <nav class=paginav>
 <a class=prev href=https://kouya17.com/posts/11/>
-<span class=title>« Prev Page</span>
+<span class=title>« 前のページ</span>
 <br>
 <span>Using an I2C OLED Display with the Raspberry Pi Zero W</span>
 </a>
 <a class=next href=https://kouya17.com/posts/8/>
-<span class=title>Next Page »</span>
+<span class=title>次のページ »</span>
 <br>
 <span>Djangoで記事をカード型で表示するようにした</span>
 </a>

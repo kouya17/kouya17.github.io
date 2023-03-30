@@ -1,4 +1,4 @@
-<!doctype html><html lang=en dir=auto>
+<!doctype html><html lang=ja dir=auto>
 <head><meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
@@ -74,22 +74,9 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>参考ページ https://programmer-jobs.blogspot.com/2012/12/djangodjango-taggit.html
-django-taggitとdjango-taggit-templatetagsがあればできるらしい。 実装した流れ 1 setting.pyを確認し、taggitが導入されていることを確認(taggitは昔すでに導入済み)
-ただ、taggit-templatetagsは導入されていなかった。
-2 pip install django-taggit-templatetagsでインストール
-3 setting.pyのINSTALLED_APPSにtaggit-templatetagsを追加
-INSTALLED_APPS = ( ... "taggit", "taggit_templatetags", ... ) 4 pip freezeでインストールしたtaggit-templatetagsのバージョンを確認
-$ pip freeze ... django-taggit-templatetags==0.2.5 ... 5 requirements.txtに4.で確認したバージョン情報を追記
-... django-taggit-templatetags==0.2.5 ... 6 デプロイ
-7 動作確認したらエラー発生
-File "...templatetag_sugar/parser.py", line 5, in &lt;module> from django.db.models.loading import cache No module named 'django.db.models.loading' django.db.models.loadingがないらしい。
-google先生に聞くと、django.db.models.loadingはDjango1.9で廃止され、現在はdjango.appを使う必要があるようだ。
-https://stackoverflow.com/questions/36234635/what-is-the-equivalent-of-django-db-models-loading-get-model-in-django-1-9
-8 tamplatetag_sugar/parser.pyを修正
-- from django.db.models.loading import cache + from django.apps import apps ....</p>
+<p>参考ページ https://programmer-jobs.blogspot.com/2012/12/djangodjango-taggit.html django-taggitとdjango-taggit-templatetagsがあればできるらしい。 実装した流れ 1 settin...</p>
 </section>
-<footer class=entry-footer><span title="2019-09-15 15:07:15 +0900 +0900">September 15, 2019</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2019-09-15 15:07:15 +0900 +0900">9月 15, 2019</span>&nbsp;·&nbsp;2 分</footer>
 <a class=entry-link aria-label="post link to Djangoでタグクラウドを実装した" href=https://kouya17.com/posts/7/></a>
 </article>
 <article class=post-entry>
@@ -98,17 +85,9 @@ https://stackoverflow.com/questions/36234635/what-is-the-equivalent-of-django-db
 </h2>
 </header>
 <section class=entry-content>
-<p>概要 VirtualBox6.0で共有フォルダの自動マウント機能がうまく効かなかったが解消した。
-問題 VirtualBox6.0は共有フォルダの自動マウントをオンにしてもうまくマウントされないらしい。
-https://unofficialtokyo.com/2018/12/virtualbox-ubuntu1804-on-windows/#Ubuntu
-今回の解決法 毎ログイン時にmountコマンドを実行する。
-https://www.souichi.club/technology/virtualbox-share/
-ただ、上記サイト内の記述だとうまくパスワード入力が省略されなかった。
-以下のサイトの記述を参考にしたらうまくいった。
-https://www.usagi1975.com/31jan172009/
-ハッキング・ラボのつくりかた 仮想環境におけるハッカー体験学習 翔泳社 Amazon Kindle 楽天 楽天Kobo -- </p>
+<p>概要 VirtualBox6.0で共有フォルダの自動マウント機能がうまく効かなかったが解消した。 問題 VirtualBox6.0は共有フォルダの...</p>
 </section>
-<footer class=entry-footer><span title="2019-08-16 04:34:30 +0900 +0900">August 16, 2019</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2019-08-16 04:34:30 +0900 +0900">8月 16, 2019</span>&nbsp;·&nbsp;1 分</footer>
 <a class=entry-link aria-label="post link to VirtualBox6.0で共有フォルダの自動マウント機能が働かない" href=https://kouya17.com/posts/6/></a>
 </article>
 <article class=post-entry>
@@ -117,17 +96,9 @@ https://www.usagi1975.com/31jan172009/
 </h2>
 </header>
 <section class=entry-content>
-<p>概要 GitHub Pagesを使って簡易ブログを公開しました。
-https://kouya17.github.io
-構成 公開環境：GitHub Pages
-静的サイトジェネレータ：Hugo
-テンプレートテーマ：aether
-雑記 無料でサイト公開できるのはすごい。
-静的サイトジェネレータとしてHexoも検討したが、ネット上の情報が中国語中心だったため断念した。
-作成物に関する投稿はGitHub Pagesのほうにして、こちらはより雑多なものを扱うことにする。
-独習Git 翔泳社 Amazon Kindle 楽天 楽天Kobo -- </p>
+<p>概要 GitHub Pagesを使って簡易ブログを公開しました。 https://kouya17.github.io 構成 公開環境：GitHub Pages 静的サイトジェネレータ：Hugo テンプレートテーマ：aeth...</p>
 </section>
-<footer class=entry-footer><span title="2019-05-02 15:04:03 +0900 +0900">May 2, 2019</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2019-05-02 15:04:03 +0900 +0900">5月 2, 2019</span>&nbsp;·&nbsp;1 分</footer>
 <a class=entry-link aria-label="post link to GitHub Pagesを使って静的サイトを公開した" href=https://kouya17.com/posts/4/></a>
 </article>
 <article class=post-entry>
@@ -136,17 +107,14 @@ https://kouya17.github.io
 </h2>
 </header>
 <section class=entry-content>
-<p>ソースコード https://github.com/kouya17/esp32_weather_light
-説明 ESP32を使って、LEDの色で天気通知をしてくれるプログラムを作りました。
-単3電池2本駆動で8時間程度しか持たないのが課題ですね…。
-IoT開発スタートブック　── ESP32でクラウドにつなげる電子工作をはじめよう！ 技術評論社 Amazon Kindle 楽天 楽天Kobo -- </p>
+<p>ソースコード https://github.com/kouya17/esp32_weather_light 説明 ESP32を使って、LEDの色で天気通知をしてくれるプログラムを作りました。 単3電池2本駆動で8時間程度しか持たないのが課...</p>
 </section>
-<footer class=entry-footer><span title="2019-01-01 23:07:37 +0900 +0900">January 1, 2019</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2019-01-01 23:07:37 +0900 +0900">1月 1, 2019</span>&nbsp;·&nbsp;1 分</footer>
 <a class=entry-link aria-label="post link to LEDの色で天気通知する(ESP32)" href=https://kouya17.com/posts/1/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
-<a class=prev href=https://kouya17.com/posts/page/4/>« Prev Page</a>
+<a class=prev href=https://kouya17.com/posts/page/4/>« 前のページ</a>
 </nav>
 </footer>
 </main>

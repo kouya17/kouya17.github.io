@@ -1,18 +1,11 @@
-<!doctype html><html lang=en dir=auto>
+<!doctype html><html lang=ja dir=auto>
 <head><meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
 <title>Raspberry Pi Zero W を使ってタイムラプス生成デバイスを作成する | kouya17.com</title>
 <meta name=keywords content="raspi,ffmpeg">
-<meta name=description content="デモ 本デバイスは以下の動画のように操作できる。
-操作時の動画は以下のような感じです。 pic.twitter.com/7l2ocbjlh1
-&mdash; 青木晃也 (@aoki_kouya) March 20, 2022  本デバイスを使うと、以下のサイトにあるような動画を生成できる。
- 動画の出力条件のうち、主な項目は以下の通り。
- 再生速度: 30倍速 fps: 30 bps: 3Mbps HLS形式 音声なし  料理の動画を掲載しているのは、特に他にコンスタントに撮影できる対象が考えつかなかったため。これらの動画の撮影のために、3Dプリンターでプリントした部品を使ってラズパイとカメラを固定し、台所上部に吊り下げている。
-Raspberry Pi Zeroを使って、思い付きでタイムラプスカメラを作りました。 pic.twitter.com/w1fCBfPVzm
-&mdash; 青木晃也 (@aoki_kouya) March 5, 2022  確認済み動作条件  ボード  Raspberry Pi Zero W   OS  Raspberry Pi OS(Legacy) 2022-01-28    現時点(2022/03/21)で推奨OSとなっているRaspberry Pi OSはbullseye版だが、buster版(Legacy)の方を使う。これは、ffmpeg(今回利用するマルチメディア処理ソフト)まわりの環境がbullseye版とbuster版で異なっているため。bullseye版を利用する場合、ハードウェアエンコードを有効にするために、ffmpegをビルドする必要が出てくる。
-必要な部品  Raspberry Pi Zero W (スイッチサイエンス) microSDカード (Amazon) Raspberry Pi カメラモジュール (スイッチサイエンス) Raspberry Pi Zero用カメラケーブル (スイッチサイエンス) ELECROW 3.">
+<meta name=description content="デモ 本デバイスは以下の動画のように操作できる。 操作時の動画は以下のような感じです。 pic.twitter.com/7l2ocbjlh1 &mdash; 青木晃也 (@aoki_kouya) March 20, 2022 本デバイスを使うと、以下のサイトにある">
 <meta name=author content>
 <link rel=canonical href=https://kouya17.com/posts/timelapse-maker/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.a97cdb2d52ff3547f5b45210b2262edb8517a9ced99357596eea2f6dda9f6aad.css integrity="sha256-qXzbLVL/NUf1tFIQsiYu24UXqc7Zk1dZbuovbdqfaq0=" rel="preload stylesheet" as=style>
@@ -33,14 +26,7 @@ Raspberry Pi Zeroを使って、思い付きでタイムラプスカメラを作
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body)></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-92576104-3','auto'),ga('send','pageview'))</script><meta property="og:title" content="Raspberry Pi Zero W を使ってタイムラプス生成デバイスを作成する">
-<meta property="og:description" content="デモ 本デバイスは以下の動画のように操作できる。
-操作時の動画は以下のような感じです。 pic.twitter.com/7l2ocbjlh1
-&mdash; 青木晃也 (@aoki_kouya) March 20, 2022  本デバイスを使うと、以下のサイトにあるような動画を生成できる。
- 動画の出力条件のうち、主な項目は以下の通り。
- 再生速度: 30倍速 fps: 30 bps: 3Mbps HLS形式 音声なし  料理の動画を掲載しているのは、特に他にコンスタントに撮影できる対象が考えつかなかったため。これらの動画の撮影のために、3Dプリンターでプリントした部品を使ってラズパイとカメラを固定し、台所上部に吊り下げている。
-Raspberry Pi Zeroを使って、思い付きでタイムラプスカメラを作りました。 pic.twitter.com/w1fCBfPVzm
-&mdash; 青木晃也 (@aoki_kouya) March 5, 2022  確認済み動作条件  ボード  Raspberry Pi Zero W   OS  Raspberry Pi OS(Legacy) 2022-01-28    現時点(2022/03/21)で推奨OSとなっているRaspberry Pi OSはbullseye版だが、buster版(Legacy)の方を使う。これは、ffmpeg(今回利用するマルチメディア処理ソフト)まわりの環境がbullseye版とbuster版で異なっているため。bullseye版を利用する場合、ハードウェアエンコードを有効にするために、ffmpegをビルドする必要が出てくる。
-必要な部品  Raspberry Pi Zero W (スイッチサイエンス) microSDカード (Amazon) Raspberry Pi カメラモジュール (スイッチサイエンス) Raspberry Pi Zero用カメラケーブル (スイッチサイエンス) ELECROW 3.">
+<meta property="og:description" content="デモ 本デバイスは以下の動画のように操作できる。 操作時の動画は以下のような感じです。 pic.twitter.com/7l2ocbjlh1 &mdash; 青木晃也 (@aoki_kouya) March 20, 2022 本デバイスを使うと、以下のサイトにある">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kouya17.com/posts/timelapse-maker/">
 <meta property="og:image" content="https://kouya17.com/media/covers/timelapse-maker/cover.jpg"><meta property="article:section" content="posts">
@@ -49,16 +35,9 @@ Raspberry Pi Zeroを使って、思い付きでタイムラプスカメラを作
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://kouya17.com/media/covers/timelapse-maker/cover.jpg">
 <meta name=twitter:title content="Raspberry Pi Zero W を使ってタイムラプス生成デバイスを作成する">
-<meta name=twitter:description content="デモ 本デバイスは以下の動画のように操作できる。
-操作時の動画は以下のような感じです。 pic.twitter.com/7l2ocbjlh1
-&mdash; 青木晃也 (@aoki_kouya) March 20, 2022  本デバイスを使うと、以下のサイトにあるような動画を生成できる。
- 動画の出力条件のうち、主な項目は以下の通り。
- 再生速度: 30倍速 fps: 30 bps: 3Mbps HLS形式 音声なし  料理の動画を掲載しているのは、特に他にコンスタントに撮影できる対象が考えつかなかったため。これらの動画の撮影のために、3Dプリンターでプリントした部品を使ってラズパイとカメラを固定し、台所上部に吊り下げている。
-Raspberry Pi Zeroを使って、思い付きでタイムラプスカメラを作りました。 pic.twitter.com/w1fCBfPVzm
-&mdash; 青木晃也 (@aoki_kouya) March 5, 2022  確認済み動作条件  ボード  Raspberry Pi Zero W   OS  Raspberry Pi OS(Legacy) 2022-01-28    現時点(2022/03/21)で推奨OSとなっているRaspberry Pi OSはbullseye版だが、buster版(Legacy)の方を使う。これは、ffmpeg(今回利用するマルチメディア処理ソフト)まわりの環境がbullseye版とbuster版で異なっているため。bullseye版を利用する場合、ハードウェアエンコードを有効にするために、ffmpegをビルドする必要が出てくる。
-必要な部品  Raspberry Pi Zero W (スイッチサイエンス) microSDカード (Amazon) Raspberry Pi カメラモジュール (スイッチサイエンス) Raspberry Pi Zero用カメラケーブル (スイッチサイエンス) ELECROW 3.">
+<meta name=twitter:description content="デモ 本デバイスは以下の動画のように操作できる。 操作時の動画は以下のような感じです。 pic.twitter.com/7l2ocbjlh1 &mdash; 青木晃也 (@aoki_kouya) March 20, 2022 本デバイスを使うと、以下のサイトにある">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://kouya17.com/posts/"},{"@type":"ListItem","position":3,"name":"Raspberry Pi Zero W を使ってタイムラプス生成デバイスを作成する","item":"https://kouya17.com/posts/timelapse-maker/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Raspberry Pi Zero W を使ってタイムラプス生成デバイスを作成する","name":"Raspberry Pi Zero W を使ってタイムラプス生成デバイスを作成する","description":"デモ 本デバイスは以下の動画のように操作できる。\n操作時の動画は以下のような感じです。 pic.twitter.com/7l2ocbjlh1\n\u0026mdash; 青木晃也 (@aoki_kouya) March 20, 2022  本デバイスを使うと、以下のサイトにあるような動画を生成できる。\n 動画の出力条件のうち、主な項目は以下の通り。\n 再生速度: 30倍速 fps: 30 bps: 3Mbps HLS形式 音声なし  料理の動画を掲載しているのは、特に他にコンスタントに撮影できる対象が考えつかなかったため。これらの動画の撮影のために、3Dプリンターでプリントした部品を使ってラズパイとカメラを固定し、台所上部に吊り下げている。\nRaspberry Pi Zeroを使って、思い付きでタイムラプスカメラを作りました。 pic.twitter.com/w1fCBfPVzm\n\u0026mdash; 青木晃也 (@aoki_kouya) March 5, 2022  確認済み動作条件  ボード  Raspberry Pi Zero W   OS  Raspberry Pi OS(Legacy) 2022-01-28    現時点(2022/03/21)で推奨OSとなっているRaspberry Pi OSはbullseye版だが、buster版(Legacy)の方を使う。これは、ffmpeg(今回利用するマルチメディア処理ソフト)まわりの環境がbullseye版とbuster版で異なっているため。bullseye版を利用する場合、ハードウェアエンコードを有効にするために、ffmpegをビルドする必要が出てくる。\n必要な部品  Raspberry Pi Zero W (スイッチサイエンス) microSDカード (Amazon) Raspberry Pi カメラモジュール (スイッチサイエンス) Raspberry Pi Zero用カメラケーブル (スイッチサイエンス) ELECROW 3.","keywords":["raspi","ffmpeg"],"articleBody":"デモ 本デバイスは以下の動画のように操作できる。\n操作時の動画は以下のような感じです。 pic.twitter.com/7l2ocbjlh1\n— 青木晃也 (@aoki_kouya) March 20, 2022  本デバイスを使うと、以下のサイトにあるような動画を生成できる。\n 動画の出力条件のうち、主な項目は以下の通り。\n 再生速度: 30倍速 fps: 30 bps: 3Mbps HLS形式 音声なし  料理の動画を掲載しているのは、特に他にコンスタントに撮影できる対象が考えつかなかったため。これらの動画の撮影のために、3Dプリンターでプリントした部品を使ってラズパイとカメラを固定し、台所上部に吊り下げている。\nRaspberry Pi Zeroを使って、思い付きでタイムラプスカメラを作りました。 pic.twitter.com/w1fCBfPVzm\n— 青木晃也 (@aoki_kouya) March 5, 2022  確認済み動作条件  ボード  Raspberry Pi Zero W   OS  Raspberry Pi OS(Legacy) 2022-01-28    現時点(2022/03/21)で推奨OSとなっているRaspberry Pi OSはbullseye版だが、buster版(Legacy)の方を使う。これは、ffmpeg(今回利用するマルチメディア処理ソフト)まわりの環境がbullseye版とbuster版で異なっているため。bullseye版を利用する場合、ハードウェアエンコードを有効にするために、ffmpegをビルドする必要が出てくる。\n必要な部品  Raspberry Pi Zero W (スイッチサイエンス) microSDカード (Amazon) Raspberry Pi カメラモジュール (スイッチサイエンス) Raspberry Pi Zero用カメラケーブル (スイッチサイエンス) ELECROW 3.5inch RPi Display (Amazon) or 他のタッチパネルモニター  結構前に購入したタッチパネルモニターを再利用していたので、さすがにもう入手できないかなと思っていたが、まだ販売していて驚いた。\nmicroSDカードへOSをインストールする まずはmicroSDカードをフォーマットする。以下のページから、SD Card Formatterをダウンロード、インストールする。\n インストールしたSD Card Formatterを起動する。microSDカードのドライブを選択し、フォーマットを実行する。フォーマットオプションはクイックフォーマットを選択すればよい。\nSDカードが初期化出来たので、OSをインストールする。以下のページから、Raspberry Pi Imagerをダウンロード、インストールする。\n Raspiberry Pi Imagerを起動する。OSは Raspberry Pi OS(other) → Raspberry Pi OS(Legacy) を選択する。\nStorageは microSDカード を選択し、書き込みを行う。\n無線LAN接続・SSH接続が出来るようにする 無線LAN接続及びSSHによる接続ができるように設定する。これらの設定はいくつかやり方があると思うが、microSDカード内のファイルを追加・編集することでも設定できる。ここら辺は以下のような参考になる記事が色々ある。\n  タッチパネルモニターの設定を行う 本デバイスはタッチパネルから操作を行う想定のため、タッチパネルモニターの設定が必要になる。各自使用するモニターに応じて設定を行う。\n上記で紹介したELECROW 3.5inch RPi Displayを利用する場合は、以下のページを参考にドライバをインストールする。このインストール作業時、/boot/config.txtが上書きされるようなので、自分で/boot/config.txtに追加設定等を行っている場合は注意。\n カメラモジュールを有効化する ラズパイにログイン後、以下コマンドを実行し、設定画面を表示する。\nsudo raspi-config 3 Interface Options → P1 Camera → Yes と選択し、カメラモジュールを有効化する。\n再起動するかどうか聞かれるので、Yesを選択し、再起動する。\nタイムラプス生成スクリプト一式をインストールする 以下コマンドを実行し、スクリプト一式をインストールする。\ncd /home/pi git clone https://github.com/kouya17/raspi_timelapse_maker.git cd raspi_timelapse_maker sudo ./install.sh 特にエラーが出ていなさそうだったら、以下コマンドでラズパイを再起動する。\nsudo reboot 動作確認する 起動後、タッチパネルモニターに操作画面が表示されるので、現在のカメラ画像が表示されることを確認する。\n画面のStartボタンを押す。画面に表示されているstatusがidleからrecordingに切り替わることを確認する。画面のtimeに録画時間が表示されることを確認する。ラズパイにログインし、/home/pi/raspi_timelapse_maker/recorded//配下に録画データ(HLS形式)が保存されていることを確認する。\n画面のFinishボタンを押す。/home/pi/raspi_timelapse_maker/recording/配下に何もファイルがないことを確認する。録画プロセスが終了していることを確認するため、以下コマンドを実行して、何も出力されないことを確認する。\nps -aux | grep record | grep -v grep 画面のShutdownボタンを押す。ラズパイがシャットダウンすることを確認する。\nSambaを設定する(任意) 録画したデータは、大抵の場合PC等に転送することになると思う。Sambaをインストールしておくと、WindowsやmacOSからファイルサーバーとしてアクセスできるようになり、データのやり取りがしやすくなる。\n自分の場合はWindows PCに動画データをコピーしたかったので、以下のサイトを参考に設定した。\n [おまけ]MP4ファイルで出力するようにする 現状は、録画データをHLS形式で出力している。これは、あまり大きなサイズのファイルを扱いたくなかったという自分の事情があったためである。\nただ、MP4ファイルとして出力した方が使い勝手がいいパターンもあるだろう。HLS形式だと再生するのにもWebサーバーが必要になるため、再生確認がしずらい。\nMP4ファイルで出力したい場合は、タイムラプス生成スクリプト一式(/home/pi/raspi_timelapse_maker)の中のwebroot/cgi-bin/record_worker.sh内でffmpegを利用している箇所を以下のように修正する。\n- ffmpeg -r 150 -i http://localhost:8080/?action=stream -f hls -vcodec h264_omx -vf fps=30 -b:v 3000k -hls_time 10 -hls_list_size 0 -hls_segment_filename $STREAM_PATH/%d.ts $STREAM_PATH/playlist.m3u8 + ffmpeg -r 150 -i http://localhost:8080/?action=stream -vcodec h264_omx -vf fps=30 -b:v 3000k $STREAM_PATH/output.mp4 上記の修正を適用して録画をすると、webroot/recorded//配下にoutput.mp4が生成されるようになる。\npi@raspberrypi:~/raspi_timelapse_maker/webroot $ ls recorded/20220320154823/ output.mp4 [おまけ]Rasberry Pi Zero W + カメラ 固定用3Dモデル ラズパイとカメラ固定用パーツのSTLデータは以下に置いている。\n 汎用性は全くない。\n","wordCount":"200","inLanguage":"en","image":"https://kouya17.com/media/covers/timelapse-maker/cover.jpg","datePublished":"2022-03-21T13:03:00+09:00","dateModified":"2022-03-21T13:03:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kouya17.com/posts/timelapse-maker/"},"publisher":{"@type":"Organization","name":"kouya17.com","logo":{"@type":"ImageObject","url":"https://kouya17.com/favicon.ico"}}}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8855472249928298" crossorigin=anonymous></script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Raspberry Pi Zero W を使ってタイムラプス生成デバイスを作成する","name":"Raspberry Pi Zero W を使ってタイムラプス生成デバイスを作成する","description":"デモ 本デバイスは以下の動画のように操作できる。 操作時の動画は以下のような感じです。 pic.twitter.com/7l2ocbjlh1 \u0026mdash; 青木晃也 (@aoki_kouya) March 20, 2022 本デバイスを使うと、以下のサイトにある","keywords":["raspi","ffmpeg"],"articleBody":"デモ 本デバイスは以下の動画のように操作できる。\n操作時の動画は以下のような感じです。 pic.twitter.com/7l2ocbjlh1\n— 青木晃也 (@aoki_kouya) March 20, 2022  本デバイスを使うと、以下のサイトにあるような動画を生成できる。\n 動画の出力条件のうち、主な項目は以下の通り。\n 再生速度: 30倍速 fps: 30 bps: 3Mbps HLS形式 音声なし  料理の動画を掲載しているのは、特に他にコンスタントに撮影できる対象が考えつかなかったため。これらの動画の撮影のために、3Dプリンターでプリントした部品を使ってラズパイとカメラを固定し、台所上部に吊り下げている。\nRaspberry Pi Zeroを使って、思い付きでタイムラプスカメラを作りました。 pic.twitter.com/w1fCBfPVzm\n— 青木晃也 (@aoki_kouya) March 5, 2022  確認済み動作条件  ボード  Raspberry Pi Zero W   OS  Raspberry Pi OS(Legacy) 2022-01-28    現時点(2022/03/21)で推奨OSとなっているRaspberry Pi OSはbullseye版だが、buster版(Legacy)の方を使う。これは、ffmpeg(今回利用するマルチメディア処理ソフト)まわりの環境がbullseye版とbuster版で異なっているため。bullseye版を利用する場合、ハードウェアエンコードを有効にするために、ffmpegをビルドする必要が出てくる。\n必要な部品  Raspberry Pi Zero W (スイッチサイエンス) microSDカード (Amazon) Raspberry Pi カメラモジュール (スイッチサイエンス) Raspberry Pi Zero用カメラケーブル (スイッチサイエンス) ELECROW 3.5inch RPi Display (Amazon) or 他のタッチパネルモニター  結構前に購入したタッチパネルモニターを再利用していたので、さすがにもう入手できないかなと思っていたが、まだ販売していて驚いた。\nmicroSDカードへOSをインストールする まずはmicroSDカードをフォーマットする。以下のページから、SD Card Formatterをダウンロード、インストールする。\n インストールしたSD Card Formatterを起動する。microSDカードのドライブを選択し、フォーマットを実行する。フォーマットオプションはクイックフォーマットを選択すればよい。\nSDカードが初期化出来たので、OSをインストールする。以下のページから、Raspberry Pi Imagerをダウンロード、インストールする。\n Raspiberry Pi Imagerを起動する。OSは Raspberry Pi OS(other) → Raspberry Pi OS(Legacy) を選択する。\nStorageは microSDカード を選択し、書き込みを行う。\n無線LAN接続・SSH接続が出来るようにする 無線LAN接続及びSSHによる接続ができるように設定する。これらの設定はいくつかやり方があると思うが、microSDカード内のファイルを追加・編集することでも設定できる。ここら辺は以下のような参考になる記事が色々ある。\n  タッチパネルモニターの設定を行う 本デバイスはタッチパネルから操作を行う想定のため、タッチパネルモニターの設定が必要になる。各自使用するモニターに応じて設定を行う。\n上記で紹介したELECROW 3.5inch RPi Displayを利用する場合は、以下のページを参考にドライバをインストールする。このインストール作業時、/boot/config.txtが上書きされるようなので、自分で/boot/config.txtに追加設定等を行っている場合は注意。\n カメラモジュールを有効化する ラズパイにログイン後、以下コマンドを実行し、設定画面を表示する。\nsudo raspi-config 3 Interface Options → P1 Camera → Yes と選択し、カメラモジュールを有効化する。\n再起動するかどうか聞かれるので、Yesを選択し、再起動する。\nタイムラプス生成スクリプト一式をインストールする 以下コマンドを実行し、スクリプト一式をインストールする。\ncd /home/pi git clone https://github.com/kouya17/raspi_timelapse_maker.git cd raspi_timelapse_maker sudo ./install.sh 特にエラーが出ていなさそうだったら、以下コマンドでラズパイを再起動する。\nsudo reboot 動作確認する 起動後、タッチパネルモニターに操作画面が表示されるので、現在のカメラ画像が表示されることを確認する。\n画面のStartボタンを押す。画面に表示されているstatusがidleからrecordingに切り替わることを確認する。画面のtimeに録画時間が表示されることを確認する。ラズパイにログインし、/home/pi/raspi_timelapse_maker/recorded//配下に録画データ(HLS形式)が保存されていることを確認する。\n画面のFinishボタンを押す。/home/pi/raspi_timelapse_maker/recording/配下に何もファイルがないことを確認する。録画プロセスが終了していることを確認するため、以下コマンドを実行して、何も出力されないことを確認する。\nps -aux | grep record | grep -v grep 画面のShutdownボタンを押す。ラズパイがシャットダウンすることを確認する。\nSambaを設定する(任意) 録画したデータは、大抵の場合PC等に転送することになると思う。Sambaをインストールしておくと、WindowsやmacOSからファイルサーバーとしてアクセスできるようになり、データのやり取りがしやすくなる。\n自分の場合はWindows PCに動画データをコピーしたかったので、以下のサイトを参考に設定した。\n [おまけ]MP4ファイルで出力するようにする 現状は、録画データをHLS形式で出力している。これは、あまり大きなサイズのファイルを扱いたくなかったという自分の事情があったためである。\nただ、MP4ファイルとして出力した方が使い勝手がいいパターンもあるだろう。HLS形式だと再生するのにもWebサーバーが必要になるため、再生確認がしずらい。\nMP4ファイルで出力したい場合は、タイムラプス生成スクリプト一式(/home/pi/raspi_timelapse_maker)の中のwebroot/cgi-bin/record_worker.sh内でffmpegを利用している箇所を以下のように修正する。\n- ffmpeg -r 150 -i http://localhost:8080/?action=stream -f hls -vcodec h264_omx -vf fps=30 -b:v 3000k -hls_time 10 -hls_list_size 0 -hls_segment_filename $STREAM_PATH/%d.ts $STREAM_PATH/playlist.m3u8 + ffmpeg -r 150 -i http://localhost:8080/?action=stream -vcodec h264_omx -vf fps=30 -b:v 3000k $STREAM_PATH/output.mp4 上記の修正を適用して録画をすると、webroot/recorded//配下にoutput.mp4が生成されるようになる。\npi@raspberrypi:~/raspi_timelapse_maker/webroot $ ls recorded/20220320154823/ output.mp4 [おまけ]Rasberry Pi Zero W + カメラ 固定用3Dモデル ラズパイとカメラ固定用パーツのSTLデータは以下に置いている。\n 汎用性は全くない。\n","wordCount":"2549","inLanguage":"ja","image":"https://kouya17.com/media/covers/timelapse-maker/cover.jpg","datePublished":"2022-03-21T13:03:00+09:00","dateModified":"2022-03-21T13:03:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kouya17.com/posts/timelapse-maker/"},"publisher":{"@type":"Organization","name":"kouya17.com","logo":{"@type":"ImageObject","url":"https://kouya17.com/favicon.ico"}}}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8855472249928298" crossorigin=anonymous></script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -97,12 +76,12 @@ Raspberry Pi Zeroを使って、思い付きでタイムラプスカメラを作
 <h1 class=post-title>
 Raspberry Pi Zero W を使ってタイムラプス生成デバイスを作成する
 </h1>
-<div class=post-meta><span title="2022-03-21 13:03:00 +0900 +0900">March 21, 2022</span>&nbsp;·&nbsp;1 min
+<div class=post-meta><span title="2022-03-21 13:03:00 +0900 +0900">3月 21, 2022</span>&nbsp;·&nbsp;6 分
 </div>
 </header> <div class=toc>
 <details>
 <summary accesskey=c title="(Alt + C)">
-<span class=details>Table of Contents</span>
+<span class=details>目次</span>
 </summary>
 <div class=inner><ul>
 <li>
@@ -238,12 +217,12 @@ output.mp4
 </ul>
 <nav class=paginav>
 <a class=prev href=https://kouya17.com/posts/youtube-chat-hooks1/>
-<span class=title>« Prev Page</span>
+<span class=title>« 前のページ</span>
 <br>
 <span>[C#]YouTubeLiveチャットに特定の文字列が書き込まれたことを検知する</span>
 </a>
 <a class=next href=https://kouya17.com/posts/react-youtube/>
-<span class=title>Next Page »</span>
+<span class=title>次のページ »</span>
 <br>
 <span>ReactでYouTubeのプレーヤーを制御する</span>
 </a>

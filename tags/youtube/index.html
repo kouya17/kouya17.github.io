@@ -1,4 +1,4 @@
-<!doctype html><html lang=en dir=auto>
+<!doctype html><html lang=ja dir=auto>
 <head><meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
@@ -74,18 +74,9 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>試作ソフト動作時の様子 APIキー及び対象配信のURLを入力し、チャットを取得する。取得したチャットに対し、特定文字列が含まれているものを抽出して表示する。
-上記GIF右側にあるソフトのコードは以下に置いている。
-実装内容の詳細 YouTubeLiveチャットの取得 YouTubeLiveチャットはYouTube Data APIを利用して取得する。YouTube Data APIは、YouTubeが公開している、YouTube上の情報を参照及び変更できるAPIである。コードサンプルページを見ると、以下の言語向けのクライアントライブラリがあることを確認できる。
-Go Java JavaScript .NET PHP Python Ruby 今回は.NET用のGoogleAPIクライアントライブラリを使う。
-APIキーの準備 YouTube Data APIを利用するために、APIキーを作成する必要がある。APIキーの作成方法はここでは詳しく記載しない。以下のサイト等を参考にしてほしい。
-プロジェクトへのライブラリーの追加 プロジェクトにGoogle.Apis.YouTube.v3をインストールする。以下手順の説明はVisual Studio 2022の利用を想定している。
-Visual Studio 2022のタブから プロジェクト > NuGetパッケージの管理 を選択する。 Google.Apis.YouTube.v3を検索し、最新バージョンをインストールする。 プログラムの実装 チャットを取得するコードを実装する。チャットを取得するまでの流れは以下のような形にしている。
-配信URLからVideo IDを取得する。 Video IDからData APIを使って対象配信のChat IDを取得する。 Chat IDからLive Streaming APIを使ってチャットのデータを取得する。 配信URLからVideo IDを取得する Video IDは配信URLのクエリパラメータ中のvパラメータに相当する。例えば、配信URLがhttps://www.youtube.com/watch?v=fLM31tHrD5MであればfLM31tHrD5MがVideo IDである。
-Video ID抽出のための処理はSystem.Web.HttpUtility.ParseQueryString()を利用した。以下に実装のサンプルを記載する。なお、下記サンプルはvパラメータがない場合を想定していない。
-var uri = new Uri(stringUrl); // stringUrlには配信URLが入る var query = System....</p>
+<p>試作ソフト動作時の様子 APIキー及び対象配信のURLを入力し、チャットを取得する。取得したチャットに対し、特定文字列が含まれているものを抽出...</p>
 </section>
-<footer class=entry-footer><span title="2022-06-12 18:44:00 +0900 +0900">June 12, 2022</span>&nbsp;·&nbsp;2 min</footer>
+<footer class=entry-footer><span title="2022-06-12 18:44:00 +0900 +0900">6月 12, 2022</span>&nbsp;·&nbsp;4 分</footer>
 <a class=entry-link aria-label="post link to [C#]YouTubeLiveチャットに特定の文字列が書き込まれたことを検知する" href=https://kouya17.com/posts/youtube-chat-hooks1/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -94,20 +85,9 @@ var uri = new Uri(stringUrl); // stringUrlには配信URLが入る var query = S
 </h2>
 </header>
 <section class=entry-content>
-<p>react-youtubeというReactコンポーネントを利用したサンプルサイトを作成したので、紹介する。
-作成したサンプルサイト ページを開くと、特定のYouTube動画が読みこまれる。YouTubeプレーヤーを操作する毎に操作情報(+操作時の再生位置)が記録される。記録された操作は、YouTubeプレーヤー下にテキストで表示される。操作情報は、「download」ボタンを押すことでファイルとして出力できる。
-上記サンプルサイトでは、現状以下の操作のみ記録する。
-再生準備完了(ready) 再生開始(play) 一時停止(pause) 再生終了(end) 視聴者毎の動画視聴状況を確認したいケースを考える 今回のサンプルサイトは、「視聴者ごとに、動画の視聴状況詳細を確認したいケース」を想定して作成した。視聴者は操作情報をファイルとして出力し、管理者へ提出する。管理者は提出されたファイルから、視聴状況を確認するという想定である。サンプルでは操作情報をファイルで出力しているが、これを「ユーザー情報を付与してサーバー上に保存」とかすれば、ファイルをやり取りするという手続きは不要になる。
-今回想定したケースのように、YouTubeから情報を取得したい場合の手段としては、YouTube Data APIを活用するという方法がある。ただ、YouTube Data APIには、「特定のユーザーの、各視聴動画に対する操作情報」という細かい情報までは用意されていない。取得できても「特定のユーザーの視聴履歴」までである。
-少し調べたところ、YouTubeのIFrame Player APIを使うと、YouTubeプレーヤーに対する操作を取得出来るようだったので、今回はそちらを利用した。
-YouTubeのIFrame Player APIを利用する IFrame Player APIを利用することで、再生中の動画に関する情報を取得できる。情報の取得はJavaScript関数を使って行う。また、特定のプレーヤーイベントに対して、イベントリスナーを設定できる。今回のサンプルサイトを例にすると、再生準備完了(onReady)、再生開始(onPlay)、一時停止(onPause)、再生終了(onEnd)に対してイベントリスナーを設定している。
-今回のサンプルサイトはNext.jsを使って作成したため、ReactコンポーネントとしてIFrame Player APIを利用できるreact-youtubeを利用した。
-サンプルサイトの作成とデプロイ サンプルサイトの実装内容としては、react-youtubeのサンプルに、プレーヤーイベント発生時のイベントリスナーを設定し、操作情報を画面に出力及びファイルとしてダウンロード出来るようにしたくらいである。
-ソースコードは以下に公開している。
-サンプルサイトはGitHub Pagesを使って稼働させている。GitHub Pagesへのデプロイは、GitHub Actionsを利用して、mainブランチ更新時に自動で行われるようにしている。ここら辺は、以下のサイトを参考にさせていただいた。
-</p>
+<p>react-youtubeというReactコンポーネントを利用したサンプルサイトを作成したので、紹介する。 作成したサンプルサイト ページを開く...</p>
 </section>
-<footer class=entry-footer><span title="2022-01-15 13:15:00 +0900 +0900">January 15, 2022</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2022-01-15 13:15:00 +0900 +0900">1月 15, 2022</span>&nbsp;·&nbsp;3 分</footer>
 <a class=entry-link aria-label="post link to ReactでYouTubeのプレーヤーを制御する" href=https://kouya17.com/posts/react-youtube/></a>
 </article>
 <article class="post-entry tag-entry">
@@ -116,24 +96,9 @@ YouTubeのIFrame Player APIを利用する IFrame Player APIを利用するこ�
 </h2>
 </header>
 <section class=entry-content>
-<p>できたもの 動画の出来が色々とアレだが、動作時の様子を以下の動画の後半で確認できる。
-動画だと映りが悪いが、写真だとLEDをつけた時の様子は以下のような感じになる。
-作成目的 M5系列からYouTube Data APIを使った作例を作ってみたくて、作成した。
-使用部品 M5StickC　1個 PCA9685 16チャンネル PWMモジュール　3個 フルカラーLED　12個 筐体設計 STLデータは以下に公開してある。
-M5StickCとPCA9685モジュールが3個入るような箱を設計した。最初はだいぶコンパクトに設計していたのだが、配線が箱に収まらないことが分かり、途中で拡張した。もともとはM5StickCも箱の中に収める想定だったのだが、入らなかったので、横につけることにした。
-フルカラーLEDは配置する場所に自由度を持たせられるように、個別に格納する箱を作成して、それぞれ4本の配線でM5StickC側の箱と接続するようにした。
-配線 今回の配線の概要図を以下に示す。
-PCA9685モジュールとフルカラーLEDの接続部分はテキトーになっているが、LEDについてはRGB順で1個目のLEDは1個目のPCA9685モジュールの0,1,2chに接続、2個目のLEDは1個目のPCA9685モジュールの3,4,5chに接続…という形で接続している。
-ここが一番しんどかった。PCA9685モジュールを3個使っているのでやろうと思えば最大16個のフルカラーLEDを接続できるが、12個配線したところで力尽きた。
-ソフト実装 ソフト全体は以下のリポジトリに置いてある。
-src/main.cppについて以下の部分は各ユーザー毎に書き換える必要がある。
-APIキー アクセスポイントのSSID アクセスポイントのパスワード あと、src/main.cpp中のchannelsをいじれば対象とするYouTubeチャンネルとLEDの色を変更できる。
-M5StickCからYouTube Data APIを利用する部分は、以下のAPIラッパーを利用させていただいた。
-ただし、このままではチャンネル情報しか取得できないため、以下の関数等を追加している。
-std::vector&lt;String> YoutubeApi::getUpcomingBroadcasts(char *channelId) 指定されたChannelIDのチャンネルの配信予定(VideoID)を取得する。 BroadcastDetails YoutubeApi::getBroadcastDetails(char *videoId) 指定されたVideoIDの動画の配信詳細情報を取得する。 配信開始予定時刻は詳細情報からしか取れない。 課題 きちんと検証はしていないが、現状のソースだと、YouTube Data APIのクォータを異常に消費する。本当は1分ごとに情報取得とかをしたかったが、無料枠ではクォータが足りなくなる。
-各LEDに紐づくチャンネルIDと、LEDの色がハードコーディングされているので、外部から設定できるようにしたい。</p>
+<p>できたもの 動画の出来が色々とアレだが、動作時の様子を以下の動画の後半で確認できる。 動画だと映りが悪いが、写真だとLEDをつけた時の様子は以下...</p>
 </section>
-<footer class=entry-footer><span title="2021-04-03 23:09:39 +0900 +0900">April 3, 2021</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2021-04-03 23:09:39 +0900 +0900">4月 3, 2021</span>&nbsp;·&nbsp;3 分</footer>
 <a class=entry-link aria-label="post link to 所定のYouTubeチャンネルの配信予定をLEDで通知する(M5StickC)" href=https://kouya17.com/posts/40/></a>
 </article>
 </main>

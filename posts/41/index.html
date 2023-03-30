@@ -1,21 +1,11 @@
-<!doctype html><html lang=en dir=auto>
+<!doctype html><html lang=ja dir=auto>
 <head><meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
 <title>Bitcoinのブロックチェーンの中身を見てみる | kouya17.com</title>
 <meta name=keywords content="Blockchain">
-<meta name=description content="ただのにわかではあるが、ブロックチェーンは信頼性が重要な技術だと思っている。傍目から見たら、これだけ広く不特定多数に使われていても、これまで特に技術自体について大きく信頼性が揺らぐような事象は起きていないように見える。実用に十分耐えうる技術のようだ。なんとなく興味が出てきたのでゴールデンウィークの期間を使って色々勉強してみる。
-Bitcoin Coreのインストール まずは暗号通貨Bitcoinを題材に、ブロックチェーンの&#34;ブロック&#34;の中身を見てみる。現在までのブロックを全て取得するために、以下を参考にBitcoin Coreをインストールする。
- 初回起動時はデータ保存場所を聞かれるが、デフォルトの場所を使うようにする。
-起動後はブロックチェーンデータの同期が始まる。
-完全な同期までは数日かかるらしい。自分の場合は3日ほど放置していたら完了していた。
-ブロックの中身を読んでみる デフォルトだとMacOSは/Users/<username>/Library/Application Support/Bitcoin/blocks/以下にブロックデータが置かれるらしい。データの総サイズを確認してみる。
-$ du -hs /Users/<username>/Library/Application\ Support/Bitcoin/blocks/ 361G	/Users/<username>/Library/Application Support/Bitcoin/blocks/ サイズがだいぶでかい。これはこれからもトランザクションが発生するごとに増えていくのだろう。
-中身はバイナリになっている。フォーマットは以下のようになっているらしい。
-   フィールド サイズ     magic bytes 4 bytes   size 4 bytes   block header 80 bytes   tx count 可変   transaction date 可変    引用元
- 上記引用元サイトの情報を参考に、バイナリを読んでみる。(といっても、バイナリを読まなくても、上記引用元サイトに、必要な情報は全て書かれているので、ほぼ上記サイトの内容をかいつまんで日本語訳するような内容になる。)
-$ hexdump -C -n 293 blk00000.dat 00000000 f9 be b4 d9 1d 01 00 00 01 00 00 00 00 00 00 00 |.">
+<meta name=description content="ただのにわかではあるが、ブロックチェーンは信頼性が重要な技術だと思っている。傍目から見たら、これだけ広く不特定多数に使われていても、これまで">
 <meta name=author content>
 <link rel=canonical href=https://kouya17.com/posts/41/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.a97cdb2d52ff3547f5b45210b2262edb8517a9ced99357596eea2f6dda9f6aad.css integrity="sha256-qXzbLVL/NUf1tFIQsiYu24UXqc7Zk1dZbuovbdqfaq0=" rel="preload stylesheet" as=style>
@@ -36,17 +26,7 @@ $ hexdump -C -n 293 blk00000.dat 00000000 f9 be b4 d9 1d 01 00 00 01 00 00 00 00
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body)></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-92576104-3','auto'),ga('send','pageview'))</script><meta property="og:title" content="Bitcoinのブロックチェーンの中身を見てみる">
-<meta property="og:description" content="ただのにわかではあるが、ブロックチェーンは信頼性が重要な技術だと思っている。傍目から見たら、これだけ広く不特定多数に使われていても、これまで特に技術自体について大きく信頼性が揺らぐような事象は起きていないように見える。実用に十分耐えうる技術のようだ。なんとなく興味が出てきたのでゴールデンウィークの期間を使って色々勉強してみる。
-Bitcoin Coreのインストール まずは暗号通貨Bitcoinを題材に、ブロックチェーンの&#34;ブロック&#34;の中身を見てみる。現在までのブロックを全て取得するために、以下を参考にBitcoin Coreをインストールする。
- 初回起動時はデータ保存場所を聞かれるが、デフォルトの場所を使うようにする。
-起動後はブロックチェーンデータの同期が始まる。
-完全な同期までは数日かかるらしい。自分の場合は3日ほど放置していたら完了していた。
-ブロックの中身を読んでみる デフォルトだとMacOSは/Users/<username>/Library/Application Support/Bitcoin/blocks/以下にブロックデータが置かれるらしい。データの総サイズを確認してみる。
-$ du -hs /Users/<username>/Library/Application\ Support/Bitcoin/blocks/ 361G	/Users/<username>/Library/Application Support/Bitcoin/blocks/ サイズがだいぶでかい。これはこれからもトランザクションが発生するごとに増えていくのだろう。
-中身はバイナリになっている。フォーマットは以下のようになっているらしい。
-   フィールド サイズ     magic bytes 4 bytes   size 4 bytes   block header 80 bytes   tx count 可変   transaction date 可変    引用元
- 上記引用元サイトの情報を参考に、バイナリを読んでみる。(といっても、バイナリを読まなくても、上記引用元サイトに、必要な情報は全て書かれているので、ほぼ上記サイトの内容をかいつまんで日本語訳するような内容になる。)
-$ hexdump -C -n 293 blk00000.dat 00000000 f9 be b4 d9 1d 01 00 00 01 00 00 00 00 00 00 00 |.">
+<meta property="og:description" content="ただのにわかではあるが、ブロックチェーンは信頼性が重要な技術だと思っている。傍目から見たら、これだけ広く不特定多数に使われていても、これまで">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kouya17.com/posts/41/">
 <meta property="og:image" content="https://kouya17.com/media/photos/21/04/29/blockchain_thumb.png"><meta property="article:section" content="posts">
@@ -55,19 +35,9 @@ $ hexdump -C -n 293 blk00000.dat 00000000 f9 be b4 d9 1d 01 00 00 01 00 00 00 00
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://kouya17.com/media/photos/21/04/29/blockchain_thumb.png">
 <meta name=twitter:title content="Bitcoinのブロックチェーンの中身を見てみる">
-<meta name=twitter:description content="ただのにわかではあるが、ブロックチェーンは信頼性が重要な技術だと思っている。傍目から見たら、これだけ広く不特定多数に使われていても、これまで特に技術自体について大きく信頼性が揺らぐような事象は起きていないように見える。実用に十分耐えうる技術のようだ。なんとなく興味が出てきたのでゴールデンウィークの期間を使って色々勉強してみる。
-Bitcoin Coreのインストール まずは暗号通貨Bitcoinを題材に、ブロックチェーンの&#34;ブロック&#34;の中身を見てみる。現在までのブロックを全て取得するために、以下を参考にBitcoin Coreをインストールする。
- 初回起動時はデータ保存場所を聞かれるが、デフォルトの場所を使うようにする。
-起動後はブロックチェーンデータの同期が始まる。
-完全な同期までは数日かかるらしい。自分の場合は3日ほど放置していたら完了していた。
-ブロックの中身を読んでみる デフォルトだとMacOSは/Users/<username>/Library/Application Support/Bitcoin/blocks/以下にブロックデータが置かれるらしい。データの総サイズを確認してみる。
-$ du -hs /Users/<username>/Library/Application\ Support/Bitcoin/blocks/ 361G	/Users/<username>/Library/Application Support/Bitcoin/blocks/ サイズがだいぶでかい。これはこれからもトランザクションが発生するごとに増えていくのだろう。
-中身はバイナリになっている。フォーマットは以下のようになっているらしい。
-   フィールド サイズ     magic bytes 4 bytes   size 4 bytes   block header 80 bytes   tx count 可変   transaction date 可変    引用元
- 上記引用元サイトの情報を参考に、バイナリを読んでみる。(といっても、バイナリを読まなくても、上記引用元サイトに、必要な情報は全て書かれているので、ほぼ上記サイトの内容をかいつまんで日本語訳するような内容になる。)
-$ hexdump -C -n 293 blk00000.dat 00000000 f9 be b4 d9 1d 01 00 00 01 00 00 00 00 00 00 00 |.">
+<meta name=twitter:description content="ただのにわかではあるが、ブロックチェーンは信頼性が重要な技術だと思っている。傍目から見たら、これだけ広く不特定多数に使われていても、これまで">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://kouya17.com/posts/"},{"@type":"ListItem","position":3,"name":"Bitcoinのブロックチェーンの中身を見てみる","item":"https://kouya17.com/posts/41/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Bitcoinのブロックチェーンの中身を見てみる","name":"Bitcoinのブロックチェーンの中身を見てみる","description":"ただのにわかではあるが、ブロックチェーンは信頼性が重要な技術だと思っている。傍目から見たら、これだけ広く不特定多数に使われていても、これまで特に技術自体について大きく信頼性が揺らぐような事象は起きていないように見える。実用に十分耐えうる技術のようだ。なんとなく興味が出てきたのでゴールデンウィークの期間を使って色々勉強してみる。\nBitcoin Coreのインストール まずは暗号通貨Bitcoinを題材に、ブロックチェーンの\u0026quot;ブロック\u0026quot;の中身を見てみる。現在までのブロックを全て取得するために、以下を参考にBitcoin Coreをインストールする。\n 初回起動時はデータ保存場所を聞かれるが、デフォルトの場所を使うようにする。\n起動後はブロックチェーンデータの同期が始まる。\n完全な同期までは数日かかるらしい。自分の場合は3日ほど放置していたら完了していた。\nブロックの中身を読んでみる デフォルトだとMacOSは/Users/\u0026lt;username\u0026gt;/Library/Application Support/Bitcoin/blocks/以下にブロックデータが置かれるらしい。データの総サイズを確認してみる。\n$ du -hs /Users/\u0026lt;username\u0026gt;/Library/Application\\ Support/Bitcoin/blocks/ 361G\t/Users/\u0026lt;username\u0026gt;/Library/Application Support/Bitcoin/blocks/ サイズがだいぶでかい。これはこれからもトランザクションが発生するごとに増えていくのだろう。\n中身はバイナリになっている。フォーマットは以下のようになっているらしい。\n   フィールド サイズ     magic bytes 4 bytes   size 4 bytes   block header 80 bytes   tx count 可変   transaction date 可変    引用元\n 上記引用元サイトの情報を参考に、バイナリを読んでみる。(といっても、バイナリを読まなくても、上記引用元サイトに、必要な情報は全て書かれているので、ほぼ上記サイトの内容をかいつまんで日本語訳するような内容になる。)\n$ hexdump -C -n 293 blk00000.dat 00000000 f9 be b4 d9 1d 01 00 00 01 00 00 00 00 00 00 00 |.","keywords":["Blockchain"],"articleBody":"ただのにわかではあるが、ブロックチェーンは信頼性が重要な技術だと思っている。傍目から見たら、これだけ広く不特定多数に使われていても、これまで特に技術自体について大きく信頼性が揺らぐような事象は起きていないように見える。実用に十分耐えうる技術のようだ。なんとなく興味が出てきたのでゴールデンウィークの期間を使って色々勉強してみる。\nBitcoin Coreのインストール まずは暗号通貨Bitcoinを題材に、ブロックチェーンの\"ブロック\"の中身を見てみる。現在までのブロックを全て取得するために、以下を参考にBitcoin Coreをインストールする。\n 初回起動時はデータ保存場所を聞かれるが、デフォルトの場所を使うようにする。\n起動後はブロックチェーンデータの同期が始まる。\n完全な同期までは数日かかるらしい。自分の場合は3日ほど放置していたら完了していた。\nブロックの中身を読んでみる デフォルトだとMacOSは/Users//Library/Application Support/Bitcoin/blocks/以下にブロックデータが置かれるらしい。データの総サイズを確認してみる。\n$ du -hs /Users//Library/Application\\ Support/Bitcoin/blocks/ 361G\t/Users//Library/Application Support/Bitcoin/blocks/ サイズがだいぶでかい。これはこれからもトランザクションが発生するごとに増えていくのだろう。\n中身はバイナリになっている。フォーマットは以下のようになっているらしい。\n   フィールド サイズ     magic bytes 4 bytes   size 4 bytes   block header 80 bytes   tx count 可変   transaction date 可変    引用元\n 上記引用元サイトの情報を参考に、バイナリを読んでみる。(といっても、バイナリを読まなくても、上記引用元サイトに、必要な情報は全て書かれているので、ほぼ上記サイトの内容をかいつまんで日本語訳するような内容になる。)\n$ hexdump -C -n 293 blk00000.dat 00000000 f9 be b4 d9 1d 01 00 00 01 00 00 00 00 00 00 00 |................| 00000010 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 |................| 00000020 00 00 00 00 00 00 00 00 00 00 00 00 3b a3 ed fd |............;...| 00000030 7a 7b 12 b2 7a c7 2c 3e 67 76 8f 61 7f c8 1b c3 |z{..z.,gv.a....| 00000040 88 8a 51 32 3a 9f b8 aa 4b 1e 5e 4a 29 ab 5f 49 |..Q2:...K.^J)._I| 00000050 ff ff 00 1d 1d ac 2b 7c 01 01 00 00 00 01 00 00 |......+|........| 00000060 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 |................| 00000070 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff ff |................| 00000080 ff ff 4d 04 ff ff 00 1d 01 04 45 54 68 65 20 54 |..M.......EThe T| 00000090 69 6d 65 73 20 30 33 2f 4a 61 6e 2f 32 30 30 39 |imes 03/Jan/2009| 000000a0 20 43 68 61 6e 63 65 6c 6c 6f 72 20 6f 6e 20 62 | Chancellor on b| 000000b0 72 69 6e 6b 20 6f 66 20 73 65 63 6f 6e 64 20 62 |rink of second b| 000000c0 61 69 6c 6f 75 74 20 66 6f 72 20 62 61 6e 6b 73 |ailout for banks| 000000d0 ff ff ff ff 01 00 f2 05 2a 01 00 00 00 43 41 04 |........*....CA.| 000000e0 67 8a fd b0 fe 55 48 27 19 67 f1 a6 71 30 b7 10 |g....UH'.g..q0..| 000000f0 5c d6 a8 28 e0 39 09 a6 79 62 e0 ea 1f 61 de b6 |\\..(.9..yb...a..| 00000100 49 f6 bc 3f 4c ef 38 c4 f3 55 04 e5 1e c1 12 de |I..?L.8..U......| 00000110 5c 38 4d f7 ba 0b 8d 57 8a 4c 70 2b 6b f1 1d 5f |\\8M....W.Lp+k.._| 00000120 ac 00 00 00 00 |.....| 最初の4バイト(f9 be b4 d9)がmagic bytes。このmagic bytesはどのネットワーク上のメッセージかによって異なる値をとるようだ。メインネットの場合はf9 be b4 d9となる。magic bytesはメッセージの先頭を識別するために存在しているらしい。\n次の4バイト(1d 01 00 00)がサイズ。hexdumpコマンドはリトルエンディアンで出力するので、エンディアン変換をして00 00 01 1d。16進数から10進数に変換すると285になる。つまり、この後285バイト分データが続く。\n次の80バイトがブロックヘッダー。このヘッダーは以下のような構造になっているらしい。また、“値\"列に今回見てみたブロックの情報を記載している。\n   フィールド サイズ 値     Version 4 bytes 01 00 00 00   Previous Block Hash 32 bytes 00 00 00 00 … 00 00 00 00   Merkle Root 32 bytes 3b a3 ed fd … 4b 1e 5e 4a   Time 4 bytes 29 ab 5f 49   Bits 4 bytes ff ff 00 1d   Nonce 4 bytes 1d ac 2b 7c    このヘッダーの詳細について調べるとそれだけで1つの記事になりそうなので、今回は詳細については書かないことにする。気になるのはPrevious Block Hashが全て0であることだ。これが最初のブロックということなのだろうか。\n次の1バイト(01)がtx count。このブロックには取引が1つしか含まれていないようなので、tx countは01のみ。\n以降のデータが取引データ。この取引データは以下のような構造になっているらしい。\n   フィールド サイズ     Version 4 bytes   Input Count 可変   Input(s) 可変   Output Count 可変   Output(s) 可変   Locktime 4 bytes    さらにInputとOutputはそれぞれ構造をもつが、Inputは今回無視する。Outputの構造は以下の通り。\n   フィールド サイズ     Value 8 bytes   ScriptPubKey Size 可変   ScriptPubKey 可変(ScriptPubKey Sizeで指定)    今回見てみたブロックだと、OutputのValueは00 f2 05 2a 01 00 00 00になっている。エンディアン変換をして00 00 01 2a 05 f2 00。10進数に直すと5,000,000,000になる。つまりこのブロックは5,000,000,000 Satoshi = 50 BTCを出力している。\nブロックの中身を読んでみての感触 以上のように、Bitcoinブロックチェーンのブロックの中身を少し見てみた。初めはデータの構造が大雑把に分かればいいかなという程度だったのだが、今回参考にしたサイトが詳しすぎた。想定していた以上の情報があり、かなり参考になった。ブロックチェーンについてだけでなく、サイトの構成も、ページ間のリンクやマウスオーバーによる表示など、かなり作り込まれていて参考になった。\nアフィリエイト  絵で見てわかるブロックチェーンの仕組み 翔泳社 (2020/12/21) Amazon Kindle 楽天ブックス 楽天Kobo    --  ","wordCount":"531","inLanguage":"en","image":"https://kouya17.com/media/photos/21/04/29/blockchain_thumb.png","datePublished":"2021-04-29T05:05:55+09:00","dateModified":"2021-04-29T05:05:55+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kouya17.com/posts/41/"},"publisher":{"@type":"Organization","name":"kouya17.com","logo":{"@type":"ImageObject","url":"https://kouya17.com/favicon.ico"}}}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8855472249928298" crossorigin=anonymous></script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Bitcoinのブロックチェーンの中身を見てみる","name":"Bitcoinのブロックチェーンの中身を見てみる","description":"ただのにわかではあるが、ブロックチェーンは信頼性が重要な技術だと思っている。傍目から見たら、これだけ広く不特定多数に使われていても、これまで","keywords":["Blockchain"],"articleBody":"ただのにわかではあるが、ブロックチェーンは信頼性が重要な技術だと思っている。傍目から見たら、これだけ広く不特定多数に使われていても、これまで特に技術自体について大きく信頼性が揺らぐような事象は起きていないように見える。実用に十分耐えうる技術のようだ。なんとなく興味が出てきたのでゴールデンウィークの期間を使って色々勉強してみる。\nBitcoin Coreのインストール まずは暗号通貨Bitcoinを題材に、ブロックチェーンの\"ブロック\"の中身を見てみる。現在までのブロックを全て取得するために、以下を参考にBitcoin Coreをインストールする。\n 初回起動時はデータ保存場所を聞かれるが、デフォルトの場所を使うようにする。\n起動後はブロックチェーンデータの同期が始まる。\n完全な同期までは数日かかるらしい。自分の場合は3日ほど放置していたら完了していた。\nブロックの中身を読んでみる デフォルトだとMacOSは/Users//Library/Application Support/Bitcoin/blocks/以下にブロックデータが置かれるらしい。データの総サイズを確認してみる。\n$ du -hs /Users//Library/Application\\ Support/Bitcoin/blocks/ 361G\t/Users//Library/Application Support/Bitcoin/blocks/ サイズがだいぶでかい。これはこれからもトランザクションが発生するごとに増えていくのだろう。\n中身はバイナリになっている。フォーマットは以下のようになっているらしい。\n   フィールド サイズ     magic bytes 4 bytes   size 4 bytes   block header 80 bytes   tx count 可変   transaction date 可変    引用元\n 上記引用元サイトの情報を参考に、バイナリを読んでみる。(といっても、バイナリを読まなくても、上記引用元サイトに、必要な情報は全て書かれているので、ほぼ上記サイトの内容をかいつまんで日本語訳するような内容になる。)\n$ hexdump -C -n 293 blk00000.dat 00000000 f9 be b4 d9 1d 01 00 00 01 00 00 00 00 00 00 00 |................| 00000010 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 |................| 00000020 00 00 00 00 00 00 00 00 00 00 00 00 3b a3 ed fd |............;...| 00000030 7a 7b 12 b2 7a c7 2c 3e 67 76 8f 61 7f c8 1b c3 |z{..z.,gv.a....| 00000040 88 8a 51 32 3a 9f b8 aa 4b 1e 5e 4a 29 ab 5f 49 |..Q2:...K.^J)._I| 00000050 ff ff 00 1d 1d ac 2b 7c 01 01 00 00 00 01 00 00 |......+|........| 00000060 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 |................| 00000070 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff ff |................| 00000080 ff ff 4d 04 ff ff 00 1d 01 04 45 54 68 65 20 54 |..M.......EThe T| 00000090 69 6d 65 73 20 30 33 2f 4a 61 6e 2f 32 30 30 39 |imes 03/Jan/2009| 000000a0 20 43 68 61 6e 63 65 6c 6c 6f 72 20 6f 6e 20 62 | Chancellor on b| 000000b0 72 69 6e 6b 20 6f 66 20 73 65 63 6f 6e 64 20 62 |rink of second b| 000000c0 61 69 6c 6f 75 74 20 66 6f 72 20 62 61 6e 6b 73 |ailout for banks| 000000d0 ff ff ff ff 01 00 f2 05 2a 01 00 00 00 43 41 04 |........*....CA.| 000000e0 67 8a fd b0 fe 55 48 27 19 67 f1 a6 71 30 b7 10 |g....UH'.g..q0..| 000000f0 5c d6 a8 28 e0 39 09 a6 79 62 e0 ea 1f 61 de b6 |\\..(.9..yb...a..| 00000100 49 f6 bc 3f 4c ef 38 c4 f3 55 04 e5 1e c1 12 de |I..?L.8..U......| 00000110 5c 38 4d f7 ba 0b 8d 57 8a 4c 70 2b 6b f1 1d 5f |\\8M....W.Lp+k.._| 00000120 ac 00 00 00 00 |.....| 最初の4バイト(f9 be b4 d9)がmagic bytes。このmagic bytesはどのネットワーク上のメッセージかによって異なる値をとるようだ。メインネットの場合はf9 be b4 d9となる。magic bytesはメッセージの先頭を識別するために存在しているらしい。\n次の4バイト(1d 01 00 00)がサイズ。hexdumpコマンドはリトルエンディアンで出力するので、エンディアン変換をして00 00 01 1d。16進数から10進数に変換すると285になる。つまり、この後285バイト分データが続く。\n次の80バイトがブロックヘッダー。このヘッダーは以下のような構造になっているらしい。また、“値\"列に今回見てみたブロックの情報を記載している。\n   フィールド サイズ 値     Version 4 bytes 01 00 00 00   Previous Block Hash 32 bytes 00 00 00 00 … 00 00 00 00   Merkle Root 32 bytes 3b a3 ed fd … 4b 1e 5e 4a   Time 4 bytes 29 ab 5f 49   Bits 4 bytes ff ff 00 1d   Nonce 4 bytes 1d ac 2b 7c    このヘッダーの詳細について調べるとそれだけで1つの記事になりそうなので、今回は詳細については書かないことにする。気になるのはPrevious Block Hashが全て0であることだ。これが最初のブロックということなのだろうか。\n次の1バイト(01)がtx count。このブロックには取引が1つしか含まれていないようなので、tx countは01のみ。\n以降のデータが取引データ。この取引データは以下のような構造になっているらしい。\n   フィールド サイズ     Version 4 bytes   Input Count 可変   Input(s) 可変   Output Count 可変   Output(s) 可変   Locktime 4 bytes    さらにInputとOutputはそれぞれ構造をもつが、Inputは今回無視する。Outputの構造は以下の通り。\n   フィールド サイズ     Value 8 bytes   ScriptPubKey Size 可変   ScriptPubKey 可変(ScriptPubKey Sizeで指定)    今回見てみたブロックだと、OutputのValueは00 f2 05 2a 01 00 00 00になっている。エンディアン変換をして00 00 01 2a 05 f2 00。10進数に直すと5,000,000,000になる。つまりこのブロックは5,000,000,000 Satoshi = 50 BTCを出力している。\nブロックの中身を読んでみての感触 以上のように、Bitcoinブロックチェーンのブロックの中身を少し見てみた。初めはデータの構造が大雑把に分かればいいかなという程度だったのだが、今回参考にしたサイトが詳しすぎた。想定していた以上の情報があり、かなり参考になった。ブロックチェーンについてだけでなく、サイトの構成も、ページ間のリンクやマウスオーバーによる表示など、かなり作り込まれていて参考になった。\nアフィリエイト  絵で見てわかるブロックチェーンの仕組み 翔泳社 (2020/12/21) Amazon Kindle 楽天ブックス 楽天Kobo    --  ","wordCount":"2159","inLanguage":"ja","image":"https://kouya17.com/media/photos/21/04/29/blockchain_thumb.png","datePublished":"2021-04-29T05:05:55+09:00","dateModified":"2021-04-29T05:05:55+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kouya17.com/posts/41/"},"publisher":{"@type":"Organization","name":"kouya17.com","logo":{"@type":"ImageObject","url":"https://kouya17.com/favicon.ico"}}}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8855472249928298" crossorigin=anonymous></script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -106,12 +76,12 @@ $ hexdump -C -n 293 blk00000.dat 00000000 f9 be b4 d9 1d 01 00 00 01 00 00 00 00
 <h1 class=post-title>
 Bitcoinのブロックチェーンの中身を見てみる
 </h1>
-<div class=post-meta><span title="2021-04-29 05:05:55 +0900 +0900">April 29, 2021</span>&nbsp;·&nbsp;3 min
+<div class=post-meta><span title="2021-04-29 05:05:55 +0900 +0900">4月 29, 2021</span>&nbsp;·&nbsp;5 分
 </div>
 </header> <div class=toc>
 <details>
 <summary accesskey=c title="(Alt + C)">
-<span class=details>Table of Contents</span>
+<span class=details>目次</span>
 </summary>
 <div class=inner><ul>
 <li>
@@ -311,12 +281,12 @@ Bitcoinのブロックチェーンの中身を見てみる
 </ul>
 <nav class=paginav>
 <a class=prev href=https://kouya17.com/posts/42/>
-<span class=title>« Prev Page</span>
+<span class=title>« 前のページ</span>
 <br>
 <span>Dartでブロックチェーン(のようなもの)を実装してみた</span>
 </a>
 <a class=next href=https://kouya17.com/posts/40/>
-<span class=title>Next Page »</span>
+<span class=title>次のページ »</span>
 <br>
 <span>所定のYouTubeチャンネルの配信予定をLEDで通知する(M5StickC)</span>
 </a>

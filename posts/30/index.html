@@ -1,33 +1,11 @@
-<!doctype html><html lang=en dir=auto>
+<!doctype html><html lang=ja dir=auto>
 <head><meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
 <title>ロジスティック回帰を使ってYouTubeタイトルから投稿者を推論する | kouya17.com</title>
 <meta name=keywords content="ML,MeCab,python,sklearn">
-<meta name=description content="Pythonでロジスティック回帰を使って、VTuberの動画タイトルから投稿者を推論してみる。
-ただ、投稿者を推論するといっても、二値分類なので、投稿者が A か B かを分類するのみ。
-使用するライブラリ 今回は以下のライブラリを使用する。
- scikit-learn : テキストのベクトル化、ロジスティック回帰 MeCab : 日本語形態素解析  データセット 適当に選んだRan Channel / 日ノ隈らん 【あにまーれ】さんとKuzuha Channelさんの動画タイトルをデータセットとして使う。
-動画タイトルはYouTube Data APIを使って取得した。
-1日のAPIリクエスト上限に引っかかって、すべては取得できなかったが、日ノ隈らんさんのタイトルは475個、葛葉さんのタイトルは456個取得できた。
-タイトル取得に使用したプログラムは以下に置いてある。
- また、タイトル中の【】内には大体投稿者名が入っている。
-これを使うと簡単に分類できてしまうと思うので、今回は削除する。
-(まあ、【】内でなくても、投稿者名が入っていることがあるので結局、というところもあるが…)
-プログラムと推論結果 今回推論に使用したプログラムは以下に置いてある。
- テストデータは直近(このプログラムを作成中)に投稿された以下のタイトルを使う。
-Ice breaker / ChroNoiR けんきさんとあびつんさんとランクいってくる！！！ １行目が葛葉さんの動画タイトルで、2行目が日ノ隈らんさんの動画タイトルになっている。
-推論結果 推論結果は以下のようになった。
-[0.45 0.69] なお、1個目が1行目の結果で、2個目が2行目の結果になる。
-また、この結果が 1.0 に近いほど日ノ隈らんさんのタイトル、 0 に近いほど葛葉さんのタイトル&#34;っぽい&#34;と判断できる。
-推論結果の分析 どういった理由で今回の推論結果が出たのか分析する。
-ロジスティック回帰では各特徴量の係数(重み)と切片(バイアス)を見ることができる。 今回の特徴量はタイトルに含まれる単語なので、各単語について係数(重み)を見てみる。
-まず1行目のタイトルの各単語の結果は以下の通り。
-以下でwordとtf_idfというラベルで出力しているものが、それぞれ単語名及びtf-idfという手法によって得られた、各単語の重要度になる。
-ただ、このデータに関してはすべての単語について、学習元データに含まれていなかったため、this word does not existと表示されている。
-つまり、上記推論結果で0.45と出ているが、これは切片(バイアス)成分によるものである。
-title_index: 0 word: Ice tf_idf: this word dose not exist word: breaker tf_idf: this word dose not exist word: / tf_idf: this word dose not exist word: ChroNoiR tf_idf: this word dose not exist 次に２行目のタイトルの各単語の結果は以下の通り。">
+<meta name=description content="Pythonでロジスティック回帰を使って、VTuberの動画タイトルから投稿者を推論してみる。 ただ、投稿者を推論するといっても、二値分類なの">
 <meta name=author content>
 <link rel=canonical href=https://kouya17.com/posts/30/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.a97cdb2d52ff3547f5b45210b2262edb8517a9ced99357596eea2f6dda9f6aad.css integrity="sha256-qXzbLVL/NUf1tFIQsiYu24UXqc7Zk1dZbuovbdqfaq0=" rel="preload stylesheet" as=style>
@@ -48,29 +26,7 @@ title_index: 0 word: Ice tf_idf: this word dose not exist word: breaker tf_idf: 
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body)></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-92576104-3','auto'),ga('send','pageview'))</script><meta property="og:title" content="ロジスティック回帰を使ってYouTubeタイトルから投稿者を推論する">
-<meta property="og:description" content="Pythonでロジスティック回帰を使って、VTuberの動画タイトルから投稿者を推論してみる。
-ただ、投稿者を推論するといっても、二値分類なので、投稿者が A か B かを分類するのみ。
-使用するライブラリ 今回は以下のライブラリを使用する。
- scikit-learn : テキストのベクトル化、ロジスティック回帰 MeCab : 日本語形態素解析  データセット 適当に選んだRan Channel / 日ノ隈らん 【あにまーれ】さんとKuzuha Channelさんの動画タイトルをデータセットとして使う。
-動画タイトルはYouTube Data APIを使って取得した。
-1日のAPIリクエスト上限に引っかかって、すべては取得できなかったが、日ノ隈らんさんのタイトルは475個、葛葉さんのタイトルは456個取得できた。
-タイトル取得に使用したプログラムは以下に置いてある。
- また、タイトル中の【】内には大体投稿者名が入っている。
-これを使うと簡単に分類できてしまうと思うので、今回は削除する。
-(まあ、【】内でなくても、投稿者名が入っていることがあるので結局、というところもあるが…)
-プログラムと推論結果 今回推論に使用したプログラムは以下に置いてある。
- テストデータは直近(このプログラムを作成中)に投稿された以下のタイトルを使う。
-Ice breaker / ChroNoiR けんきさんとあびつんさんとランクいってくる！！！ １行目が葛葉さんの動画タイトルで、2行目が日ノ隈らんさんの動画タイトルになっている。
-推論結果 推論結果は以下のようになった。
-[0.45 0.69] なお、1個目が1行目の結果で、2個目が2行目の結果になる。
-また、この結果が 1.0 に近いほど日ノ隈らんさんのタイトル、 0 に近いほど葛葉さんのタイトル&#34;っぽい&#34;と判断できる。
-推論結果の分析 どういった理由で今回の推論結果が出たのか分析する。
-ロジスティック回帰では各特徴量の係数(重み)と切片(バイアス)を見ることができる。 今回の特徴量はタイトルに含まれる単語なので、各単語について係数(重み)を見てみる。
-まず1行目のタイトルの各単語の結果は以下の通り。
-以下でwordとtf_idfというラベルで出力しているものが、それぞれ単語名及びtf-idfという手法によって得られた、各単語の重要度になる。
-ただ、このデータに関してはすべての単語について、学習元データに含まれていなかったため、this word does not existと表示されている。
-つまり、上記推論結果で0.45と出ているが、これは切片(バイアス)成分によるものである。
-title_index: 0 word: Ice tf_idf: this word dose not exist word: breaker tf_idf: this word dose not exist word: / tf_idf: this word dose not exist word: ChroNoiR tf_idf: this word dose not exist 次に２行目のタイトルの各単語の結果は以下の通り。">
+<meta property="og:description" content="Pythonでロジスティック回帰を使って、VTuberの動画タイトルから投稿者を推論してみる。 ただ、投稿者を推論するといっても、二値分類なの">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kouya17.com/posts/30/">
 <meta property="og:image" content="https://kouya17.com/media/photos/20/05/25/python_thumb.png"><meta property="article:section" content="posts">
@@ -79,31 +35,9 @@ title_index: 0 word: Ice tf_idf: this word dose not exist word: breaker tf_idf: 
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://kouya17.com/media/photos/20/05/25/python_thumb.png">
 <meta name=twitter:title content="ロジスティック回帰を使ってYouTubeタイトルから投稿者を推論する">
-<meta name=twitter:description content="Pythonでロジスティック回帰を使って、VTuberの動画タイトルから投稿者を推論してみる。
-ただ、投稿者を推論するといっても、二値分類なので、投稿者が A か B かを分類するのみ。
-使用するライブラリ 今回は以下のライブラリを使用する。
- scikit-learn : テキストのベクトル化、ロジスティック回帰 MeCab : 日本語形態素解析  データセット 適当に選んだRan Channel / 日ノ隈らん 【あにまーれ】さんとKuzuha Channelさんの動画タイトルをデータセットとして使う。
-動画タイトルはYouTube Data APIを使って取得した。
-1日のAPIリクエスト上限に引っかかって、すべては取得できなかったが、日ノ隈らんさんのタイトルは475個、葛葉さんのタイトルは456個取得できた。
-タイトル取得に使用したプログラムは以下に置いてある。
- また、タイトル中の【】内には大体投稿者名が入っている。
-これを使うと簡単に分類できてしまうと思うので、今回は削除する。
-(まあ、【】内でなくても、投稿者名が入っていることがあるので結局、というところもあるが…)
-プログラムと推論結果 今回推論に使用したプログラムは以下に置いてある。
- テストデータは直近(このプログラムを作成中)に投稿された以下のタイトルを使う。
-Ice breaker / ChroNoiR けんきさんとあびつんさんとランクいってくる！！！ １行目が葛葉さんの動画タイトルで、2行目が日ノ隈らんさんの動画タイトルになっている。
-推論結果 推論結果は以下のようになった。
-[0.45 0.69] なお、1個目が1行目の結果で、2個目が2行目の結果になる。
-また、この結果が 1.0 に近いほど日ノ隈らんさんのタイトル、 0 に近いほど葛葉さんのタイトル&#34;っぽい&#34;と判断できる。
-推論結果の分析 どういった理由で今回の推論結果が出たのか分析する。
-ロジスティック回帰では各特徴量の係数(重み)と切片(バイアス)を見ることができる。 今回の特徴量はタイトルに含まれる単語なので、各単語について係数(重み)を見てみる。
-まず1行目のタイトルの各単語の結果は以下の通り。
-以下でwordとtf_idfというラベルで出力しているものが、それぞれ単語名及びtf-idfという手法によって得られた、各単語の重要度になる。
-ただ、このデータに関してはすべての単語について、学習元データに含まれていなかったため、this word does not existと表示されている。
-つまり、上記推論結果で0.45と出ているが、これは切片(バイアス)成分によるものである。
-title_index: 0 word: Ice tf_idf: this word dose not exist word: breaker tf_idf: this word dose not exist word: / tf_idf: this word dose not exist word: ChroNoiR tf_idf: this word dose not exist 次に２行目のタイトルの各単語の結果は以下の通り。">
+<meta name=twitter:description content="Pythonでロジスティック回帰を使って、VTuberの動画タイトルから投稿者を推論してみる。 ただ、投稿者を推論するといっても、二値分類なの">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://kouya17.com/posts/"},{"@type":"ListItem","position":3,"name":"ロジスティック回帰を使ってYouTubeタイトルから投稿者を推論する","item":"https://kouya17.com/posts/30/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"ロジスティック回帰を使ってYouTubeタイトルから投稿者を推論する","name":"ロジスティック回帰を使ってYouTubeタイトルから投稿者を推論する","description":"Pythonでロジスティック回帰を使って、VTuberの動画タイトルから投稿者を推論してみる。\nただ、投稿者を推論するといっても、二値分類なので、投稿者が A か B かを分類するのみ。\n使用するライブラリ 今回は以下のライブラリを使用する。\n scikit-learn : テキストのベクトル化、ロジスティック回帰 MeCab : 日本語形態素解析  データセット 適当に選んだRan Channel / 日ノ隈らん 【あにまーれ】さんとKuzuha Channelさんの動画タイトルをデータセットとして使う。\n動画タイトルはYouTube Data APIを使って取得した。\n1日のAPIリクエスト上限に引っかかって、すべては取得できなかったが、日ノ隈らんさんのタイトルは475個、葛葉さんのタイトルは456個取得できた。\nタイトル取得に使用したプログラムは以下に置いてある。\n また、タイトル中の【】内には大体投稿者名が入っている。\nこれを使うと簡単に分類できてしまうと思うので、今回は削除する。\n(まあ、【】内でなくても、投稿者名が入っていることがあるので結局、というところもあるが…)\nプログラムと推論結果 今回推論に使用したプログラムは以下に置いてある。\n テストデータは直近(このプログラムを作成中)に投稿された以下のタイトルを使う。\nIce breaker / ChroNoiR けんきさんとあびつんさんとランクいってくる！！！ １行目が葛葉さんの動画タイトルで、2行目が日ノ隈らんさんの動画タイトルになっている。\n推論結果 推論結果は以下のようになった。\n[0.45 0.69] なお、1個目が1行目の結果で、2個目が2行目の結果になる。\nまた、この結果が 1.0 に近いほど日ノ隈らんさんのタイトル、 0 に近いほど葛葉さんのタイトル\u0026quot;っぽい\u0026quot;と判断できる。\n推論結果の分析 どういった理由で今回の推論結果が出たのか分析する。\nロジスティック回帰では各特徴量の係数(重み)と切片(バイアス)を見ることができる。 今回の特徴量はタイトルに含まれる単語なので、各単語について係数(重み)を見てみる。\nまず1行目のタイトルの各単語の結果は以下の通り。\n以下でwordとtf_idfというラベルで出力しているものが、それぞれ単語名及びtf-idfという手法によって得られた、各単語の重要度になる。\nただ、このデータに関してはすべての単語について、学習元データに含まれていなかったため、this word does not existと表示されている。\nつまり、上記推論結果で0.45と出ているが、これは切片(バイアス)成分によるものである。\ntitle_index: 0 word: Ice tf_idf: this word dose not exist word: breaker tf_idf: this word dose not exist word: / tf_idf: this word dose not exist word: ChroNoiR tf_idf: this word dose not exist 次に２行目のタイトルの各単語の結果は以下の通り。","keywords":["ML","MeCab","python","sklearn"],"articleBody":"Pythonでロジスティック回帰を使って、VTuberの動画タイトルから投稿者を推論してみる。\nただ、投稿者を推論するといっても、二値分類なので、投稿者が A か B かを分類するのみ。\n使用するライブラリ 今回は以下のライブラリを使用する。\n scikit-learn : テキストのベクトル化、ロジスティック回帰 MeCab : 日本語形態素解析  データセット 適当に選んだRan Channel / 日ノ隈らん 【あにまーれ】さんとKuzuha Channelさんの動画タイトルをデータセットとして使う。\n動画タイトルはYouTube Data APIを使って取得した。\n1日のAPIリクエスト上限に引っかかって、すべては取得できなかったが、日ノ隈らんさんのタイトルは475個、葛葉さんのタイトルは456個取得できた。\nタイトル取得に使用したプログラムは以下に置いてある。\n また、タイトル中の【】内には大体投稿者名が入っている。\nこれを使うと簡単に分類できてしまうと思うので、今回は削除する。\n(まあ、【】内でなくても、投稿者名が入っていることがあるので結局、というところもあるが…)\nプログラムと推論結果 今回推論に使用したプログラムは以下に置いてある。\n テストデータは直近(このプログラムを作成中)に投稿された以下のタイトルを使う。\nIce breaker / ChroNoiR けんきさんとあびつんさんとランクいってくる！！！ １行目が葛葉さんの動画タイトルで、2行目が日ノ隈らんさんの動画タイトルになっている。\n推論結果 推論結果は以下のようになった。\n[0.45 0.69] なお、1個目が1行目の結果で、2個目が2行目の結果になる。\nまた、この結果が 1.0 に近いほど日ノ隈らんさんのタイトル、 0 に近いほど葛葉さんのタイトル\"っぽい\"と判断できる。\n推論結果の分析 どういった理由で今回の推論結果が出たのか分析する。\nロジスティック回帰では各特徴量の係数(重み)と切片(バイアス)を見ることができる。 今回の特徴量はタイトルに含まれる単語なので、各単語について係数(重み)を見てみる。\nまず1行目のタイトルの各単語の結果は以下の通り。\n以下でwordとtf_idfというラベルで出力しているものが、それぞれ単語名及びtf-idfという手法によって得られた、各単語の重要度になる。\nただ、このデータに関してはすべての単語について、学習元データに含まれていなかったため、this word does not existと表示されている。\nつまり、上記推論結果で0.45と出ているが、これは切片(バイアス)成分によるものである。\ntitle_index: 0 word: Ice tf_idf: this word dose not exist word: breaker tf_idf: this word dose not exist word: / tf_idf: this word dose not exist word: ChroNoiR tf_idf: this word dose not exist 次に２行目のタイトルの各単語の結果は以下の通り。\nこちらに関しては学習元に含まれる単語があるため、tf-idfによる重要度が出力されている。\nまた、最後にcoefというラベルで出力しているものが各単語の係数(重み)になる。\nこの例では「くる」という単語の係数が最も絶対値の大きい正の値を持っており、“日ノ隈らんさんのタイトルっぽい\"単語といえる。\n確かに学習元データをみると、日ノ隈らんさんのタイトルは「くる」という単語が入っていることが多い。\ntitle_index: 1 word: けん tf_idf: 0.543427527727261 word: き tf_idf: this word dose not exist word: さん tf_idf: 0.3682797658199599 word: と tf_idf: this word dose not exist word: あ tf_idf: this word dose not exist word: びつんさんと tf_idf: this word dose not exist word: ランク tf_idf: 0.407136077797198 word: いっ tf_idf: 0.4598608078047089 word: て tf_idf: this word dose not exist word: くる tf_idf: 0.43797806771223935 word: ！ tf_idf: this word dose not exist word: ！ tf_idf: this word dose not exist word: ！ tf_idf: this word dose not exist model.coef: [[ 0.13 -0.27 -0.4 ... -0.61 -0.36 -0.36]] word: けん coef: 0.17567560417510206 word: さん coef: 0.3083888173761661 word: ランク coef: 0.2137489896925166 word: いっ coef: 0.6840435462897954 word: くる coef: 0.9504970445317464 見て試してわかる機械学習アルゴリズムの仕組み 機械学習図鑑posted with ヨメレバ秋庭 伸也/杉山 阿聖 翔泳社 2019年04月17日 楽天ブックスで購入楽天koboで購入Amazonで購入Kindleで購入  -- ","wordCount":"224","inLanguage":"en","image":"https://kouya17.com/media/photos/20/05/25/python_thumb.png","datePublished":"2020-05-25T21:36:26+09:00","dateModified":"2020-05-25T21:36:26+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kouya17.com/posts/30/"},"publisher":{"@type":"Organization","name":"kouya17.com","logo":{"@type":"ImageObject","url":"https://kouya17.com/favicon.ico"}}}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8855472249928298" crossorigin=anonymous></script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"ロジスティック回帰を使ってYouTubeタイトルから投稿者を推論する","name":"ロジスティック回帰を使ってYouTubeタイトルから投稿者を推論する","description":"Pythonでロジスティック回帰を使って、VTuberの動画タイトルから投稿者を推論してみる。 ただ、投稿者を推論するといっても、二値分類なの","keywords":["ML","MeCab","python","sklearn"],"articleBody":"Pythonでロジスティック回帰を使って、VTuberの動画タイトルから投稿者を推論してみる。\nただ、投稿者を推論するといっても、二値分類なので、投稿者が A か B かを分類するのみ。\n使用するライブラリ 今回は以下のライブラリを使用する。\n scikit-learn : テキストのベクトル化、ロジスティック回帰 MeCab : 日本語形態素解析  データセット 適当に選んだRan Channel / 日ノ隈らん 【あにまーれ】さんとKuzuha Channelさんの動画タイトルをデータセットとして使う。\n動画タイトルはYouTube Data APIを使って取得した。\n1日のAPIリクエスト上限に引っかかって、すべては取得できなかったが、日ノ隈らんさんのタイトルは475個、葛葉さんのタイトルは456個取得できた。\nタイトル取得に使用したプログラムは以下に置いてある。\n また、タイトル中の【】内には大体投稿者名が入っている。\nこれを使うと簡単に分類できてしまうと思うので、今回は削除する。\n(まあ、【】内でなくても、投稿者名が入っていることがあるので結局、というところもあるが…)\nプログラムと推論結果 今回推論に使用したプログラムは以下に置いてある。\n テストデータは直近(このプログラムを作成中)に投稿された以下のタイトルを使う。\nIce breaker / ChroNoiR けんきさんとあびつんさんとランクいってくる！！！ １行目が葛葉さんの動画タイトルで、2行目が日ノ隈らんさんの動画タイトルになっている。\n推論結果 推論結果は以下のようになった。\n[0.45 0.69] なお、1個目が1行目の結果で、2個目が2行目の結果になる。\nまた、この結果が 1.0 に近いほど日ノ隈らんさんのタイトル、 0 に近いほど葛葉さんのタイトル\"っぽい\"と判断できる。\n推論結果の分析 どういった理由で今回の推論結果が出たのか分析する。\nロジスティック回帰では各特徴量の係数(重み)と切片(バイアス)を見ることができる。 今回の特徴量はタイトルに含まれる単語なので、各単語について係数(重み)を見てみる。\nまず1行目のタイトルの各単語の結果は以下の通り。\n以下でwordとtf_idfというラベルで出力しているものが、それぞれ単語名及びtf-idfという手法によって得られた、各単語の重要度になる。\nただ、このデータに関してはすべての単語について、学習元データに含まれていなかったため、this word does not existと表示されている。\nつまり、上記推論結果で0.45と出ているが、これは切片(バイアス)成分によるものである。\ntitle_index: 0 word: Ice tf_idf: this word dose not exist word: breaker tf_idf: this word dose not exist word: / tf_idf: this word dose not exist word: ChroNoiR tf_idf: this word dose not exist 次に２行目のタイトルの各単語の結果は以下の通り。\nこちらに関しては学習元に含まれる単語があるため、tf-idfによる重要度が出力されている。\nまた、最後にcoefというラベルで出力しているものが各単語の係数(重み)になる。\nこの例では「くる」という単語の係数が最も絶対値の大きい正の値を持っており、“日ノ隈らんさんのタイトルっぽい\"単語といえる。\n確かに学習元データをみると、日ノ隈らんさんのタイトルは「くる」という単語が入っていることが多い。\ntitle_index: 1 word: けん tf_idf: 0.543427527727261 word: き tf_idf: this word dose not exist word: さん tf_idf: 0.3682797658199599 word: と tf_idf: this word dose not exist word: あ tf_idf: this word dose not exist word: びつんさんと tf_idf: this word dose not exist word: ランク tf_idf: 0.407136077797198 word: いっ tf_idf: 0.4598608078047089 word: て tf_idf: this word dose not exist word: くる tf_idf: 0.43797806771223935 word: ！ tf_idf: this word dose not exist word: ！ tf_idf: this word dose not exist word: ！ tf_idf: this word dose not exist model.coef: [[ 0.13 -0.27 -0.4 ... -0.61 -0.36 -0.36]] word: けん coef: 0.17567560417510206 word: さん coef: 0.3083888173761661 word: ランク coef: 0.2137489896925166 word: いっ coef: 0.6840435462897954 word: くる coef: 0.9504970445317464 見て試してわかる機械学習アルゴリズムの仕組み 機械学習図鑑posted with ヨメレバ秋庭 伸也/杉山 阿聖 翔泳社 2019年04月17日 楽天ブックスで購入楽天koboで購入Amazonで購入Kindleで購入  -- ","wordCount":"1510","inLanguage":"ja","image":"https://kouya17.com/media/photos/20/05/25/python_thumb.png","datePublished":"2020-05-25T21:36:26+09:00","dateModified":"2020-05-25T21:36:26+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kouya17.com/posts/30/"},"publisher":{"@type":"Organization","name":"kouya17.com","logo":{"@type":"ImageObject","url":"https://kouya17.com/favicon.ico"}}}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8855472249928298" crossorigin=anonymous></script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -142,12 +76,12 @@ title_index: 0 word: Ice tf_idf: this word dose not exist word: breaker tf_idf: 
 <h1 class=post-title>
 ロジスティック回帰を使ってYouTubeタイトルから投稿者を推論する
 </h1>
-<div class=post-meta><span title="2020-05-25 21:36:26 +0900 +0900">May 25, 2020</span>&nbsp;·&nbsp;2 min
+<div class=post-meta><span title="2020-05-25 21:36:26 +0900 +0900">5月 25, 2020</span>&nbsp;·&nbsp;4 分
 </div>
 </header> <div class=toc>
 <details>
 <summary accesskey=c title="(Alt + C)">
-<span class=details>Table of Contents</span>
+<span class=details>目次</span>
 </summary>
 <div class=inner><ul>
 <li>
@@ -263,12 +197,12 @@ word:  くる coef:  0.9504970445317464
 </ul>
 <nav class=paginav>
 <a class=prev href=https://kouya17.com/posts/31/>
-<span class=title>« Prev Page</span>
+<span class=title>« 前のページ</span>
 <br>
 <span>サイトをスマホで表示したとき下端にメニューバーが表示されるようにする</span>
 </a>
 <a class=next href=https://kouya17.com/posts/29/>
-<span class=title>Next Page »</span>
+<span class=title>次のページ »</span>
 <br>
 <span>全国規模の感染シミュレーションと結果の可視化をしてみる</span>
 </a>

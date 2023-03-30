@@ -1,14 +1,11 @@
-<!doctype html><html lang=en dir=auto>
+<!doctype html><html lang=ja dir=auto>
 <head><meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
 <title>Vue.jsでローディング表示を実装する | kouya17.com</title>
 <meta name=keywords content="JavaScript,Vue,css">
-<meta name=description content="ローディング表示モジュールの調査 vue.jsでローディング表示を行う場合、ローディング表示に関係するモジュールについて調査する。 出来れば、
- 実装が簡単 よく見かけるような見た目(独自性がない) メンテされている  という条件にあてはまるものを採用したい。
-調べた結果を以下の表にまとめた。
-   名前 種類 GitHub Star 最終更新(2020/05/06時点) 備考     vue-loading Vueコンポーネント  2018/12/22 紹介している記事が多い   vue-spinner Vueコンポーネント  2017/10/07 Vue2.0をサポートしていない   Single Element CSS Spinners css  2019/12/09 よく見かける見た目   vue-loading-overlay Vueコンポーネント  2020/04/18 全画面に表示するらしい   vue-wait Vueコンポーネント  2019/10/08 だいぶ機能がリッチそう   ajaxload.info gif - - よく見かける見た目    調べて出てきた候補は以上。">
+<meta name=description content="ローディング表示モジュールの調査 vue.jsでローディング表示を行う場合、ローディング表示に関係するモジュールについて調査する。 出来れば、 実">
 <meta name=author content>
 <link rel=canonical href=https://kouya17.com/posts/26/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.a97cdb2d52ff3547f5b45210b2262edb8517a9ced99357596eea2f6dda9f6aad.css integrity="sha256-qXzbLVL/NUf1tFIQsiYu24UXqc7Zk1dZbuovbdqfaq0=" rel="preload stylesheet" as=style>
@@ -29,10 +26,7 @@
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body)></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-92576104-3','auto'),ga('send','pageview'))</script><meta property="og:title" content="Vue.jsでローディング表示を実装する">
-<meta property="og:description" content="ローディング表示モジュールの調査 vue.jsでローディング表示を行う場合、ローディング表示に関係するモジュールについて調査する。 出来れば、
- 実装が簡単 よく見かけるような見た目(独自性がない) メンテされている  という条件にあてはまるものを採用したい。
-調べた結果を以下の表にまとめた。
-   名前 種類 GitHub Star 最終更新(2020/05/06時点) 備考     vue-loading Vueコンポーネント  2018/12/22 紹介している記事が多い   vue-spinner Vueコンポーネント  2017/10/07 Vue2.0をサポートしていない   Single Element CSS Spinners css  2019/12/09 よく見かける見た目   vue-loading-overlay Vueコンポーネント  2020/04/18 全画面に表示するらしい   vue-wait Vueコンポーネント  2019/10/08 だいぶ機能がリッチそう   ajaxload.info gif - - よく見かける見た目    調べて出てきた候補は以上。">
+<meta property="og:description" content="ローディング表示モジュールの調査 vue.jsでローディング表示を行う場合、ローディング表示に関係するモジュールについて調査する。 出来れば、 実">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kouya17.com/posts/26/">
 <meta property="og:image" content="https://kouya17.com/media/photos/20/05/06/vue.png"><meta property="article:section" content="posts">
@@ -41,12 +35,9 @@
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://kouya17.com/media/photos/20/05/06/vue.png">
 <meta name=twitter:title content="Vue.jsでローディング表示を実装する">
-<meta name=twitter:description content="ローディング表示モジュールの調査 vue.jsでローディング表示を行う場合、ローディング表示に関係するモジュールについて調査する。 出来れば、
- 実装が簡単 よく見かけるような見た目(独自性がない) メンテされている  という条件にあてはまるものを採用したい。
-調べた結果を以下の表にまとめた。
-   名前 種類 GitHub Star 最終更新(2020/05/06時点) 備考     vue-loading Vueコンポーネント  2018/12/22 紹介している記事が多い   vue-spinner Vueコンポーネント  2017/10/07 Vue2.0をサポートしていない   Single Element CSS Spinners css  2019/12/09 よく見かける見た目   vue-loading-overlay Vueコンポーネント  2020/04/18 全画面に表示するらしい   vue-wait Vueコンポーネント  2019/10/08 だいぶ機能がリッチそう   ajaxload.info gif - - よく見かける見た目    調べて出てきた候補は以上。">
+<meta name=twitter:description content="ローディング表示モジュールの調査 vue.jsでローディング表示を行う場合、ローディング表示に関係するモジュールについて調査する。 出来れば、 実">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://kouya17.com/posts/"},{"@type":"ListItem","position":3,"name":"Vue.jsでローディング表示を実装する","item":"https://kouya17.com/posts/26/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Vue.jsでローディング表示を実装する","name":"Vue.jsでローディング表示を実装する","description":"ローディング表示モジュールの調査 vue.jsでローディング表示を行う場合、ローディング表示に関係するモジュールについて調査する。 出来れば、\n 実装が簡単 よく見かけるような見た目(独自性がない) メンテされている  という条件にあてはまるものを採用したい。\n調べた結果を以下の表にまとめた。\n   名前 種類 GitHub Star 最終更新(2020/05/06時点) 備考     vue-loading Vueコンポーネント  2018/12/22 紹介している記事が多い   vue-spinner Vueコンポーネント  2017/10/07 Vue2.0をサポートしていない   Single Element CSS Spinners css  2019/12/09 よく見かける見た目   vue-loading-overlay Vueコンポーネント  2020/04/18 全画面に表示するらしい   vue-wait Vueコンポーネント  2019/10/08 だいぶ機能がリッチそう   ajaxload.info gif - - よく見かける見た目    調べて出てきた候補は以上。","keywords":["JavaScript","Vue","css"],"articleBody":"ローディング表示モジュールの調査 vue.jsでローディング表示を行う場合、ローディング表示に関係するモジュールについて調査する。 出来れば、\n 実装が簡単 よく見かけるような見た目(独自性がない) メンテされている  という条件にあてはまるものを採用したい。\n調べた結果を以下の表にまとめた。\n   名前 種類 GitHub Star 最終更新(2020/05/06時点) 備考     vue-loading Vueコンポーネント  2018/12/22 紹介している記事が多い   vue-spinner Vueコンポーネント  2017/10/07 Vue2.0をサポートしていない   Single Element CSS Spinners css  2019/12/09 よく見かける見た目   vue-loading-overlay Vueコンポーネント  2020/04/18 全画面に表示するらしい   vue-wait Vueコンポーネント  2019/10/08 だいぶ機能がリッチそう   ajaxload.info gif - - よく見かける見た目    調べて出てきた候補は以上。\n今回は見た目が個人的に好み+cssなので、レスポンシブに対応しやすそうという理由でSingle Element CSS Spinnersを使うことにする。\n実装 cssの読み込みについて今回はBladeテンプレートファイルで行う。\nlink rel=\"stylesheet\" href=\"{{ asset('css/app.css') }}\" あとは単一ファイルコンポーネントの方で、ロード表示を行いたところに以下のように処理を追加する。\ntemplate ... div class=\"loader\" v-if=\"!posts.length\"Loading...div ... template なお、上の例ではdataプロパティにpostsというオブジェクトを持っており、ロード前は空配列になっている。\nそのため、postsが空配列の場合は、ローディング表示を行うような処理になっている。\n空配列の判定は以下の記事を参考にさせたいただいた。\n また、ロード前が空配列ではなく、nullになっている場合は、以下のように実装した。\ndiv class=\"loader\" v-if=\"!post\"Loading...div nullの判定は以下の記事を参考にさせていただいた。\n また、今回実際に実装したサイトは以下のサイトになる。\nローディングが必要な箇所に簡易的なローディング表示を行っている。\n  これからはじめるVue.js実践入門 山田 祥寛 Amazon Kindle 楽天 楽天Kobo    -- ","wordCount":"80","inLanguage":"en","image":"https://kouya17.com/media/photos/20/05/06/vue.png","datePublished":"2020-05-06T19:45:05+09:00","dateModified":"2020-05-06T19:45:05+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kouya17.com/posts/26/"},"publisher":{"@type":"Organization","name":"kouya17.com","logo":{"@type":"ImageObject","url":"https://kouya17.com/favicon.ico"}}}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8855472249928298" crossorigin=anonymous></script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Vue.jsでローディング表示を実装する","name":"Vue.jsでローディング表示を実装する","description":"ローディング表示モジュールの調査 vue.jsでローディング表示を行う場合、ローディング表示に関係するモジュールについて調査する。 出来れば、 実","keywords":["JavaScript","Vue","css"],"articleBody":"ローディング表示モジュールの調査 vue.jsでローディング表示を行う場合、ローディング表示に関係するモジュールについて調査する。 出来れば、\n 実装が簡単 よく見かけるような見た目(独自性がない) メンテされている  という条件にあてはまるものを採用したい。\n調べた結果を以下の表にまとめた。\n   名前 種類 GitHub Star 最終更新(2020/05/06時点) 備考     vue-loading Vueコンポーネント  2018/12/22 紹介している記事が多い   vue-spinner Vueコンポーネント  2017/10/07 Vue2.0をサポートしていない   Single Element CSS Spinners css  2019/12/09 よく見かける見た目   vue-loading-overlay Vueコンポーネント  2020/04/18 全画面に表示するらしい   vue-wait Vueコンポーネント  2019/10/08 だいぶ機能がリッチそう   ajaxload.info gif - - よく見かける見た目    調べて出てきた候補は以上。\n今回は見た目が個人的に好み+cssなので、レスポンシブに対応しやすそうという理由でSingle Element CSS Spinnersを使うことにする。\n実装 cssの読み込みについて今回はBladeテンプレートファイルで行う。\nlink rel=\"stylesheet\" href=\"{{ asset('css/app.css') }}\" あとは単一ファイルコンポーネントの方で、ロード表示を行いたところに以下のように処理を追加する。\ntemplate ... div class=\"loader\" v-if=\"!posts.length\"Loading...div ... template なお、上の例ではdataプロパティにpostsというオブジェクトを持っており、ロード前は空配列になっている。\nそのため、postsが空配列の場合は、ローディング表示を行うような処理になっている。\n空配列の判定は以下の記事を参考にさせたいただいた。\n また、ロード前が空配列ではなく、nullになっている場合は、以下のように実装した。\ndiv class=\"loader\" v-if=\"!post\"Loading...div nullの判定は以下の記事を参考にさせていただいた。\n また、今回実際に実装したサイトは以下のサイトになる。\nローディングが必要な箇所に簡易的なローディング表示を行っている。\n  これからはじめるVue.js実践入門 山田 祥寛 Amazon Kindle 楽天 楽天Kobo    -- ","wordCount":"745","inLanguage":"ja","image":"https://kouya17.com/media/photos/20/05/06/vue.png","datePublished":"2020-05-06T19:45:05+09:00","dateModified":"2020-05-06T19:45:05+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kouya17.com/posts/26/"},"publisher":{"@type":"Organization","name":"kouya17.com","logo":{"@type":"ImageObject","url":"https://kouya17.com/favicon.ico"}}}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8855472249928298" crossorigin=anonymous></script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -85,12 +76,12 @@
 <h1 class=post-title>
 Vue.jsでローディング表示を実装する
 </h1>
-<div class=post-meta><span title="2020-05-06 19:45:05 +0900 +0900">May 6, 2020</span>&nbsp;·&nbsp;1 min
+<div class=post-meta><span title="2020-05-06 19:45:05 +0900 +0900">5月 6, 2020</span>&nbsp;·&nbsp;2 分
 </div>
 </header> <div class=toc>
 <details>
 <summary accesskey=c title="(Alt + C)">
-<span class=details>Table of Contents</span>
+<span class=details>目次</span>
 </summary>
 <div class=inner><ul>
 <li>
@@ -198,12 +189,12 @@ Vue.jsでローディング表示を実装する
 </ul>
 <nav class=paginav>
 <a class=prev href=https://kouya17.com/posts/27/>
-<span class=title>« Prev Page</span>
+<span class=title>« 前のページ</span>
 <br>
 <span>LogisticRegression().fit()のConvergenceWarningを解消する</span>
 </a>
 <a class=next href=https://kouya17.com/posts/25/>
-<span class=title>Next Page »</span>
+<span class=title>次のページ »</span>
 <br>
 <span>都道府県間通勤・通学を考慮したパンデミックシミュレーションもどき</span>
 </a>

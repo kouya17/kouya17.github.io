@@ -1,4 +1,4 @@
-<!doctype html><html lang=en dir=auto>
+<!doctype html><html lang=ja dir=auto>
 <head><meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
@@ -74,20 +74,9 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>react-youtubeというReactコンポーネントを利用したサンプルサイトを作成したので、紹介する。
-作成したサンプルサイト ページを開くと、特定のYouTube動画が読みこまれる。YouTubeプレーヤーを操作する毎に操作情報(+操作時の再生位置)が記録される。記録された操作は、YouTubeプレーヤー下にテキストで表示される。操作情報は、「download」ボタンを押すことでファイルとして出力できる。
-上記サンプルサイトでは、現状以下の操作のみ記録する。
-再生準備完了(ready) 再生開始(play) 一時停止(pause) 再生終了(end) 視聴者毎の動画視聴状況を確認したいケースを考える 今回のサンプルサイトは、「視聴者ごとに、動画の視聴状況詳細を確認したいケース」を想定して作成した。視聴者は操作情報をファイルとして出力し、管理者へ提出する。管理者は提出されたファイルから、視聴状況を確認するという想定である。サンプルでは操作情報をファイルで出力しているが、これを「ユーザー情報を付与してサーバー上に保存」とかすれば、ファイルをやり取りするという手続きは不要になる。
-今回想定したケースのように、YouTubeから情報を取得したい場合の手段としては、YouTube Data APIを活用するという方法がある。ただ、YouTube Data APIには、「特定のユーザーの、各視聴動画に対する操作情報」という細かい情報までは用意されていない。取得できても「特定のユーザーの視聴履歴」までである。
-少し調べたところ、YouTubeのIFrame Player APIを使うと、YouTubeプレーヤーに対する操作を取得出来るようだったので、今回はそちらを利用した。
-YouTubeのIFrame Player APIを利用する IFrame Player APIを利用することで、再生中の動画に関する情報を取得できる。情報の取得はJavaScript関数を使って行う。また、特定のプレーヤーイベントに対して、イベントリスナーを設定できる。今回のサンプルサイトを例にすると、再生準備完了(onReady)、再生開始(onPlay)、一時停止(onPause)、再生終了(onEnd)に対してイベントリスナーを設定している。
-今回のサンプルサイトはNext.jsを使って作成したため、ReactコンポーネントとしてIFrame Player APIを利用できるreact-youtubeを利用した。
-サンプルサイトの作成とデプロイ サンプルサイトの実装内容としては、react-youtubeのサンプルに、プレーヤーイベント発生時のイベントリスナーを設定し、操作情報を画面に出力及びファイルとしてダウンロード出来るようにしたくらいである。
-ソースコードは以下に公開している。
-サンプルサイトはGitHub Pagesを使って稼働させている。GitHub Pagesへのデプロイは、GitHub Actionsを利用して、mainブランチ更新時に自動で行われるようにしている。ここら辺は、以下のサイトを参考にさせていただいた。
-</p>
+<p>react-youtubeというReactコンポーネントを利用したサンプルサイトを作成したので、紹介する。 作成したサンプルサイト ページを開く...</p>
 </section>
-<footer class=entry-footer><span title="2022-01-15 13:15:00 +0900 +0900">January 15, 2022</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2022-01-15 13:15:00 +0900 +0900">1月 15, 2022</span>&nbsp;·&nbsp;3 分</footer>
 <a class=entry-link aria-label="post link to ReactでYouTubeのプレーヤーを制御する" href=https://kouya17.com/posts/react-youtube/></a>
 </article>
 </main>

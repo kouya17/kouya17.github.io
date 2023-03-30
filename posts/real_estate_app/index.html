@@ -1,25 +1,11 @@
-<!doctype html><html lang=en dir=auto>
+<!doctype html><html lang=ja dir=auto>
 <head><meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
 <title>PostgreSQL+Echo+cron+Next.jsでWebスクレイピングシステムを構成する | kouya17.com</title>
 <meta name=keywords content="web,golang,TypeScript">
-<meta name=description content="今回作ったシステムのデモ 以下が今回作ったシステムの動作時の動画になる。
-上の動画のように、情報を取得したい物件一覧が表示されるURL及びジョブを識別するためのタグを登録する。登録されたジョブはキューに保存される。上の動画では分からないが、ジョブは毎分1件ずつ実行される。
-ジョブが実行され、システムに保存された情報は以下のような一覧画面から確認できる。
-システムの全体構成図 本システムの全体構成は以下のようになっている。
-以下4つの要素に分けてそれぞれDockerコンテナ化している。
- Next.jsコンテナ Echoコンテナ cronコンテナ PostgreSQLコンテナ  Webスクレイピングの流れ 本システムにおけるWebスクレイピングの流れは以下のとおりである。
-ジョブを登録する データの取得先URLを登録する。このURLは、不動産情報サイトの検索結果ページを指定する。今は数種類のサイトに対応している。また、タグを指定することでそのジョブに名前のようなものをつけることができる。
-過去に実行したものと同じ条件であれば再実行ボタンからも実行できる。
-ジョブが実行される 登録されたジョブは1個ずつ順番に実行される。実行が開始されると、ジョブ一覧画面で対象ジョブのStatusがrunningに変化する。
-ジョブは登録されたURLによって検索表示される不動産情報を1個ずつ、ある程度の時間間隔を空けながら取得する。すべての不動産情報が取得出来たら地価情報サイトから対象物件付近の地価(1平米あたり)を取得する。この情報もAreaPriceとして物件情報に含める。この地価情報と土地面積及び物件価格から建物の想定価格を計算し、EstimatedBuildingPriceとして物件情報に含める。なお、地価は頻繁に変わる情報ではないのでデータベースに保存しておき再利用する。
-実行が終了するとジョブ一覧画面で対象ジョブのStatusがcompletedに変化する。
-物件情報一覧画面から取得した物件情報を確認する 物件一覧ページにおいて、最新ジョブで取得された行は赤枠で表示される。検索欄でJobIdを範囲指定することもできるので、複数ジョブを実行した場合はそれらのジョブによって取得されたものを絞り込むこともできる。
-なお、すでに登録されている物件URLと同じURLを持つ物件が取得された場合は、価格を比較する。価格が更新されていた場合は物件情報とJobIdを上書きする。
-物件一覧において、行をクリックすると対象物件ページに遷移する。対象物件をクリックした回数も保持しており、1回以上クリックした物件は黄色で塗りつぶされて表示される。そのため、過去自分が詳細をチェックした物件かどうか一目で見分けがつくようになっている。
-ソースコード ">
+<meta name=description content="今回作ったシステムのデモ 以下が今回作ったシステムの動作時の動画になる。 上の動画のように、情報を取得したい物件一覧が表示されるURL及びジョブ">
 <meta name=author content>
 <link rel=canonical href=https://kouya17.com/posts/real_estate_app/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.a97cdb2d52ff3547f5b45210b2262edb8517a9ced99357596eea2f6dda9f6aad.css integrity="sha256-qXzbLVL/NUf1tFIQsiYu24UXqc7Zk1dZbuovbdqfaq0=" rel="preload stylesheet" as=style>
@@ -40,21 +26,7 @@
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body)></script>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-92576104-3','auto'),ga('send','pageview'))</script><meta property="og:title" content="PostgreSQL+Echo+cron+Next.jsでWebスクレイピングシステムを構成する">
-<meta property="og:description" content="今回作ったシステムのデモ 以下が今回作ったシステムの動作時の動画になる。
-上の動画のように、情報を取得したい物件一覧が表示されるURL及びジョブを識別するためのタグを登録する。登録されたジョブはキューに保存される。上の動画では分からないが、ジョブは毎分1件ずつ実行される。
-ジョブが実行され、システムに保存された情報は以下のような一覧画面から確認できる。
-システムの全体構成図 本システムの全体構成は以下のようになっている。
-以下4つの要素に分けてそれぞれDockerコンテナ化している。
- Next.jsコンテナ Echoコンテナ cronコンテナ PostgreSQLコンテナ  Webスクレイピングの流れ 本システムにおけるWebスクレイピングの流れは以下のとおりである。
-ジョブを登録する データの取得先URLを登録する。このURLは、不動産情報サイトの検索結果ページを指定する。今は数種類のサイトに対応している。また、タグを指定することでそのジョブに名前のようなものをつけることができる。
-過去に実行したものと同じ条件であれば再実行ボタンからも実行できる。
-ジョブが実行される 登録されたジョブは1個ずつ順番に実行される。実行が開始されると、ジョブ一覧画面で対象ジョブのStatusがrunningに変化する。
-ジョブは登録されたURLによって検索表示される不動産情報を1個ずつ、ある程度の時間間隔を空けながら取得する。すべての不動産情報が取得出来たら地価情報サイトから対象物件付近の地価(1平米あたり)を取得する。この情報もAreaPriceとして物件情報に含める。この地価情報と土地面積及び物件価格から建物の想定価格を計算し、EstimatedBuildingPriceとして物件情報に含める。なお、地価は頻繁に変わる情報ではないのでデータベースに保存しておき再利用する。
-実行が終了するとジョブ一覧画面で対象ジョブのStatusがcompletedに変化する。
-物件情報一覧画面から取得した物件情報を確認する 物件一覧ページにおいて、最新ジョブで取得された行は赤枠で表示される。検索欄でJobIdを範囲指定することもできるので、複数ジョブを実行した場合はそれらのジョブによって取得されたものを絞り込むこともできる。
-なお、すでに登録されている物件URLと同じURLを持つ物件が取得された場合は、価格を比較する。価格が更新されていた場合は物件情報とJobIdを上書きする。
-物件一覧において、行をクリックすると対象物件ページに遷移する。対象物件をクリックした回数も保持しており、1回以上クリックした物件は黄色で塗りつぶされて表示される。そのため、過去自分が詳細をチェックした物件かどうか一目で見分けがつくようになっている。
-ソースコード ">
+<meta property="og:description" content="今回作ったシステムのデモ 以下が今回作ったシステムの動作時の動画になる。 上の動画のように、情報を取得したい物件一覧が表示されるURL及びジョブ">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kouya17.com/posts/real_estate_app/">
 <meta property="og:image" content="https://kouya17.com/media/covers/real_estate_app/components.jpg"><meta property="article:section" content="posts">
@@ -63,23 +35,9 @@
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://kouya17.com/media/covers/real_estate_app/components.jpg">
 <meta name=twitter:title content="PostgreSQL+Echo+cron+Next.jsでWebスクレイピングシステムを構成する">
-<meta name=twitter:description content="今回作ったシステムのデモ 以下が今回作ったシステムの動作時の動画になる。
-上の動画のように、情報を取得したい物件一覧が表示されるURL及びジョブを識別するためのタグを登録する。登録されたジョブはキューに保存される。上の動画では分からないが、ジョブは毎分1件ずつ実行される。
-ジョブが実行され、システムに保存された情報は以下のような一覧画面から確認できる。
-システムの全体構成図 本システムの全体構成は以下のようになっている。
-以下4つの要素に分けてそれぞれDockerコンテナ化している。
- Next.jsコンテナ Echoコンテナ cronコンテナ PostgreSQLコンテナ  Webスクレイピングの流れ 本システムにおけるWebスクレイピングの流れは以下のとおりである。
-ジョブを登録する データの取得先URLを登録する。このURLは、不動産情報サイトの検索結果ページを指定する。今は数種類のサイトに対応している。また、タグを指定することでそのジョブに名前のようなものをつけることができる。
-過去に実行したものと同じ条件であれば再実行ボタンからも実行できる。
-ジョブが実行される 登録されたジョブは1個ずつ順番に実行される。実行が開始されると、ジョブ一覧画面で対象ジョブのStatusがrunningに変化する。
-ジョブは登録されたURLによって検索表示される不動産情報を1個ずつ、ある程度の時間間隔を空けながら取得する。すべての不動産情報が取得出来たら地価情報サイトから対象物件付近の地価(1平米あたり)を取得する。この情報もAreaPriceとして物件情報に含める。この地価情報と土地面積及び物件価格から建物の想定価格を計算し、EstimatedBuildingPriceとして物件情報に含める。なお、地価は頻繁に変わる情報ではないのでデータベースに保存しておき再利用する。
-実行が終了するとジョブ一覧画面で対象ジョブのStatusがcompletedに変化する。
-物件情報一覧画面から取得した物件情報を確認する 物件一覧ページにおいて、最新ジョブで取得された行は赤枠で表示される。検索欄でJobIdを範囲指定することもできるので、複数ジョブを実行した場合はそれらのジョブによって取得されたものを絞り込むこともできる。
-なお、すでに登録されている物件URLと同じURLを持つ物件が取得された場合は、価格を比較する。価格が更新されていた場合は物件情報とJobIdを上書きする。
-物件一覧において、行をクリックすると対象物件ページに遷移する。対象物件をクリックした回数も保持しており、1回以上クリックした物件は黄色で塗りつぶされて表示される。そのため、過去自分が詳細をチェックした物件かどうか一目で見分けがつくようになっている。
-ソースコード ">
+<meta name=twitter:description content="今回作ったシステムのデモ 以下が今回作ったシステムの動作時の動画になる。 上の動画のように、情報を取得したい物件一覧が表示されるURL及びジョブ">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://kouya17.com/posts/"},{"@type":"ListItem","position":3,"name":"PostgreSQL+Echo+cron+Next.jsでWebスクレイピングシステムを構成する","item":"https://kouya17.com/posts/real_estate_app/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"PostgreSQL+Echo+cron+Next.jsでWebスクレイピングシステムを構成する","name":"PostgreSQL\u002bEcho\u002bcron\u002bNext.jsでWebスクレイピングシステムを構成する","description":"今回作ったシステムのデモ 以下が今回作ったシステムの動作時の動画になる。\n上の動画のように、情報を取得したい物件一覧が表示されるURL及びジョブを識別するためのタグを登録する。登録されたジョブはキューに保存される。上の動画では分からないが、ジョブは毎分1件ずつ実行される。\nジョブが実行され、システムに保存された情報は以下のような一覧画面から確認できる。\nシステムの全体構成図 本システムの全体構成は以下のようになっている。\n以下4つの要素に分けてそれぞれDockerコンテナ化している。\n Next.jsコンテナ Echoコンテナ cronコンテナ PostgreSQLコンテナ  Webスクレイピングの流れ 本システムにおけるWebスクレイピングの流れは以下のとおりである。\nジョブを登録する データの取得先URLを登録する。このURLは、不動産情報サイトの検索結果ページを指定する。今は数種類のサイトに対応している。また、タグを指定することでそのジョブに名前のようなものをつけることができる。\n過去に実行したものと同じ条件であれば再実行ボタンからも実行できる。\nジョブが実行される 登録されたジョブは1個ずつ順番に実行される。実行が開始されると、ジョブ一覧画面で対象ジョブのStatusがrunningに変化する。\nジョブは登録されたURLによって検索表示される不動産情報を1個ずつ、ある程度の時間間隔を空けながら取得する。すべての不動産情報が取得出来たら地価情報サイトから対象物件付近の地価(1平米あたり)を取得する。この情報もAreaPriceとして物件情報に含める。この地価情報と土地面積及び物件価格から建物の想定価格を計算し、EstimatedBuildingPriceとして物件情報に含める。なお、地価は頻繁に変わる情報ではないのでデータベースに保存しておき再利用する。\n実行が終了するとジョブ一覧画面で対象ジョブのStatusがcompletedに変化する。\n物件情報一覧画面から取得した物件情報を確認する 物件一覧ページにおいて、最新ジョブで取得された行は赤枠で表示される。検索欄でJobIdを範囲指定することもできるので、複数ジョブを実行した場合はそれらのジョブによって取得されたものを絞り込むこともできる。\nなお、すでに登録されている物件URLと同じURLを持つ物件が取得された場合は、価格を比較する。価格が更新されていた場合は物件情報とJobIdを上書きする。\n物件一覧において、行をクリックすると対象物件ページに遷移する。対象物件をクリックした回数も保持しており、1回以上クリックした物件は黄色で塗りつぶされて表示される。そのため、過去自分が詳細をチェックした物件かどうか一目で見分けがつくようになっている。\nソースコード ","keywords":["web","golang","TypeScript"],"articleBody":"今回作ったシステムのデモ 以下が今回作ったシステムの動作時の動画になる。\n上の動画のように、情報を取得したい物件一覧が表示されるURL及びジョブを識別するためのタグを登録する。登録されたジョブはキューに保存される。上の動画では分からないが、ジョブは毎分1件ずつ実行される。\nジョブが実行され、システムに保存された情報は以下のような一覧画面から確認できる。\nシステムの全体構成図 本システムの全体構成は以下のようになっている。\n以下4つの要素に分けてそれぞれDockerコンテナ化している。\n Next.jsコンテナ Echoコンテナ cronコンテナ PostgreSQLコンテナ  Webスクレイピングの流れ 本システムにおけるWebスクレイピングの流れは以下のとおりである。\nジョブを登録する データの取得先URLを登録する。このURLは、不動産情報サイトの検索結果ページを指定する。今は数種類のサイトに対応している。また、タグを指定することでそのジョブに名前のようなものをつけることができる。\n過去に実行したものと同じ条件であれば再実行ボタンからも実行できる。\nジョブが実行される 登録されたジョブは1個ずつ順番に実行される。実行が開始されると、ジョブ一覧画面で対象ジョブのStatusがrunningに変化する。\nジョブは登録されたURLによって検索表示される不動産情報を1個ずつ、ある程度の時間間隔を空けながら取得する。すべての不動産情報が取得出来たら地価情報サイトから対象物件付近の地価(1平米あたり)を取得する。この情報もAreaPriceとして物件情報に含める。この地価情報と土地面積及び物件価格から建物の想定価格を計算し、EstimatedBuildingPriceとして物件情報に含める。なお、地価は頻繁に変わる情報ではないのでデータベースに保存しておき再利用する。\n実行が終了するとジョブ一覧画面で対象ジョブのStatusがcompletedに変化する。\n物件情報一覧画面から取得した物件情報を確認する 物件一覧ページにおいて、最新ジョブで取得された行は赤枠で表示される。検索欄でJobIdを範囲指定することもできるので、複数ジョブを実行した場合はそれらのジョブによって取得されたものを絞り込むこともできる。\nなお、すでに登録されている物件URLと同じURLを持つ物件が取得された場合は、価格を比較する。価格が更新されていた場合は物件情報とJobIdを上書きする。\n物件一覧において、行をクリックすると対象物件ページに遷移する。対象物件をクリックした回数も保持しており、1回以上クリックした物件は黄色で塗りつぶされて表示される。そのため、過去自分が詳細をチェックした物件かどうか一目で見分けがつくようになっている。\nソースコード ","wordCount":"25","inLanguage":"en","image":"https://kouya17.com/media/covers/real_estate_app/components.jpg","datePublished":"2023-01-26T20:02:00+09:00","dateModified":"2023-01-26T20:02:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kouya17.com/posts/real_estate_app/"},"publisher":{"@type":"Organization","name":"kouya17.com","logo":{"@type":"ImageObject","url":"https://kouya17.com/favicon.ico"}}}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8855472249928298" crossorigin=anonymous></script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"PostgreSQL+Echo+cron+Next.jsでWebスクレイピングシステムを構成する","name":"PostgreSQL\u002bEcho\u002bcron\u002bNext.jsでWebスクレイピングシステムを構成する","description":"今回作ったシステムのデモ 以下が今回作ったシステムの動作時の動画になる。 上の動画のように、情報を取得したい物件一覧が表示されるURL及びジョブ","keywords":["web","golang","TypeScript"],"articleBody":"今回作ったシステムのデモ 以下が今回作ったシステムの動作時の動画になる。\n上の動画のように、情報を取得したい物件一覧が表示されるURL及びジョブを識別するためのタグを登録する。登録されたジョブはキューに保存される。上の動画では分からないが、ジョブは毎分1件ずつ実行される。\nジョブが実行され、システムに保存された情報は以下のような一覧画面から確認できる。\nシステムの全体構成図 本システムの全体構成は以下のようになっている。\n以下4つの要素に分けてそれぞれDockerコンテナ化している。\n Next.jsコンテナ Echoコンテナ cronコンテナ PostgreSQLコンテナ  Webスクレイピングの流れ 本システムにおけるWebスクレイピングの流れは以下のとおりである。\nジョブを登録する データの取得先URLを登録する。このURLは、不動産情報サイトの検索結果ページを指定する。今は数種類のサイトに対応している。また、タグを指定することでそのジョブに名前のようなものをつけることができる。\n過去に実行したものと同じ条件であれば再実行ボタンからも実行できる。\nジョブが実行される 登録されたジョブは1個ずつ順番に実行される。実行が開始されると、ジョブ一覧画面で対象ジョブのStatusがrunningに変化する。\nジョブは登録されたURLによって検索表示される不動産情報を1個ずつ、ある程度の時間間隔を空けながら取得する。すべての不動産情報が取得出来たら地価情報サイトから対象物件付近の地価(1平米あたり)を取得する。この情報もAreaPriceとして物件情報に含める。この地価情報と土地面積及び物件価格から建物の想定価格を計算し、EstimatedBuildingPriceとして物件情報に含める。なお、地価は頻繁に変わる情報ではないのでデータベースに保存しておき再利用する。\n実行が終了するとジョブ一覧画面で対象ジョブのStatusがcompletedに変化する。\n物件情報一覧画面から取得した物件情報を確認する 物件一覧ページにおいて、最新ジョブで取得された行は赤枠で表示される。検索欄でJobIdを範囲指定することもできるので、複数ジョブを実行した場合はそれらのジョブによって取得されたものを絞り込むこともできる。\nなお、すでに登録されている物件URLと同じURLを持つ物件が取得された場合は、価格を比較する。価格が更新されていた場合は物件情報とJobIdを上書きする。\n物件一覧において、行をクリックすると対象物件ページに遷移する。対象物件をクリックした回数も保持しており、1回以上クリックした物件は黄色で塗りつぶされて表示される。そのため、過去自分が詳細をチェックした物件かどうか一目で見分けがつくようになっている。\nソースコード ","wordCount":"1149","inLanguage":"ja","image":"https://kouya17.com/media/covers/real_estate_app/components.jpg","datePublished":"2023-01-26T20:02:00+09:00","dateModified":"2023-01-26T20:02:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kouya17.com/posts/real_estate_app/"},"publisher":{"@type":"Organization","name":"kouya17.com","logo":{"@type":"ImageObject","url":"https://kouya17.com/favicon.ico"}}}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8855472249928298" crossorigin=anonymous></script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -118,12 +76,12 @@
 <h1 class=post-title>
 PostgreSQL+Echo+cron+Next.jsでWebスクレイピングシステムを構成する
 </h1>
-<div class=post-meta><span title="2023-01-26 20:02:00 +0900 +0900">January 26, 2023</span>&nbsp;·&nbsp;1 min
+<div class=post-meta><span title="2023-01-26 20:02:00 +0900 +0900">1月 26, 2023</span>&nbsp;·&nbsp;3 分
 </div>
 </header> <div class=toc>
 <details>
 <summary accesskey=c title="(Alt + C)">
-<span class=details>Table of Contents</span>
+<span class=details>目次</span>
 </summary>
 <div class=inner><ul>
 <li>
@@ -193,12 +151,12 @@ PostgreSQL+Echo+cron+Next.jsでWebスクレイピングシステムを構成す�
 </ul>
 <nav class=paginav>
 <a class=prev href=https://kouya17.com/posts/wedio/>
-<span class=title>« Prev Page</span>
+<span class=title>« 前のページ</span>
 <br>
 <span>音声ライブ配信ができるWebアプリWEDIO.JPを作成した</span>
 </a>
 <a class=next href=https://kouya17.com/posts/mft2022/>
-<span class=title>Next Page »</span>
+<span class=title>次のページ »</span>
 <br>
 <span>Maker Faire Tokyo 2022に出展した</span>
 </a>

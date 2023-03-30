@@ -1,4 +1,4 @@
-<!doctype html><html lang=en dir=auto>
+<!doctype html><html lang=ja dir=auto>
 <head><meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
@@ -74,24 +74,9 @@
 </h2>
 </header>
 <section class=entry-content>
-<p>できたもの 動画の出来が色々とアレだが、動作時の様子を以下の動画の後半で確認できる。
-動画だと映りが悪いが、写真だとLEDをつけた時の様子は以下のような感じになる。
-作成目的 M5系列からYouTube Data APIを使った作例を作ってみたくて、作成した。
-使用部品 M5StickC　1個 PCA9685 16チャンネル PWMモジュール　3個 フルカラーLED　12個 筐体設計 STLデータは以下に公開してある。
-M5StickCとPCA9685モジュールが3個入るような箱を設計した。最初はだいぶコンパクトに設計していたのだが、配線が箱に収まらないことが分かり、途中で拡張した。もともとはM5StickCも箱の中に収める想定だったのだが、入らなかったので、横につけることにした。
-フルカラーLEDは配置する場所に自由度を持たせられるように、個別に格納する箱を作成して、それぞれ4本の配線でM5StickC側の箱と接続するようにした。
-配線 今回の配線の概要図を以下に示す。
-PCA9685モジュールとフルカラーLEDの接続部分はテキトーになっているが、LEDについてはRGB順で1個目のLEDは1個目のPCA9685モジュールの0,1,2chに接続、2個目のLEDは1個目のPCA9685モジュールの3,4,5chに接続…という形で接続している。
-ここが一番しんどかった。PCA9685モジュールを3個使っているのでやろうと思えば最大16個のフルカラーLEDを接続できるが、12個配線したところで力尽きた。
-ソフト実装 ソフト全体は以下のリポジトリに置いてある。
-src/main.cppについて以下の部分は各ユーザー毎に書き換える必要がある。
-APIキー アクセスポイントのSSID アクセスポイントのパスワード あと、src/main.cpp中のchannelsをいじれば対象とするYouTubeチャンネルとLEDの色を変更できる。
-M5StickCからYouTube Data APIを利用する部分は、以下のAPIラッパーを利用させていただいた。
-ただし、このままではチャンネル情報しか取得できないため、以下の関数等を追加している。
-std::vector&lt;String> YoutubeApi::getUpcomingBroadcasts(char *channelId) 指定されたChannelIDのチャンネルの配信予定(VideoID)を取得する。 BroadcastDetails YoutubeApi::getBroadcastDetails(char *videoId) 指定されたVideoIDの動画の配信詳細情報を取得する。 配信開始予定時刻は詳細情報からしか取れない。 課題 きちんと検証はしていないが、現状のソースだと、YouTube Data APIのクォータを異常に消費する。本当は1分ごとに情報取得とかをしたかったが、無料枠ではクォータが足りなくなる。
-各LEDに紐づくチャンネルIDと、LEDの色がハードコーディングされているので、外部から設定できるようにしたい。</p>
+<p>できたもの 動画の出来が色々とアレだが、動作時の様子を以下の動画の後半で確認できる。 動画だと映りが悪いが、写真だとLEDをつけた時の様子は以下...</p>
 </section>
-<footer class=entry-footer><span title="2021-04-03 23:09:39 +0900 +0900">April 3, 2021</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2021-04-03 23:09:39 +0900 +0900">4月 3, 2021</span>&nbsp;·&nbsp;3 分</footer>
 <a class=entry-link aria-label="post link to 所定のYouTubeチャンネルの配信予定をLEDで通知する(M5StickC)" href=https://kouya17.com/posts/40/></a>
 </article>
 <article class=post-entry>
@@ -100,20 +85,9 @@ std::vector&lt;String> YoutubeApi::getUpcomingBroadcasts(char *channelId) 指定
 </h2>
 </header>
 <section class=entry-content>
-<p>CSSによるアニメーションについて CSSではanimationプロパティを利用することによって、JavaScriptを使うことなく、HTML要素にアニメーションを付与することができる。
-CSSアニメーションの概要は以下の記事を参考にさせていただいた。
-今回作りたいもの 今回、以下のような流れでアニメーションする要素を作りたい。
-要素の左端から背景色がだんだん元々の背景色Aから色B変わっていき、背景全体が色Bになる。この時、色Aと色Bの境界はグラデーションにする。 背景全体が色Bのまましばらく維持する。 要素の左端から背景色がだんだん色Bから色Aに変わっていき、背景全体が色Aにもどる。この時、色Bと色Aの境界はグラデーションにする。 少し調べてみると、グラデーションは&lt;gradient>データ型を利用すれば問題なさそうだった。問題は、グラデーションの境界位置をアニメーションする部分である。以下のように、ただ単に0%と100%のkeyframeを指定しただけでは、思ったようなアニメーションにならなかった。
-See the Pen wrong case by kouya17 (@kouya17) on CodePen. 私の知識ではスマートなやり方が分からなかったので、keyframeを0%から100%まですべて指定する形で(無理やり)実装することにした。 keyframes生成用のpythonスクリプトを作成する pythonで、以下のようなkeyframes生成用のプログラムを作成した。
-このスクリプトによって生成したテキストをkeyframesとしてCSSに貼り付けると、以下のようなアニメーションになる。
-See the Pen linear by kouya17 (@kouya17) on CodePen. とりあえずやりたいことは出来た。しかし、完成したアニメーションを見ると、動きにメリハリがない。アニメーションの進行具合はCSSの`animation`要素の`animation-timing-function`プロパティを設定すればいじることができる。 ただ、今回のパターンだと、うまく設定できないようだ。下の例はanimation-timing-functionプロパティをlinearとease-in-outにそれぞれ設定したものを並べた例である。それぞれのアニメーションの進行具合に違いが生じるはずだが、特に差がない。
-See the Pen linear and ease-in-out by kouya17 (@kouya17) on CodePen. 先ほど作成したpythonスクリプトを修正して、イージングの要素も取り入れることにする。 イージングの要素を実装する イージングの要素を実装するには、3次ベジェ曲線について把握しておく必要がある。ベジェ曲線については以下の記事を参考にさせていただいた。
-pythonでベジェ曲線生成クラスを作成する pythonでベジェ曲線を生成するためのクラスを以下のように作成した。
-上のスクリプトを実行すると p0=[0,0], p1=[0,1], p2=[1,0], p3=[1,1] とした時の3次ベジェ曲線が生成される。グラフにプロットすると以下のような曲線になる。
-keyframes生成用のpythonスクリプトを修正する 先ほど作成したkeyframes生成用のスクリプトにベジェ曲線生成用クラスを組み込む。組み込んだ後のスクリプトは以下のようになる。
-このスクリプトを使って、 p0=[0,0], p1=[0,0....</p>
+<p>CSSによるアニメーションについて CSSではanimationプロパティを利用することによって、JavaScriptを使うことなく、HTML...</p>
 </section>
-<footer class=entry-footer><span title="2021-02-07 16:27:14 +0900 +0900">February 7, 2021</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2021-02-07 16:27:14 +0900 +0900">2月 7, 2021</span>&nbsp;·&nbsp;4 分</footer>
 <a class=entry-link aria-label="post link to html要素の背景色が変化するアニメーションをCSSで(無理やり)実装する" href=https://kouya17.com/posts/39/></a>
 </article>
 <article class=post-entry>
@@ -122,10 +96,9 @@ keyframes生成用のpythonスクリプトを修正する 先ほど作成したk
 </h2>
 </header>
 <section class=entry-content>
-<p>環境についてざっくり クライアント側 ブラウザ: Google Chrome バージョン 87.0.4280.141 (Official Build) (64ビット) OS: Windows 10 Home 19041.746 HTTPクライアント: axios v0.21.1 サーバ側 OS: Raspbian GNU/Linux 10 (buster) webフレームワーク: actix-web v3.3.2 現象 Access to XMLHttpRequest ... has been blocked by CORS policyというエラーが出力される Raspberry Pi 4 Model B上でバックエンド(actix-web)とフロントエンド(Vue CLI)を稼働させている。WindowsPCからブラウザを使ってフロントエンドにアクセスし、axiosを使ってバックエンド(actix-web)にGETリクエストを実行した。すると、ブラウザのコンソールに以下のようなエラーが出力された。(ローカルIPが記述されていたところは一部編集している。)
-Access to XMLHttpRequest at 'http://&lt;localIP>:50001/' from origin 'http://&lt;localIP>:8080' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource....</p>
+<p>環境についてざっくり クライアント側 ブラウザ: Google Chrome バージョン 87.0.4280.141 (Official Build) (64ビット) OS: Windows 10 Home 19041.746 HTTPクライアント: axios v0.21.1 サーバ側 OS: Raspbian GNU/Linux 10 (buster) webフ...</p>
 </section>
-<footer class=entry-footer><span title="2021-01-16 15:46:11 +0900 +0900">January 16, 2021</span>&nbsp;·&nbsp;2 min</footer>
+<footer class=entry-footer><span title="2021-01-16 15:46:11 +0900 +0900">1月 16, 2021</span>&nbsp;·&nbsp;4 分</footer>
 <a class=entry-link aria-label="post link to Chromeからactix-webにHTTPリクエストを実行した際に発生したCORSエラーの解消" href=https://kouya17.com/posts/38/></a>
 </article>
 <article class=post-entry>
@@ -134,24 +107,9 @@ Access to XMLHttpRequest at 'http://&lt;localIP>:50001/' from origin 'http://&lt
 </h2>
 </header>
 <section class=entry-content>
-<p>今年もあっという間だったがもう終わるらしい。この1年で周りの環境は急激に変わった。ただ、自分の趣味のモノづくり周りについては、やってることは特に去年と変わらず、自分の作りたいものを作るという感じだった。
-ついでに過去の振り返りもリンクを貼り付けておく。
-今年(2019年)作ったものを振り返る | kouya17.com
-今年作ったもの 去年11月~2月　ボール収集ロボの作成 色が付いたボールを所定の場所に集めるロボコンのようなものに参加する機会があったので、作成した。
-機体は3Dプリンタで作成し、ラズパイ4とラズパイ用カメラを搭載している。カメラからの画像を処理し、所定の色のボールを認識し、ボールに近づく。ボールにある程度近づいたらボールを確保する。
-機体の写真を以下に載せる。
-機体上部に謎の模様があるのは、より広い範囲が見えるカメラが取り付けられているJetsonNanoから機体を制御するため。JetsonNanoは機体の向きを確認し、ソケット通信によって機体に指令を送る。
-できたもの
-関連記事 カメラ画像から対象物の向きを検出する(OpenCV) | kouya17.com 2月~4月　所属サークルのHP作成 Laravelの勉強がてら、HPを作成した。初めてVue.jsを使ってSPAを作成したこともあり、フロントエンドとバックエンドの分離についての理解を深めることができた。
-画面デザインやリソースの構造についてあまりしっかり検討せずに進めてしまったのが少し心残りではある。特にリソースの構造については、現状、記事を作品カテゴリとコラムカテゴリにカテゴリ分けしているのだが、特にカテゴリ分けの意味がないという問題がある。ここについては何とか出来たんじゃないかなと思っている。
-できたもの 関連記事 Laravel+Vue.jsでLighthouseのスコアを0点から97点にした(バンドルサイズ削減) | kouya17.com Laravel+Vue.jsでSPA(シングルページアプリケーション)を作成した | kouya17.com Vue.jsを使ったSPAにおいてTwitter等でのリンク表示がいい感じになるようにする | kouya17.com 3月~　射的ゲーム作成 今年の大部分はこの作業をしていた。昨年から引き続きこの作業はしているが、まだしっかりとした形にはなっていない。来年にはどこかで公開できるようにしたい。
-できたもの まだ公開できるものはなし。
-関連記事 マトリクスLEDドライバを使ってフルカラーLEDを制御してみる | kouya17.com 赤外線を周期的に(矩形波で)出力するモジュールを作る | kouya17.com 5月　感染シミュレーション用プログラムの作成 学生時代に勉強していた数値計算の復習がてら、感染シミュレーション用のプログラムを作成した。
-SEIRモデルという単語は結構色んなところで見かけるようになったので、ここで少し勉強して、理解を深めておいて良かったと思っている。
-できたもの
-関連記事 感染症数理モデルについて触りの部分だけ学ぶ | kouya17.com 都道府県間通勤・通学を考慮したパンデミックシミュレーションもどき | kouya17.com 全国規模の感染シミュレーションと結果の可視化をしてみる | kouya17.com 10月　換気状況モニタの作成 感染症関連で何か作れないか考え、二酸化炭素濃度モニタを作成した。こういった環境モニタ系はもっと利用シーンが増えると思っていた(店舗が換気状況のアピールに使う等)のだが、今のところあまりそういった(利用シーンが増えた・よく見かけるようになった)実感はない。...</p>
+<p>今年もあっという間だったがもう終わるらしい。この1年で周りの環境は急激に変わった。ただ、自分の趣味のモノづくり周りについては、やってることは...</p>
 </section>
-<footer class=entry-footer><span title="2020-12-30 21:43:06 +0900 +0900">December 30, 2020</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2020-12-30 21:43:06 +0900 +0900">12月 30, 2020</span>&nbsp;·&nbsp;4 分</footer>
 <a class=entry-link aria-label="post link to 今年(2020年)作ったものを振り返る" href=https://kouya17.com/posts/37/></a>
 </article>
 <article class=post-entry>
@@ -160,23 +118,9 @@ SEIRモデルという単語は結構色んなところで見かけるように�
 </h2>
 </header>
 <section class=entry-content>
-<p>環境 OS: Windows10 Home 1903 VSCode: version 1.51.1 PlatformIO IDE: version 2.2.1 PlatformIOとは PlafrotmIOとは、組み込みソフト開発向けの、様々なプラットフォーム・アーキテクチャ・フレームワークに対応した開発用ツール。
-公式のドキュメントによると、このツールは以下の課題を解消することを目的としている。
-特定のMCU/ボード用の開発ソフトウェアをセットアップするためのプロセスが複雑であること。そして、そのソフトウェアがサポートされているOSを搭載しているPCを入手する必要があること。 それぞれのハードウェアプラットフォームはそれぞれ異なるツールチェーン、IDE等を必要とし、開発環境の学習に時間がかかること。 一般的なセンサやアクチュエータの使用方法を示す適切なライブラリやコードサンプルを探す必要があること。 チームメンバと、それぞれが使用しているOSに依らずにプロジェクトを共有する必要があること。 上記の課題はPlatformIOを用いれば、次の手段によって解決される。
-platform.iniに対象のボードを設定する。 ボードのリストに基づいて、PlatformIOは必要なツールチェーンをダウンロード・インストールする。 ユーザはコードを開発し、PlatformIOはコードがコンパイルされ、対象のボードに書き込めるように手配する。 要するに、組み込みソフト開発向けの、開発環境整備用ツールらしい。 様々なIDE向けのプラグインを提供しているが、公式が推奨しているIDEはVSCodeとCLion。
-今回はM5Stack用のプログラムを作成しようと思って、開発環境周りを少し調べたら、 PlatformIOが良い という記事を見かけたので試してみた。ただし、この記事ではPlafromIOの使い方については特に触れない。
-PlatformIOのHome画面がloading状態のままスタックする VSCodeに、以下のPlatformIOプラグインを入れた。
-PlatformIOには以下のようなHome画面がある。
-インストール直後は、この画面が以下のように loading… という表示のまま数分経っても変わらなかった。以前他のPCにインストールした時はこのようなことはなかったので、何かよろしくない環境にハマったのだろうと思った。
-プラグインをインストールし直しても状況は変わらず 以下の公式コミュニティへの問い合わせを参考に、pip uninstall platformio後に~/.platformio/を削除し、プラグインを再インストールしたが、状況は変わらなかった。
-久しぶりに起動したPCで、色々アップデートが走っていたので、諸々のバージョンの整合性等が合ってないのかなと思っていたが、そうではないようだった。
-IEを無効化したら解消した 以下の問い合わせを参考に、IEを無効化したら解消した。
-IEの無効化は以下のwindowsの機能の有効化または無効化の画面から設定できる。
-PlatformIOのHome画面は、IEだと表示できないらしい。なぜ表示ブラウザとしてIEが選択されたのか等はわからないが、とりあえず問題が解消されたので良しとする。
-なお、一度表示されるようになってからは、IEの無効化を解除しても、表示されるようになった。
-アフィリエイト みんなのM5Stack入門 リックテレコム (2019/11/8) Amazon Kindle 楽天ブックス 楽天Kobo -- </p>
+<p>環境 OS: Windows10 Home 1903 VSCode: version 1.51.1 PlatformIO IDE: version 2.2.1 PlatformIOとは PlafrotmIOとは、組み込みソフト開発向けの、様々なプラットフォーム・アーキテクチャ...</p>
 </section>
-<footer class=entry-footer><span title="2020-11-21 17:30:42 +0900 +0900">November 21, 2020</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2020-11-21 17:30:42 +0900 +0900">11月 21, 2020</span>&nbsp;·&nbsp;3 分</footer>
 <a class=entry-link aria-label="post link to Windows10でPlatformIOが起動しない問題の解消" href=https://kouya17.com/posts/36/></a>
 </article>
 <article class=post-entry>
@@ -185,11 +129,9 @@ PlatformIOのHome画面は、IEだと表示できないらしい。なぜ表示�
 </h2>
 </header>
 <section class=entry-content>
-<p>ASMPワーカープログラム作成後、プロジェクトのクリーンに失敗する 環境 OS : macOS Mojave v10.14.6 Spesense SDK : v2.0.1 Spresense VSCode IDE : v1.2.0 現象 公式のマルチコアアプリケーション作成ガイドに沿って、プロジェクトをビルドし、ボードに書き込んだ。
-しかし思った通りにアプリケーションが動かなかったため、プロジェクトのクリーンを一度行ったら以下のようなエラーが出た。
-> Executing task in folder myproject: .vscode/build.sh clean &lt; usage: grep [-abcDEFGHhIiJLlmnOoqRSsUVvwxZ] [-A num] [-B num] [-C[num]] [-e pattern] [-f file] [--binary-files=value] [--color=when] [--context[=num]] [--directories=action] [--label] [--line-buffered] [--null] [pattern] [file ...] Create .version make[3]: Nothing to be done for `clean'. Makefile:12: /Users/username/spresense/spresense/sdk/apps/.vscode/worker.mk: No such file or directory make[6]: *** No rule to make target `/Users/username/spresense/spresense/sdk/apps/....</p>
+<p>ASMPワーカープログラム作成後、プロジェクトのクリーンに失敗する 環境 OS : macOS Mojave v10.14.6 Spesense SDK : v2.0.1 Spresense VSCode IDE : v1.2.0 現象 公式のマルチコアアプリケーション作成ガ...</p>
 </section>
-<footer class=entry-footer><span title="2020-07-11 13:23:52 +0900 +0900">July 11, 2020</span>&nbsp;·&nbsp;2 min</footer>
+<footer class=entry-footer><span title="2020-07-11 13:23:52 +0900 +0900">7月 11, 2020</span>&nbsp;·&nbsp;4 分</footer>
 <a class=entry-link aria-label="post link to Spresense VSCode IDEトラブルシューティング(適宜更新予定)" href=https://kouya17.com/posts/35/></a>
 </article>
 <article class=post-entry>
@@ -198,19 +140,9 @@ PlatformIOのHome画面は、IEだと表示できないらしい。なぜ表示�
 </h2>
 </header>
 <section class=entry-content>
-<p>UIFlowとは M5Stack系列がサポートしている開発環境の1つ。主な特徴は以下の通り。
-Web上でコーディングから書き込みまでできる。 ビジュアルプログラミング言語Blockly及びMicroPythonをサポートしている。 HuskyLensとは AI処理向けのSoC Kendryte K210 を搭載したAIカメラモジュール。顔認識、オブジェクト追跡、オブジェクト認識、ライン追跡、色認識、タグ（AprilTag）認識などの機能が実装されている。接続インタフェースはUART及びI2C。
-MicroPython環境でHuskyLensを使う Pythonで実装されたHuskyLensとの通信用ライブラリは、RaspberryPiでの利用向けに公開されている。
-MicroPython上でHuskyLensを使う場合、基本的にはここから必要な処理をコピペして使えば良さそうなのだが、一部 MicroPython(on ESP32) でサポートされていないモジュールを利用している箇所があるため、その部分を書き換える必要がある。ただし、今回はUARTでの通信を前提とする。
-環境 UIFlowファームウェア : ver1.4.5.1 HuskyLens用Pythonライブラリ : 2020/06/28時点の最新 書き換えが必要な箇所 UART通信用オブジェクト生成部分 書き換え前
-self.huskylensSer = serial.Serial(port=comPort, baudrate=speed) 書き換え後例
-self.serial = machine.UART(1, tx=32, rx=33) self.serial.init(9600, bits=8, parity=None, stop=1) MicroPythonではmachineモジュールがもつクラスUARTを使ってUART通信バスにアクセスできる。ピン番号やボーレートは自分の環境に合わせて設定する。
-参考 : クラス UART -- 二重シリアル通信バス — MicroPython 1.12 ドキュメント
-16進数文字列からバイナリデータへの変換部分 書き換え前
-def cmdToBytes(self, cmd): return bytes.fromhex(cmd) 書き換え後例
-import ubinascii def cmdToBytes(self, cmd): return ubinascii....</p>
+<p>UIFlowとは M5Stack系列がサポートしている開発環境の1つ。主な特徴は以下の通り。 Web上でコーディングから書き込みまでできる。 ビジ...</p>
 </section>
-<footer class=entry-footer><span title="2020-06-28 20:47:32 +0900 +0900">June 28, 2020</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2020-06-28 20:47:32 +0900 +0900">6月 28, 2020</span>&nbsp;·&nbsp;3 分</footer>
 <a class=entry-link aria-label="post link to UIFlowの環境でHuskyLensを使えるようにする" href=https://kouya17.com/posts/34/></a>
 </article>
 <article class=post-entry>
@@ -219,26 +151,9 @@ import ubinascii def cmdToBytes(self, cmd): return ubinascii....</p>
 </h2>
 </header>
 <section class=entry-content>
-<p>現在作成中である射的ゲームの銃ユニット用に、赤外線を周期的に(矩形波で)出力するモジュールを作成する。
-電源 まず必要な電圧・電流を調べる 今回使う赤外線LED → ５ｍｍ赤外線ＬＥＤ　９４０ｎｍ　ＯＳＩ５ＦＵ５１１１Ｃ－４０　（５個入）: LED(発光ダイオード) 秋月電子通商-電子部品・ネット通販
-赤外線LEDの絶対最大定格
-最大順方向電流 If : 100mA 赤外線LEDの電気的特性
-順方向電圧 : If=100mAの時 代表値 1.35V、 最大値 1.6V If=100mAとなっているが(なかなか高出力…)、50%の50mAが流れるように設計する。
-電源の選定 50mA流しても大丈夫 + 1.35V以上を確保できる電源を選ぶ。
-値段等も考えると、1000円でバッテリー+電池保護+電源管理がついてるPowerCが自分にとって使いやすそう。
-M5StickCは使わないので、BATピンだけ活用する。
-PowerCの給電周りの仕組みについては公式ドキュメントとM5StickCのバッテリー拡張HATをためす – Lang-shipを参考にさせていただいた。
-安定化 定電圧をとるために3端子レギュレータをかます。
-低飽和型レギュレーター　３Ｖ５００ｍＡ　ＮＪＭ２８８４Ｕ１－０３: 半導体 秋月電子通商-電子部品・ネット通販とかでよさそう。
-→ ip3005のデータシートによると2.5V付近まで落ちるみたいなことが書いてあるので、これだとバッテリ残量少ないときダメそう。
-秋月で買えるやつでベストそうなのは低ドロップレギュレーター　２．５Ｖ１．５Ａ　ＬＴ１９６３ＡＥＳ８－２．５: 半導体 秋月電子通商-電子部品・ネット通販。これを使う。
-だいぶいいやつなので高い…(1個200円)。
-赤外線出力 矩形波生成 矩形波（方形波）発生回路の理論的な理解 - 電子工作で覚える！電子回路を参考にさせていただく。
-上記サイト中の式
-$$ T = 1.386 \times C_1R_4 $$
-において、\(C_1 = 0.1 \mu F\)に固定した場合、...</p>
+<p>現在作成中である射的ゲームの銃ユニット用に、赤外線を周期的に(矩形波で)出力するモジュールを作成する。 電源 まず必要な電圧・電流を調べる 今回使...</p>
 </section>
-<footer class=entry-footer><span title="2020-06-21 18:17:42 +0900 +0900">June 21, 2020</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2020-06-21 18:17:42 +0900 +0900">6月 21, 2020</span>&nbsp;·&nbsp;4 分</footer>
 <a class=entry-link aria-label="post link to 赤外線を周期的に(矩形波で)出力するモジュールを作る" href=https://kouya17.com/posts/33/></a>
 </article>
 <article class=post-entry>
@@ -247,29 +162,9 @@ $$ T = 1.386 \times C_1R_4 $$
 </h2>
 </header>
 <section class=entry-content>
-<p>Ambientとは 本当にすばらしいサービス。
-Ambient – IoTデーター可視化サービス
-データをテキストでダウンロードできるということで、今回使用させていただくことを決めた。
-データーのダウンロード機能をリリースしました – Ambient
-PowerCとは M5StickCと接続できるバッテリー充電モジュール。
-16340バッテリー(3.7V/700mAh)を2個搭載できる。
-USB Type-A端子から、外部へ電源供給(5V/1.5A)ができる。
-Ambientを使ってバッテリーの電圧を記録する 今回はAmbientの使い方の勉強を兼ねて、PowerCを使ってバッテリーの情報を記録する。
-PowerCは電源管理IC IP5209 が付いており、I2C通信によってバッテリーの情報を確認できる。
-IP5209から取得できる情報 PowerCのサンプルスケッチをみると、電圧値と電流(電気量)を取得できるらしい。
-スイッチサイエンスの紹介ページには
-M5StickCと接続すると、I2C（アドレス0x75）を通じて、電圧、電流、その他の情報を確認できます。
-とあり、その他も取得できるとあるので、他にどんな情報を取得できるかIP5209の以下のデータシートを読んでみた。
-IP5209-Injoinic.pdf
-このデータシートには
-The built-in 14bit ADC in IP5209 measures battery voltage and current accurately. ADC data are available on I2C interface. IP5209 has integrated a fuel gauge algorithm, acquiring battery’s state of charge precisely.
-とあり、バッテリーの電圧と電流が測定できるとしか書かれていない。
-私が見つけたこのデータシートにはレジスタの情報が(私が読んだ範囲では)見つからなかった。
-もうちょっと探せば他の形式のデータシートがあるかもしれない。
-少し調べてみると、M5Stackで使われている電源IC IP5306 はカスタム品で、出回っているデータシートにはレジスタの情報がないらしい。
-以下のようなTweetを見つけたので引用させていただく。...</p>
+<p>Ambientとは 本当にすばらしいサービス。 Ambient – IoTデーター可視化サービス データをテキストでダウンロードできるということで、今回使用させて...</p>
 </section>
-<footer class=entry-footer><span title="2020-06-06 22:57:28 +0900 +0900">June 6, 2020</span>&nbsp;·&nbsp;1 min</footer>
+<footer class=entry-footer><span title="2020-06-06 22:57:28 +0900 +0900">6月 6, 2020</span>&nbsp;·&nbsp;3 分</footer>
 <a class=entry-link aria-label="post link to Ambientを使って、PowerCに接続されているバッテリーの情報を記録する" href=https://kouya17.com/posts/32/></a>
 </article>
 <article class=post-entry>
@@ -278,29 +173,15 @@ The built-in 14bit ADC in IP5209 measures battery voltage and current accurately
 </h2>
 </header>
 <section class=entry-content>
-<p>スマホの場合は、画面下端の方が圧倒的にタップしやすく、スマホアプリは大体画面下部に重要なナビゲーションが並んでいる。
-本サイトもそれに倣って改修する。
-環境 Django v2.1.4 Bootstrap v4.2.1 スマホのみに表示する Bootstrapの機能を使う。
-以下のようにHTMLに記載すれば、スマホ(画面サイズ768px未満)の場合のみ表示される。
-&lt;div class="d-block d-sm-none">スマホのみ表示&lt;/div> iPhone8の画面サイズで表示すると以下のように最下部に"スマホのみ表示"というテキストが表示されるが、
-iPadの画面サイズで表示すると"スマホのみ表示"というテキストが表示されなくなる。
-参考
-表示ユーティリティ～Bootstrap4移行ガイド 下端に固定する CSSで実装する 表示位置を絶対位置で指定する。
-以下のようにCSSで指定することで画面下端に要素を固定できる。
-/* スマホ用画面下端メニュー */ .footer-menu-bar { position: fixed; /* 要素の位置を固定する */ bottom: 0px; /* 絶対位置を指定する(下0px) */ } ただ、この方法だと他コンテンツと重なって表示されてしまうので他の用途に使う場合は注意。(今回の用途としては重なっても問題なしとしている)
-参考
-【css】フッターをページ下部に固定する方法【お手軽コピペ】 | Pで作業軽減しましょ 横並びでリスト表示する Bootstrapの機能を使ってリスト表示を実装する。
-HTMLを以下のように変更する。
-&lt;div class="d-block d-sm-none">スマホのみ表示&lt;/div> ↓
-&lt;div class="d-sm-none d-block footer-menu-bar w-100 border-top"> &lt;div class="row m-2"> &lt;div class="col"> TOP &lt;/div> &lt;div class="col"> 検索 &lt;/div> &lt;div class="col"> タグ &lt;/div> &lt;/div> &lt;/div> 表示は以下のようになる。...</p>
+<p>スマホの場合は、画面下端の方が圧倒的にタップしやすく、スマホアプリは大体画面下部に重要なナビゲーションが並んでいる。 本サイトもそれに倣って改...</p>
 </section>
-<footer class=entry-footer><span title="2020-05-31 16:40:28 +0900 +0900">May 31, 2020</span>&nbsp;·&nbsp;2 min</footer>
+<footer class=entry-footer><span title="2020-05-31 16:40:28 +0900 +0900">5月 31, 2020</span>&nbsp;·&nbsp;4 分</footer>
 <a class=entry-link aria-label="post link to サイトをスマホで表示したとき下端にメニューバーが表示されるようにする" href=https://kouya17.com/posts/31/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
-<a class=prev href=https://kouya17.com/posts/>« Prev Page</a>
-<a class=next href=https://kouya17.com/posts/page/3/>Next Page »</a>
+<a class=prev href=https://kouya17.com/posts/>« 前のページ</a>
+<a class=next href=https://kouya17.com/posts/page/3/>次のページ »</a>
 </nav>
 </footer>
 </main>
