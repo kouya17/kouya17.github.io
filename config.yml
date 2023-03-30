@@ -1,5 +1,7 @@
 baseURL: "https://kouya17.com"
-languageCode: "en-us"
+languageCode: "ja"
+defaultContentLanguage: "ja"
+hasCJKLanguage: true
 title: "kouya17.com"
 theme: "PaperMod"
 
