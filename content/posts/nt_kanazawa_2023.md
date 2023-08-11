@@ -34,7 +34,7 @@ cover:
 
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr"><a href="https://twitter.com/hashtag/NT%E9%87%91%E6%B2%A2?src=hash&amp;ref_src=twsrc%5Etfw">#NT金沢</a> 設営完了しました。赤外線を使った射的ゲームを展示しています。 <a href="https://t.co/qLR2GTVWf7">pic.twitter.com/qLR2GTVWf7</a></p>&mdash; 青木晃也 (@aoki_kouya) <a href="https://twitter.com/aoki_kouya/status/1669870266531602432?ref_src=twsrc%5Etfw">June 17, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-この作品の構成は以下のようになっている。
+今回展示した作品の構成は以下のようになっている。
 
 ![](/media/photos/nt_kanazawa_2023/bingo_st.png)
 
