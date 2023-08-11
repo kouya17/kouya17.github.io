@@ -3,7 +3,7 @@ title: "NT金沢2023に出展した"
 date: 2023-08-11T09:50:00+09:00
 tags: ["diary", "NT"]
 cover:
-  image: "media/covers/nt_kanazawa_2023/tenji.png"
+  image: "media/covers/nt_kanazawa_2023/tenji.jpg"
 ---
 
 少し前の話になってしまうが、2023年6月17日～2023年6月18日の間、[NT金沢](https://wiki.nicotech.jp/nico_tech/?NT%E9%87%91%E6%B2%A22023)というイベントに出展してきた。NT金沢は以前、[リモートという形で出展したことはある](https://kouya17.com/posts/43/)が、現地参加は初めてだった。
