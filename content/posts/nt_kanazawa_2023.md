@@ -3,7 +3,7 @@ title: "NT金沢2023に出展した"
 date: 2023-08-11T09:50:00+09:00
 tags: ["diary", "NT"]
 cover:
-  image: "media/covers/"
+  image: "media/covers/nt_kanazawa_2023/bingo_st.png"
 ---
 
 少し前の話になってしまうが、2023年6月17日～2023年6月18日の間、[NT金沢](https://wiki.nicotech.jp/nico_tech/?NT%E9%87%91%E6%B2%A22023)というイベントに出展してきた。NT金沢は以前、[リモートという形で出展したことはある](https://kouya17.com/posts/43/)が、現地参加は初めてだった。
@@ -39,6 +39,8 @@ cover:
 今回は基板を機能単位で分割して作成した。赤外線送信用基板・赤外線受信用基板・振動用基板などを作成し、それぞれを結合して利用している。以下はパスコンパスさんに各基板の動作について紹介させていただいたときのもの。
 
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">モジュール化されたカラフルな基板がかわいい<br>赤外線射的で色々ソレノイドとかブザーとか繋いで拡張ができるの楽しい<a href="https://twitter.com/hashtag/NT%E9%87%91%E6%B2%A2?src=hash&amp;ref_src=twsrc%5Etfw">#NT金沢</a> <a href="https://t.co/7KrWBRRMpT">pic.twitter.com/7KrWBRRMpT</a></p>&mdash; パスコンパス (@pscmps) <a href="https://twitter.com/pscmps/status/1669911203332919302?ref_src=twsrc%5Etfw">June 17, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+これまでの作品と比較して、今回は「やりこみたくなるもの」を目指した。これまではとりあえず機能として成り立たせるのが精一杯で、ゲーム性についてはあまり考えられていなかった。今回は「工夫すれば高得点が狙える」ようなゲームルールを設けてハイスコアをとることで達成感を得られるような構成を目指した。(ここらへん書いていて"ゲーム性"についてより調べてみる必要がありそうな気がしてきた…。)ただ、ルール以前に赤外線の受光感度が厳しすぎて難易度が高くなりすぎた印象がある。
 
 展示中、おおむね大きなトラブルはなかった。ただ、トリプルビンゴ後に挙動がおかしくなるバグが見つかった。これはトリプルビンゴの考慮が漏れていたため。
 
