@@ -3,7 +3,7 @@ title: "NT金沢2023に出展した"
 date: 2023-08-11T09:50:00+09:00
 tags: ["diary", "NT"]
 cover:
-  image: "media/covers/nt_kanazawa_2023/bingo_st.png"
+  image: "media/covers/nt_kanazawa_2023/tenji.png"
 ---
 
 少し前の話になってしまうが、2023年6月17日～2023年6月18日の間、[NT金沢](https://wiki.nicotech.jp/nico_tech/?NT%E9%87%91%E6%B2%A22023)というイベントに出展してきた。NT金沢は以前、[リモートという形で出展したことはある](https://kouya17.com/posts/43/)が、現地参加は初めてだった。
@@ -29,6 +29,10 @@ cover:
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr"><a href="https://twitter.com/hashtag/NT%E9%87%91%E6%B2%A2?src=hash&amp;ref_src=twsrc%5Etfw">#NT金沢</a> に持っていく射的ゲームについて、ようやく初めて全体動作の確認をしました。 <a href="https://t.co/CTfRceYFtq">pic.twitter.com/CTfRceYFtq</a></p>&mdash; 青木晃也 (@aoki_kouya) <a href="https://twitter.com/aoki_kouya/status/1668960003133411329?ref_src=twsrc%5Etfw">June 14, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 9つの的があり、ビンゴ風の射的ゲームになっている。ビンゴが揃うと制限時間が伸びてハイスコアを目指せる仕組み。現状の設定上は、うまくいけば永遠にゲームを続けられるようになっている。
+
+展示時の様子は以下の写真の通り。
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr"><a href="https://twitter.com/hashtag/NT%E9%87%91%E6%B2%A2?src=hash&amp;ref_src=twsrc%5Etfw">#NT金沢</a> 設営完了しました。赤外線を使った射的ゲームを展示しています。 <a href="https://t.co/qLR2GTVWf7">pic.twitter.com/qLR2GTVWf7</a></p>&mdash; 青木晃也 (@aoki_kouya) <a href="https://twitter.com/aoki_kouya/status/1669870266531602432?ref_src=twsrc%5Etfw">June 17, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 この作品の構成は以下のようになっている。
 
