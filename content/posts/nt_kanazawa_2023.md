@@ -14,11 +14,11 @@ cover:
 
 出展物は以下のスーツケースに詰め込んだ。
 
-<iframe class="hatenablogcard" style="width:100%;height:155px;margin:15px 0;max-width:680px;" title="Amazon | [トラベルハウス] ソフトスーツケース キャリーバッグ 撥水加工 S型機内持込 大容量 超軽量 Tsaロック 容量拡張（１年 | スーツケース" src="https://hatenablog.com/embed?url=https://www.amazon.co.jp/gp/product/B084H8QNF2/ref=ppx_yo_dt_b_d_asin_title_o00?ie=UTF8&psc=1&tag=kouya17-22" frameborder="0" scrolling="no"></iframe>
+<a href="https://www.amazon.co.jp/gp/product/B084H8QNF2/ref=ppx_yo_dt_b_d_asin_title_o00?ie=UTF8&psc=1&tag=kouya17-22">Amazon | [トラベルハウス] ソフトスーツケース キャリーバッグ 撥水加工 S型機内持込 大容量 超軽量 Tsaロック 容量拡張（１年 | スーツケース</a>
 
 このスーツケースは以下の折り畳みテーブルを持ち運べるように購入したもの。
 
-<iframe class="hatenablogcard" style="width:100%;height:155px;margin:15px 0;max-width:680px;" title="Amazon | REDCAMP アウトドア テーブル 折りたたみ キャップ ロー ハイ2段高さ調整 持ち運び 軽量 コンパクト ピクニック ビーチ 屋外 | ガーデンテーブル" src="https://hatenablog.com/embed?url=https://www.amazon.co.jp/gp/product/B08BZ429G4/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1&tag=kouya17-22" frameborder="0" scrolling="no"></iframe>
+<a href="https://www.amazon.co.jp/gp/product/B08BZ429G4/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1&tag=kouya17-22">Amazon | REDCAMP アウトドア テーブル 折りたたみ キャップ ロー ハイ2段高さ調整 持ち運び 軽量 コンパクト ピクニック ビーチ 屋外 | ガーデンテーブル</a>
 
 これらのものはほぼイベント出展時にしか使っていない。現状自家用車などの移動手段を持っていないため、出展物のサイズ・荷物も上記のスーツケースに収まるように構成を決めている。
 
