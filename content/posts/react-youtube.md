@@ -46,3 +46,17 @@ cover:
 サンプルサイトは`GitHub Pages`を使って稼働させている。`GitHub Pages`へのデプロイは、`GitHub Actions`を利用して、`main`ブランチ更新時に自動で行われるようにしている。ここら辺は、以下のサイトを参考にさせていただいた。
 
 <iframe class="hatenablogcard" style="width:100%;height:155px;margin:15px 0;max-width:680px;" title="Next.js アプリを GitHub Actions でビルドして GitHub Pages で公開する｜まくろぐ" src="https://hatenablog.com/embed?url=https://maku.blog/p/au8ju6g/" frameborder="0" scrolling="no"></iframe>
+
+<div class="kattene">
+    <div class="kattene__imgpart"><a target="_blank" rel="noopener" href="https://www.amazon.co.jp/gp/product/4815601577/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=4815601577&linkCode=as2&tag=kouya17-22&linkId=c54ecf00a6641c6437a91860270e6b6e"><img src="https://ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=4815601577&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL160_&tag=kouya17-22"></a></div>
+    <div class="kattene__infopart">
+      <div class="kattene__title"><a target="_blank" rel="noopener" href="https://www.amazon.co.jp/gp/product/4815601577/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=4815601577&linkCode=as2&tag=kouya17-22&linkId=c54ecf00a6641c6437a91860270e6b6e">確かな力が身につくJavaScript「超」入門 第2版</a></div>
+      <div class="kattene__description">狩野 祐東</div>
+      <div class="kattene__btns __four">
+        <div><a class="kattene__btn __orange" target="_blank" rel="noopener" href="https://www.amazon.co.jp/gp/product/4815601577/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=4815601577&linkCode=as2&tag=kouya17-22&linkId=c54ecf00a6641c6437a91860270e6b6e">Amazon</a></div>
+        <div><a class="kattene__btn __blue" target="_blank" rel="noopener" href="https://www.amazon.co.jp/gp/product/B07Y3FJ885/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=B07Y3FJ885&linkCode=as2&tag=kouya17-22&linkId=57296264873d846b93a0b2a640e3856f">Kindle</a></div>
+        <div><a class="kattene__btn __red" target="_blank" rel="noopener" href="https://hb.afl.rakuten.co.jp/ichiba/1585b2d3.e3af76f2.1585b2d4.494d3f80/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F16014712%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImxlZnQiLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjEsInByb2QiOjB9">楽天</a></div>
+        <div><a class="kattene__btn __green" target="_blank" rel="noopener" href="https://hb.afl.rakuten.co.jp/ichiba/1592b466.7f5ea7c8.1592b467.70471b78/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frakutenkobo-ebooks%2F4996251ea89337fe8e18836b84946b16%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImxlZnQiLCJwcmljZSI6MSwiYm9yIjoxLCJjb2wiOjAsImJidG4iOjEsInByb2QiOjB9">楽天Kobo</a></div>
+      </div>
+    </div>
+</div>
