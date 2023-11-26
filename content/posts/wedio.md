@@ -8,10 +8,6 @@ cover:
 
 ## デモ
 
-本Webアプリは以下からアクセスできる。
-
-<iframe class="hatenablogcard" style="width:100%;height:155px;margin:15px 0;max-width:680px;" title="WEDIO.JP | 音声ライブ配信" src="https://hatenablog.com/embed?url=https://www.wedio.jp/" frameborder="0" scrolling="no"></iframe>
-
 動作時の動画は以下の通り。
 
 ![デモ動画](/media/photos/wedio/out.gif)
