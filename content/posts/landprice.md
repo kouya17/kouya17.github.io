@@ -51,7 +51,7 @@ features = all_data['features']
 max_feature = features[0]
 min_feature = features[0]
 
-# リストをループして最大値を抽出
+# リストをループして公示価格が最も高い場所と最も安い場所を抽出
 for feature in features:
     if feature['properties']['L01_103'] > max_feature['properties']['L01_103']:
         max_feature = feature
