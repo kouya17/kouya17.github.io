@@ -23,7 +23,7 @@ https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-L01-2024.html
 
 まずは北海道のデータをダウンロードして、最初の方だけを見てみる。最初の4行は以下のようになっている。
 
-```
+```json
 {
     "type": "FeatureCollection",
     "name": "L01-24_01",
@@ -37,7 +37,7 @@ https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-L01-2024.html
 
 今回はPythonを使ってデータを読んでみる。以下のスクリプトを実行し、2024年の公示価格が最も高い場所と公示価格が最も安い場所を調べてみる。
 
-```
+```python
 import json
 
 # geojsonファイルの読み込み
@@ -64,7 +64,7 @@ print("最小値:", min_feature['properties']['L01_103'], "地番:", min_feature
 
 実行結果は以下のようになった。
 
-```
+```text
 最大値: 55700000 地番: 東京都　中央区銀座４丁目２番４
 最小値: 470 地番: 北海道　勇払郡厚真町字軽舞２８０番外
 ```
