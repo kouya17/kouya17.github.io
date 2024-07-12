@@ -35,7 +35,7 @@
 <meta name=twitter:title content="公開されている「地価公示データ」を見てみる">
 <meta name=twitter:description content="今回利用するデータ 以下の国土交通省国土数値情報ダウンロードサイトから取得できる「地価公示データ(2024年版)」を利用する。 https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-L01-2024.html このデータには">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://kouya17.com/posts/"},{"@type":"ListItem","position":3,"name":"公開されている「地価公示データ」を見てみる","item":"https://kouya17.com/posts/landprice/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"公開されている「地価公示データ」を見てみる","name":"公開されている「地価公示データ」を見てみる","description":"今回利用するデータ 以下の国土交通省国土数値情報ダウンロードサイトから取得できる「地価公示データ(2024年版)」を利用する。 https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-L01-2024.html このデータには","keywords":["python","GIS"],"articleBody":"今回利用するデータ 以下の国土交通省国土数値情報ダウンロードサイトから取得できる「地価公示データ(2024年版)」を利用する。\nhttps://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-L01-2024.html\nこのデータには毎年国土交通省が実施している「地価公示」に関するデータが入っている。例えば、調査の対象となった土地(標準地)の位置・公示価格・利用現況・用途地域・地積などが整理されている。\nデータフォーマットは以下の3種類が利用できる。\n GML形式 GeoJSON形式 シェープファイル形式  今回はJSONを元にしたデータフォーマットであるGeoJSON形式を利用する。\n最初の4行だけ見てみる まずは北海道のデータをダウンロードして、最初の方だけを見てみる。最初の4行は以下のようになっている。\n{ \"type\": \"FeatureCollection\", \"name\": \"L01-24_01\", \"features\": [ { \"type\": \"Feature\", \"geometry\": { \"type\": \"Point\", \"coordinates\": [ 141.31404500, 43.05544889] }, \"properties\": { \"L01_001\": \"01101\",... 構造としては\"features\"キーに各標準地のデータが格納されている。上記データは\"…“以降を削除してしまっているが、”…“以降にずらっとその標準値におけるデータが並んでいる。各標準地にはそれぞれ144個のデータが紐づいている。1個1個見ていくとキリがないため、2024年の公示価格(キー名\"L01_103”)だけ見ていく。\n公示価格が最も高い場所と最も安い場所を見てみる 今回はPythonを使ってデータを読んでみる。以下のスクリプトを実行し、2024年の公示価格が最も高い場所と公示価格が最も安い場所を調べてみる。\nimport json # geojsonファイルの読み込み all_data = {} with open('L01-24_GML/L01-24.geojson', encoding='utf-8') as input: all_data = json.load(input) features = all_data['features'] # 最初の要素の値で初期化 max_feature = features[0] min_feature = features[0] # リストをループして最大値を抽出 for feature in features: if feature['properties']['L01_103']  max_feature['properties']['L01_103']: max_feature = feature if feature['properties']['L01_103'] 実行結果は以下のようになった。\n最大値: 55700000 地番: 東京都　中央区銀座４丁目２番４ 最小値: 470 地番: 北海道　勇払郡厚真町字軽舞２８０番外 公示価格が一番高い場所は「東京都　中央区銀座４丁目２番４」で、1㎡あたり5570万円だった。ニュースサイトの情報を見ても同じ情報が出ていたため、正しくデータが取れていそうだった。\n公示価格が一番安い場所は「北海道　勇払郡厚真町字軽舞２８０番外」で、1㎡あたり470円だった。この場所は市街化調整区域で、グーグルマップを見ると水田が広がっていた。\n","wordCount":"1040","inLanguage":"ja","datePublished":"2024-07-13T03:58:00+09:00","dateModified":"2024-07-13T03:58:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kouya17.com/posts/landprice/"},"publisher":{"@type":"Organization","name":"kouya17.com","logo":{"@type":"ImageObject","url":"https://kouya17.com/favicon.ico"}}}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7318705865081289" crossorigin=anonymous></script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"公開されている「地価公示データ」を見てみる","name":"公開されている「地価公示データ」を見てみる","description":"今回利用するデータ 以下の国土交通省国土数値情報ダウンロードサイトから取得できる「地価公示データ(2024年版)」を利用する。 https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-L01-2024.html このデータには","keywords":["python","GIS"],"articleBody":"今回利用するデータ 以下の国土交通省国土数値情報ダウンロードサイトから取得できる「地価公示データ(2024年版)」を利用する。\nhttps://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-L01-2024.html\nこのデータには毎年国土交通省が実施している「地価公示」に関するデータが入っている。例えば、調査の対象となった土地(標準地)の位置・公示価格・利用現況・用途地域・地積などが整理されている。\nデータフォーマットは以下の3種類が利用できる。\n GML形式 GeoJSON形式 シェープファイル形式  今回はJSONを元にしたデータフォーマットであるGeoJSON形式を利用する。\n最初の4行だけ見てみる まずは北海道のデータをダウンロードして、最初の方だけを見てみる。最初の4行は以下のようになっている。\n{ \"type\": \"FeatureCollection\", \"name\": \"L01-24_01\", \"features\": [ { \"type\": \"Feature\", \"geometry\": { \"type\": \"Point\", \"coordinates\": [ 141.31404500, 43.05544889] }, \"properties\": { \"L01_001\": \"01101\",... 構造としては\"features\"キーに各標準地のデータが格納されている。上記データは\"…“以降を削除してしまっているが、”…“以降にずらっとその標準値におけるデータが並んでいる。各標準地にはそれぞれ144個のデータが紐づいている。1個1個見ていくとキリがないため、2024年の公示価格(キー名\"L01_103”)だけ見ていく。\n公示価格が最も高い場所と最も安い場所を見てみる 今回はPythonを使ってデータを読んでみる。以下のスクリプトを実行し、2024年の公示価格が最も高い場所と公示価格が最も安い場所を調べてみる。\nimport json # geojsonファイルの読み込み all_data = {} with open('L01-24_GML/L01-24.geojson', encoding='utf-8') as input: all_data = json.load(input) features = all_data['features'] # 最初の要素の値で初期化 max_feature = features[0] min_feature = features[0] # リストをループして最大値を抽出 for feature in features: if feature['properties']['L01_103']  max_feature['properties']['L01_103']: max_feature = feature if feature['properties']['L01_103']  min_feature['properties']['L01_103']: min_feature = feature print(\"最大値:\", max_feature['properties']['L01_103'], \"地番:\", max_feature['properties']['L01_025']) print(\"最小値:\", min_feature['properties']['L01_103'], \"地番:\", min_feature['properties']['L01_025']) 実行結果は以下のようになった。\n最大値: 55700000 地番: 東京都　中央区銀座４丁目２番４ 最小値: 470 地番: 北海道　勇払郡厚真町字軽舞２８０番外 公示価格が一番高い場所は「東京都　中央区銀座４丁目２番４」で、1㎡あたり5570万円だった。ニュースサイトの情報を見ても同じ情報が出ていたため、正しくデータが取れていそうだった。\n公示価格が一番安い場所は「北海道　勇払郡厚真町字軽舞２８０番外」で、1㎡あたり470円だった。この場所は市街化調整区域で、グーグルマップを見ると水田が広がっていた。\n","wordCount":"1032","inLanguage":"ja","datePublished":"2024-07-13T03:58:00+09:00","dateModified":"2024-07-13T03:58:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kouya17.com/posts/landprice/"},"publisher":{"@type":"Organization","name":"kouya17.com","logo":{"@type":"ImageObject","url":"https://kouya17.com/favicon.ico"}}}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7318705865081289" crossorigin=anonymous></script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -106,40 +106,40 @@
 <p>今回はJSONを元にしたデータフォーマットであるGeoJSON形式を利用する。</p>
 <h2 id=最初の4行だけ見てみる>最初の4行だけ見てみる<a hidden class=anchor aria-hidden=true href=#最初の4行だけ見てみる>#</a></h2>
 <p>まずは北海道のデータをダウンロードして、最初の方だけを見てみる。最初の4行は以下のようになっている。</p>
-<pre tabindex=0><code>{
-    &quot;type&quot;: &quot;FeatureCollection&quot;,
-    &quot;name&quot;: &quot;L01-24_01&quot;,
-    &quot;features&quot;: [
-        { &quot;type&quot;: &quot;Feature&quot;, &quot;geometry&quot;: { &quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [ 141.31404500, 43.05544889] }, &quot;properties&quot;: { &quot;L01_001&quot;: &quot;01101&quot;,...
-</code></pre><p>構造としては"features"キーに各標準地のデータが格納されている。上記データは"&mldr;&ldquo;以降を削除してしまっているが、&rdquo;&mldr;&ldquo;以降にずらっとその標準値におけるデータが並んでいる。各標準地にはそれぞれ144個のデータが紐づいている。1個1個見ていくとキリがないため、2024年の公示価格(キー名"L01_103&rdquo;)だけ見ていく。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
+    <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;FeatureCollection&#34;</span>,
+    <span style=color:#f92672>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;L01-24_01&#34;</span>,
+    <span style=color:#f92672>&#34;features&#34;</span>: [
+        { <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;Feature&#34;</span>, <span style=color:#f92672>&#34;geometry&#34;</span>: { <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;Point&#34;</span>, <span style=color:#f92672>&#34;coordinates&#34;</span>: [ <span style=color:#ae81ff>141.31404500</span>, <span style=color:#ae81ff>43.05544889</span>] }, <span style=color:#f92672>&#34;properties&#34;</span>: { <span style=color:#f92672>&#34;L01_001&#34;</span>: <span style=color:#e6db74>&#34;01101&#34;</span>,<span style=color:#960050;background-color:#1e0010>...</span>
+</code></pre></div><p>構造としては"features"キーに各標準地のデータが格納されている。上記データは"&mldr;&ldquo;以降を削除してしまっているが、&rdquo;&mldr;&ldquo;以降にずらっとその標準値におけるデータが並んでいる。各標準地にはそれぞれ144個のデータが紐づいている。1個1個見ていくとキリがないため、2024年の公示価格(キー名"L01_103&rdquo;)だけ見ていく。</p>
 <h2 id=公示価格が最も高い場所と最も安い場所を見てみる>公示価格が最も高い場所と最も安い場所を見てみる<a hidden class=anchor aria-hidden=true href=#公示価格が最も高い場所と最も安い場所を見てみる>#</a></h2>
 <p>今回はPythonを使ってデータを読んでみる。以下のスクリプトを実行し、2024年の公示価格が最も高い場所と公示価格が最も安い場所を調べてみる。</p>
-<pre tabindex=0><code>import json
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> json
 
-# geojsonファイルの読み込み
-all_data = {}
-with open('L01-24_GML/L01-24.geojson', encoding='utf-8') as input:
-  all_data = json.load(input)
+<span style=color:#75715e># geojsonファイルの読み込み</span>
+all_data <span style=color:#f92672>=</span> {}
+<span style=color:#66d9ef>with</span> open(<span style=color:#e6db74>&#39;L01-24_GML/L01-24.geojson&#39;</span>, encoding<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;utf-8&#39;</span>) <span style=color:#66d9ef>as</span> input:
+  all_data <span style=color:#f92672>=</span> json<span style=color:#f92672>.</span>load(input)
 
-features = all_data['features']
+features <span style=color:#f92672>=</span> all_data[<span style=color:#e6db74>&#39;features&#39;</span>]
 
-# 最初の要素の値で初期化
-max_feature = features[0]
-min_feature = features[0]
+<span style=color:#75715e># 最初の要素の値で初期化</span>
+max_feature <span style=color:#f92672>=</span> features[<span style=color:#ae81ff>0</span>]
+min_feature <span style=color:#f92672>=</span> features[<span style=color:#ae81ff>0</span>]
 
-# リストをループして最大値を抽出
-for feature in features:
-    if feature['properties']['L01_103'] &gt; max_feature['properties']['L01_103']:
-        max_feature = feature
-    if feature['properties']['L01_103'] &lt; min_feature['properties']['L01_103']:
-        min_feature = feature
+<span style=color:#75715e># リストをループして最大値を抽出</span>
+<span style=color:#66d9ef>for</span> feature <span style=color:#f92672>in</span> features:
+    <span style=color:#66d9ef>if</span> feature[<span style=color:#e6db74>&#39;properties&#39;</span>][<span style=color:#e6db74>&#39;L01_103&#39;</span>] <span style=color:#f92672>&gt;</span> max_feature[<span style=color:#e6db74>&#39;properties&#39;</span>][<span style=color:#e6db74>&#39;L01_103&#39;</span>]:
+        max_feature <span style=color:#f92672>=</span> feature
+    <span style=color:#66d9ef>if</span> feature[<span style=color:#e6db74>&#39;properties&#39;</span>][<span style=color:#e6db74>&#39;L01_103&#39;</span>] <span style=color:#f92672>&lt;</span> min_feature[<span style=color:#e6db74>&#39;properties&#39;</span>][<span style=color:#e6db74>&#39;L01_103&#39;</span>]:
+        min_feature <span style=color:#f92672>=</span> feature
 
-print(&quot;最大値:&quot;, max_feature['properties']['L01_103'], &quot;地番:&quot;, max_feature['properties']['L01_025'])
-print(&quot;最小値:&quot;, min_feature['properties']['L01_103'], &quot;地番:&quot;, min_feature['properties']['L01_025'])
-</code></pre><p>実行結果は以下のようになった。</p>
-<pre tabindex=0><code>最大値: 55700000 地番: 東京都　中央区銀座４丁目２番４
+print(<span style=color:#e6db74>&#34;最大値:&#34;</span>, max_feature[<span style=color:#e6db74>&#39;properties&#39;</span>][<span style=color:#e6db74>&#39;L01_103&#39;</span>], <span style=color:#e6db74>&#34;地番:&#34;</span>, max_feature[<span style=color:#e6db74>&#39;properties&#39;</span>][<span style=color:#e6db74>&#39;L01_025&#39;</span>])
+print(<span style=color:#e6db74>&#34;最小値:&#34;</span>, min_feature[<span style=color:#e6db74>&#39;properties&#39;</span>][<span style=color:#e6db74>&#39;L01_103&#39;</span>], <span style=color:#e6db74>&#34;地番:&#34;</span>, min_feature[<span style=color:#e6db74>&#39;properties&#39;</span>][<span style=color:#e6db74>&#39;L01_025&#39;</span>])
+</code></pre></div><p>実行結果は以下のようになった。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>最大値: 55700000 地番: 東京都　中央区銀座４丁目２番４
 最小値: 470 地番: 北海道　勇払郡厚真町字軽舞２８０番外
-</code></pre><p>公示価格が一番高い場所は「東京都　中央区銀座４丁目２番４」で、1㎡あたり5570万円だった。ニュースサイトの情報を見ても同じ情報が出ていたため、正しくデータが取れていそうだった。</p>
+</code></pre></div><p>公示価格が一番高い場所は「東京都　中央区銀座４丁目２番４」で、1㎡あたり5570万円だった。ニュースサイトの情報を見ても同じ情報が出ていたため、正しくデータが取れていそうだった。</p>
 <p>公示価格が一番安い場所は「北海道　勇払郡厚真町字軽舞２８０番外」で、1㎡あたり470円だった。この場所は市街化調整区域で、グーグルマップを見ると水田が広がっていた。</p>
 </div>
 <footer class=post-footer>
