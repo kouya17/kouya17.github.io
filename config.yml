@@ -28,7 +28,7 @@ params:
 
   homeInfoParams:
     Title: kouya17.com
-    Content: 全ての分野において、初心者を脱することができない者による技術ブログ
+    Content: 全ての分野において、初心者を脱することができない者によるブログ
 
   socialIcons:
     - name: twitter
